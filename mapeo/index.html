@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Mapeo de Iniciativas Innovadoras en la Junta de Andaluc&iacute;a</title>
+	<!-- Derivado de los ejemplos de JQueryMobile -->
+	<link rel="stylesheet" href="../css/themes/default/jquery.mobile.css">
+	<script src="../external/jquery/jquery.js"></script>
+	<script src="combined.js"></script>
+	<script src="carga.js"></script>
+</head>
+<body>
+
+<!-- Start of first page: #principal -->
+<div data-role="page" id="principal" class="ui-responsive">
+
+	<div data-role="toolbar" data-type="header" class="ui-responsive">
+		<h1>Mapeo de Iniciativas Innovadoras en la Junta de Andaluc&iacute;a</h1>
+	</div><!-- /header -->
+	
+	<div role="main" class="ui-content ui-responsive">
+		<div class="ui-grid-d ui-responsive">
+			<div class="ui-block-a"><div class="ui-bar ui-bar-a">
+				<a href="#page_acerca" data-role="button">Acerca de...</a>
+			</div></div>
+			<div class="ui-block-b"><div class="ui-bar ui-bar-a">
+				<a href="#page_somos" data-role="button">Quienes somos</a>
+			</div></div>
+			<div class="ui-block-c"><div class="ui-bar ui-bar-a">
+				<a href="#page_metodologia" data-role="button">Metodolog&iacute;a</a>
+			</div></div>
+			<div class="ui-block-d"><div class="ui-bar ui-bar-a">
+				<a href="#page_conceptos" data-role="button">Conceptos</a>
+			</div></div>
+			<div class="ui-block-e"><div class="ui-bar ui-bar-a">
+				<a href="#page_ayuda" data-role="button">Ayuda</a>
+			</div></div>
+		</div></div>
+		<div class="ui-grid-a ui-responsive">
+			<div class="ui-block-a"><div class="ui-bar ui-bar-a">
+				<p><img src="video.gif" style="max-height: 100%; height: 400px; min-height: 200px;"/></p>
+			</div></div>
+			<div class="ui-block-b ui-responsive"><div class="ui-bar ui-bar-a">
+				<h2>Presentaci&oacute;n</h2>
+				<div class="ui-body">
+				<p><em>Esta web es solamente un ejemplo solamente de c&oacute;mo podr&iacute;a quedar la web de Mapeo de Iniciativas Innovadoras.</em></p>
+		
+				<p>Este seminario-taller ha tenido como objetivo aprender a buscar, encontrar y documentar buenas prácticas innovadoras que se hayan impulsado dentro de la Junta de Andalucía. Esta formación se ha impartido a través del desarrollo de un proyecto real, basado en un trabajo colaborativo, que ha consistido en el "mapeo colectivo" de esas iniciativas con la implicación directa de las personas participantes.</p>
+				<p>El curso ha tenido una primera parte dedicada a co-diseñar la metodología a seguir para encontrar e identificar esos ejemplos reales de innovación pública, y una segunda dedicada a realizar la recogida (colectiva) de datos, o sea, el "mapeo" o inventario propiamente dicho de esas innovaciones. Conforme nos hemos encontrado ejemplos de proyectos innovadores, hemos tratado de documentarlos y contarlos, para que sirvan de inspiración tanto a las personas participantes en el curso como al resto del personal público que trabaja en la Junta.</p>
+				<p>Se ha tratado, por lo tanto, de un curso orientado a la acción, basado en metodologías de "aprender haciendo", en el que el alumnado ha tenido que realizar tareas de recogida de datos y de reflexión colectiva en formato de talleres.</p>
+				
+				<p><em>Nota: El acceso a la <a href="#two">b&uacute;squeda avanzada</a> todav&iacute;a no est&aacute; operativo.</em></p>
+				</div>
+				<h3>Otras p&aacute;ginas:</h3>
+				<p><a href="#two" class="ui-button ui-shadow ui-corner-all">B&uacute;squeda avanzada</a></p>
+			</div></div>
+		</div><!-- /grid-a -->
+		<div class="ui-grid-b ui-responsive">
+			<div class="ui-block-a"><div class="ui-bar ui-bar-a">
+				<h2>¿Sab&iacute;as que...</h2>
+				<div class="ui-body">
+				<p><em>Contenido a desarrollar...</em></p>
+				</div>
+			</div></div>
+			<div class="ui-block-b"><div class="ui-bar ui-bar-a">
+				<h2>Podr&iacute;as ser t&uacute;...</h2>
+				<div class="ui-body">
+				<p><em>Contenido a desarrollar...</em></p>
+				</div>
+			</div></div>
+			<div class="ui-block-c"><div class="ui-bar ui-bar-a">
+				<h2>Los m&aacute;s populares...</h2>
+				<div class="ui-body">
+				<p><em>Contenido a desarrollar...</em></p>
+				</div>
+			</div></div>
+		</div><!-- /grid-b -->
+		<div class="ui-grid-solo ui-responsive">
+		    <div class="ui-block-a"><div class="ui-bar ui-bar-a">
+				<h2>B&uacute;squeda</h2>
+				<form>
+				    <input data-type="search" id="searchFilterReveal">
+				</form>
+				<table data-role="table" id="resultados" data-filter="true" data-filter-reveal="true" data-input="#searchFilterReveal" class="ui-responsive">
+			    </table>
+		    </div></div>
+		</div>
+	</div><!-- /content -->
+
+	<div data-role="toolbar" data-type="footer" data-theme="a">
+		<h4>Taller de Mapeo de Iniciativas Innovadoras 2019</h4>
+	</div><!-- /footer -->
+</div><!-- /page principal -->
+
+<!-- Start of second page: #two -->
+<div data-role="page" id="two" data-theme="a">
+
+	<div data-role="toolbar" data-type="header">
+		<h1>B&uacute;squeda avanzada</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content  ui-responsive">
+		<h2>Se supone que aqu&iacute; va la b&uacute;squeda avanzada...</h2>
+		<p>Pendiente de implementar...</p>
+		<p><a href="#principal" data-direction="reverse" class="ui-button ui-shadow ui-corner-all ui-button-b">Volver a la p&aacute;principal</a></p>
+
+	</div><!-- /content -->
+
+	<div data-role="toolbar" data-type="footer">
+		<h4>Taller de Mapeo de Iniciativas Innovadoras 2019</h4>
+	</div><!-- /footer -->
+</div><!-- /page two -->
+
+<!-- Start of page_acerca -->
+<div data-role="page" id="page_acerca" data-theme="a">
+
+	<div data-role="toolbar" data-type="header">
+		<h1>Acerca de...</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content  ui-responsive">
+		<h2>Se supone que aqu&iacute; va algo de contenido...</h2>
+		<p>Pendiente de implementar...</p>
+		<p><a href="#principal" data-direction="reverse" class="ui-button ui-shadow ui-corner-all ui-button-b">Volver a la p&aacute;gina principal</a></p>
+
+	</div><!-- /content -->
+
+	<div data-role="toolbar" data-type="footer">
+		<h4>Taller de Mapeo de Iniciativas Innovadoras 2019</h4>
+	</div><!-- /footer -->
+</div><!-- /page_acerca -->
+
+<!-- Start of page_somos -->
+<div data-role="page" id="page_somos" data-theme="a">
+
+	<div data-role="toolbar" data-type="header">
+		<h1>Quienes somos...</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content  ui-responsive">
+		<h2>Se supone que aqu&iacute; va algo de contenido...</h2>
+		<p>Pendiente de implementar...</p>
+		<p><a href="#principal" data-direction="reverse" class="ui-button ui-shadow ui-corner-all ui-button-b">Volver a la p&aacute;gina principal</a></p>
+
+	</div><!-- /content -->
+
+	<div data-role="toolbar" data-type="footer">
+		<h4>Taller de Mapeo de Iniciativas Innovadoras 2019</h4>
+	</div><!-- /footer -->
+</div><!-- /page_somos -->
+
+<!-- Start of page_metodologia -->
+<div data-role="page" id="page_metodologia" data-theme="a">
+
+	<div data-role="toolbar" data-type="header">
+		<h1>Metodolog&iacute;a</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content  ui-responsive">
+		<h2>Se supone que aqu&iacute; va algo de contenido...</h2>
+		<p>Pendiente de implementar...</p>
+		<p><a href="#principal" data-direction="reverse" class="ui-button ui-shadow ui-corner-all ui-button-b">Volver a la p&aacute;gina principal</a></p>
+
+	</div><!-- /content -->
+
+	<div data-role="toolbar" data-type="footer">
+		<h4>Taller de Mapeo de Iniciativas Innovadoras 2019</h4>
+	</div><!-- /footer -->
+</div><!-- /page_metodologia -->
+
+<!-- Start of page_conceptos -->
+<div data-role="page" id="page_conceptos" data-theme="a">
+
+	<div data-role="toolbar" data-type="header">
+		<h1>Conceptos</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content  ui-responsive">
+		<h2>Se supone que aqu&iacute; va algo de contenido...</h2>
+		<p>Pendiente de implementar...</p>
+		<p><a href="#principal" data-direction="reverse" class="ui-button ui-shadow ui-corner-all ui-button-b">Volver a la p&aacute;gina principal</a></p>
+
+	</div><!-- /content -->
+
+	<div data-role="toolbar" data-type="footer">
+		<h4>Taller de Mapeo de Iniciativas Innovadoras 2019</h4>
+	</div><!-- /footer -->
+</div><!-- /page_conceptos -->
+
+<!-- Start of page_ayuda -->
+<div data-role="page" id="page_ayuda" data-theme="a">
+
+	<div data-role="toolbar" data-type="header">
+		<h1>Ayuda</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content  ui-responsive">
+		<h2>Se supone que aqu&iacute; va algo de contenido...</h2>
+		<p>Pendiente de implementar...</p>
+		<p><a href="#principal" data-direction="reverse" class="ui-button ui-shadow ui-corner-all ui-button-b">Volver a la p&aacute;gina principal</a></p>
+
+	</div><!-- /content -->
+
+	<div data-role="toolbar" data-type="footer">
+		<h4>Taller de Mapeo de Iniciativas Innovadoras 2019</h4>
+	</div><!-- /footer -->
+</div><!-- /page_ayuda -->
+
+</body>
+</html>
