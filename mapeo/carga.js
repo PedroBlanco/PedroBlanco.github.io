@@ -32,7 +32,10 @@ function procesar_json ( json )
 		var indice = "'"+i+"'";
 		cuerpo += '<tr>';
 		cuerpo += '<td>Ficha '+resultado[i]['2']+'</td>';
-		cuerpo += '<td><a href="#ficha_'+resultado[i]['2']+'" data-rel="dialog" data-transition="pop">'+resultado[i]['3']+'</a></td>';
+// FIXME: Con dialog y popup o sin ellos no se puede referenciar a una ficha directamente (p.e. no se puede
+// guardar en marcadores (al generarse dinamicamente con JavaScript)  
+//		cuerpo += '<td><a href="#ficha_'+resultado[i]['2']+'" data-rel="dialog" data-transition="pop">'+resultado[i]['3']+'</a></td>';
+		cuerpo += '<td><a href="#ficha_'+resultado[i]['2']+'">'+resultado[i]['3']+'</a></td>';
 		cuerpo += '<td>'+resultado[i]['4']+'</td>';
 		cuerpo += '</tr>';
 		
