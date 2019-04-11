@@ -2,15 +2,15 @@
 
 //require_once "Class_UUID.php";
 
-$fichero = '2019-04-11 EXPORT lista_fichas_mapeo.csv';
+$fichero = '2019-04-11 EXPORT lista_fichas_mapeo - 2.csv';
 
 $resultado_csv = array ();
 
 // Carpeta destino de archivos deduplicados generados
-$dedup_dir = 'dedup\\';
+$dedup_dir = 'dedup2\\';
 
 // Archivo con los datos de los tags
-$fichero_tags = $dedup_dir.'tags.csv';
+$fichero_tags = '2019-04-11 EXPORT tags.csv';
 
 // Archivo con los datos relacionados de cada tag con cada iniciativa
 $fichero_comun = $dedup_dir.'iniciativa-tag.csv';
@@ -21,6 +21,8 @@ $tags = array ();
 $ini_deduplicados = 17;
 // Fin de los campos a deduplicar (son 35 campos; 51-17+1=35)
 $fin_deduplicados = 51;
+// Diferencia entre el campo y el inicio
+$offset_deduplicados = 16;
 
 // Relacion entre los tags y las iniciativas
 $relacion = array ();
@@ -31,15 +33,16 @@ $fichero_csv = fopen ( $fichero, 'r' );
 // Leemos la cabecera del fichero con todos los datos para buscar los nombres de los tags
 $fila_csv = fgetcsv($fichero_csv, 0, ',', '"', '\\');
 
-// Creamos la cabecera para a continuación añadirla al fichero
-$fichero_csv_tags = fopen ( $fichero_tags, 'w+' );
-$tags[0] = array ( 'name' );
-fputcsv ( $fichero_csv_tags, $tags[0], ',', '"', '\\' );
+// Leemos la cabecera para a continuación añadirla al array
+$fichero_csv_tags = fopen ( $fichero_tags, 'r' );
+$tags[0] = array ( 'ID', 'name' );
+$fila_tags_csv = fgetcsv ( $fichero_csv_tags, ',', '"', '\\' );
 
 for ($i = $ini_deduplicados; $i <= $fin_deduplicados; $i++) {
     print ( $i.' Tag: ' );
-    $tags[$i] = array ( $fila_csv[$i] );
-    fputcsv ( $fichero_csv_tags, $tags[$i], ',', '"', '\\' );
+    $fila_tags_csv = fgetcsv ( $fichero_csv_tags, ',', '"', '\\' );
+    $tags[$i] = array ( $fila_tags_csv[1], $fila_tags_csv[5] );
+//    fputcsv ( $fichero_csv_tags, $tags[$i], ',', '"', '\\' );
     print ( print_r ( $tags[$i], true ).'<br/>' );
 }
 
@@ -54,13 +57,13 @@ fputcsv ( $fichero_comun_csv, $relacion[0] , ',', '"', '\\' );
 for ( ; $fila_csv = fgetcsv($fichero_csv, 0, ',', '"', '\\') ; ) {
     for ( $i = $ini_deduplicados; $i <= $fin_deduplicados ; $i++ ) {
         if ( $fila_csv[$i] == 'true' ) {
-            print ( $i );
+            print_r ( $tags[$i] );
             fputcsv ( $fichero_comun_csv,
                 $relacion[] = array (
-                    $fila_csv[7],
+                    $fila_csv[1],
                     $tags[$i][0]
                 ), ',', '"', '\\' );
-            print ( ' Tag-Iniciativa: '.$tags[$i][0].'-'.$fila_csv[7].'<br/>' );
+            print ( ' Tag-Iniciativa: ('.$tags[$i][0].')'.$tags[$i][1].'-('.$fila_csv[1].')'.$fila_csv[7].'<br/>' );
         }
     }
 }
