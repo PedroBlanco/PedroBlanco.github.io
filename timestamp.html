@@ -1,0 +1,17 @@
+<html>
+	<head>
+		<meta http-equiv="CACHE-CONTROL" content="NO-CACHE"/>
+		<meta http-equiv="PRAGMA" content="NO-CACHE"/>
+		<meta http-equiv="EXPIRES" content="0"/>
+		<script>
+			function timestamp () {
+				var d = new Date();
+				document.getElementById("timestamp").innerHTML = d.getTime();
+			}
+		</script>
+		<title>Timestamp</title>
+	</head>
+	<body onload="timestamp()">
+		<div>Timestamp:<span id="timestamp"></span></div>
+	</body>
+</html>
