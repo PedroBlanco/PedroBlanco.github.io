@@ -1,0 +1,3 @@
+p.page + h1, span.toc + h2 {
+    display: hidden;
+}
