@@ -1046,7 +1046,7 @@ a orientado a realizar aplicaciones de cualquier complejidad en unos tiempos muy
 </ul>
 </li>
 <li>2222: (opcional)<ul>
-<li>Acceso SSH al contenedor <code>workspace</code>.</li>
+<li>Acceso SSH al contenedor <code>atlas_workspace</code>.</li>
 </ul>
 </li>
 </ul>
@@ -1164,7 +1164,7 @@ envsubst &lt; install/atlas-init.sql | docker exec -it atlas_mariadb mysql -u ro
 <pre class="hljs">cat install/atlas-init-default.sql | mysql -h &lt;IP_contenedor&gt; -u root -p</pre><p>Aquí nos pedirá la contraseña configurada en <code>laradock-atlas-daw/.env</code> como <code>MARIADB_ROOT_PASSWORD</code></p>
 <p>Si todo va bien <strong>no veremos ningún mensaje</strong> como resultado.</p>
 <h4 id="datos-de-la-aplicaci-n">Datos de la aplicación</h4>
-<p>Ejecutar dentro del contenedor <code>workspace</code>:</p>
+<p>Ejecutar dentro del contenedor <code>atlas_workspace</code>:</p>
 <pre class="hljs">docker exec -w /var/www/atlas atlas_workspace composer install
 docker exec -w /var/www/atlas atlas_workspace npm install
 docker exec -w /var/www/atlas atlas_workspace npm run dev
@@ -1201,7 +1201,7 @@ docker exec -w /var/www/atlas atlas_workspace php artisan config:cache</pre><p>D
 docker exec -w /var/www/atlas atlas_workspace npm install &amp;&amp; npm run dev
 docker exec -w /var/www/atlas atlas_workspace php artisan key:generate
 docker exec -w /var/www/atlas atlas_workspace php artisan migrate --seed
-docker exec -w /var/www/atlas atlas_workspace php artisan config:cache</pre><p>Después ya no necesitamos el contenedor <code>workspace</code> y podemos pararlo:</p>
+docker exec -w /var/www/atlas atlas_workspace php artisan config:cache</pre><p>Después ya no necesitamos el contenedor <code>atlas_workspace</code> y podemos pararlo:</p>
 <pre class="hljs">docker stop atlas_workspace</pre><ul>
 <li>Nota: FIXME: ¿Hay que limpiar más cachés aparte de la de configuración, p.e. iconos, ...?</li>
 <li><del>Nota 2: FIXME: Hay que tener en cuenta el directorio de entrada a <code>atlas_workspace</code> y/o ejecutarlo mediante <code>docker exec ...</code></del></li>
