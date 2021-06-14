@@ -1032,7 +1032,10 @@ a orientado a realizar aplicaciones de cualquier complejidad en unos tiempos muy
 <li>Linux:<ul>
 <li>Arquitectura: <code>amd64</code>.</li>
 <li>Acceso a consola (p.e. SSH).</li>
-<li>Ejecutable <code>envsubst</code></li>
+<li>Ejecutable <code>envsubst</code><ul>
+<li>En Debian y derivadas suele estar en el paquete <code>gettext-base</code></li>
+</ul>
+</li>
 <li>Puertos libres y abiertos:<ul>
 <li>80, 443:<ul>
 <li>Aplicación Atlas.</li>
@@ -1048,11 +1051,14 @@ a orientado a realizar aplicaciones de cualquier complejidad en unos tiempos muy
 </li>
 </ul>
 </li>
-<li>Ejecutable</li>
+<li>Ejecutable <code>mysql</code> (cliente de consola de mysql/mariadb).<ul>
+<li>En Debian y derivadas se puede usar los paquetes <code>mariadb-client</code> y <code>mysql-client</code></li>
+</ul>
+</li>
 </ul>
 </li>
 <li>Docker:<ul>
-<li>Versión utilizada: 20.10.7 a 2021-06-02).<ul>
+<li>Versión utilizada: 20.10.7 a 2021-06-02.<ul>
 <li>La versión mínima para soportar archivos Compose versión 3.5 es la 17.12.0+, pero se recomienda tener la versión estable más actualizada.</li>
 </ul>
 </li>
