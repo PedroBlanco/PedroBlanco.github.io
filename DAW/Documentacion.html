@@ -1024,16 +1024,22 @@ a orientado a realizar aplicaciones de cualquier complejidad en unos tiempos muy
 <p>En resumen, por cada imagen he incluido dos enlaces, el <em>canónico</em> o <em>GFM</em> y el <em>alternativo</em> (<a href="https://github.com/yakivmospan/github-wikito-converter/issues/29">yakivmospan/github-wikito-converter</a>) para asegurarme que se renderiza bien alguna de las dos imágenes.</p>
 <p class="page" id="Manual_Despliegue"></p><h1>Manual de Despliegue</h1>
 <h1 id="manual-de-despliegue-de-la-aplicaci-n-atlas">Manual de Despliegue de la aplicación Atlas</h1>
+<p>Los párrafos iniciales en cursiva se eliminarán de la documentación final.</p>
 <p><em>Sección dedicada al desarrollo de la documentación necesaria para el despliegue/instalación del Proyecto Integrado.</em></p>
-<p><em>Está página tendrá el indice de contenidos del manual, y sus correspondientes páginas dentro de su carpeta correspondiente numerando las páginas de la misma forma que se han estrucutrado en la Documentación del Proyecto</em></p>
+<p><em>Está página tendrá el indice de contenidos del manual, y sus correspondientes páginas dentro de su carpeta correspondiente numerando las páginas de la misma forma que se han estrucutrado en la Documentación del Proyecto.</em></p>
 <hr>
 <h2 id="requisitos-del-sistema">Requisitos del sistema</h2>
 <ul>
 <li>Linux:<ul>
-<li>Arquitectura: <code>amd64</code>.</li>
-<li>Acceso a consola (p.e. SSH).</li>
+<li>Arquitectura: <code>x86_64 / amd64</code>.</li>
+<li>Acceso a consola (p.e. SSH) con un usuario con permisos para crear contenedores Docker.</li>
+<li>Sistema de control de versiones <code>git</code></li>
 <li>Ejecutable <code>envsubst</code><ul>
 <li>En Debian y derivadas suele estar en el paquete <code>gettext-base</code></li>
+</ul>
+</li>
+<li>Ejecutable <code>mysql</code>, cliente de consola de mysql/mariadb (opcional).<ul>
+<li>En Debian y derivadas se pueden usar los paquetes <code>mariadb-client</code> y <code>mysql-client</code></li>
 </ul>
 </li>
 <li>Puertos libres y abiertos:<ul>
@@ -1051,10 +1057,6 @@ a orientado a realizar aplicaciones de cualquier complejidad en unos tiempos muy
 </li>
 </ul>
 </li>
-<li>Ejecutable <code>mysql</code> (cliente de consola de mysql/mariadb).<ul>
-<li>En Debian y derivadas se puede usar los paquetes <code>mariadb-client</code> y <code>mysql-client</code></li>
-</ul>
-</li>
 </ul>
 </li>
 <li>Docker:<ul>
@@ -1070,6 +1072,14 @@ a orientado a realizar aplicaciones de cualquier complejidad en unos tiempos muy
 </ul>
 </li>
 </ul>
+<h2 id="despliegue-r-pido-local">Despliegue rápido local</h2>
+<p>Para desplegar instalar de forma automática la aplicación se puede ejecutar el script <code>atlas-quick-start.sh</code> que se encuentra en la carpeta raiz del repositorio:</p>
+<pre class="hljs">git clone --recurse-submodules --branch develop https://github.com/iesgrancapitan-proyectos/202021daw_junio_Atlas-de-Conocimiento-Critico-PedroBlanco.git atlas
+cd atlas
+bash atlas-quick-start.sh</pre><p>Una vez se ha ejecutado el script, deberíamos poder acceder a la aplicación instalada en <a href="http://localhost/">http://localhost/</a>.</p>
+<p>Este script instala la aplicación con los valores por defecto.</p>
+<p>Para que esta instalación del servidor sea accesible desde otros equipos de la red, sólo hay que cambiar una línea en  <code>laradock-atlas-daw\nginx\sites\atlas.conf</code> con el nombre por el que responde la máquina; p.e. si la máquina se llama <code>ubuntu1</code>, se puede usar <code>ubuntu1.local</code> y la línea quedaría así:</p>
+<pre class="hljs">    server_name ```ubuntu1.local```;</pre><p>Nota: Al usar un dominio <code>.local</code>, suponemos que el sistema tiene configurado Multicast DNS (mDNS).</p>
 <h2 id="configuraci-n-y-despliegue-inicial">Configuración y despliegue inicial</h2>
 <h3 id="descarga-del-repositorio">Descarga del repositorio</h3>
 <p>Cambiar <code>develop</code> por la rama que deseemos utilizar y ejecutar la orden en el raiz del directorio padre de donde vamos a descargar el proyecto (la carpeta de destino es <code>atlas</code>):</p>
@@ -1104,7 +1114,7 @@ a orientado a realizar aplicaciones de cualquier complejidad en unos tiempos muy
 
 +<span class="hljs-attr">COMPOSE_PROJECT_NAME</span>=atlas</pre><p>La segunda línea es opcional y sirve para prefijar los contenedores y distinguirlos de otros (es útil en caso de usar varios proyectos con Laradock); si no lo cambiamos, podremos usar los nombres de contenedores por defecto (de este manual).</p>
 <h3 id="configurar-nginx">Configurar nginx</h3>
-<p>Configurar en <code>laradock-atlas-daw\nginx\sites\atlas.conf</code> la línea apropiada (nombre por el que queremos que responda la máquina):</p>
+<p>Configurar en <code>laradock-atlas-daw\nginx\sites\atlas.conf</code> la línea apropiada con nombre por el que queremos que responda la máquina (en este ejemplo es <code>atlas.test</code>):</p>
 <pre class="hljs">    server_name atlas.test<span class="hljs-comment">;</span></pre><p>El archivo completo quedaría:</p>
 <pre class="hljs">server {
 
