@@ -1024,14 +1024,29 @@ a orientado a realizar aplicaciones de cualquier complejidad en unos tiempos muy
 <p>En resumen, por cada imagen he incluido dos enlaces, el <em>canónico</em> o <em>GFM</em> y el <em>alternativo</em> (<a href="https://github.com/yakivmospan/github-wikito-converter/issues/29">yakivmospan/github-wikito-converter</a>) para asegurarme que se renderiza bien alguna de las dos imágenes.</p>
 <p class="page" id="Manual_Despliegue"></p><h1>Manual de Despliegue</h1>
 <h1 id="manual-de-despliegue-de-la-aplicaci-n-atlas">Manual de Despliegue de la aplicación Atlas</h1>
-<p>Los párrafos iniciales en cursiva se eliminarán de la documentación final.</p>
+<p>Los párrafos iniciales en cursiva se eliminarán de la documentación final. También hay que eliminar las notas que tengan las etiquetas FIXED (temas arreglados) y las que tengan FIXME (documentando en otra parte si es preciso).</p>
 <p><em>Sección dedicada al desarrollo de la documentación necesaria para el despliegue/instalación del Proyecto Integrado.</em></p>
 <p><em>Está página tendrá el indice de contenidos del manual, y sus correspondientes páginas dentro de su carpeta correspondiente numerando las páginas de la misma forma que se han estrucutrado en la Documentación del Proyecto.</em></p>
 <hr>
 <h2 id="requisitos-del-sistema">Requisitos del sistema</h2>
 <ul>
 <li>Linux:<ul>
-<li>Arquitectura: <code>x86_64 / amd64</code>.</li>
+<li>Arquitectura: <code>x86_64 / amd64</code>.<ul>
+<li>Para desarrollo he usado las siguientes distribuciones:<ul>
+<li><code>Linux Mint 19.3 Tricia</code> sobre <code>x86_64</code>.</li>
+<li><code>Ubuntu Linux 21.04</code> sobre <code>x86_64</code>.</li>
+<li>Contenedores Linux sobre <a href="https://docs.docker.com/docker-for-windows/install/">Docker Desktop para Windows</a>, en un Windows 10 (64 bits).<ul>
+<li>Nada recomendable por <a href="https://github.com/docker/for-win/issues/7719">problemas de rendimiento</a> con Laravel cuando se usan <em>bindings</em> de directorios locales.</li>
+<li>He usado tanto el <em>backend</em> <code>Hyper-V</code> como <code>WSL2</code>.<ul>
+<li>No obstante, no he probado el <em>binding</em> recomendado de volúmenes nativos de docker, que parece que evitaría en teoría problemas de rendimiento.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li>Acceso a consola (p.e. SSH) con un usuario con permisos para crear contenedores Docker.</li>
 <li>Sistema de control de versiones <code>git</code></li>
 <li>Ejecutable <code>envsubst</code><ul>
@@ -1052,7 +1067,7 @@ a orientado a realizar aplicaciones de cualquier complejidad en unos tiempos muy
 </ul>
 </li>
 <li>2222: (opcional)<ul>
-<li>Acceso SSH al contenedor <code>atlas_workspace</code>.</li>
+<li>Acceso SSH al contenedor <code>atlas_workspace_1</code>.</li>
 </ul>
 </li>
 </ul>
@@ -1061,7 +1076,7 @@ a orientado a realizar aplicaciones de cualquier complejidad en unos tiempos muy
 </li>
 <li>Docker:<ul>
 <li>Versión utilizada: 20.10.7 a 2021-06-02.<ul>
-<li>La versión mínima para soportar archivos Compose versión 3.5 es la 17.12.0+, pero se recomienda tener la versión estable más actualizada.</li>
+<li>La versión mínima para soportar archivos Compose versión 3.5 es la 17.12.0+, pero se recomienda tener la versión estable más actualizada, por lo que frecuentemente es mejor usar los paquetes del <a href="https://docs.docker.com/engine/install/">repositorio oficial de Docker</a> que los que ofrece nuestra distribución Linux.</li>
 </ul>
 </li>
 <li>Componente <code>Docker-compose</code> instalado:<ul>
@@ -1101,9 +1116,12 @@ bash atlas-quick-start.sh</pre><p>Una vez se ha ejecutado el script, deberíamos
 +<span class="hljs-attr">DB_DATABASE</span>=atlas
 +<span class="hljs-attr">DB_USERNAME</span>=atlas
 +<span class="hljs-attr">DB_PASSWORD</span>=atlas</pre><ul>
-<li>Nota: Poniendo <code>APP_DEBUG=false</code> estamos diciendo a Laravel que vamos a ejecutar la aplicación en un entorno de producción.</li>
-<li>Nota 2: FIXME: Hay que comprobar los cambios que debemos realizar (y los que Laravel realiza).<ul>
-<li>Desactivar Telescope, Debugbar y alguna cosa más.</li>
+<li>Nota: FIXME: Ahora mismo con <code>APP_DEBUG=false</code> estamos diciendo a Laravel que vamos a ejecutar la aplicación en un entorno de desarrollo; debenos cambiarlo a producción.</li>
+<li>Nota 2: FIXME: Hay que comprobar los cambios que debemos realizar (y los que Laravel realiza) para pasar de desarrollo a producción:<ul>
+<li>Desactivar Telescope, Debugbar y alguna cosa más.<ul>
+<li>Se supone que deben estar en la sección de dependencias de desarrollo.</li>
+</ul>
+</li>
 <li>Cambiar los comandos para compilar recursos de <code>dev</code> a <code>prod</code>.</li>
 </ul>
 </li>
@@ -1167,27 +1185,30 @@ bash atlas-quick-start.sh</pre><p>Una vez se ha ejecutado el script, deberíamos
 <pre class="hljs">set -a
 source atlas/.env
 source laradock-atlas-daw/.env
-envsubst &lt; install/atlas-init.sql | docker exec -it atlas_mariadb mysql -u root --password=$MARIADB_ROOT_PASSWORD</pre><h5 id="opci-n-b-tomar-los-valores-de-configuraci-n-de-forma-manual-o-por-defecto-">Opción B: Tomar los valores de configuración de forma manual (o por defecto)</h5>
-<p>Si hemos cambiado el archivo <code>atlas/atlas/.env</code> las credenciales de MARIADB, deberemos editar el archivo <code>install/atlas-init-default.sql</code> y cargarlo en la base de datos que está en el contenedor <code>atlas_mariadb</code> averiguando su dirección IP, pero si nuestro contenedor ya no se llama así (por haber cambiado el prefijo) podemos ejecutar:</p>
-<pre class="hljs">docker ps | grep mariadb</pre><p>Aquí nos aparece los contenedores con mariadb en ejecución; deberemos buscar el primer campo de nuestro contenedor, que será por defecto atlas_mariadb y ejecutar la siguiente orden:</p>
-<pre class="hljs">docker container inspect atlas_mariadb | grep \&quot;IPAddress\&quot;</pre><p>De aquí tomaremos la dirección IP para usarla a continuación como &lt;IP_contenedor&gt;</p>
+envsubst &lt; install/atlas-init.sql | docker exec -it atlas_mariadb_1 mysql -u root --password=$MARIADB_ROOT_PASSWORD</pre><h5 id="opci-n-b-tomar-los-valores-de-configuraci-n-de-forma-manual-o-por-defecto-">Opción B: Tomar los valores de configuración de forma manual (o por defecto)</h5>
+<p>Si hemos cambiado en el archivo <code>atlas/atlas/.env</code> las credenciales de MARIADB, deberemos editar el archivo <code>install/atlas-init-default.sql</code> y cargarlo en la base de datos que está en el contenedor <code>atlas_mariadb_1</code>:</p>
+<pre class="hljs">cat install/atlas-init.sql | docker exec -it atlas_mariadb_1 mysql -u root --p</pre><p>Si nuestro contenedor no se llama <code>atlas_mariadb_1</code> (por haber cambiado el prefijo) podemos ejecutar para averiguar su nombre:</p>
+<pre class="hljs">docker ps | grep mariadb</pre><p>Aquí nos aparece los contenedores con <code>mariadb</code> en ejecución. Tomamos el nombre del contenedor apropiado y ejecutamos la orden anterior.</p>
+<p>También podemos buscar la dirección IP del contenedor usando el nombre que hemos encontrado y ejecutando la siguiente orden (en la que uso <code>atlas_mariadb_1</code> como nombre de contenedor a sustituir):</p>
+<pre class="hljs">docker container inspect atlas_mariadb_1 | grep \&quot;IPAddress\&quot;</pre><p>De aquí tomaremos la dirección IP para usarla a continuación como &lt;IP_contenedor&gt;:</p>
 <pre class="hljs">cat install/atlas-init-default.sql | mysql -h &lt;IP_contenedor&gt; -u root -p</pre><p>Aquí nos pedirá la contraseña configurada en <code>laradock-atlas-daw/.env</code> como <code>MARIADB_ROOT_PASSWORD</code></p>
-<p>Si todo va bien <strong>no veremos ningún mensaje</strong> como resultado.</p>
+<p>Si todo va bien <strong>no veremos ningún mensaje</strong> como resultado de este último comando.</p>
 <h4 id="datos-de-la-aplicaci-n">Datos de la aplicación</h4>
-<p>Ejecutar dentro del contenedor <code>atlas_workspace</code>:</p>
-<pre class="hljs">docker exec -w /var/www/atlas atlas_workspace composer install
-docker exec -w /var/www/atlas atlas_workspace npm install
-docker exec -w /var/www/atlas atlas_workspace npm run dev
-docker exec -w /var/www/atlas atlas_workspace php artisan key:generate
-docker exec -w /var/www/atlas atlas_workspace php artisan migrate --seed
-docker exec -w /var/www/atlas atlas_workspace php artisan config:cache</pre><p>Después ya no necesitamos el contenedor <code>atlas_workspace</code> y podemos pararlo.</p>
+<p>Ejecutar dentro del contenedor <code>atlas_workspace_1</code>:</p>
+<pre class="hljs">docker exec -w /var/www/atlas atlas_workspace_1 composer install
+docker exec -w /var/www/atlas atlas_workspace_1 npm install
+docker exec -w /var/www/atlas atlas_workspace_1 npm run dev
+docker exec -w /var/www/atlas atlas_workspace_1 php artisan key:generate
+docker exec -w /var/www/atlas atlas_workspace_1 php artisan migrate
+docker exec -w /var/www/atlas atlas_workspace_1 php artisan db:seed --force
+docker exec -w /var/www/atlas atlas_workspace_1 php artisan config:cache</pre><p>Después ya no necesitamos el contenedor <code>atlas_workspace_1</code> y podemos pararlo.</p>
 <ul>
 <li>Nota 1: FIXME: ¿Cambiar npm para usar <code>npm install --production &amp;&amp; npm run prod</code> (es así?)? Hace falta comprobar que no se instalan las dependencias de desarrollo.</li>
-<li>Nota 2: FIXME: En producción creo que debe forzarse la siembra de la BD.</li>
-<li>Nota 3: FIXME: ¿Es necesaria la limpieza de configuración?</li>
-<li><del>Nota 4: FIXME: Hay que tener en cuenta el directorio de entrada a <code>atlas_workspace</code> o ejecutarlo mediante <code>docker exec</code></del></li>
-<li>Nota 5: FIXME: Script<del>/Contenedor</del> para configuración inicial o después de una actualización (para contenedor ver <a href="https://docs.docker.com/compose/profiles/">Perfiles en Docker Compose</a> ).</li>
-<li>Nota 6: FIXME: Automatizar la instalación de la aplicación</li>
+<li>Nota 2: FIXED: <del>En producción creo que debe forzarse la siembra de la BD.</del></li>
+<li>Nota 3: FIXED: <del>¿Es necesaria la limpieza de configuración?</del> Es necesaria la regeneración por si han cambiado datos en <code>.env</code></li>
+<li>Nota 4: FIXED: <del>Hay que tener en cuenta el directorio de entrada a <code>atlas_workspace_1</code> o ejecutarlo mediante <code>docker exec</code></del></li>
+<li>Nota 5: FIXED: <del>Script para configuración inicial o después de una actualización (para contenedor ver <a href="https://docs.docker.com/compose/profiles/">Perfiles en Docker Compose</a> ).</del></li>
+<li>Nota 6: FIXME: Comprobar efectos secundarios de <code>php artisan key:generate</code> (tiene que ver con cadenas encriptadas y ¿contraseñas?).</li>
 </ul>
 <h2 id="actualizaci-n-de-la-aplicaci-n">Actualización de la aplicación</h2>
 <ul>
@@ -1206,17 +1227,17 @@ docker exec -w /var/www/atlas atlas_workspace php artisan config:cache</pre><p>D
 <p>Volvemos a generar e iniciar los contenedores que hemos parado y eliminado anteriormente:</p>
 <pre class="hljs"><span class="hljs-meta">atlas/laradock-atlas-daw$</span><span class="bash"> docker-compose up -d</span></pre><h3 id="reconfiguraci-n-de-la-aplicaci-n">Reconfiguración de la aplicación</h3>
 <p>Con la actualización puede que sea necesario reconfigur la aplicación y la BD (p.e. si ha habido cambios en el esquema).</p>
-<p>Para ello, ejecutamos en el contenedor <code>atlas_workspace</code> (el nombre variará en cada instalación según la configuración) las siguientes órdenes:</p>
-<pre class="hljs">docker exec -w /var/www/atlas atlas_workspace composer install
-docker exec -w /var/www/atlas atlas_workspace npm install &amp;&amp; npm run dev
-docker exec -w /var/www/atlas atlas_workspace php artisan key:generate
-docker exec -w /var/www/atlas atlas_workspace php artisan migrate --seed
-docker exec -w /var/www/atlas atlas_workspace php artisan config:cache</pre><p>Después ya no necesitamos el contenedor <code>atlas_workspace</code> y podemos pararlo:</p>
-<pre class="hljs">docker stop atlas_workspace</pre><ul>
+<p>Para ello, ejecutamos en el contenedor <code>atlas_workspace_1</code> (el nombre variará en cada instalación según la configuración) las siguientes órdenes:</p>
+<pre class="hljs">docker exec -w /var/www/atlas atlas_workspace_1 composer install
+docker exec -w /var/www/atlas atlas_workspace_1 npm install &amp;&amp; npm run dev
+docker exec -w /var/www/atlas atlas_workspace_1 php artisan key:generate
+docker exec -w /var/www/atlas atlas_workspace_1 php artisan migrate --seed
+docker exec -w /var/www/atlas atlas_workspace_1 php artisan config:cache</pre><p>Después ya no necesitamos el contenedor <code>atlas_workspace_1</code> y podemos pararlo:</p>
+<pre class="hljs">docker stop atlas_workspace_1</pre><ul>
 <li>Nota: FIXME: ¿Hay que limpiar más cachés aparte de la de configuración, p.e. iconos, ...?</li>
-<li><del>Nota 2: FIXME: Hay que tener en cuenta el directorio de entrada a <code>atlas_workspace</code> y/o ejecutarlo mediante <code>docker exec ...</code></del></li>
-<li><del>Nota 3: FIXME: Reconfigurar nginx antes de iniciar los contenedores o hacer que la configuración sobreviva a un pull.</del></li>
-<li>Nota 4: FIXME: Automatizar la actualización de la aplicación</li>
+<li>Nota 2: FIXED: <del>Hay que tener en cuenta el directorio de entrada a <code>atlas_workspace_1</code> y/o ejecutarlo mediante <code>docker exec ...</code></del></li>
+<li>Nota 3: FIXED: <del>Reconfigurar nginx antes de iniciar los contenedores o hacer que la configuración sobreviva a un pull.</del></li>
+<li>Nota 4: FIXED: <del>Automatizar la actualización de la aplicación</del> Actualización automatizándose con <code>atlas-quick-start.sh</code></li>
 </ul>
 <p class="page" id="Manual_Usuario"></p><h1>Manual de Usuario</h1>
 <h1 id="manual-de-usuario">Manual de Usuario</h1>
