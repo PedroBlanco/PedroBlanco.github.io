@@ -18,6 +18,8 @@
     crossorigin=""/>
 
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/MarkerCluster.Default.css">
+  <link rel="stylesheet" href="css/MarkerCluster.css">
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
@@ -36,6 +38,8 @@
     crossorigin=""></script>
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+
+  <script src="js/leaflet.markercluster.js"></script>
 
 </head>
 
@@ -76,9 +80,14 @@
       }).addTo(map);
 
       var marker;
+      var markers = L.markerClusterGroup();
 
-          marker = L.marker([40.7479448,-73.9902954]);
-          marker.addTo(map).bindPopup('<h6><a href="/newyork/empire-state-building">Empire State Building</a><br/><span class="small">Tags: <i>skyscrapers, buildings, landmark</i></span></h6>');
+
+          marker = L.marker([40.7479448,-73.9902954]).bindPopup('<h6><a href="/newyork/empire-state-building">Empire State Building</a><br/><span class="small">Tags: <i>skyscrapers, buildings, landmark</i></span></h6>');
+          markers.addLayer(marker);
+
+
+      map.addLayer(markers);
     }
   });
   </script>
