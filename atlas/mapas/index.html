@@ -1,0 +1,134 @@
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Mapas | Atlas de Conocimiento Crítico, versión ligera y estática</title>
+  <base href="/">
+  <meta name="description" content="This is an example project that demonstrates static site generator BakeIt">
+  <meta name="keywords" content="static site, conocimiento crítico, gestión del conocimiento, knowledge management, ">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
+    crossorigin="anonymous">
+  
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" 
+    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" 
+    crossorigin=""/>
+
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" 
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" 
+    crossorigin="anonymous"></script>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" 
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" 
+    crossorigin="anonymous"></script>
+
+  <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" 
+    integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" 
+    crossorigin=""></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="test.js"></script>
+
+</head>
+
+<body>
+    <a href="/sitemap.html"></a>
+
+    
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand text-light" href="/">Atlas de Conocimiento Crítico</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div div class="collapse navbar-collapse" id="collapsingNavbar">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" href="/mapas">Mapas</a>
+          <a class="nav-item nav-link" href="/newyork">New York</a>
+        </div>
+      </div>
+  </nav>
+
+    
+  <div id="map" class="mapstyle"></div>
+
+  <script>
+  var app = new Vue({
+    el: '#map',
+    
+    data: {
+    },
+
+    mounted: function () {
+      var map = L.map('map').setView([37.46335,-4.575648], 8);
+      //L.Icon.Default.imagePath = 'assets/images';
+
+      // it is required to show attribution to see the map
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map);
+
+      var marker;
+
+          marker = L.marker([36.699219, -6.1508098]);
+          marker.addTo(map).bindPopup('<h6><a href="/mapas/Actualización_de_procedimientos_preventivos_">Actualización de procedimientos preventivos</a><br/><span class="small">Tags: <i>Área, Ejecución del plan de acción (del Manual 1.0), Sanidad</i></span></h6>');
+          marker = L.marker([37.8866752, -4.7826835]);
+          marker.addTo(map).bindPopup('<h6><a href="/mapas/Calificación_Instalaciones_Turísticas">Calificación Instalaciones Turísticas</a><br/><span class="small">Tags: <i>Proceso, Fase 0 (del Manual 1.0), Administración General</i></span></h6>');
+          marker = L.marker([37.8841488, -4.7841887]);
+          marker.addTo(map).bindPopup('<h6><a href="/mapas/Configuración_de_la_firma_digital_de_usuarios_as">Configuración de la firma digital de usuarios/as</a><br/><span class="small">Tags: <i>Proceso, Fase 1 (del Manual 1.0), Administración General</i></span></h6>');
+          marker = L.marker([37.8841488, -4.7841887]);
+          marker.addTo(map).bindPopup('<h6><a href="/mapas/Configuración_de_perfil_móvil_de_usuario_a">Configuración de perfil móvil de usuario/a</a><br/><span class="small">Tags: <i>Proceso, Fase 1 (del Manual 1.0), Administración General</i></span></h6>');
+          marker = L.marker([37.8841488, -4.7841887]);
+          marker.addTo(map).bindPopup('<h6><a href="/mapas/Configuración_inicial_de_puesto_de_trabajo_de_usuario_a">Configuración inicial de puesto de trabajo de usuario/a</a><br/><span class="small">Tags: <i>Proceso, Fase 1 (del Manual 1.0), Administración General</i></span></h6>');
+          marker = L.marker([37.8866752, -4.7826835]);
+          marker.addTo(map).bindPopup('<h6><a href="/mapas/Gestión_de_propuestas_de_proyectos_hoteleros_y_apartamentos_turísticos">Gestión de propuestas de proyectos hoteleros y apartamentos turísticos</a><br/><span class="small">Tags: <i>Proceso, Fase 0 (del Manual 1.0), Administración General</i></span></h6>');
+          marker = L.marker([37.8777414, -4.7881483]);
+          marker.addTo(map).bindPopup('<h6><a href="/mapas/Gestión_Patrimonio_Inmobiliario_Órganos_Judiciales">Gestión Patrimonio Inmobiliario Órganos Judiciales</a><br/><span class="small">Tags: <i>Área, Fase 4 (del 1º Curso de Conocimiento Crítico), Administración General</i></span></h6>');
+          marker = L.marker([37.8866752, -4.7826835]);
+          marker.addTo(map).bindPopup('<h6><a href="/mapas/Implantar_un_sistema_de_teletrabajo_en_el_servicio_de_Turismo">Implantar un sistema de teletrabajo en el servicio de Turismo</a><br/><span class="small">Tags: <i>Proceso, Fase 1 (del Manual 1.0), Administración General</i></span></h6>');
+          marker = L.marker([37.8841488, -4.7841887]);
+          marker.addTo(map).bindPopup('<h6><a href="/mapas/Instalación_de_una_nueva_cola_de_impresión">Instalación de una nueva cola de impresión</a><br/><span class="small">Tags: <i>Proceso, Fase 2 (del Manual 1.0), Administración General</i></span></h6>');
+          marker = L.marker([37.8841488, -4.7841887]);
+          marker.addTo(map).bindPopup('<h6><a href="/mapas/Mantenimiento_del_inventario_del_equipamiento_informático_y_telefónico">Mantenimiento del inventario del equipamiento informático y telefónico</a><br/><span class="small">Tags: <i>Proceso, Fase 1 (del Manual 1.0), Administración General</i></span></h6>');
+          marker = L.marker([37.8841488, -4.7841887]);
+          marker.addTo(map).bindPopup('<h6><a href="/mapas/Mantenimiento_de_usuarios_de_la_aplicación_ECO">Mantenimiento de usuarios de la aplicación ECO</a><br/><span class="small">Tags: <i>Proceso, Fase 1 (del Manual 1.0), Administración General</i></span></h6>');
+          marker = L.marker([37.4822431, -5.9436615]);
+          marker.addTo(map).bindPopup('<h6><a href="/mapas/Mecanismos_de_búsquedas_y_gestión_de_candidatos">Mecanismos de búsquedas y gestión de candidatos</a><br/><span class="small">Tags: <i>Proceso, Fase 0 (del Manual 1.0), Empleo</i></span></h6>');
+          marker = L.marker([37.8841488, -4.7841887]);
+          marker.addTo(map).bindPopup('<h6><a href="/mapas/Plataformado_y_configuración_inicial_de_un_ordenador">Plataformado y configuración inicial de un ordenador</a><br/><span class="small">Tags: <i>Proceso, Fase 1 (del Manual 1.0), Administración General</i></span></h6>');
+          marker = L.marker([37.8841488, -4.7841887]);
+          marker.addTo(map).bindPopup('<h6><a href="/mapas/Preparación_de_una_videoconferencia_mediante_red_corporativa">Preparación de una videoconferencia mediante red corporativa</a><br/><span class="small">Tags: <i>Proceso, Fase 2 (del Manual 1.0), Administración General</i></span></h6>');
+          marker = L.marker([37.8841488, -4.7841887]);
+          marker.addTo(map).bindPopup('<h6><a href="/mapas/Publicación_de_noticias_y_avisos_en_la_Intranet">Publicación de noticias y avisos en la Intranet</a><br/><span class="small">Tags: <i>Proceso, Fase 1 (del Manual 1.0), Administración General</i></span></h6>');
+          marker = L.marker([37.8841488, -4.7841887]);
+          marker.addTo(map).bindPopup('<h6><a href="/mapas/Recuperación_de_archivos_borrados_de_una_unidad_de_red">Recuperación de archivos borrados de una unidad de red</a><br/><span class="small">Tags: <i>Proceso, Fase 4 (del Manual 1.0), Administración General</i></span></h6>');
+          marker = L.marker([37.4822431, -5.9436615]);
+          marker.addTo(map).bindPopup('<h6><a href="/mapas/Registro_de_ofertas">Registro de ofertas</a><br/><span class="small">Tags: <i>Proceso, Fase 0 (del Manual 1.0), Empleo</i></span></h6>');
+          marker = L.marker([37.8841488,-4.7841887]);
+          marker.addTo(map).bindPopup('<h6><a href="/mapas/test1">Publicar noticias y avisos en la Intranet</a><br/><span class="small">Tags: <i>informatica, proceso, fase 1</i></span></h6>');
+          marker = L.marker([36.8238722, -2.4433644]);
+          marker.addTo(map).bindPopup('<h6><a href="/mapas/Técnico_de_Prevención_de_Riesgos_Laborales">Técnico de Prevención de Riesgos Laborales</a><br/><span class="small">Tags: <i>Puesto, Fase 4 (del 1º Curso de Conocimiento Crítico), Administración General</i></span></h6>');
+          marker = L.marker([38.0913123, -3.6361438]);
+          marker.addTo(map).bindPopup('<h6><a href="/mapas/Área_de_Demandas">Área de Demandas</a><br/><span class="small">Tags: <i>Área, Fase 4 (del 1º Curso de Conocimiento Crítico), Empleo</i></span></h6>');
+          marker = L.marker([36.4174639, -6.1553866]);
+          marker.addTo(map).bindPopup('<h6><a href="/mapas/Área_de_Intermediación">Área de Intermediación</a><br/><span class="small">Tags: <i>Área, Fase 4 (del 1º Curso de Conocimiento Crítico), Empleo</i></span></h6>');
+          marker = L.marker([37.4822431, -5.9436615]);
+          marker.addTo(map).bindPopup('<h6><a href="/mapas/Área_de_Ofertas">Área de Ofertas</a><br/><span class="small">Tags: <i>Área, Fase 4 (del Manual 1.0), Empleo</i></span></h6>');
+          marker = L.marker([36.4174639, -6.1553866]);
+          marker.addTo(map).bindPopup('<h6><a href="/mapas/Área_de_Orientación">Área de Orientación</a><br/><span class="small">Tags: <i>Área, Fase 1 (del 1º Curso de Conocimiento Crítico), Empleo</i></span></h6>');
+    }
+  });
+  </script>
+
+    
+</body>
+
+</html>
