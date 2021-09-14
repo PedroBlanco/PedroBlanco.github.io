@@ -72,17 +72,24 @@
     },
 
     mounted: function () {
-      var map = L.map('map').setView([37.46335,-4.575648], 8);
-      //L.Icon.Default.imagePath = 'assets/images';
+      var options = {
+      // Con un nivel 14 minimizamos los errores 503 del servidor, pero no los eliminamos (p.e. suroeste de Linares en nivel 15)
+        maxZoom: 14,
 
+      }
+
+      var map = L.map('map', options ).setView([37.46335,-4.575648], 8);
+      //L.Icon.Default.imagePath = 'assets/images';
+/*
       // it is required to show attribution to see the map
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+//        attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       }).addTo(map);
-
+*/
       var marker;
       var markers = L.markerClusterGroup();
-      var stamen_layer = new L.StamenTileLayer("watercolor");
+      var stamen_layer_watercolor = new L.StamenTileLayer("watercolor");
+      var stamen_layer_tonerlines = new L.StamenTileLayer("toner-hybrid");
 
 
           marker = L.marker([36.699219, -6.1508098]).bindPopup('<h6><a href="/mapas/Actualización_de_procedimientos_preventivos_">Actualización de procedimientos preventivos</a><br/><span class="small">Tags: <i>Área, Ejecución del plan de acción (del Manual 1.0), Sanidad</i></span></h6>');
@@ -177,7 +184,8 @@
           markers.addLayer(marker);
 
 
-      map.addLayer(stamen_layer);
+      map.addLayer(stamen_layer_watercolor);
+      map.addLayer(stamen_layer_tonerlines);
       map.addLayer(markers);
     }
   });

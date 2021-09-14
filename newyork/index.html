@@ -72,24 +72,32 @@
     },
 
     mounted: function () {
-      var map = L.map('map').setView([40.749699, -73.987837], 13);
-      //L.Icon.Default.imagePath = 'assets/images';
+      var options = {
+      // Con un nivel 14 minimizamos los errores 503 del servidor, pero no los eliminamos (p.e. suroeste de Linares en nivel 15)
+        maxZoom: 14,
 
+      }
+
+      var map = L.map('map', options ).setView([40.749699, -73.987837], 13);
+      //L.Icon.Default.imagePath = 'assets/images';
+/*
       // it is required to show attribution to see the map
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+//        attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       }).addTo(map);
-
+*/
       var marker;
       var markers = L.markerClusterGroup();
-      var stamen_layer = new L.StamenTileLayer("watercolor");
+      var stamen_layer_watercolor = new L.StamenTileLayer("watercolor");
+      var stamen_layer_tonerlines = new L.StamenTileLayer("toner-hybrid");
 
 
           marker = L.marker([40.7479448,-73.9902954]).bindPopup('<h6><a href="/newyork/empire-state-building">Empire State Building</a><br/><span class="small">Tags: <i>skyscrapers, buildings, landmark</i></span></h6>');
           markers.addLayer(marker);
 
 
-      map.addLayer(stamen_layer);
+      map.addLayer(stamen_layer_watercolor);
+      map.addLayer(stamen_layer_tonerlines);
       map.addLayer(markers);
     }
   });
