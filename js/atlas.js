@@ -1,4 +1,4 @@
-// Funciones y datos comunes del atlas
+// ********** Funciones y datos comunes del atlas **********
 
 // Suponemos que ya hemos cargado Leaflet
 
@@ -103,3 +103,16 @@ function init_icon_oil_drop ( ) {
         popupAnchor: [1,-33]
     });
 }
+
+// function map_popup () {
+//     var _popup = '<h6><a href="{{url}}">{{frontMatter.hint}}</a>'+
+//     '<br/>'+
+//     '<span class="small">Etiquetas: <i>{{frontMatter.tags}}</i></span></h6>';
+
+//     return _popup;
+// }
+
+// ********** Registros e inicializaciones **********
+
+// *** No va aquí
+// Handlebars.registerPartial('map_popup', '{{map_popup}}');
