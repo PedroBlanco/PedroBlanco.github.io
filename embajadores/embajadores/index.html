@@ -132,16 +132,16 @@
       var baseTree = {};
 
       var overlaysTree = {
-        label: 'Programas de Gesti&oacute;n del Conocimiento',
+        label: '<b>Embajadores del Conocimiento</b>',
         selectAllCheckbox: 'Seccionar/Deseleccionar todos',
         children: [
           {
-              label: 'Conocimiento Cr&iacute;tico',
+              label: '<b>Conocimiento Cr&iacute;tico</b>',
               selectAllCheckbox: true,
               children: []
           },
           {
-              label: 'Revista EnRed@2.0',
+              label: '<b>Revista EnRed@2.0</b>',
               selectAllCheckbox: true,
               children: []
           }
@@ -159,7 +159,11 @@
               '<br/>'+
               '<span class="small">Etiquetas: <i>conocimiento_critico</i></span></h6>'
               );
-          markers.addLayer(marker);
+          var marcador = Object();
+          marcador.label = "Carlos Jaén Toscano";
+          marcador.layer = marker;
+            overlaysTree.children[0].children.push (marcador);
+
 
           marker = L.marker(
               [37.3869618, -5.9875628],
@@ -172,7 +176,11 @@
               '<br/>'+
               '<span class="small">Etiquetas: <i>enredados</i></span></h6>'
               );
-          markers.addLayer(marker);
+          var marcador = Object();
+          marcador.label = "Jacobo Santos Fernández";
+          marcador.layer = marker;
+            overlaysTree.children[1].children.push (marcador);
+
 
           marker = L.marker(
               [37.8842828, -4.7819495],
@@ -185,7 +193,12 @@
               '<br/>'+
               '<span class="small">Etiquetas: <i>conocimiento_critico, enredados</i></span></h6>'
               );
-          markers.addLayer(marker);
+          var marcador = Object();
+          marcador.label = "Pedro Blanco Wasmer";
+          marcador.layer = marker;
+            overlaysTree.children[0].children.push (marcador);
+            overlaysTree.children[1].children.push (marcador);
+
 
 
       map.addLayer(stamen_layer_watercolor_low);
