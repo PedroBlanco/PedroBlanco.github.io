@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>Mapas | Atlas de Embajadores del Conocimiento, para el I Encuentro de Embajadores del Conocimiento</title>
-  <base href="https://pedroblanco.github.io/embajadores">
+  <base href="https://pedroblanco.github.io/embajadores/">
   <meta name="description" content="Atlas de Embajadores del Conocimiento, para el I Encuentro de Embajadores del Conocimiento, del programa de Embajadores del Conocimiento (IAAP - Junta de Andalucía)">
   <meta name="keywords" content="static site, gestión del conocimiento, knowledge management, embajadores del conocimiento, ">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -144,6 +144,11 @@
               label: '<b>Revista EnRed@2.0</b>',
               selectAllCheckbox: true,
               children: []
+          },
+          {
+              label: '<b>Wiki de Gestión del Conocimiento</b>',
+              selectAllCheckbox: true,
+              children: []
           }
         ]
       };
@@ -180,6 +185,23 @@
           marcador.label = "Jacobo Santos Fernández";
           marcador.layer = marker;
             overlaysTree.children[1].children.push (marcador);
+
+
+          marker = L.marker(
+              [37.3109917, -5.9781292],
+              {
+                title: 'Jose Ángel Bernal Bermejo',
+                icon: icon_oil_drop
+              }
+            ).bindPopup (
+              '<h6><a href="/embajadores/jangel.bermejo/">Jose Ángel Bernal Bermejo</a>'+
+              '<br/>'+
+              '<span class="small">Etiquetas: <i>wiki</i></span></h6>'
+              );
+          var marcador = Object();
+          marcador.label = "Jose Ángel Bernal Bermejo";
+          marcador.layer = marker;
+            overlaysTree.children[2].children.push (marcador);
 
 
           marker = L.marker(
