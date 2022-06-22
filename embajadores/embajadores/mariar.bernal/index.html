@@ -3,10 +3,10 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <title>Site Map | Atlas de Embajadores del Conocimiento, para el I Encuentro de Embajadores del Conocimiento</title>
+  <title>María del Rocío Bernal Guzmán | Atlas de Embajadores del Conocimiento, para el I Encuentro de Embajadores del Conocimiento</title>
   <base href="https://pedroblanco.github.io/embajadores/">
   <meta name="description" content="Atlas de Embajadores del Conocimiento, para el I Encuentro de Embajadores del Conocimiento, del programa de Embajadores del Conocimiento (IAAP - Junta de Andalucía)">
-  <meta name="keywords" content="static site, gestión del conocimiento, knowledge management, embajadores del conocimiento, ">
+  <meta name="keywords" content="static site, gestión del conocimiento, knowledge management, embajadores del conocimiento, Encuentros Intergeneracionales">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Type" content="text/html">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -62,6 +62,30 @@
 
     
   <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" aria-label="Barra de navegación">
+      <a id="back_link" href="javascript:history.back()" aria-label="Volver">
+        <span class="carousel-control-prev-icon"></span>
+      </a>
+      <script>
+        // Desde https://stackoverflow.com/questions/8814472/how-to-make-an-html-back_link
+        // Respuesta: https://stackoverflow.com/posts/46163215
+          var element = document.getElementById('back_link');
+
+        // Provide a standard href to facilitate standard browser features such as 
+        //  - Hover to see link
+        //  - Right click and copy link
+        //  - Right click and open in new tab
+        element.setAttribute('href', document.referrer);
+
+        // We can't let the browser use the above href for navigation. If it does, 
+        // the browser will think that it is a regular link, and place the current 
+        // page on the browser history, so that if the user clicks "back" again,
+        // it'll actually return to this page. We need to perform a native back to
+        // integrate properly into the browser's history behavior
+        element.onclick = function() {
+          history.back();
+          return false;
+        }
+      </script>
       <a class="navbar-brand text-light font-weight-bold" href="index.html" aria-label="Página principal">Atlas de Embajadores del Conocimiento</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -75,23 +99,31 @@
   </nav>
 
     
-  <div class="content-window">
-    <div class="container-fluid">
-      <div class="col-md-12">
-        <h4>Site Map</h4>
-        <p><a href="acerca-de//" aria-label="Acerca del Atlas de Embajadores del Conocimiento">Acerca del Atlas de Embajadores del Conocimiento</a></p>
-        <p><a href="embajadores/animacion/" aria-label="Mapas">Mapas</a></p>
-        <p><a href="embajadores/carlos.jaen/" aria-label="Carlos Jaén Toscano">Carlos Jaén Toscano</a></p>
-        <p><a href="embajadores/gabriel.delgado/" aria-label="Gabriel Delgado Quesada">Gabriel Delgado Quesada</a></p>
-        <p><a href="embajadores//" aria-label="Mapas">Mapas</a></p>
-        <p><a href="embajadores/jacobo.santos/" aria-label="Jacobo Santos Fernández">Jacobo Santos Fernández</a></p>
-        <p><a href="embajadores/jangel.bermejo/" aria-label="Jose Ángel Bernal Bermejo">Jose Ángel Bernal Bermejo</a></p>
-        <p><a href="embajadores/lucia.perianez/" aria-label="Lucía Periañez Ángeles">Lucía Periañez Ángeles</a></p>
-        <p><a href="embajadores/mariar.bernal/" aria-label="María del Rocío Bernal Guzmán">María del Rocío Bernal Guzmán</a></p>
-        <p><a href="embajadores/pedro.blanco.wasmer/" aria-label="Pedro Blanco Wasmer">Pedro Blanco Wasmer</a></p>
-      </div>
+    <div class="content-window">
+        <div class="container-fluid">
+            <div class="col-md-12">
+                <h1 aria-label="Título">María del Rocío Bernal Guzmán</h1>
+                <br>
+                <p aria-label="Texto de la página"><p><img src="images/personas/mariar.bernal.png" alt="mariar.bernal"></p>
+<blockquote>
+<p>&quot;La creatividad implica romper con patrones establecidos para mirar las cosas de otra forma&quot;</p>
+</blockquote>
+<p><em>Edward de Bono</em></p>
+<h2 id="contacto">Contacto</h2>
+<ul>
+<li>Correo electrónico corporativo: <strong>mariar.bernal</strong></li>
+</ul>
+<h2 id="proyecto-s-y-a-o-s-de-participaci-n">Proyecto(s) y año(s) de participación</h2>
+<ul>
+<li><a href="https://ws168.juntadeandalucia.es/iaap/gestiondelconocimiento/proyectos/edicion-2019-2020-edicion-2019-2020/gc11-encuentros-intergeneracionales/">Encuentros Intergeneracionales: II Encuentro Intergeneracional Médicos Escolares</a><ul>
+<li><a href="https://ws168.juntadeandalucia.es/iaap/gestiondelconocimiento/proyectos/edicion-2019-2020-edicion-2019-2020/gc11-encuentros-intergeneracionales/entregables-proyecto-encuentros-intergeneracionales/">2020 - Entregables</a></li>
+</ul>
+</li>
+</ul>
+</p>
+            </div>
+        </div>
     </div>
-  </div>
 
     
 </body>

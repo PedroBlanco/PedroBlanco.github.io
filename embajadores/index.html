@@ -155,6 +155,12 @@
               selectAllCheckbox: true,
               collapsed: true,
               children: []
+          },
+          {
+              label: '<b>Encuentros Intergeneracionales</b>',
+              selectAllCheckbox: true,
+              collapsed: true,
+              children: []
           }
         ]
       };
@@ -287,6 +293,32 @@
           marcador.label = "Lucía Periañez Ángeles";
           marcador.layer = marker;
             overlaysTree.children[3].children.push (marcador);
+
+
+        var imagen = '<img src="images/personas/mariar.bernal.png" alt="Mª del Rocío Bernal Guzmán" width="96" height="96">';
+          marker = L.marker(
+              [37.3796122,-5.9573761],
+              {
+                title: 'Mª del Rocío Bernal Guzmán',
+                icon: marker_icon
+              }
+            ).bindPopup (
+              '<div class="chip">'+
+              imagen+
+              '<div><a href="embajadores/mariar.bernal/">Mª del Rocío Bernal Guzmán</a></div>'+
+              '</div>'+
+              '<div>'+
+              '<br/>'+
+              '<h6><span class="small">Proyectos: <i>Encuentros Intergeneracionales</i></span></h6>'+
+              '</div>'+
+              '<hr class="barra invisible"/>'+
+              ''
+              );
+          marker.addTo(map);
+          var marcador = Object();
+          marcador.label = "Mª del Rocío Bernal Guzmán";
+          marcador.layer = marker;
+            overlaysTree.children[4].children.push (marcador);
 
 
         var imagen = '<img src="images/km_50x50.png" alt="Pedro Blanco Wasmer" width="96" height="96">';
