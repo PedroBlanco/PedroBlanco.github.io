@@ -3,7 +3,7 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <title>Mapas | Atlas de Embajadores del Conocimiento, para el I Encuentro de Embajadores del Conocimiento</title>
+  <title>Embajadores | Atlas de Embajadores del Conocimiento, para el I Encuentro de Embajadores del Conocimiento</title>
   <base href="https://pedroblanco.github.io/embajadores/">
   <meta name="description" content="Atlas de Embajadores del Conocimiento, para el I Encuentro de Embajadores del Conocimiento, del programa de Embajadores del Conocimiento (IAAP - Junta de Andalucía)">
   <meta name="keywords" content="static site, gestión del conocimiento, knowledge management, embajadores del conocimiento, ">
@@ -165,7 +165,7 @@
         ]
       };
 
-        var imagen = '<img src="images/km_50x50.png" alt="Carlos Jaén Toscano" width="96" height="96">';
+        var imagen = '<img src="images/personas/carlos.jaen.png" alt="Carlos Jaén Toscano" width="96" height="96">';
           marker = L.marker(
               [37.8866752, -4.7826835],
               {
@@ -267,6 +267,32 @@
           marcador.label = "Jose Ángel Bernal Bermejo";
           marcador.layer = marker;
             overlaysTree.children[2].children.push (marcador);
+
+
+        var imagen = '<img src="images/personas/jantonio.real.sspa.png" alt="Juan Antonio Real Álvarez" width="96" height="96">';
+          marker = L.marker(
+              [36.699219,-6.1508098],
+              {
+                title: 'Juan Antonio Real Álvarez',
+                icon: marker_icon
+              }
+            ).bindPopup (
+              '<div class="chip">'+
+              imagen+
+              '<div><a href="embajadores/jantonio.real.sspa/">Juan Antonio Real Álvarez</a></div>'+
+              '</div>'+
+              '<div>'+
+              '<br/>'+
+              '<h6><span class="small">Proyectos: <i>Conocimiento Crítico</i></span></h6>'+
+              '</div>'+
+              '<hr class="barra invisible"/>'+
+              ''
+              );
+          marker.addTo(map);
+          var marcador = Object();
+          marcador.label = "Juan Antonio Real Álvarez";
+          marcador.layer = marker;
+            overlaysTree.children[0].children.push (marcador);
 
 
         var imagen = '<img src="images/km_50x50.png" alt="Lucía Periañez Ángeles" width="96" height="96">';
