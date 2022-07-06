@@ -1,0 +1,8 @@
+title: PedroBlanco.github.io
+description: Página personal en GitHub
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-slate
+
+gems:
+  - jekyll-mentions
