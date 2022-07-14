@@ -8,8 +8,6 @@ Página personal en GitHub.
   * Versión oficial/estable: [https://conocimientocritico.github.io](https://conocimientocritico.github.io)
   * [Versión "local"](http://pedroblanco.github.io/mapas/)
   * [Repositorio de desarrollo](https://github.com/PedroBlanco/atlas-static-2/)
-* Atlas de Embajadores del Conocimiento:
-  * [Prototipo](http://pedroblanco.github.io/embajadores/)
 * Generador de firma de correo electrónico corporativa (_como colaborador_):
   * [Repositorio de desarrollo](https://github.com/jpcozar/piefirma)
 * Listado simple de teléfonos (en PHP):
