@@ -20,3 +20,7 @@ Página personal en GitHub.
 * [Prototipo de aplicación web de "Mapeo de Iniciativas Innovadoras en la Junta de Andalucía"](http://pedroblanco.github.io/mapeo/)
   * Para el curso "Mapeo de Iniciativas Innovadoras en la Junta de Andalucía" realizado en febrero de 2019 por el Instituto Andaluz de Administración Pública, de la Junta de Andalucía (España).
 * [Más repositorios](https://github.com/PedroBlanco?tab=repositories).
+
+## Otros
+
+* [Recursos formativos TIC](recursos_formativos_tic.md): recopilación de recursos formativos (cursos, plataformas, agregadores y demás) sobre temática TIC.
