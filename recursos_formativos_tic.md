@@ -1,6 +1,6 @@
 Nombre | Tipo de recurso | Temática | Idioma | Notas
 --- | --- | --- | --- | ---
-| [Coursera](https://www.coursera.org/): [Tecnologías de la Información](https://www.coursera.org/browse/information-technology) y [Ciencias de la Computación](https://www.coursera.org/browse/computer-science) | MOOCs | General (enlaces a IT y CS) | Inglés y Castellano |
+[Coursera](https://www.coursera.org/): [Tecnologías de la Información](https://www.coursera.org/browse/information-technology) y [Ciencias de la Computación](https://www.coursera.org/browse/computer-science) | MOOCs | General (enlaces a IT y CS) | Inglés y Castellano |
 [Khan Academy](https://es.khanacademy.org/computing) | MOOCs | General (enlace a Computación) | Inglés y Castellano |
 [W3Schools](https://www.w3schools.com/) | Tutoriales y referencias | Programación | Inglés
 [FutureLearn](https://www.futurelearn.com/subjects/it-and-computer-science-courses) | MOOCs | General (enlace a TIC) | Inglés |
