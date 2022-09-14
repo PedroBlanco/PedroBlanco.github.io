@@ -16,3 +16,13 @@ Nombre | Tipo de recurso | Temática | Idioma | Notas
 **[Wwwhat's New](https://wwwhatsnew.com/category/proyectos-educativos/)** | Blog con recomendaciones de cursos | General (enlace a recursos educativos) | Inglés y Castellano | Es un blog de noticias donde aparecen de forma periódica noticias sobre convocatorias de MOOCs.
 **[College Compendium](https://collegecompendium.goldin.io/)** | Repositorio/Agregador de cursos | Informática | Inglés | Repositorio en GitHub
 **[FreeCodeCamp](https://www.freecodecamp.org/)** | Repositorio/Agregador de cursos | Programación | Inglés
+
+## Listas "Awesome"
+
+Listas de enlaces a (repositorios de) recursos *de calidad* (en inglés si no se dice otra cosa):
+
+- [Repositorio general de listas *Awesome*](https://github.com/sindresorhus/awesome#contents)
+  - [Buscador "gamificado" de listas *Awesome*](https://carolinaknoll.github.io/awesome-gamified/)
+  - [Awesome Search - Buscador de listas *Awesome*](https://awesomelists.top/)
+- [Repositorio de listas *awesome awesomeness*](https://github.com/bayandin/awesome-awesomeness)
+- [Repositorio *Awesome* sobre Administración de Sistemas](https://github.com/awesome-foss/awesome-sysadmin)
