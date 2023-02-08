@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Generador de pie de firma corporativo</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Generador de pie de firma corporativo">
+    <meta name="keywords" content="generador, pie de firma, correo, correo electrónico, email, corporativo">
+    <meta name="author" content="Javier Polo Cózar">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="res/formulario.css" type="text/css" media="screen" />
+	<script type="text/javascript" src="config.js" defer></script>
+	<script type="text/javascript" src="validar.js" defer></script>
+	<script type="text/javascript" src="generar_html.js" defer></script>
+</head>
+<body>
+    <table id="banner" style="position: relative; z-index: 20; width:100%">
+        <tr>
+            <td class="logoJunta" rowspan="2" style="width: 150px;">
+                <a class="logo" target="_blank" href="http://www.juntadeandalucia.es">
+                    <img src="res/JdA-logo-email.png" alt="Junta de Andaluc&iacute;a" title="Junta de Andaluc&iacute;a" style="width: 150px">
+                </a>
+            </td>
+            <td>
+                <a class="logo" target="_blank" href="https://intranet.chap.junta-andalucia.es/intranetchap/web/cordoba/dpcordoba">
+                    <img src="res/tittop.gif" alt="Intranet de la Delegaci&oacute;n de C&oacute;rdoba" title="Intranet de la Delegaci&oacute;n" style="height: 47px;">
+                </a>
+            </td>
+            <td>
+                <a class="logo" target="_blank" href="https://atriand.chap.junta-andalucia.es/intranet/web/cordoba">
+                    <img src="res/tittop-atrian.gif" alt="Intranet de la Agencia" title="Intranet de la Agencia" style="height: 47px;">
+            </a>
+            </td>
+            <td rowspan="2" style="text-align: left; width: 50%;">
+                <div class="encabezadoPagina">
+                    <a id="home_url" href="../piefirma/" target="_self">Generaci&oacute;n de pie de firma corporativo</a>
+                    <br />
+                </div>
+            </td>
+        </tr>
+    </table>
+    <!-- <form action="generar.php" method="POST" target="_blank" accept-charset="utf-8" onsubmit = "return validar();"> -->
+    <form onsubmit="return downloadFile();">
+        <br />
+        <fieldset class="center-content">
+            <legend><em>Generaci&oacute;n de pie de firma corporativo</em></legend>
+
+            <div class="form-group">
+                <label for="nombreapellidos">Nombre y Apellidos</label>
+                <input id="nombreapellidos" name="nombreapellidos" type="text" placeholder="p.e. Nombre Apellido1 Apellido2" autofocus required size="75" tabindex="1" /><br />
+            </div>
+            <div class="form-group">
+                <label for="cargo">Cargo o Puesto</label> <input id="cargo" name="cargo" type="text" placeholder="p.e. Asesor T&#0233cnico" autofocus required size="75" tabindex="2" /><br />
+            </div>
+
+            <div class="form-group">
+                <label for="organismo1">Organismo l&iacute;nea 1</label> <input id="organismo1" name="organismo1" type="text" placeholder="p.e. Secretar&#0237a Provincial de Hacienda y Financiaci&#0243n Europea" autofocus required size="75" tabindex="3" /><br />
+            </div>
+
+            <div class="form-group">
+                <label for="organismo2">Organismo l&iacute;nea 2</label> <input id="organismo2" name="organismo2" type="text" placeholder="p.e. Delegaci&#0243n del Gobierno en C&#0243rdoba" autofocus required size="75" tabindex="4" /><br />
+            </div>
+
+            <div class="form-group">
+                <label for="direccion">Direcci&oacute;n</label> <input id="direccion" name="direccion" type="text" placeholder="p.e. C/ Conde de Gondomar, 10 14003 - C&#0243rdoba" autofocus required size="75" tabindex="5" /><br />
+            </div>
+
+            <fieldset class="center-content">
+                <legend><em>Tel&eacute;fonos</em></legend>
+                <div class="form-group">
+                    <label for="tel_fijo">Fijo</label> <input id="tel_fijo" name="tel_fijo" type="text" placeholder="p.e. 957010000" autofocus required type="tel" pattern="[0-9]{9}" minlength="9" maxlength="9" size="9" tabindex="6" /><br />
+                    <label for="tel_fijo_corp">Fijo corporativo</label> <input id="tel_fijo_corp" name="tel_fijo_corp" type="text" placeholder="p.e. 515000" autofocus type="tel" pattern="[0-9]{6}" minlength="6" maxlength="6"size="6" tabindex="7" /><br />
+                    <label for="tel_movil">M&oacute;vil</label> <input id="tel_movil" name="tel_movil" type="text" placeholder="p.e. 600000000" autofocus required type="tel" pattern="[0-9]{9}" minlength="9" maxlength="9" size="9" tabindex="8" /><br />
+                    <label for="tel_movil_corp">M&oacute;vil corporativo</label> <input id="tel_movil_corp" name="tel_movil_corp" type="text" placeholder="p.e. 600000" autofocus type="tel" pattern="[0-9]{6}" minlength="6" maxlength="6" size="6" tabindex="9" /><br />
+                </div>
+            </fieldset>
+            <div class="form-group">
+                <label for="email">Correo electr&oacute;nico</label> <input id="email" name="email" type="text" placeholder="p.e. correo@juntadeandalucia.es" autofocus required type="email" pattern=".+@juntadeandalucia.es" size="75" tabindex="10" /><br />
+            </div>
+            <br />
+            <input type="submit" name="genera_pie" value="Generar pie de firma" tabindex="11" onclick="downloadFile()"/>
+            <input type="reset" name="limpiar" value="Limpiar" tabindex="12" onclick="limpia_firma()"/>
+            <br />
+            <div id="container" style="display: none;">
+                <br />
+                <i>El fichero generado se llama <div id="output"></div></i>
+                <br />
+            </div>
+            <br />
+        </fieldset><br />
+    </form>
+</body>
+</html>
