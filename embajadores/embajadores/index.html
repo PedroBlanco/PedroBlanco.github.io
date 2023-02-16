@@ -127,8 +127,17 @@
       _attribution += 'Watercolor data by <a href="http://openstreetmap.org">OpenStreetMap</a>, <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>.';
 
       // Capas de etiquetas
-      var stamen_layer_tonerlines = new L.StamenTileLayer("toner-hybrid", {attribution: '', attributionControl: false});
       _attribution += 'Toner data by <a href="http://openstreetmap.org">OpenStreetMap</a>, <a href="http://www.openstreetmap.org/copyright">ODbL</a>.';
+      var capaToponimos = new L.tileLayer (
+        'https://www.ign.es/wmts/ign-base?layer=IGNBaseOrto&style=default&tilematrixset=GoogleMapsCompatible&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image/png&&TileMatrix={z}&TileCol={x}&TileRow={y}',
+        {
+          maxZoom:18,
+          minZoom:1,
+          scheme:'xyz',
+          continuousWorld:true,
+          attribution:"© IGN"
+        }
+        );
       
       stamen_layer_watercolor_low.options.maxNativeZoom = 14;
       stamen_layer_watercolor_high.options.maxNativeZoom = 17;
@@ -171,131 +180,15 @@
         ]
       };
 
-        var imagen = '<img src="images/km_50x50.png" alt="Antonio Hernández Moreno" width="96" height="96">';
-          marker = L.marker(
-              [37.3109917, -5.9781292],
-              {
-                title: 'Antonio Hernández Moreno',
-                icon: marker_icon
-              }
-            ).bindPopup (
-              '<div class="chip">'+
-              imagen+
-              '<div><a href="embajadores/antonio.hernandez.moreno/">Antonio Hernández Moreno</a></div>'+
-              '</div>'+
-              '<div>'+
-              '<br/>'+
-              '<h6><span class="small">Proyectos: <i>Por localizar</i></span></h6>'+
-              '</div>'+
-              '<hr class="barra invisible"/>'+
-              ''
-              );
-          marker.addTo(map);
-          var marcador = Object();
-          marcador.label = "Antonio Hernández Moreno";
-          marcador.layer = marker;
-
-
-        var imagen = '<img src="images/km_50x50.png" alt="Antonio Narváez Rodríguez" width="96" height="96">';
-          marker = L.marker(
-              [37.3109917, -5.9781292],
-              {
-                title: 'Antonio Narváez Rodríguez',
-                icon: marker_icon
-              }
-            ).bindPopup (
-              '<div class="chip">'+
-              imagen+
-              '<div><a href="embajadores/antonio.narvaez.rodriguez/">Antonio Narváez Rodríguez</a></div>'+
-              '</div>'+
-              '<div>'+
-              '<br/>'+
-              '<h6><span class="small">Proyectos: <i>Por localizar</i></span></h6>'+
-              '</div>'+
-              '<hr class="barra invisible"/>'+
-              ''
-              );
-          marker.addTo(map);
-          var marcador = Object();
-          marcador.label = "Antonio Narváez Rodríguez";
-          marcador.layer = marker;
-
-
-        var imagen = '<img src="images/km_50x50.png" alt="Antonio Pulido Pastor" width="96" height="96">';
-          marker = L.marker(
-              [37.3109917, -5.9781292],
-              {
-                title: 'Antonio Pulido Pastor',
-                icon: marker_icon
-              }
-            ).bindPopup (
-              '<div class="chip">'+
-              imagen+
-              '<div><a href="embajadores/antonio.pulido/">Antonio Pulido Pastor</a></div>'+
-              '</div>'+
-              '<div>'+
-              '<br/>'+
-              '<h6><span class="small">Proyectos: <i>Por localizar</i></span></h6>'+
-              '</div>'+
-              '<hr class="barra invisible"/>'+
-              ''
-              );
-          marker.addTo(map);
-          var marcador = Object();
-          marcador.label = "Antonio Pulido Pastor";
-          marcador.layer = marker;
-
-
-        var imagen = '<img src="images/km_50x50.png" alt="Antonio María del Valle" width="96" height="96">';
-          marker = L.marker(
-              [37.3109917, -5.9781292],
-              {
-                title: 'Antonio María del Valle',
-                icon: marker_icon
-              }
-            ).bindPopup (
-              '<div class="chip">'+
-              imagen+
-              '<div><a href="embajadores/antoniom.valle/">Antonio María del Valle</a></div>'+
-              '</div>'+
-              '<div>'+
-              '<br/>'+
-              '<h6><span class="small">Proyectos: <i>Por localizar</i></span></h6>'+
-              '</div>'+
-              '<hr class="barra invisible"/>'+
-              ''
-              );
-          marker.addTo(map);
-          var marcador = Object();
-          marcador.label = "Antonio María del Valle";
-          marcador.layer = marker;
-
-
-        var imagen = '<img src="images/km_50x50.png" alt="Beatriz Sánchez Gómez" width="96" height="96">';
-          marker = L.marker(
-              [37.3109917, -5.9781292],
-              {
-                title: 'Beatriz Sánchez Gómez',
-                icon: marker_icon
-              }
-            ).bindPopup (
-              '<div class="chip">'+
-              imagen+
-              '<div><a href="embajadores/beatriz.sanchez.gomez/">Beatriz Sánchez Gómez</a></div>'+
-              '</div>'+
-              '<div>'+
-              '<br/>'+
-              '<h6><span class="small">Proyectos: <i>Por localizar</i></span></h6>'+
-              '</div>'+
-              '<hr class="barra invisible"/>'+
-              ''
-              );
-          marker.addTo(map);
-          var marcador = Object();
-          marcador.label = "Beatriz Sánchez Gómez";
-          marcador.layer = marker;
-
-
+        
+        
+        
+        
+        
+        
+         
+         
+         
         var imagen = '<img src="images/personas/carlos.jaen.png" alt="Carlos Jaén Toscano" width="96" height="96">';
           marker = L.marker(
               [37.8866752, -4.7826835],
@@ -322,106 +215,16 @@
             overlaysTree.children[0].children.push (marcador);
 
 
-        var imagen = '<img src="images/km_50x50.png" alt="Daniel López Espejo" width="96" height="96">';
-          marker = L.marker(
-              [37.3109917, -5.9781292],
-              {
-                title: 'Daniel López Espejo',
-                icon: marker_icon
-              }
-            ).bindPopup (
-              '<div class="chip">'+
-              imagen+
-              '<div><a href="embajadores/daniel.lopez.espejo/">Daniel López Espejo</a></div>'+
-              '</div>'+
-              '<div>'+
-              '<br/>'+
-              '<h6><span class="small">Proyectos: <i>Por localizar</i></span></h6>'+
-              '</div>'+
-              '<hr class="barra invisible"/>'+
-              ''
-              );
-          marker.addTo(map);
-          var marcador = Object();
-          marcador.label = "Daniel López Espejo";
-          marcador.layer = marker;
-
-
-        var imagen = '<img src="images/km_50x50.png" alt="Elvira Culpián García" width="96" height="96">';
-          marker = L.marker(
-              [37.3109917, -5.9781292],
-              {
-                title: 'Elvira Culpián García',
-                icon: marker_icon
-              }
-            ).bindPopup (
-              '<div class="chip">'+
-              imagen+
-              '<div><a href="embajadores/elvira.culpian/">Elvira Culpián García</a></div>'+
-              '</div>'+
-              '<div>'+
-              '<br/>'+
-              '<h6><span class="small">Proyectos: <i>Por localizar</i></span></h6>'+
-              '</div>'+
-              '<hr class="barra invisible"/>'+
-              ''
-              );
-          marker.addTo(map);
-          var marcador = Object();
-          marcador.label = "Elvira Culpián García";
-          marcador.layer = marker;
-
-
-        var imagen = '<img src="images/km_50x50.png" alt="Encarnación Martínez Villalba" width="96" height="96">';
-          marker = L.marker(
-              [37.3109917, -5.9781292],
-              {
-                title: 'Encarnación Martínez Villalba',
-                icon: marker_icon
-              }
-            ).bindPopup (
-              '<div class="chip">'+
-              imagen+
-              '<div><a href="embajadores/encarnacion.martinez.v/">Encarnación Martínez Villalba</a></div>'+
-              '</div>'+
-              '<div>'+
-              '<br/>'+
-              '<h6><span class="small">Proyectos: <i>Por localizar</i></span></h6>'+
-              '</div>'+
-              '<hr class="barra invisible"/>'+
-              ''
-              );
-          marker.addTo(map);
-          var marcador = Object();
-          marcador.label = "Encarnación Martínez Villalba";
-          marcador.layer = marker;
-
-
-        var imagen = '<img src="images/km_50x50.png" alt="Javier Domínguez Murillo" width="96" height="96">';
-          marker = L.marker(
-              [37.3109917, -5.9781292],
-              {
-                title: 'Javier Domínguez Murillo',
-                icon: marker_icon
-              }
-            ).bindPopup (
-              '<div class="chip">'+
-              imagen+
-              '<div><a href="embajadores/fjavier.dominguez.murillo/">Javier Domínguez Murillo</a></div>'+
-              '</div>'+
-              '<div>'+
-              '<br/>'+
-              '<h6><span class="small">Proyectos: <i>Por localizar</i></span></h6>'+
-              '</div>'+
-              '<hr class="barra invisible"/>'+
-              ''
-              );
-          marker.addTo(map);
-          var marcador = Object();
-          marcador.label = "Javier Domínguez Murillo";
-          marcador.layer = marker;
-
-
+        
+        
+        
+        
+        
+        
+        
+         
+         
+         
         var imagen = '<img src="images/km_50x50.png" alt="Gabriel Delgado Quesada" width="96" height="96">';
           marker = L.marker(
               [37.1872653,-3.6176084],
@@ -448,31 +251,14 @@
             overlaysTree.children[1].children.push (marcador);
 
 
-        var imagen = '<img src="images/km_50x50.png" alt="Ignacio Luis Henares Civantos" width="96" height="96">';
-          marker = L.marker(
-              [37.3109917, -5.9781292],
-              {
-                title: 'Ignacio Luis Henares Civantos',
-                icon: marker_icon
-              }
-            ).bindPopup (
-              '<div class="chip">'+
-              imagen+
-              '<div><a href="embajadores/ignaciol.henares/">Ignacio Luis Henares Civantos</a></div>'+
-              '</div>'+
-              '<div>'+
-              '<br/>'+
-              '<h6><span class="small">Proyectos: <i>Por localizar</i></span></h6>'+
-              '</div>'+
-              '<hr class="barra invisible"/>'+
-              ''
-              );
-          marker.addTo(map);
-          var marcador = Object();
-          marcador.label = "Ignacio Luis Henares Civantos";
-          marcador.layer = marker;
-
-
+        
+        
+        
+        
+        
+         
+         
+         
         var imagen = '<img src="images/km_50x50.png" alt="Jacobo Santos Fernández" width="96" height="96">';
           marker = L.marker(
               [37.3869618, -5.9875628],
@@ -499,6 +285,12 @@
             overlaysTree.children[1].children.push (marcador);
 
 
+        
+        
+        
+         
+         
+         
         var imagen = '<img src="images/km_50x50.png" alt="Jose Ángel Bernal Bermejo" width="96" height="96">';
           marker = L.marker(
               [37.3109917, -5.9781292],
@@ -525,6 +317,12 @@
             overlaysTree.children[2].children.push (marcador);
 
 
+        
+        
+        
+         
+         
+         
         var imagen = '<img src="images/personas/jantonio.real.sspa.png" alt="Juan Antonio Real Álvarez" width="96" height="96">';
           marker = L.marker(
               [36.699219,-6.1508098],
@@ -551,34 +349,16 @@
             overlaysTree.children[0].children.push (marcador);
 
 
-        var imagen = '<img src="images/km_50x50.png" alt="Javier Mejías Jiménez" width="96" height="96">';
-          marker = L.marker(
-              [37.3109917, -5.9781292],
-              {
-                title: 'Javier Mejías Jiménez',
-                icon: marker_icon
-              }
-            ).bindPopup (
-              '<div class="chip">'+
-              imagen+
-              '<div><a href="embajadores/javier.mejias/">Javier Mejías Jiménez</a></div>'+
-              '</div>'+
-              '<div>'+
-              '<br/>'+
-              '<h6><span class="small">Proyectos: <i>Por localizar</i></span></h6>'+
-              '</div>'+
-              '<hr class="barra invisible"/>'+
-              ''
-              );
-          marker.addTo(map);
-          var marcador = Object();
-          marcador.label = "Javier Mejías Jiménez";
-          marcador.layer = marker;
-
-
+        
+        
+        
+        
+         
+         
+         
         var imagen = '<img src="images/km_50x50.png" alt="José María López Caballero" width="96" height="96">';
           marker = L.marker(
-              [37.3109917, -5.9781292],
+              [37.4822473,-5.9436615],
               {
                 title: 'José María López Caballero',
                 icon: marker_icon
@@ -590,7 +370,7 @@
               '</div>'+
               '<div>'+
               '<br/>'+
-              '<h6><span class="small">Proyectos: <i>Por localizar</i></span></h6>'+
+              '<h6><span class="small">Proyectos: <i>Cambio Generacional 2.0, Comunicación y Difusión KM, Conocimiento Crítico, Wiki</i></span></h6>'+
               '</div>'+
               '<hr class="barra invisible"/>'+
               ''
@@ -601,209 +381,23 @@
           marcador.layer = marker;
 
 
-        var imagen = '<img src="images/km_50x50.png" alt="José María Rojas" width="96" height="96">';
-          marker = L.marker(
-              [37.3109917, -5.9781292],
-              {
-                title: 'José María Rojas',
-                icon: marker_icon
-              }
-            ).bindPopup (
-              '<div class="chip">'+
-              imagen+
-              '<div><a href="embajadores/jmaria.rojas/">José María Rojas</a></div>'+
-              '</div>'+
-              '<div>'+
-              '<br/>'+
-              '<h6><span class="small">Proyectos: <i>Por localizar</i></span></h6>'+
-              '</div>'+
-              '<hr class="barra invisible"/>'+
-              ''
-              );
-          marker.addTo(map);
-          var marcador = Object();
-          marcador.label = "José María Rojas";
-          marcador.layer = marker;
-
-
-        var imagen = '<img src="images/km_50x50.png" alt="José Puerta" width="96" height="96">';
-          marker = L.marker(
-              [37.3109917, -5.9781292],
-              {
-                title: 'José Puerta',
-                icon: marker_icon
-              }
-            ).bindPopup (
-              '<div class="chip">'+
-              imagen+
-              '<div><a href="embajadores/jose.puerta/">José Puerta</a></div>'+
-              '</div>'+
-              '<div>'+
-              '<br/>'+
-              '<h6><span class="small">Proyectos: <i>Por localizar</i></span></h6>'+
-              '</div>'+
-              '<hr class="barra invisible"/>'+
-              ''
-              );
-          marker.addTo(map);
-          var marcador = Object();
-          marcador.label = "José Puerta";
-          marcador.layer = marker;
-
-
-        var imagen = '<img src="images/km_50x50.png" alt="José Antonio Casado Baeza" width="96" height="96">';
-          marker = L.marker(
-              [37.3109917, -5.9781292],
-              {
-                title: 'José Antonio Casado Baeza',
-                icon: marker_icon
-              }
-            ).bindPopup (
-              '<div class="chip">'+
-              imagen+
-              '<div><a href="embajadores/josea.casado.baeza/">José Antonio Casado Baeza</a></div>'+
-              '</div>'+
-              '<div>'+
-              '<br/>'+
-              '<h6><span class="small">Proyectos: <i>Por localizar</i></span></h6>'+
-              '</div>'+
-              '<hr class="barra invisible"/>'+
-              ''
-              );
-          marker.addTo(map);
-          var marcador = Object();
-          marcador.label = "José Antonio Casado Baeza";
-          marcador.layer = marker;
-
-
-        var imagen = '<img src="images/km_50x50.png" alt="José Antonio Martínez Fernández" width="96" height="96">';
-          marker = L.marker(
-              [37.3109917, -5.9781292],
-              {
-                title: 'José Antonio Martínez Fernández',
-                icon: marker_icon
-              }
-            ).bindPopup (
-              '<div class="chip">'+
-              imagen+
-              '<div><a href="embajadores/josea.martinez.fernandez/">José Antonio Martínez Fernández</a></div>'+
-              '</div>'+
-              '<div>'+
-              '<br/>'+
-              '<h6><span class="small">Proyectos: <i>Por localizar</i></span></h6>'+
-              '</div>'+
-              '<hr class="barra invisible"/>'+
-              ''
-              );
-          marker.addTo(map);
-          var marcador = Object();
-          marcador.label = "José Antonio Martínez Fernández";
-          marcador.layer = marker;
-
-
-        var imagen = '<img src="images/km_50x50.png" alt="José Luis Sánchez Encinas" width="96" height="96">';
-          marker = L.marker(
-              [37.3109917, -5.9781292],
-              {
-                title: 'José Luis Sánchez Encinas',
-                icon: marker_icon
-              }
-            ).bindPopup (
-              '<div class="chip">'+
-              imagen+
-              '<div><a href="embajadores/josel.sanchez.encinas/">José Luis Sánchez Encinas</a></div>'+
-              '</div>'+
-              '<div>'+
-              '<br/>'+
-              '<h6><span class="small">Proyectos: <i>Por localizar</i></span></h6>'+
-              '</div>'+
-              '<hr class="barra invisible"/>'+
-              ''
-              );
-          marker.addTo(map);
-          var marcador = Object();
-          marcador.label = "José Luis Sánchez Encinas";
-          marcador.layer = marker;
-
-
-        var imagen = '<img src="images/km_50x50.png" alt="Juan Manuel Jiménez Rodrigo" width="96" height="96">';
-          marker = L.marker(
-              [37.3109917, -5.9781292],
-              {
-                title: 'Juan Manuel Jiménez Rodrigo',
-                icon: marker_icon
-              }
-            ).bindPopup (
-              '<div class="chip">'+
-              imagen+
-              '<div><a href="embajadores/juanm.jimenez.rodrigo/">Juan Manuel Jiménez Rodrigo</a></div>'+
-              '</div>'+
-              '<div>'+
-              '<br/>'+
-              '<h6><span class="small">Proyectos: <i>Por localizar</i></span></h6>'+
-              '</div>'+
-              '<hr class="barra invisible"/>'+
-              ''
-              );
-          marker.addTo(map);
-          var marcador = Object();
-          marcador.label = "Juan Manuel Jiménez Rodrigo";
-          marcador.layer = marker;
-
-
-        var imagen = '<img src="images/km_50x50.png" alt="Julio Torres Ruiz" width="96" height="96">';
-          marker = L.marker(
-              [37.3109917, -5.9781292],
-              {
-                title: 'Julio Torres Ruiz',
-                icon: marker_icon
-              }
-            ).bindPopup (
-              '<div class="chip">'+
-              imagen+
-              '<div><a href="embajadores/julio.torres/">Julio Torres Ruiz</a></div>'+
-              '</div>'+
-              '<div>'+
-              '<br/>'+
-              '<h6><span class="small">Proyectos: <i>Por localizar</i></span></h6>'+
-              '</div>'+
-              '<hr class="barra invisible"/>'+
-              ''
-              );
-          marker.addTo(map);
-          var marcador = Object();
-          marcador.label = "Julio Torres Ruiz";
-          marcador.layer = marker;
-
-
-        var imagen = '<img src="images/km_50x50.png" alt="Lourdes Estrella Membrive Mingorance" width="96" height="96">';
-          marker = L.marker(
-              [37.3109917, -5.9781292],
-              {
-                title: 'Lourdes Estrella Membrive Mingorance',
-                icon: marker_icon
-              }
-            ).bindPopup (
-              '<div class="chip">'+
-              imagen+
-              '<div><a href="embajadores/lestrella.membrive/">Lourdes Estrella Membrive Mingorance</a></div>'+
-              '</div>'+
-              '<div>'+
-              '<br/>'+
-              '<h6><span class="small">Proyectos: <i>Por localizar</i></span></h6>'+
-              '</div>'+
-              '<hr class="barra invisible"/>'+
-              ''
-              );
-          marker.addTo(map);
-          var marcador = Object();
-          marcador.label = "Lourdes Estrella Membrive Mingorance";
-          marcador.layer = marker;
-
-
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+         
+         
+         
         var imagen = '<img src="images/km_50x50.png" alt="Lucía Periañez Ángeles" width="96" height="96">';
           marker = L.marker(
-              [37.3490705, -5.9861003],
+              [37.3818256,-6.0044561],
               {
                 title: 'Lucía Periañez Ángeles',
                 icon: marker_icon
@@ -815,7 +409,7 @@
               '</div>'+
               '<div>'+
               '<br/>'+
-              '<h6><span class="small">Proyectos: <i>Comunicación y Difusión KM</i></span></h6>'+
+              '<h6><span class="small">Proyectos: <i>Comunicación y Difusión KM, Por comprobar</i></span></h6>'+
               '</div>'+
               '<hr class="barra invisible"/>'+
               ''
@@ -827,231 +421,21 @@
             overlaysTree.children[3].children.push (marcador);
 
 
-        var imagen = '<img src="images/km_50x50.png" alt="Luis Colmenero" width="96" height="96">';
-          marker = L.marker(
-              [37.3109917, -5.9781292],
-              {
-                title: 'Luis Colmenero',
-                icon: marker_icon
-              }
-            ).bindPopup (
-              '<div class="chip">'+
-              imagen+
-              '<div><a href="embajadores/luis.colmenero/">Luis Colmenero</a></div>'+
-              '</div>'+
-              '<div>'+
-              '<br/>'+
-              '<h6><span class="small">Proyectos: <i>Por localizar</i></span></h6>'+
-              '</div>'+
-              '<hr class="barra invisible"/>'+
-              ''
-              );
-          marker.addTo(map);
-          var marcador = Object();
-          marcador.label = "Luis Colmenero";
-          marcador.layer = marker;
-
-
-        var imagen = '<img src="images/km_50x50.png" alt="Miguel Alberto Cueto Álvarez de Sotomayor" width="96" height="96">';
-          marker = L.marker(
-              [37.3109917, -5.9781292],
-              {
-                title: 'Miguel Alberto Cueto Álvarez de Sotomayor',
-                icon: marker_icon
-              }
-            ).bindPopup (
-              '<div class="chip">'+
-              imagen+
-              '<div><a href="embajadores/malberto.cueto/">Miguel Alberto Cueto Álvarez de Sotomayor</a></div>'+
-              '</div>'+
-              '<div>'+
-              '<br/>'+
-              '<h6><span class="small">Proyectos: <i>Por localizar</i></span></h6>'+
-              '</div>'+
-              '<hr class="barra invisible"/>'+
-              ''
-              );
-          marker.addTo(map);
-          var marcador = Object();
-          marcador.label = "Miguel Alberto Cueto Álvarez de Sotomayor";
-          marcador.layer = marker;
-
-
-        var imagen = '<img src="images/km_50x50.png" alt="Miguel Ángel Oliver" width="96" height="96">';
-          marker = L.marker(
-              [37.3109917, -5.9781292],
-              {
-                title: 'Miguel Ángel Oliver',
-                icon: marker_icon
-              }
-            ).bindPopup (
-              '<div class="chip">'+
-              imagen+
-              '<div><a href="embajadores/mangel.oliver/">Miguel Ángel Oliver</a></div>'+
-              '</div>'+
-              '<div>'+
-              '<br/>'+
-              '<h6><span class="small">Proyectos: <i>Por localizar</i></span></h6>'+
-              '</div>'+
-              '<hr class="barra invisible"/>'+
-              ''
-              );
-          marker.addTo(map);
-          var marcador = Object();
-          marcador.label = "Miguel Ángel Oliver";
-          marcador.layer = marker;
-
-
-        var imagen = '<img src="images/km_50x50.png" alt="Manuel Jesús Colmenero López" width="96" height="96">';
-          marker = L.marker(
-              [37.3109917, -5.9781292],
-              {
-                title: 'Manuel Jesús Colmenero López',
-                icon: marker_icon
-              }
-            ).bindPopup (
-              '<div class="chip">'+
-              imagen+
-              '<div><a href="embajadores/manuelj.colmenero/">Manuel Jesús Colmenero López</a></div>'+
-              '</div>'+
-              '<div>'+
-              '<br/>'+
-              '<h6><span class="small">Proyectos: <i>Por localizar</i></span></h6>'+
-              '</div>'+
-              '<hr class="barra invisible"/>'+
-              ''
-              );
-          marker.addTo(map);
-          var marcador = Object();
-          marcador.label = "Manuel Jesús Colmenero López";
-          marcador.layer = marker;
-
-
-        var imagen = '<img src="images/km_50x50.png" alt="Marcos Borrero Gaviño" width="96" height="96">';
-          marker = L.marker(
-              [37.3109917, -5.9781292],
-              {
-                title: 'Marcos Borrero Gaviño',
-                icon: marker_icon
-              }
-            ).bindPopup (
-              '<div class="chip">'+
-              imagen+
-              '<div><a href="embajadores/marcos.borrero/">Marcos Borrero Gaviño</a></div>'+
-              '</div>'+
-              '<div>'+
-              '<br/>'+
-              '<h6><span class="small">Proyectos: <i>Por localizar</i></span></h6>'+
-              '</div>'+
-              '<hr class="barra invisible"/>'+
-              ''
-              );
-          marker.addTo(map);
-          var marcador = Object();
-          marcador.label = "Marcos Borrero Gaviño";
-          marcador.layer = marker;
-
-
-        var imagen = '<img src="images/km_50x50.png" alt="María del Carmen López Jiménez" width="96" height="96">';
-          marker = L.marker(
-              [37.3109917, -5.9781292],
-              {
-                title: 'María del Carmen López Jiménez',
-                icon: marker_icon
-              }
-            ).bindPopup (
-              '<div class="chip">'+
-              imagen+
-              '<div><a href="embajadores/mariac.lopez.jimenez/">María del Carmen López Jiménez</a></div>'+
-              '</div>'+
-              '<div>'+
-              '<br/>'+
-              '<h6><span class="small">Proyectos: <i>Por localizar</i></span></h6>'+
-              '</div>'+
-              '<hr class="barra invisible"/>'+
-              ''
-              );
-          marker.addTo(map);
-          var marcador = Object();
-          marcador.label = "María del Carmen López Jiménez";
-          marcador.layer = marker;
-
-
-        var imagen = '<img src="images/km_50x50.png" alt="Lola García Pérez" width="96" height="96">';
-          marker = L.marker(
-              [37.3109917, -5.9781292],
-              {
-                title: 'Lola García Pérez',
-                icon: marker_icon
-              }
-            ).bindPopup (
-              '<div class="chip">'+
-              imagen+
-              '<div><a href="embajadores/mariad.garcia.perez/">Lola García Pérez</a></div>'+
-              '</div>'+
-              '<div>'+
-              '<br/>'+
-              '<h6><span class="small">Proyectos: <i>Por localizar</i></span></h6>'+
-              '</div>'+
-              '<hr class="barra invisible"/>'+
-              ''
-              );
-          marker.addTo(map);
-          var marcador = Object();
-          marcador.label = "Lola García Pérez";
-          marcador.layer = marker;
-
-
-        var imagen = '<img src="images/km_50x50.png" alt="Lola López Falantes" width="96" height="96">';
-          marker = L.marker(
-              [37.3109917, -5.9781292],
-              {
-                title: 'Lola López Falantes',
-                icon: marker_icon
-              }
-            ).bindPopup (
-              '<div class="chip">'+
-              imagen+
-              '<div><a href="embajadores/mariad.lopez.falantes/">Lola López Falantes</a></div>'+
-              '</div>'+
-              '<div>'+
-              '<br/>'+
-              '<h6><span class="small">Proyectos: <i>Por localizar</i></span></h6>'+
-              '</div>'+
-              '<hr class="barra invisible"/>'+
-              ''
-              );
-          marker.addTo(map);
-          var marcador = Object();
-          marcador.label = "Lola López Falantes";
-          marcador.layer = marker;
-
-
-        var imagen = '<img src="images/km_50x50.png" alt="María del Mar Mejías Ruiz" width="96" height="96">';
-          marker = L.marker(
-              [37.3109917, -5.9781292],
-              {
-                title: 'María del Mar Mejías Ruiz',
-                icon: marker_icon
-              }
-            ).bindPopup (
-              '<div class="chip">'+
-              imagen+
-              '<div><a href="embajadores/mariam.mejias/">María del Mar Mejías Ruiz</a></div>'+
-              '</div>'+
-              '<div>'+
-              '<br/>'+
-              '<h6><span class="small">Proyectos: <i>Por localizar</i></span></h6>'+
-              '</div>'+
-              '<hr class="barra invisible"/>'+
-              ''
-              );
-          marker.addTo(map);
-          var marcador = Object();
-          marcador.label = "María del Mar Mejías Ruiz";
-          marcador.layer = marker;
-
-
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+         
+         
+         
         var imagen = '<img src="images/personas/mariar.bernal.png" alt="Mª del Rocío Bernal Guzmán" width="96" height="96">';
           marker = L.marker(
               [37.3796122,-5.9573761],
@@ -1078,56 +462,14 @@
             overlaysTree.children[4].children.push (marcador);
 
 
-        var imagen = '<img src="images/km_50x50.png" alt="María Sacramento Toro Cárdenas" width="96" height="96">';
-          marker = L.marker(
-              [37.3109917, -5.9781292],
-              {
-                title: 'María Sacramento Toro Cárdenas',
-                icon: marker_icon
-              }
-            ).bindPopup (
-              '<div class="chip">'+
-              imagen+
-              '<div><a href="embajadores/marias.toro/">María Sacramento Toro Cárdenas</a></div>'+
-              '</div>'+
-              '<div>'+
-              '<br/>'+
-              '<h6><span class="small">Proyectos: <i>Por localizar</i></span></h6>'+
-              '</div>'+
-              '<hr class="barra invisible"/>'+
-              ''
-              );
-          marker.addTo(map);
-          var marcador = Object();
-          marcador.label = "María Sacramento Toro Cárdenas";
-          marcador.layer = marker;
-
-
-        var imagen = '<img src="images/km_50x50.png" alt="María José Llamas Moreno" width="96" height="96">';
-          marker = L.marker(
-              [37.3109917, -5.9781292],
-              {
-                title: 'María José Llamas Moreno',
-                icon: marker_icon
-              }
-            ).bindPopup (
-              '<div class="chip">'+
-              imagen+
-              '<div><a href="embajadores/mjose.llamas/">María José Llamas Moreno</a></div>'+
-              '</div>'+
-              '<div>'+
-              '<br/>'+
-              '<h6><span class="small">Proyectos: <i>Por localizar</i></span></h6>'+
-              '</div>'+
-              '<hr class="barra invisible"/>'+
-              ''
-              );
-          marker.addTo(map);
-          var marcador = Object();
-          marcador.label = "María José Llamas Moreno";
-          marcador.layer = marker;
-
-
+        
+        
+        
+        
+        
+         
+         
+         
         var imagen = '<img src="images/km_50x50.png" alt="Pedro Blanco Wasmer" width="96" height="96">';
           marker = L.marker(
               [37.8842828, -4.7819495],
@@ -1155,135 +497,18 @@
             overlaysTree.children[1].children.push (marcador);
 
 
-        var imagen = '<img src="images/km_50x50.png" alt="Rafael Gamero" width="96" height="96">';
-          marker = L.marker(
-              [37.3109917, -5.9781292],
-              {
-                title: 'Rafael Gamero',
-                icon: marker_icon
-              }
-            ).bindPopup (
-              '<div class="chip">'+
-              imagen+
-              '<div><a href="embajadores/rafael.gamero/">Rafael Gamero</a></div>'+
-              '</div>'+
-              '<div>'+
-              '<br/>'+
-              '<h6><span class="small">Proyectos: <i>Por localizar</i></span></h6>'+
-              '</div>'+
-              '<hr class="barra invisible"/>'+
-              ''
-              );
-          marker.addTo(map);
-          var marcador = Object();
-          marcador.label = "Rafael Gamero";
-          marcador.layer = marker;
-
-
-        var imagen = '<img src="images/km_50x50.png" alt="Rafael Márquez" width="96" height="96">';
-          marker = L.marker(
-              [37.3109917, -5.9781292],
-              {
-                title: 'Rafael Márquez',
-                icon: marker_icon
-              }
-            ).bindPopup (
-              '<div class="chip">'+
-              imagen+
-              '<div><a href="embajadores/rafael.marquez/">Rafael Márquez</a></div>'+
-              '</div>'+
-              '<div>'+
-              '<br/>'+
-              '<h6><span class="small">Proyectos: <i>Por localizar</i></span></h6>'+
-              '</div>'+
-              '<hr class="barra invisible"/>'+
-              ''
-              );
-          marker.addTo(map);
-          var marcador = Object();
-          marcador.label = "Rafael Márquez";
-          marcador.layer = marker;
-
-
-        var imagen = '<img src="images/km_50x50.png" alt="Reyes Boralla" width="96" height="96">';
-          marker = L.marker(
-              [37.3109917, -5.9781292],
-              {
-                title: 'Reyes Boralla',
-                icon: marker_icon
-              }
-            ).bindPopup (
-              '<div class="chip">'+
-              imagen+
-              '<div><a href="embajadores/reyes.boralla/">Reyes Boralla</a></div>'+
-              '</div>'+
-              '<div>'+
-              '<br/>'+
-              '<h6><span class="small">Proyectos: <i>Por localizar</i></span></h6>'+
-              '</div>'+
-              '<hr class="barra invisible"/>'+
-              ''
-              );
-          marker.addTo(map);
-          var marcador = Object();
-          marcador.label = "Reyes Boralla";
-          marcador.layer = marker;
-
-
-        var imagen = '<img src="images/km_50x50.png" alt="Rosario Torres Manzano" width="96" height="96">';
-          marker = L.marker(
-              [37.3109917, -5.9781292],
-              {
-                title: 'Rosario Torres Manzano',
-                icon: marker_icon
-              }
-            ).bindPopup (
-              '<div class="chip">'+
-              imagen+
-              '<div><a href="embajadores/rosario.torres.manzano/">Rosario Torres Manzano</a></div>'+
-              '</div>'+
-              '<div>'+
-              '<br/>'+
-              '<h6><span class="small">Proyectos: <i>Por localizar</i></span></h6>'+
-              '</div>'+
-              '<hr class="barra invisible"/>'+
-              ''
-              );
-          marker.addTo(map);
-          var marcador = Object();
-          marcador.label = "Rosario Torres Manzano";
-          marcador.layer = marker;
-
-
-        var imagen = '<img src="images/km_50x50.png" alt="Verónica Sirvent Segura" width="96" height="96">';
-          marker = L.marker(
-              [37.3109917, -5.9781292],
-              {
-                title: 'Verónica Sirvent Segura',
-                icon: marker_icon
-              }
-            ).bindPopup (
-              '<div class="chip">'+
-              imagen+
-              '<div><a href="embajadores/veronica.sirvent/">Verónica Sirvent Segura</a></div>'+
-              '</div>'+
-              '<div>'+
-              '<br/>'+
-              '<h6><span class="small">Proyectos: <i>Por localizar</i></span></h6>'+
-              '</div>'+
-              '<hr class="barra invisible"/>'+
-              ''
-              );
-          marker.addTo(map);
-          var marcador = Object();
-          marcador.label = "Verónica Sirvent Segura";
-          marcador.layer = marker;
-
-
+        
+        
+        
+        
+        
+        
+        
+        
 
       map.addLayer(stamen_layer_watercolor_low);
       map.addLayer(stamen_layer_watercolor_high);
-      map.addLayer(stamen_layer_tonerlines);
+      map.addLayer(capaToponimos);
 
 
 
