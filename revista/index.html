@@ -3,8 +3,75 @@
 <head>
     <meta charset="UTF-8" />
     <title>Layout de revista por columnas</title>
+    <style>
+        body {
+            width: 960px;
+            margin: 0 auto;
+        }
+
+        .contenedor_columnas {
+            width: 100%;
+            column-count: 3;
+            column-fill: balance;
+            column-gap: 10px;
+            text-align: center;
+        }
+        
+        .articulo {
+            display: inline-block;
+            border-bottom: 1em white solid;
+            background-color: lightgrey;
+            position: relative;
+        }
+
+        .articulo:hover {
+            background-color: blanchedalmond;
+        }
+
+        .seccion_articulo {
+            right: 1em;
+            background-color: limegreen;
+            color: black;
+            padding: 3px 6px 3px 6px;
+            font-size: smaller;
+            position: absolute;
+        }
+
+        .imagen_articulo img{
+            width: 310px;
+            max-height: 400px;
+            /* object-fit: contain; */
+            /* object-fit: fill; */
+            object-fit: cover;
+            /* filter: grayscale(100%); */
+        }
+
+        .imagen_articulo img:hover {
+            filter: grayscale(0%);
+        }
+
+        .enlace_articulo {
+            text-decoration: none;
+            color: darkslategray;
+        }
+
+        .enlace_articulo:hover {
+            text-decoration: none;
+            color: black;
+        }
+
+        .titulo_articulo {
+            padding-right: 1em;
+            padding-left: 1em;
+        }
+
+
+    </style>
 </head>
 <body>
+    <div class="cabecera">
+        <h1>Cabecera</h1>
+    </div>
     <div class="contenedor_columnas">
         <div class="articulo">
             <a href="." class="enlace_articulo">
@@ -12,7 +79,20 @@
                     <img src="img/Preparativos.png"/>
                 </div>
                 <div class="titulo_articulo">
-                    <h3>Artículo 1</h3>
+                    <h2>Artículo 1</h2>
+                </div>
+            </a>
+        </div>
+        <div class="articulo">
+            <a href="." class="enlace_articulo">
+                <div class="seccion_articulo">
+                    <i class="fa fa-regular fa-hand-sparkles"></i>&nbsp;&nbsp;Saludo
+                </div>
+                <div class="imagen_articulo">
+                    <img src="img/Italica_448.jpg"/>
+                </div>
+                <div class="titulo_articulo">
+                    <h2>Artículo 4</h2>
                 </div>
             </a>
         </div>
@@ -22,17 +102,17 @@
                     <img src="img/Restout_-_Morpheus.jpg"/>
                 </div>
                 <div class="titulo_articulo">
-                    <h3>Artículo 2</h3>
+                    <h2>Artículo 2</h2>
                 </div>
             </a>
         </div>
         <div class="articulo">
             <a href="." class="enlace_articulo">
                 <div class="imagen_articulo">
-                    <img src="img/Italica_246.jpg"/>
+                    <img src="img/Restout_-_Morpheus.jpg"/>
                 </div>
                 <div class="titulo_articulo">
-                    <h3>Artículo 3</h3>
+                    <h2>Artículo 2</h2>
                 </div>
             </a>
         </div>
@@ -42,7 +122,67 @@
                     <img src="img/Italica_448.jpg"/>
                 </div>
                 <div class="titulo_articulo">
-                    <h3>Artículo 4</h3>
+                    <h2>Artículo 4</h2>
+                </div>
+            </a>
+        </div>
+        <div class="articulo">
+            <a href="." class="enlace_articulo">
+                <div class="imagen_articulo">
+                    <img src="img/Restout_-_Morpheus.jpg"/>
+                </div>
+                <div class="titulo_articulo">
+                    <h2>Artículo 2</h2>
+                </div>
+            </a>
+        </div>
+        <div class="articulo">
+            <a href="." class="enlace_articulo">
+                <div class="imagen_articulo">
+                    <img src="img/Italica_448.jpg"/>
+                </div>
+                <div class="titulo_articulo">
+                    <h2>Artículo 4</h2>
+                </div>
+            </a>
+        </div>
+        <div class="articulo">
+            <a href="." class="enlace_articulo">
+                <div class="imagen_articulo">
+                    <img src="img/Italica_246.jpg"/>
+                </div>
+                <div class="titulo_articulo">
+                    <h2>Artículo 3</h2>
+                </div>
+            </a>
+        </div>
+        <div class="articulo">
+            <a href="." class="enlace_articulo">
+                <div class="imagen_articulo">
+                    <img src="img/Restout_-_Morpheus.jpg"/>
+                </div>
+                <div class="titulo_articulo">
+                    <h2>Artículo 2</h2>
+                </div>
+            </a>
+        </div>
+        <div class="articulo">
+            <a href="." class="enlace_articulo">
+                <div class="imagen_articulo">
+                    <img src="img/Italica_448.jpg"/>
+                </div>
+                <div class="titulo_articulo">
+                    <h2>Artículo 4</h2>
+                </div>
+            </a>
+        </div>
+        <div class="articulo">
+            <a href="." class="enlace_articulo">
+                <div class="imagen_articulo">
+                    <img src="img/Restout_-_Morpheus.jpg"/>
+                </div>
+                <div class="titulo_articulo">
+                    <h2>Artículo 2</h2>
                 </div>
             </a>
         </div>
