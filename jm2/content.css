@@ -31,7 +31,7 @@ input,select,textarea,.feedback{font-family:"Encode Sans",​Arial,Helvetica,san
 a{color:#007691}
 /* Header is also in single page */
 #header h1{margin:0;font-size:1em;color:#004F66}
-#header,#emptyHeader,#nodeDecoration{height:auto;font-size:1em;text-align:left;letter-spacing:.5px;padding:26px 35px 34px 20px;border:1px solid #ddd;margin-bottom:0;background:url(_intef_title_bg.png) no-repeat 50% bottom}
+#header,#emptyHeader,#nodeDecoration{height:auto;font-size:1em;text-align:left;letter-spacing:.5px;padding:26px 35px 34px 20px;border:1px solid #ddd;margin-bottom:0;background:url(intef_title_bg.png) no-repeat 50% bottom}
 .exe-single-page #header{font-size:1.55em}
 #nodeTitle{font-size:1.55em;margin:0;color:#004F66}
 #header h1,#nodeTitle{text-shadow:0 0 8px rgba(255,255,255,.6),0 0 5px rgba(255,255,255,.6),0 0 2px rgba(255,255,255,.9)}
@@ -95,7 +95,7 @@ li{list-style-position:outside}
 /* Hide/Show iDevice */
 .toggle-idevice{text-align:right;display:block;margin-right:13px}
 .iDevice_header .toggle-idevice{position:absolute;right:13px;bottom:13px;margin:0}
-.toggle-idevice a{display:inline-block;width:20px;height:20px;background:url(_intef_icons.png) no-repeat 0 -20px}
+.toggle-idevice a{display:inline-block;width:20px;height:20px;background:url(intef_icons.png) no-repeat 0 -20px}
 .toggle-idevice .show-idevice{background-position:0 0}
 .toggle-idevice span,#printNode a span{position:absolute;overflow:hidden;clip:rect(0,0,0,0);height:0}
 /* eXe < 2.1 */
@@ -106,7 +106,7 @@ li{list-style-position:outside}
 #packageLicense p{margin:20px 0}
 #packageLicense a{color:#ecd078;text-decoration:underline}
 #packageLicense.propietary{position:absolute;overflow:hidden;clip:rect(0,0,0,0);height:0}
-#packageLicense.cc{padding:0 20px 0 110px;background:#526668 url(_intef_licenses.gif) no-repeat 20px 5px}
+#packageLicense.cc{padding:0 20px 0 110px;background:#526668 url(intef_licenses.gif) no-repeat 20px 5px}
 #packageLicense.cc-by-sa{background-position:20px -95px}
 #packageLicense.cc-by-nd{background-position:20px -195px}
 #packageLicense.cc-by-nc{background-position:20px -295px}
@@ -124,7 +124,7 @@ li{list-style-position:outside}
 
 #printNode{margin:0;position:absolute;top:33px;right:33px}
 #printNode.with-toggler{margin-bottom:0}
-#printNode a{display:block;width:30px;height:30px;background:#fff url(_intef_print.png) no-repeat 50% 50%;box-shadow:rgba(0, 0, 0, 0.3) 3px 3px 4px;border-radius:15px}
+#printNode a{display:block;width:30px;height:30px;background:#fff url(intef_print.png) no-repeat 50% 50%;box-shadow:rgba(0, 0, 0, 0.3) 3px 3px 4px;border-radius:15px}
 
 @media print{
 	#nodeDecoration,#header,#emptyHeader{color:#000;text-shadow:none;background:none;border:none;border-bottom:1px solid #E2E2E2;padding:20px 0}
