@@ -37,15 +37,29 @@
             position: absolute;
         }
 
-        .imagen_articulo img{
+        .imagen_articulo img {
             width: 310px;
             max-height: 400px;
             /* object-fit: contain; */
             /* object-fit: fill; */
             object-fit: cover;
             /* filter: grayscale(100%); */
+            /* background: url('logo_limpio_redondo_64px.png') no-repeat top right; */
+        	/* padding-top: 22px; */
+            background: url('secciones/Actualidad.png') no-repeat top right;
+        	padding-top: 22px;
         }
-
+        /*
+        .imagen_articulo::before {
+            content: 'Imagen:';
+        }
+        */
+        
+        /* .imagen_articulo::before { */
+            /* content: '<span class="seccion_articulo"><i class="fa fa-regular fa-hand-sparkles"></i>Sección</span>'; */
+            /* content: url('data:image/svg+xml;%20charset=utf8,%20%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20height%3D%2260%22%20width%3D%22200%22%3E%0A%0A%20%20%3CforeignObject%20y%3D%220%22%20x%3D%220%22%20height%3D%22100%25%22%20width%3D%22100%25%22%3E%0A%09%3Cdiv%20style%3D%22color%3A%20blue%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxhtml%22%3E%0A%09%09I%20am%20%3Cpre%3EHTML%3C%2Fpre%3E%0A%09%3C%2Fdiv%3E%0A%20%20%3C%2FforeignObject%3E%0A%3C%2Fsvg%3E'); */
+        /* } */
+        
         .imagen_articulo img:hover {
             filter: grayscale(0%);
         }
