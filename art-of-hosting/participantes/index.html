@@ -1,0 +1,311 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>El Arte de la Innovación Colaborativa | Atlas de participantes del taller &#x27;El arte de la Innovación Colaborativa&#x27;, octubre 2023</title>
+  <base href="https://pedroblanco.github.io/art-of-hosting/">
+  <meta name="description" content="Atlas de participantes del taller &#x27;El arte de la Innovación Colaborativa&#x27;, octubre 2023">
+  <meta name="keywords" content="static site, generator, templates, ">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="bakeit-v0.2.6 (PedroBlanco/bakeit)">
+  <meta name="application-name" content="El Arte de la Innovación Colaborativa">
+  <meta name="version" content="0.0.1">
+  <meta http-equiv="Content-Type" content="text/html">
+  <link rel="icon" href="cropped-favicon-iaap-32x32.jpg" sizes="32x32">
+  <link rel="icon" href="cropped-favicon-iaap-192x192.jpg" sizes="192x192">
+  <link rel="apple-touch-icon" href="cropped-favicon-iaap-180x180.jpg">
+  <meta name="msapplication-TileImage" content="cropped-favicon-iaap-270x270.jpg">
+  
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
+    crossorigin="anonymous">
+  
+
+  <link rel="stylesheet" type="text/css" href="css/leaflet.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/MarkerCluster.Default.css">
+  <link rel="stylesheet" type="text/css" href="css/MarkerCluster.css">
+  <link rel="stylesheet" type="text/css" href="css/leaflet-search.min.css">
+  <link rel="stylesheet" type="text/css" href="css/leaflet-search.mobile.min.css">
+  
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
+    crossorigin="anonymous"></script>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" 
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" 
+    crossorigin="anonymous"></script>
+
+  <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" 
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" 
+    crossorigin="anonymous"></script>
+
+
+  <script type="text/javascript" src="js/leaflet.js"></script>
+
+
+  <script type="text/javascript" src="js/leaflet.markercluster.js"></script>
+  
+  <script type="text/javascript" src="js/leaflet-search.min.js"></script>
+
+
+
+
+  <script type="text/javascript" src="js/leaflet.LimitZoom.js"></script>
+
+  <script type="text/javascript" src="js/leaflet.ContinuousZoom.js"></script>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+
+
+
+  
+  <script type="text/javascript" src="js/atlas.js"></script>
+
+</head>
+
+<body>
+    <a href="sitemap.html" alt="Mapa del sitio" aria-label="Mapa del sitio"></a>
+
+    
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" aria-label="Barra de navegación">
+      <a class="navbar-brand text-light font-weight-bold" href="index.html" aria-label="Página principal">El Arte de la Innovación Colaborativa</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div div class="collapse navbar-collapse" id="collapsingNavbar" aria-label="Menú">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link text-light" href="/participantes/" aria-label="Participantes">Participantes</a>
+          <div id="findbox" aria-label="Buscar"></div>
+        </div>
+      </div>
+  </nav>
+
+    
+  <div id="map" class="mapstyle"></div>
+
+  <script>
+  var app = new Vue({
+    el: '#map',
+    
+    data: {
+    },
+
+    mounted: function () {
+
+
+      var scale_options = init_scale_options ();
+
+      var zoom_options = init_zoom_options ();
+
+      var cluster_options = init_cluster_options ();
+
+      var options = init_map_options ( 8 );
+
+      var icon_oil_drop = init_icon_oil_drop ();
+
+      var map = L.map('map', options ).fitBounds([[38.728362,-7.547607],[35.982437,-1.582031]]);
+
+      // Grupo de marcadores
+      var marker;
+      var markers = L.markerClusterGroup( cluster_options );
+
+      // Capa de mapa (fondo)
+      var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap'
+      });
+
+      var marker;
+
+        var imagen = '<img src="images/personas/josem.cabrerizo.jpeg" alt="Jose Manuel Cabrerizo Rentero" width="96" height="96">';
+          marker = L.marker(
+              [37.4085304,-6.0064178],
+              {
+                title: 'Jose Manuel Cabrerizo Rentero',
+                icon: icon_oil_drop
+              }
+            ).bindPopup (
+              '<div class="chip">'+
+              imagen+
+              '<div><a href="/participantes/Jose_Manuel_Cabrerizo_Rentero/">Jose Manuel Cabrerizo Rentero</a></div>'+
+              '</div>'+
+              '<div>'+
+              '<br/>'+
+              '<h6><span class="small"><i>Dirección Gerencia Servicio Andaluz de Empleo</i></span></h6>'+
+              '</div>'+
+              '<hr class="barra invisible"/>'+
+              ''
+              );
+          markers.addLayer(marker);
+        var imagen = '<img src="images/cropped-favicon-iaap-180x180.jpg" alt="Kiko Rojas Bommatty" width="96" height="96">';
+          marker = L.marker(
+              [36.5168207,-6.2897799],
+              {
+                title: 'Kiko Rojas Bommatty',
+                icon: icon_oil_drop
+              }
+            ).bindPopup (
+              '<div class="chip">'+
+              imagen+
+              '<div><a href="/participantes/Kiko_Rojas_Bommatty/">Kiko Rojas Bommatty</a></div>'+
+              '</div>'+
+              '<div>'+
+              '<br/>'+
+              '<h6><span class="small"><i>DT Empleo Cádiz</i></span></h6>'+
+              '</div>'+
+              '<hr class="barra invisible"/>'+
+              ''
+              );
+          markers.addLayer(marker);
+        var imagen = '<img src="images/cropped-favicon-iaap-180x180.jpg" alt="Lucia del Carmen  Periáñez Ángeles" width="96" height="96">';
+          marker = L.marker(
+              [37.3490705,-5.9864865],
+              {
+                title: 'Lucia del Carmen  Periáñez Ángeles',
+                icon: icon_oil_drop
+              }
+            ).bindPopup (
+              '<div class="chip">'+
+              imagen+
+              '<div><a href="/participantes/Lucia_del_Carmen__Perianez_Angeles/">Lucia del Carmen  Periáñez Ángeles</a></div>'+
+              '</div>'+
+              '<div>'+
+              '<br/>'+
+              '<h6><span class="small"><i>Dirección Provincial del Sae</i></span></h6>'+
+              '</div>'+
+              '<hr class="barra invisible"/>'+
+              ''
+              );
+          markers.addLayer(marker);
+        var imagen = '<img src="images/cropped-favicon-iaap-180x180.jpg" alt="Maria José  Lopez Sanfeliu" width="96" height="96">';
+          marker = L.marker(
+              [37.3490705,-5.9864865],
+              {
+                title: 'Maria José  Lopez Sanfeliu',
+                icon: icon_oil_drop
+              }
+            ).bindPopup (
+              '<div class="chip">'+
+              imagen+
+              '<div><a href="/participantes/Maria_Jose__Lopez_Sanfeliu/">Maria José  Lopez Sanfeliu</a></div>'+
+              '</div>'+
+              '<div>'+
+              '<br/>'+
+              '<h6><span class="small"><i>DT empleo Sevilla</i></span></h6>'+
+              '</div>'+
+              '<hr class="barra invisible"/>'+
+              ''
+              );
+          markers.addLayer(marker);
+        var imagen = '<img src="images/personas/oscar.valencia.jpeg" alt="Óscar Valencia Quintana" width="96" height="96">';
+          marker = L.marker(
+              [37.366185,-5.9846344],
+              {
+                title: 'Óscar Valencia Quintana',
+                icon: icon_oil_drop
+              }
+            ).bindPopup (
+              '<div class="chip">'+
+              imagen+
+              '<div><a href="/participantes/Oscar_Valencia_Quintana/">Óscar Valencia Quintana</a></div>'+
+              '</div>'+
+              '<div>'+
+              '<br/>'+
+              '<h6><span class="small"><i>Consejería de Agricultura, Pesca, Agua y Desarrollo Rural. D.G.Ayudas Directas y de Mercado</i></span></h6>'+
+              '</div>'+
+              '<hr class="barra invisible"/>'+
+              ''
+              );
+          markers.addLayer(marker);
+
+      map.addLayer(markers);
+
+      map.addLayer(osm);
+
+      // Si pongo las opciones de búsqueda al principio me da error al buscar (?!)
+      var search_options = init_search_options ( markers );
+
+      var search_control = new L.Control.Search ( search_options );
+
+      // Tal vez podría meter _timeout en las opciones de búsqueda
+      var _timeout = 700;
+      console.debug ( 'Configuramos retardo a ' + _timeout + 'ms' );
+
+      search_control.on('search:locationfound', function(e) {
+
+      setTimeout ( function() {
+        
+        console.debug('Introduciendo retardo...');
+		
+        //console.log('search:locationfound', );
+
+        //map.removeLayer(this._markerSearch)
+
+        if ( ! this.buscando ){
+          console.log( 'Buscando: NO?!' );
+          this.buscando = true;
+        } else {
+          console.log( 'Buscando:' + this.buscando );
+        }
+
+        if ( e.layer.__parent.spiderfy ) {
+          console.log ( 'Cluster?' );
+          console.log ( e.layer );
+          console.log ( e.layer.__parent );
+          e.layer.__parent.spiderfy();
+          e.layer.openPopup();
+        } else {
+          console.log ( 'Marcador?' );
+          e.layer.openPopup();
+        }
+        
+        console.log ( 'He encontrado...' );
+        console.log ( e );
+
+      }, _timeout );
+      }).on('search:collapsed', function(e) {
+
+        console.log ( 'TODO: Mover vista a posición inicial?' );
+
+        if ( this.buscando ){
+          this.buscando = false;
+          console.log( 'Buscando:' + this.buscando );
+        } else {
+          console.log( 'No buscando!' );
+        }
+
+      });
+
+      // Comprobamos qué evento se dispara el último: zoomend o moveend
+      map.on('zoomend', function (e) {
+        console.debug('Mapa: zoomend');
+      });
+      map.on('moveend', function (e) {
+        console.debug('Mapa: moveend');
+      });
+      // Parece que moveend se dispara siempre y además se dispara siempre el último
+
+      map.addControl( search_control ); //inizialize search control
+
+      // Añado etiqueta aria-label a (los) campo(s) de búsqueda (puede que no pase el test WAI si se añade con JS)
+      document.querySelectorAll('input.search-input')
+              .forEach(function(campo) {
+                campo.setAttribute('aria-label', "Buscar");
+              });
+      document.querySelectorAll('a.search-button')
+              .forEach(function(campo) {
+                campo.setAttribute('aria-label', "Buscar");
+              });
+
+      L.control.scale ( scale_options ).addTo ( map );
+
+      L.control.zoom ( zoom_options ).addTo ( map );
+    }
+  });
+  </script>
+
+    
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+html, body {
+  min-height: 100% !important;
+  height:     100%;
+  padding-top: 28px;
+  padding-bottom: 0px;
+  padding-right: 0px;
+  padding-left: 0px;
+  margin:  0px 0px 0px 0px;
+}
+.content-window {
+  margin-top: 20px;
+  margin-bottom: 0px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.mapstyle {
+  width: 100%; 
+  height: 100%; 
+}
+.wrapper {
+  display: flex;
+  width: 100%;
+}
+#sidebar {
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 999;
+  background: #7386D5;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+.embedded-frame {
+  width: 100%;
+  height: 70vh;
+  border: 0px;
+}
+
+.nav-tabs .nav-link {
+  font-size: 20px;
+}
+
+.navbar-nav > .nav-link {
+  font-size: 20px;
+  font-style: italic;
+}
+
+.navbar-nav > .nav-link:focus {
+  text-decoration: underline;
+}
+
+.navbar-nav > .nav-link:hover{
+  text-decoration: underline;
+}
+
+.navbar-nav > .nav-link:active {
+  text-decoration: underline;
+}  
+
+#back_link {
+  padding-right: 1em;
+}
+
+.chip {
+  display: inline-block;
+  padding: 0 25px;
+  height: 50px;
+  font-size: 16px;
+  line-height: 50px;
+  border-radius: 25px;
+  background-color: #f1f1f1;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.chip div {
+  display: inline-block;
+  width: fit-content;
+  position: relative;
+}
+
+.chip img {
+  float: left;
+  margin: 0 10px 0 -25px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.barra {
+  width: 350px;
+}
+
+.leaflet-popup-content {
+  width: fit-content !important;
+}
+
+.leaflet-popup-content-wrapper {
+  width: fit-content !important;
+}
