@@ -118,6 +118,26 @@
 
       var marker;
 
+        var imagen = '<img src="images/cropped-favicon-iaap-180x180.jpg" alt="Cristina  Corbacho" width="96" height="96">';
+          marker = L.marker(
+              [36.535663,-6.2928938],
+              {
+                title: 'Cristina  Corbacho',
+                icon: icon_oil_drop
+              }
+            ).bindPopup (
+              '<div class="chip">'+
+              imagen+
+              '<div><a href="participantes/Cristina__Corbacho_/">Cristina  Corbacho</a></div>'+
+              '</div>'+
+              '<div>'+
+              '<br/>'+
+              '<h6><span class="small"><i></i></span></h6>'+
+              '</div>'+
+              '<hr class="barra invisible"/>'+
+              ''
+              );
+          markers.addLayer(marker);
         var imagen = '<img src="images/personas/josem.cabrerizo.jpeg" alt="Jose Manuel Cabrerizo Rentero" width="96" height="96">';
           marker = L.marker(
               [37.4085304,-6.0064178],

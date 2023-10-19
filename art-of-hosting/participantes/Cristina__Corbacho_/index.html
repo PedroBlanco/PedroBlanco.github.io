@@ -3,7 +3,7 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <title>Site Map | Atlas de participantes del taller &#x27;El arte de la Innovación Colaborativa&#x27;, octubre 2023</title>
+  <title>Cristina  Corbacho | Atlas de participantes del taller &#x27;El arte de la Innovación Colaborativa&#x27;, octubre 2023</title>
   <base href="https://pedroblanco.github.io/art-of-hosting/">
   <meta name="description" content="Atlas de participantes del taller &#x27;El arte de la Innovación Colaborativa&#x27;, octubre 2023">
   <meta name="keywords" content="static site, generator, templates, ">
@@ -64,6 +64,30 @@
 
     
   <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" aria-label="Barra de navegación">
+      <a id="back_link" href="javascript:history.back()" aria-label="Volver">
+        <span class="carousel-control-prev-icon"></span>
+      </a>
+      <script>
+        // Desde https://stackoverflow.com/questions/8814472/how-to-make-an-html-back_link
+        // Respuesta: https://stackoverflow.com/posts/46163215
+          var element = document.getElementById('back_link');
+
+        // Provide a standard href to facilitate standard browser features such as 
+        //  - Hover to see link
+        //  - Right click and copy link
+        //  - Right click and open in new tab
+        element.setAttribute('href', document.referrer);
+
+        // We can't let the browser use the above href for navigation. If it does, 
+        // the browser will think that it is a regular link, and place the current 
+        // page on the browser history, so that if the user clicks "back" again,
+        // it'll actually return to this page. We need to perform a native back to
+        // integrate properly into the browser's history behavior
+        element.onclick = function() {
+          history.back();
+          return false;
+        }
+      </script>
       <a class="navbar-brand text-light font-weight-bold" href="index.html" aria-label="Página principal">El Arte de la Innovación Colaborativa</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -76,20 +100,19 @@
   </nav>
 
     
-  <div class="content-window">
-    <div class="container-fluid">
-      <div class="col-md-12">
-        <h4>Site Map</h4>
-        <p><a href="participantes/Cristina__Corbacho_">Cristina  Corbacho</a></p>
-        <p><a href="participantes/">El Arte de la Innovación Colaborativa</a></p>
-        <p><a href="participantes/Jose_Manuel_Cabrerizo_Rentero">Jose Manuel Cabrerizo Rentero</a></p>
-        <p><a href="participantes/Kiko_Rojas_Bommatty">Kiko Rojas Bommatty</a></p>
-        <p><a href="participantes/Lucia_del_Carmen__Perianez_Angeles">Lucia del Carmen  Periáñez Ángeles</a></p>
-        <p><a href="participantes/Maria_Jose__Lopez_Sanfeliu">Maria José  Lopez Sanfeliu</a></p>
-        <p><a href="participantes/Oscar_Valencia_Quintana">Óscar Valencia Quintana</a></p>
-      </div>
+    <div class="content-window">
+        <div class="container-fluid">
+            <div class="col-md-12">
+                <div arial-label="Datos del participante">
+                    <h1>Cristina  Corbacho: </h1>
+                    <ul>
+                        <li><h2>Email: cristinaa.corbacho@juntadeandalucia.es</h2></li>
+                        <li><h2>Dirección/coordenadas: Calle Fernando el catolico 3</h2></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 
     
 </body>
