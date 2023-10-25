@@ -3,7 +3,7 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <title>Site Map | Atlas de participantes del taller &#x27;El arte de la Innovación Colaborativa&#x27;, octubre 2023</title>
+  <title>Laura Moreno Arrabal | Atlas de participantes del taller &#x27;El arte de la Innovación Colaborativa&#x27;, octubre 2023</title>
   <base href="https://pedroblanco.github.io/art-of-hosting/">
   <meta name="description" content="Atlas de participantes del taller &#x27;El arte de la Innovación Colaborativa&#x27;, octubre 2023">
   <meta name="keywords" content="static site, generator, templates, ">
@@ -64,6 +64,30 @@
 
     
   <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" aria-label="Barra de navegación">
+      <a id="back_link" href="javascript:history.back()" aria-label="Volver">
+        <span class="carousel-control-prev-icon"></span>
+      </a>
+      <script>
+        // Desde https://stackoverflow.com/questions/8814472/how-to-make-an-html-back_link
+        // Respuesta: https://stackoverflow.com/posts/46163215
+          var element = document.getElementById('back_link');
+
+        // Provide a standard href to facilitate standard browser features such as 
+        //  - Hover to see link
+        //  - Right click and copy link
+        //  - Right click and open in new tab
+        element.setAttribute('href', document.referrer);
+
+        // We can't let the browser use the above href for navigation. If it does, 
+        // the browser will think that it is a regular link, and place the current 
+        // page on the browser history, so that if the user clicks "back" again,
+        // it'll actually return to this page. We need to perform a native back to
+        // integrate properly into the browser's history behavior
+        element.onclick = function() {
+          history.back();
+          return false;
+        }
+      </script>
       <a class="navbar-brand text-light font-weight-bold" href="index.html" aria-label="Página principal">El Arte de la Innovación Colaborativa</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -76,35 +100,21 @@
   </nav>
 
     
-  <div class="content-window">
-    <div class="container-fluid">
-      <div class="col-md-12">
-        <h4>Site Map</h4>
-        <p><a href="participantes/Cristina_Corbacho">Cristina Corbacho</a></p>
-        <p><a href="participantes/Cristina_Garcia_Monte">Cristina García Monte</a></p>
-        <p><a href="participantes/Elena_Navarrete_Parra">Elena Navarrete Parra</a></p>
-        <p><a href="participantes/Esther_Garcia_Castillo">Esther García Castillo</a></p>
-        <p><a href="participantes/Eva_Sabariego">Eva Sabariego</a></p>
-        <p><a href="participantes/Gema__Aguilera_Gomez">Gema  Aguilera Gómez</a></p>
-        <p><a href="participantes/">El Arte de la Innovación Colaborativa</a></p>
-        <p><a href="participantes/Isabel_Garrido_Montero">Isabel Garrido Montero</a></p>
-        <p><a href="participantes/Jeronimo__Vivas_Perez">Jerónimo  Vivas Pérez</a></p>
-        <p><a href="participantes/Jesus_Chaves_Posadillo">Jesús Chaves Posadillo</a></p>
-        <p><a href="participantes/Jose_Eduardo_Molina_Bosquet">José Eduardo Molina Bosquet</a></p>
-        <p><a href="participantes/Jose_Manuel_Cabrerizo_Rentero">Jose Manuel Cabrerizo Rentero</a></p>
-        <p><a href="participantes/Kiko_Rojas_Bommatty">Kiko Rojas Bommatty</a></p>
-        <p><a href="participantes/Laura_Moreno_Arrabal">Laura Moreno Arrabal</a></p>
-        <p><a href="participantes/Lucia_del_Carmen_Perianez_Angeles">Lucia del Carmen Periáñez Ángeles</a></p>
-        <p><a href="participantes/Manuel_Valenzuela_Romero">Manuel Valenzuela Romero</a></p>
-        <p><a href="participantes/Maria_Jose_Lopez_Sanfeliu">Maria José Lopez Sanfeliu</a></p>
-        <p><a href="participantes/Maria_Pinero_Marrufo">María Piñero Marrufo</a></p>
-        <p><a href="participantes/Mirian_Garcia">Mirian García</a></p>
-        <p><a href="participantes/Oscar_Valencia_Quintana">Óscar Valencia Quintana</a></p>
-        <p><a href="participantes/Soraya_Calabrus_Montoro">Soraya Calabrus Montoro</a></p>
-        <p><a href="participantes/Susana_Vela">Susana Vela</a></p>
-      </div>
+    <div class="content-window">
+        <div class="container-fluid">
+            <div class="col-md-12">
+                <div arial-label="Datos del participante">
+                    <img src="images/personas/mlaura.moreno.jpeg" alt="Laura Moreno Arrabal" style="width:100%; max-width:200px;" />
+                    <h1>Laura Moreno Arrabal: </h1>
+                    <ul>
+                        <li><h2>Email: mlaura.moreno@juntadeandalucia.es</h2></li>
+                        <li><h2>Departamento o Servicio: Servicio de Valoración de la Dependencia - Consejería de Inclusión Social, Juventud, Familias e Igualdad</h2></li>
+                        <li><h2>Dirección/coordenadas: C/ Marqués del Nervión, 40, 41005 Sevilla - https://maps.app.goo.gl/NVM6wLwE5ffy6Cyx9</h2></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 
     
 </body>
