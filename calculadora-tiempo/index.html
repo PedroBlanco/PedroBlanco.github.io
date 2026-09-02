@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta
+      name="description"
+      content="Calculadora de periodos de servicio para movilidad voluntaria provisional."
+    />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Calculadora de tiempo</title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <p class="eyebrow">Artículo 129 · Junta de Andalucía</p>
+        <h1>Calculadora de tiempo</h1>
+        <p>
+          Calcula periodos de servicio con fechas inclusivas y detecta solapamientos. La baremación
+          completa se incorporará por fases.
+        </p>
+      </header>
+
+      <form id="calculator">
+        <section class="card" aria-labelledby="periods-title">
+          <div class="section-heading">
+            <h2 id="periods-title">Periodos</h2>
+            <button id="add-period" type="button">+ Añadir</button>
+          </div>
+          <div id="periods"></div>
+
+          <label class="check">
+            <input id="inclusive-end" type="checkbox" checked />
+            Incluir la fecha inicial y la final
+          </label>
+
+          <button class="primary" type="submit">Calcular</button>
+        </section>
+      </form>
+
+      <section class="card" aria-live="polite">
+        <h2>Resultado</h2>
+        <ol id="results"></ol>
+        <p id="summary">Introduzca al menos un periodo.</p>
+        <p id="status" class="status"></p>
+      </section>
+
+      <section class="notice">
+        <strong>Alcance actual.</strong>
+        Todavía no se aplican el límite de diez años, el descuento del requisito de experiencia, la
+        agrupación por nivel/área ni la puntuación.
+      </section>
+    </main>
+
+    <template id="period-template">
+      <fieldset class="period">
+        <label>
+          Desde
+          <input name="start" type="date" required />
+        </label>
+        <label>
+          Hasta
+          <input name="end" type="date" required />
+        </label>
+        <button class="remove-period" type="button" aria-label="Eliminar periodo">Eliminar</button>
+      </fieldset>
+    </template>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

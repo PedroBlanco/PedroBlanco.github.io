@@ -1,0 +1,19 @@
+{
+  "name": "Calculadora de tiempo - Artículo 129",
+  "short_name": "Calc. tiempo",
+  "description": "Calculadora de periodos de servicio para movilidad voluntaria provisional.",
+  "lang": "es",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
