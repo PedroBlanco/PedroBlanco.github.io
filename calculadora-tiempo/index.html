@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta
+      name="description"
+      content="Calculadora de periodos de servicio para movilidad voluntaria provisional."
+    />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Calculadora de tiempo</title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <p class="eyebrow">Artículo 129 · Junta de Andalucía</p>
+        <h1>Calculadora de tiempo</h1>
+        <p>
+          Calcula los dos méritos del artículo 129 —experiencia profesional y antigüedad—, aplica
+          sus límites temporales y obtiene el total del baremo con advertencias cuando el resultado
+          requiere revisión.
+        </p>
+      </header>
+
+      <form id="calculator" novalidate>
+        <section class="card" aria-labelledby="periods-title">
+          <div class="section-heading">
+            <h2 id="periods-title">Periodos</h2>
+          </div>
+
+          <label>
+            Fecha de convocatoria/publicación
+            <input id="call-date" type="date" />
+          </label>
+          <label>
+            Fecha fin del plazo de solicitudes
+            <input id="call-end-date" type="date" />
+          </label>
+          <p class="hint">
+            Los requisitos se comprueban al finalizar el plazo de solicitudes. Los méritos se
+            cierran a 31/12 del año anterior al de la convocatoria:
+            <strong id="merit-cutoff"></strong>.
+          </p>
+
+          <label>
+            Años de experiencia previa exigidos
+            <input id="required-years" type="number" min="0" step="1" value="0" />
+          </label>
+          <p class="hint">Use 0 si el puesto no exige experiencia previa.</p>
+
+          <label>
+            Años equivalentes de Formación Especializada aplicables al requisito
+            <input id="specialized-training-years" type="number" min="0" step="1" value="0" />
+          </label>
+          <p class="hint">
+            Consigne sólo la equivalencia acreditada por certificado o resolución y aplicable al
+            área funcional del puesto. Se utiliza exclusivamente para cumplir el requisito: no suma
+            experiencia profesional ni antigüedad.
+          </p>
+
+          <label>
+            Nivel del puesto solicitado
+            <input id="target-level" type="number" min="1" max="30" step="1" />
+          </label>
+          <label>
+            Área funcional del puesto solicitado
+            <input id="target-functional-area" type="text" autocomplete="off" />
+          </label>
+          <label>
+            Área relacional del puesto solicitado
+            <input id="target-relational-area" type="text" autocomplete="off" />
+          </label>
+          <p class="hint">El área relacional puede dejarse vacía si el puesto no la tiene.</p>
+
+          <div id="periods"></div>
+
+          <button class="primary" type="submit">Calcular</button>
+        </section>
+      </form>
+
+      <section class="card" aria-live="polite">
+        <h2>Resultados</h2>
+        <p id="requirement-summary"></p>
+        <ul id="requirement-consumption"></ul>
+        <p id="experience-score"></p>
+        <p id="seniority-score"></p>
+        <p id="total-score"></p>
+        <ol id="results"></ol>
+        <p id="summary">Introduzca al menos un periodo.</p>
+        <p id="status" class="status"></p>
+      </section>
+
+      <section class="notice">
+        <strong>Alcance del cálculo.</strong>
+        El artículo 84.3 del Decreto 51/2025 limita los méritos de este procedimiento a experiencia
+        profesional y antigüedad. La aplicación calcula ambos y el total sobre 43 puntos. No
+        determina por sí sola la admisión al procedimiento: deben comprobarse además el cuerpo y
+        especialidad y los restantes requisitos de la RPT y de la convocatoria concreta. Tampoco
+        resuelve la autorización del órgano de origen ni verifica la comunicación de participación
+        exigida por el procedimiento. La comparación y los desempates entre candidaturas quedan
+        fuera del cálculo individual.
+      </section>
+    </main>
+
+    <template id="period-template">
+      <fieldset class="period">
+        <legend>Rango de fechas</legend>
+        <label>
+          Desde
+          <input name="start" type="date" />
+        </label>
+        <label>
+          Hasta
+          <input name="end" type="date" />
+        </label>
+        <label class="check">
+          <input name="experience-eligible" type="checkbox" checked />
+          Computa como experiencia profesional
+        </label>
+        <p class="hint">
+          Desmarque esta opción para servicios que sólo deban computar como antigüedad. En ese caso,
+          el nivel y las áreas pueden dejarse vacíos.
+        </p>
+        <label class="check">
+          <input name="requirement-eligible" type="checkbox" checked />
+          Puede utilizarse para acreditar el requisito de experiencia
+        </label>
+        <p class="hint">
+          Manténgalo marcado para trabajo como personal funcionario de carrera o interino que cumpla
+          la relación de áreas exigida. Desmárquelo, por ejemplo, para servicios laborales
+          posteriormente funcionarizados que sean valorables como mérito pero no encajen en esa
+          regla del requisito.
+        </p>
+        <label>
+          Nivel del periodo
+          <input name="level" type="number" min="1" max="30" step="1" />
+        </label>
+        <label>
+          Área funcional
+          <input name="functional-area" type="text" autocomplete="off" />
+        </label>
+        <label>
+          Área relacional
+          <input name="relational-area" type="text" autocomplete="off" />
+        </label>
+        <label class="check requirement-check">
+          <input name="grouped-functional" type="checkbox" />
+          Área funcional agrupada con la funcional del puesto solicitado
+        </label>
+        <p class="period-score" aria-live="polite">
+          Calcule para ver el valor potencial de este rango.
+        </p>
+        <div class="requirement-selection">
+          <label>
+            Uso de este rango para el requisito
+            <select name="requirement-use">
+              <option value="none">No usar</option>
+              <option value="full">Usar todo lo computable</option>
+              <option value="partial">Usar una parte</option>
+            </select>
+          </label>
+          <p class="hint">
+            Calcule primero para comparar el valor y la aportación individual orientativa de los
+            rangos. Las fracciones compatibles pueden agruparse en la puntuación final. La suma
+            elegida debe completar exactamente el tiempo de servicio necesario para el requisito.
+          </p>
+          <div class="requirement-partial" hidden>
+            <label>
+              Desde para el requisito
+              <input name="requirement-start" type="date" disabled />
+            </label>
+            <label>
+              Hasta para el requisito
+              <input name="requirement-end" type="date" disabled />
+            </label>
+            <p class="hint">
+              La selección parcial debe quedar dentro del periodo y no superar la fecha fin del
+              plazo de solicitudes.
+            </p>
+          </div>
+        </div>
+        <label class="check">
+          <input name="reserved-alternative" type="checkbox" />
+          Puesto definitivo reservado: alternativa al puesto provisional
+        </label>
+        <p class="hint">
+          Márquelo sólo para representar el puesto definitivo reservado que puede compararse con el
+          puesto provisional durante las mismas fechas. No marque esta opción para solapamientos
+          ordinarios. Este rango no se utilizará para acreditar el requisito de experiencia.
+        </p>
+        <label class="check">
+          <input name="seniority-eligible" type="checkbox" checked />
+          Computa para antigüedad reconocida/inscrita
+        </label>
+        <div class="period-actions">
+          <button class="add-period" type="button">+ Añadir rango</button>
+          <button class="remove-period" type="button">Suprimir rango</button>
+        </div>
+      </fieldset>
+    </template>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
