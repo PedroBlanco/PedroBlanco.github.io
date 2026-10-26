@@ -203,6 +203,11 @@ quedan enlaces locales sin resolver.
 (26/10/2026). No implica que la migración de contenidos o privacidad
 estén aprobadas; esos controles continúan pendientes.
 
+## Auditoría documentada
+
+Consultar `MIGRATION_AUDIT.md` para el inventario de materiales, riesgos,
+rutas pendientes y pasos necesarios antes de publicar.
+
 ## Condiciones para publicar
 
 - Revisión humana de todas las traducciones; contenido del TFG limitado a su
