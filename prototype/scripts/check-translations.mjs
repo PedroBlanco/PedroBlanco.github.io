@@ -7,7 +7,9 @@ const checks=[{id:"site-ui",source:content.langs.es,target:content.langs.en},...
 let pending=0,stale=0;
 for(const x of checks){
  if(!x.target?.title && x.id!=="site-ui")throw Error("Missing English content for "+x.id);
- const digest=createHash("sha256").update(JSON.stringify(x.source)).digest("hex");
+ const item=content.items.find(i=>i.id===x.id);
+ const markdownSource=item?.markdown?await fs.readFile(new URL("../src/content/es/"+item.id+".md",import.meta.url),"utf8"):"";
+ const digest=createHash("sha256").update(JSON.stringify(x.source)).update(markdownSource).digest("hex");
  const state=approvals[x.id];
  if(!state?.reviewed){pending++;console.log("TRANSLATION PENDING: "+x.id);}
  else if(state.sourceDigest!==digest){stale++;console.log("TRANSLATION STALE: "+x.id);}

@@ -176,13 +176,13 @@
       "source": "https://github.com/PedroBlanco/pdf-fotos-a-imagenes",
       "es": {
         "title": "PDF de fotos a imágenes",
-        "summary": "Utilidad Python para trabajar con imágenes extraídas de documentos PDF.",
-        "detail": "Ficha técnica ampliable con requisitos, modo de uso y ejemplos."
+        "summary": "Extracción automática de fotografías individuales desde páginas PDF escaneadas.",
+        "detail": "Utilidad Python FOSS para separar fotografías escaneadas, con corrección opcional de la inclinación."
       },
       "en": {
         "title": "PDF photos to images",
-        "summary": "Python utility for working with images extracted from PDF documents.",
-        "detail": "Technical profile ready for requirements, usage instructions and examples."
+        "summary": "Automatic extraction of individual photographs from scanned PDF pages.",
+        "detail": "FOSS Python tool to separate scanned photographs, with optional deskewing."
       },
       "resources": [
         {
@@ -195,7 +195,8 @@
             "label": "Instructions and usage requirements"
           }
         }
-      ]
+      ],
+      "markdown": true
     },
     {
       "id": "csv",
@@ -205,12 +206,12 @@
       "source": "https://github.com/PedroBlanco/CSV2SQLite",
       "es": {
         "title": "CSV2SQLite",
-        "summary": "Conversión de archivos CSV de gran tamaño a bases de datos SQLite.",
+        "summary": "Conversión de archivos CSV grandes a bases de datos SQLite por lotes.",
         "detail": "Utilidad de procesamiento de datos cuyo repositorio contiene el código y las instrucciones de uso."
       },
       "en": {
         "title": "CSV2SQLite",
-        "summary": "Conversion of large CSV files into SQLite databases.",
+        "summary": "Chunked conversion of large CSV files into SQLite databases.",
         "detail": "Data-processing utility; its repository contains the code and usage instructions."
       },
       "resources": [
@@ -224,7 +225,8 @@
             "label": "Project guide and documentation"
           }
         }
-      ]
+      ],
+      "markdown": true
     },
     {
       "id": "research",

@@ -175,6 +175,20 @@ retiradas con perfiles personales o exportaciones quedan excluidas.
 `npm run check` comprueba esta política; `check:publish` sigue bloqueado
 hasta cerrar la revisión de las migraciones, traducciones y privacidad.
 
+## Actualización manual de contenidos Markdown
+
+Las fichas de **pdf-fotos-a-imagenes** y **CSV2SQLite** usan un texto
+editorial en archivos Markdown separados:
+`src/content/es/pdf.md`, `src/content/en/pdf.md`,
+`src/content/es/csv.md` y `src/content/en/csv.md`.
+Sus títulos, resúmenes y enlaces permanecen en `src/data/content.json`.
+
+Para actualizar una descripción extensa basta con editar el archivo Markdown,
+revisar su traducción y ejecutar `npm run build && npm run check`.
+La conversión usa `markdown-it` con HTML crudo desactivado y sin dependencias
+de navegador. Los comandos y ejemplos se muestran como bloques de código.
+Las revisiones humanas siguen siendo necesarias antes de publicar.
+
 ## Condiciones para publicar
 
 - Revisión humana de todas las traducciones; contenido del TFG limitado a su

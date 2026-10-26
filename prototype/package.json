@@ -10,6 +10,7 @@
     "check:publish": "node scripts/check-dist.mjs && node scripts/check-theme.mjs && node scripts/check-migration.mjs --strict && node scripts/check-translations.mjs --strict"
   },
   "devDependencies": {
-    "@11ty/eleventy": "3.1.7"
+    "@11ty/eleventy": "3.1.7",
+    "markdown-it": "14.1.0"
   }
 }

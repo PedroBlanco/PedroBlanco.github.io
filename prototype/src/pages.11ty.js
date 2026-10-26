@@ -1,4 +1,7 @@
 import content from "./data/content.json" with { type: "json" };
+import {readFileSync} from "node:fs";
+import MarkdownIt from "markdown-it";
+const md = new MarkdownIt({html:false,linkify:false,typographer:false});
 import repositories from "./data/repositories.json" with { type: "json" };
 import editorial from "./data/editorial.json" with { type: "json" };
 import {root, sectionUrl, itemUrl, alternateUrl, publicCatalog} from "./data/utils.mjs";
@@ -69,6 +72,13 @@ function renderResources(item,lang,t){
  if(source.some(x=>!resourceTypes.includes(x.type)))throw Error("Unknown resource type "+item.id);
  return '<section class="detail-section resources-section" id="recursos"><h2>'+esc(t.resources.title)+'</h2><div class="resource-groups">'+groups+'</div></section>';
 }
+function detailHtml(item,lang){
+ if(!item.markdown)return '<p>'+esc(item[lang].detail)+'</p>';
+ if(!/^[a-z0-9-]+$/.test(item.id)||!["es","en"].includes(lang))throw Error("Invalid Markdown content key");
+ const filename=new URL("./content/"+lang+"/"+item.id+".md",import.meta.url);
+ const source=readFileSync(filename,"utf8");
+ return '<div class="markdown-content">'+md.render(source)+'</div>';
+}
 function renderDetail(item,lang,t,backSection){
   const sections=Array.isArray(item.sections)?item.sections:[];
   const extensive=sections.length>=3;
@@ -78,7 +88,7 @@ function renderDetail(item,lang,t,backSection){
       ?"La aplicación anterior se ha retirado de la publicación prevista; esta página preservará su contexto histórico."
       :"The former application is being retired from the planned publication; this page preserves its historical context.")+'</p>'
     :"";
-  const intro='<section id="resumen" class="detail-section"><h2>'+esc(introTitle)+'</h2><p>'+esc(item[lang].detail)+'</p>'+privacyNote+'</section>';
+  const intro='<section id="resumen" class="detail-section"><h2>'+esc(introTitle)+'</h2>'+detailHtml(item,lang)+privacyNote+'</section>';
   const resources=renderResources(item,lang,t);
   const articleBody=intro
     +sections.map(section=>'<section class="detail-section" id="'+esc(section.id)+'"><h2>'+esc(section[lang].title)+'</h2><p>'+esc(section[lang].body)+'</p></section>').join('')

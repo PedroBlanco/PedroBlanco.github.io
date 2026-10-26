@@ -104,6 +104,16 @@ for(const [target,lang] of [["index.html","es"],["en/index.html","en"],["herrami
  const alternate=target.includes("tools/")?'href="https://pedroblanco.github.io/herramientas/"':target.includes("herramientas/")?'href="https://pedroblanco.github.io/en/tools/"':lang==="es"?'href="https://pedroblanco.github.io/en/"':'href="https://pedroblanco.github.io/"';
  if(!header.includes(alternate))throw Error("Language switch missing: "+target);
 }
+for(const lang of ["es","en"]){
+ const file=lang==="es"?"herramientas/pdf-fotos-a-imagenes/index.html":"en/tools/pdf-fotos-a-imagenes/index.html";
+ const html=fs.readFileSync(path.join(dist,file),"utf8");
+ if(!html.includes('class="markdown-content"')||!html.includes("<pre><code")||!html.includes("pypdfium2"))
+  throw Error("Markdown content missing in "+file);
+ const csv=lang==="es"?"herramientas/csv2sqlite/index.html":"en/tools/csv2sqlite/index.html";
+ const csvHtml=fs.readFileSync(path.join(dist,csv),"utf8");
+ if(!csvHtml.includes('class="markdown-content"')||!csvHtml.includes("procesar_csv.py"))
+  throw Error("Markdown CSV documentation missing: "+csv);
+}
 const privatePaths=["mapeo/2019-04-11 EXPORT lista_fichas_mapeo.csv","embajadores/embajadores","art-of-hosting/participantes","mapas/autores"];
 for(const p of privatePaths){if(fs.existsSync(path.join(dist,p))){console.error("PRIVATE/RETIRED CONTENT IN BUILD "+p);process.exitCode=1;}}
 for(const item of content.items){
