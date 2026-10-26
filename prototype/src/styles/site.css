@@ -81,6 +81,7 @@ nav a[aria-current="page"] { font-weight: 750; text-decoration: underline; text-
   }
   .menu-toggle::-webkit-details-marker { display: none; }
   .menu-symbol { font-size: 1.2rem; line-height: 1; }
+  .mobile-menu:not([open]) > .mobile-nav { display: none; }
   .mobile-menu[open] .menu-toggle { border-radius: .45rem .45rem 0 0; }
   .mobile-nav {
     display: flex; flex-direction: column; align-items: stretch; gap: 0;

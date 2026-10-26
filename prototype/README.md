@@ -154,6 +154,13 @@ Las rutas, fichas y traducciones provisionales están en
 antes de `npm run build`; si falla la API, se conserva el snapshot local.
 La selección editorial se gestiona en `src/data/editorial.json`.
 
+## Guía consolidada de diseño
+
+Consultar `DESIGN.md` para el registro de las decisiones 22–30,
+las comprobaciones visuales pendientes y la visualización local del artefacto
+de GitHub Actions. La personalización principal está acordada; no se requiere
+añadir decisiones menores antes de revisar la implementación en navegador.
+
 ## Condiciones para publicar
 
 - Revisión humana de todas las traducciones; contenido del TFG limitado a su
