@@ -66,6 +66,28 @@ main { min-height: 66vh; }
   border-bottom: 1px solid var(--border);
   background: radial-gradient(circle at 85% 20%, var(--subtle) 0, transparent 40%);
 }
+/* Decision 26: concise editorial landing, selected work and three clear destinations. */
+.hero-actions { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: 1.75rem; }
+.hero-actions .primary-link {
+  display: inline-flex; min-height: 44px; align-items: center;
+  padding: .62rem 1.15rem; border-radius: .35rem;
+  background: var(--primary); color: var(--surface); text-decoration: none;
+  font-weight: 750;
+}
+.hero-actions .primary-link:hover { text-decoration: underline; }
+.home-explore { padding-block: 1rem 4.5rem; }
+.home-explore h2 { margin: 0 0 1.3rem; font-family: var(--heading-font); font-size: clamp(1.6rem, 3vw, 2rem); }
+.home-section-links { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.15rem; }
+.section-link {
+  display: flex; flex-direction: column; gap: .5rem;
+  background: var(--surface); border: 1px solid var(--border);
+  border-left: 3px solid var(--accent); border-radius: .5rem;
+  padding: 1.1rem 1.25rem; text-decoration: none; min-height: 120px;
+}
+.section-link:hover { text-decoration: none; box-shadow: var(--shadow); border-left-color: var(--primary); }
+.section-link-title { font-family: var(--heading-font); font-size: 1.25rem; font-weight: 700; }
+.section-link-summary { color: var(--muted); font-size: .91rem; line-height: 1.5; }
+@media (max-width: 760px) { .home-section-links { grid-template-columns: 1fr; } .section-link { min-height: 0; } }
 .eyebrow {
   color: var(--primary); letter-spacing: .14em; text-transform: uppercase;
   font-size: .73rem; font-weight: 800;

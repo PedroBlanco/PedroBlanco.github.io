@@ -66,6 +66,17 @@ Las demás tarjetas mantienen su diseño tipográfico, pendientes de recursos
 reales revisados. Antes de añadir capturas o imágenes documentales, revisar
 privacidad, autoría, licencias, textos alternativos y optimización.
 
+## Portada editorial equilibrada · Decisión 26 (confirmada)
+
+La portada en ambos idiomas contiene una introducción breve con CTA a Proyectos,
+una selección de tres fichas representativas (herramienta, investigación e
+histórico) y una fila de **tres accesos** a Herramientas, Proyectos y Archivo.
+La selección se configura editorialmente mediante `featured`, sin ordenar
+automáticamente solo por fecha. Las tarjetas mantienen la densidad media
+(decisión 24) y las imágenes selectivas (decisión 25).
+El comportamiento móvil de los enlaces a secciones es de una sola columna.
+No se añade JavaScript a la portada para este comportamiento.
+
 ## Contenido y catálogo
 
 Las rutas, fichas y traducciones provisionales están en

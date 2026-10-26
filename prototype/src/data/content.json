@@ -36,7 +36,16 @@
       "offline": "Repositorio público",
       "notFound": "Página no encontrada",
       "notFoundBody": "La página puede haberse trasladado o retirado. Puedes consultar el archivo y los proyectos disponibles.",
-      "footer": "Sitio personal · Prototipo de renovación · No publicado"
+      "footer": "Sitio personal · Prototipo de renovación · No publicado",
+      "home": {
+        "heroAction": "Explorar proyectos",
+        "exploreTitle": "Explora el sitio",
+        "exploreDescriptions": {
+          "tools": "Aplicaciones y utilidades disponibles para usar.",
+          "projects": "Desarrollo de software, investigación y repositorios públicos.",
+          "archive": "Proyectos anteriores y documentación preservada."
+        }
+      }
     },
     "en": {
       "name": "English",
@@ -74,7 +83,16 @@
       "offline": "Public repository",
       "notFound": "Page not found",
       "notFoundBody": "This page may have moved or been retired. Browse the archive and available projects instead.",
-      "footer": "Personal site · Renewal prototype · Not published"
+      "footer": "Personal site · Renewal prototype · Not published",
+      "home": {
+        "heroAction": "Explore projects",
+        "exploreTitle": "Explore the site",
+        "exploreDescriptions": {
+          "tools": "Apps and useful software tools.",
+          "projects": "Software development, research and public repositories.",
+          "archive": "Earlier projects and preserved documentation."
+        }
+      }
     }
   },
   "items": [

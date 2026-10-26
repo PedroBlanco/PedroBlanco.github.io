@@ -14,6 +14,16 @@ for(const route of content.routes){
  }
  if(!html.includes('rel="canonical"')){console.error("NO CANONICAL "+target);process.exitCode=1;}
 }
+for(const [localPath,lang] of [["index.html","es"],["en/index.html","en"]]){
+ const html=fs.readFileSync(path.join(dist,localPath),"utf8");
+ if(!html.includes('<section class="home-explore wrap"')||!html.includes('class="hero-actions"'))
+  throw Error("Missing editorial homepage composition in "+localPath);
+ const expected=lang==="es"?["/herramientas/","/proyectos/","/archivo/"]:["/en/tools/","/en/projects/","/en/archive/"];
+ for(const href of expected)if(!html.includes('class="section-link" href="'+href+'"'))
+  throw Error("Missing homepage section access "+href);
+ if((html.match(/class="card"/g)||[]).length!==3)
+  throw Error("Expected three editorially featured project cards at "+localPath);
+}
 const privatePaths=["mapeo/2019-04-11 EXPORT lista_fichas_mapeo.csv","embajadores/embajadores","art-of-hosting/participantes","mapas/autores"];
 for(const p of privatePaths){if(fs.existsSync(path.join(dist,p))){console.error("PRIVATE/RETIRED CONTENT IN BUILD "+p);process.exitCode=1;}}
 for(const item of content.items){

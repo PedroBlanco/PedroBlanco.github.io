@@ -19,7 +19,7 @@ function render(route){
  const navigation=Object.entries(t.nav).map(([key,label])=>link(sectionUrl(route.lang,key),label,section===key?' aria-current="page"':"")).join("");
  const switchLang=link(route.lang==="es"?en:es,route.lang==="es"?"EN":"ES",' class="lang" lang="'+(route.lang==="es"?"en":"es")+'" aria-label="'+(route.lang==="es"?"Read in English":"Leer en español")+'"');
  let body="";
- if(route.section==="home")body+='<section class="hero wrap"><p class="eyebrow">'+esc(t.tagline)+'</p><h1>'+esc(t.site)+'</h1><p class="lede">'+esc(t.intro)+'</p></section>';
+ if(route.section==="home")body+='<section class="hero wrap"><p class="eyebrow">'+esc(t.tagline)+'</p><h1>'+esc(t.site)+'</h1><p class="lede">'+esc(t.intro)+'</p><div class="hero-actions">'+link(sectionUrl(route.lang,"projects"),t.home.heroAction,' class="primary-link"')+'</div></section>';
  if(route.section==="detail"&&item){
    body+='<article class="section wrap detail">'+link(sectionUrl(route.lang,section),"← "+t.back)
     +'<p class="eyebrow">'+esc(t.kind[item.kind])+' · '+esc(t.status[item.status])+'</p><h1>'+esc(item[route.lang].title)
@@ -41,6 +41,12 @@ function render(route){
       +catalog.map(r=>'<li>'+link(r.url,r.name)+'<small>'+esc(r.description)+'</small><div class="chips">'+(r.fork?badge("Fork"):"")+(r.archived?badge(t.status.historic):"")+(r.featured?badge("★"):"")+'</div></li>').join("")+'</ul>';
    }
    body+='</section>';
+   if(route.section==="home"){
+      const destinations=["tools","projects","archive"];
+      body+='<section class="home-explore wrap" aria-labelledby="home-explore-title"><div class="section-head"><h2 id="home-explore-title">'+esc(t.home.exploreTitle)+'</h2></div><div class="home-section-links">'
+        +destinations.map(key=>'<a class="section-link" href="'+esc(sectionUrl(route.lang,key))+'"><span class="section-link-title">'+esc(t.nav[key])+' <span aria-hidden="true">→</span></span><span class="section-link-summary">'+esc(t.home.exploreDescriptions[key])+'</span></a>').join('')
+        +'</div></section>';
+   }
  }
  return '<!doctype html><html lang="'+esc(route.lang)+'"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark">'
  +'<title>'+esc(title)+' · PedroBlanco</title><meta name="description" content="'+esc(item?item[route.lang].summary:t.intro)+'">'
