@@ -139,8 +139,12 @@ function render(route){
  +'<link rel="canonical" href="'+esc(canonical)+'"><link rel="alternate" hreflang="es" href="'+esc(es)+'"><link rel="alternate" hreflang="en" href="'+esc(en)+'"><link rel="alternate" hreflang="x-default" href="'+esc(es)+'"><link rel="stylesheet" href="/styles/site.css">'
  +(route.section==="archive"?'<script src="/scripts/archive-filter.js" defer></script>':'')
  +'</head><body><a class="skip" href="#main">'+(route.lang==="es"?"Saltar al contenido":"Skip to content")+'</a><header class="site-header"><div class="wrap header-inner">'
- +'<a class="brand" href="'+esc(sectionUrl(route.lang,"home"))+'">PedroBlanco<span aria-hidden="true"> /</span> '+esc(t.site)+'</a><nav aria-label="'+(route.lang==="es"?"Navegación principal":"Primary navigation")+'">'
- +navigation+switchLang+'</nav></div></header><main id="main">'+body+'</main><footer class="site-footer"><div class="wrap">'+esc(t.footer)+'</div></footer></body></html>';
+ +'<a class="brand" href="'+esc(sectionUrl(route.lang,"home"))+'">PedroBlanco<span class="brand-tagline"><span aria-hidden="true"> /</span> '+esc(t.site)+'</span></a>'
+ +'<div class="header-controls"><nav class="desktop-nav" aria-label="'+(route.lang==="es"?"Navegación principal":"Primary navigation")+'">'+navigation+'</nav>'
+ +switchLang
+ +'<details class="mobile-menu"><summary class="menu-toggle"><span class="menu-label">'+(route.lang==="es"?"Menú":"Menu")+'</span><span class="menu-symbol" aria-hidden="true">☰</span></summary>'
+ +'<nav class="mobile-nav" aria-label="'+(route.lang==="es"?"Navegación móvil":"Mobile navigation")+'">'+navigation+'</nav></details></div>'
+ +'</div></header><main id="main">'+body+'</main><footer class="site-footer"><div class="wrap">'+esc(t.footer)+'</div></footer></body></html>';
 }
 export default class BilingualPages{
  data(){return {routes:[...content.routes,{path:"404",lang:"es",section:"missing"}],pagination:{data:"routes",size:1,alias:"route"},permalink:data=>data.route.section==="missing"?"/404.html":"/"+(data.route.path?data.route.path+"/":"")+"index.html",eleventyExcludeFromCollections:true};}

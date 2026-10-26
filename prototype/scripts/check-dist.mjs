@@ -80,6 +80,30 @@ for(const item of content.items){
  }
 }
 if(resourcesFound!==3)throw Error("Expected three verified resource examples, got "+resourcesFound);
+// Native mobile navigation, bilingual switch visible without opening the menu.
+for(const [target,lang] of [["index.html","es"],["en/index.html","en"],["herramientas/index.html","es"],["en/tools/index.html","en"]]){
+ const html=fs.readFileSync(path.join(dist,target),"utf8");
+ const headerStart=html.indexOf('<header class="site-header">');
+ const headerEnd=html.indexOf('</header>',headerStart);
+ if(headerStart<0||headerEnd<0)throw Error("Header not present: "+target);
+ const header=html.slice(headerStart,headerEnd);
+ const mainNav=header.indexOf('<nav class="desktop-nav"');
+ const details=header.indexOf('<details class="mobile-menu">');
+ const summary=header.indexOf('<summary class="menu-toggle">');
+ const mobileNav=header.indexOf('<nav class="mobile-nav"');
+ const langAnchor=header.indexOf('class="lang"');
+ if(!(mainNav>=0&&details>mainNav&&summary>details&&mobileNav>summary&&langAnchor>mainNav&&langAnchor<details))
+  throw Error("Invalid native menu or hidden language switch: "+target);
+ const wanted=lang==="es"?["/","/herramientas/","/proyectos/","/archivo/","/acerca-de/"]:["/en/","/en/tools/","/en/projects/","/en/archive/","/en/about/"];
+ for(const href of wanted){
+  const search='href="'+href+'"';
+  if(header.split(search).length-1 < 2)throw Error("Missing mobile or desktop nav "+href+" in "+target);
+ }
+ if(!header.includes("aria-current="))throw Error("Current page state not exposed: "+target);
+ if(!header.includes(">"+(lang==="es"?"Menú":"Menu")+"</span>"))throw Error("Untranslated menu label: "+target);
+ const alternate=lang==="es"?'href="https://pedroblanco.github.io/en/"':'href="https://pedroblanco.github.io/"';
+ if(!header.includes(alternate))throw Error("Language switch missing: "+target);
+}
 const privatePaths=["mapeo/2019-04-11 EXPORT lista_fichas_mapeo.csv","embajadores/embajadores","art-of-hosting/participantes","mapas/autores"];
 for(const p of privatePaths){if(fs.existsSync(path.join(dist,p))){console.error("PRIVATE/RETIRED CONTENT IN BUILD "+p);process.exitCode=1;}}
 for(const item of content.items){

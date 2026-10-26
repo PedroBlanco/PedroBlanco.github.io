@@ -133,6 +133,20 @@ existentes** de CSV2SQLite y pdf-fotos-a-imagenes, y la página histórica
 `/CC.html` desde Atlas de Conocimiento Crítico (a incorporar al despliegue
 definitivo). No se inventan descargas ni materiales del TFG privado.
 
+## Navegación adaptable · Decisión 30 (confirmada)
+
+En escritorio aparecen las cinco secciones de forma directa. En móvil y
+tableta estrecha (hasta 1020 px) se utiliza un desplegable semántico
+`<details><summary>` que presenta las mismas cinco rutas, con etiquetas
+traducidas y el estado actual indicado mediante `aria-current="page"`.
+El selector de idioma ES/EN queda siempre visible **fuera** del desplegable.
+Los controles mantienen una altura táctil mínima de 44 px. El menú funciona
+sin JavaScript y permite navegación con teclado.
+
+En espacios estrechos se acorta únicamente la marca visual del encabezado a
+`PedroBlanco`; no se oculta ninguna sección ni el selector de idioma.
+La verificación de CI revisa ambas versiones y cinco destinos principales.
+
 ## Contenido y catálogo
 
 Las rutas, fichas y traducciones provisionales están en
