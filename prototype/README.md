@@ -52,7 +52,9 @@ cuadrícula de hasta tres columnas para la anchura actual del contenedor
 datos de contenido, sin truncar texto mediante CSS.
 
 La portada puede presentar una selección con mayor énfasis editorial y el
-Archivo una disposición cronológica. ## Imágenes selectivas · Decisión 25 (confirmada)
+Archivo una disposición cronológica.
+
+## Imágenes selectivas · Decisión 25 (confirmada)
 
 Se muestran imágenes en tarjetas solo si aportan información y se dispone
 de un recurso verificado. Si falta la imagen, la tarjeta permanece tipográfica
@@ -94,6 +96,21 @@ No se recopilan datos de uso ni se llama a servicios externos.
 **Nota de migración:** los enlaces a documentos originales siguen apuntando a
 las rutas acordadas, aunque todavía no se han trasladado esos archivos al
 directorio compilado del prototipo. Serán preservados antes de publicar.
+
+## Fichas detalladas · Decisión 28 (confirmada)
+
+Las fichas son artículos continuos con estructura semántica.
+Solo las extensas (tres o más secciones temáticas opcionales) incluyen
+índice contextual con enlaces a anclas HTML y sin dependencia de JavaScript.
+En escritorio, el índice permanece en una columna lateral mientras se lee;
+en móvil aparece antes del contenido, como un bloque normal.
+El índice usa etiquetas accesibles en español e inglés.
+
+Las secciones opcionales se modelan en `src/data/content.json`
+(`sections: [{id, es: {title,body}, en: {title,body}}]`).
+Los ID permanecen estables entre idiomas. La ficha del TFG utiliza esta
+estructura con objetivos, enfoque, integración y estado, sin revelar los
+materiales de un repositorio privado. Las fichas breves permanecen sin índice.
 
 ## Contenido y catálogo
 

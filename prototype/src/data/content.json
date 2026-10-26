@@ -217,7 +217,53 @@
           "alt": "Conceptual diagram: game or engine, observation, decision and adaptation, joined by feedback.",
           "caption": "Conceptual adaptation loop, not evidence of a complete implementation."
         }
-      }
+      },
+      "sections": [
+        {
+          "id": "objetivos",
+          "es": {
+            "title": "Objetivos",
+            "body": "Diseñar e implementar un sistema reutilizable para explorar el bucle cerrado de adaptación narrativa y estudiar su integración con motores de juego existentes."
+          },
+          "en": {
+            "title": "Goals",
+            "body": "Design and implement a reusable system for exploring closed-loop narrative adaptation and study how it can be integrated with existing game engines."
+          }
+        },
+        {
+          "id": "enfoque",
+          "es": {
+            "title": "Enfoque",
+            "body": "Separar el sistema de adaptación de los juegos conectados para estudiar distintas formas de observación, decisión y respuesta. La ficha presenta el enfoque general sin exponer material de trabajo privado."
+          },
+          "en": {
+            "title": "Approach",
+            "body": "Keep the adaptation system separate from connected games to study different ways of observing, deciding and responding. This page describes the general approach without disclosing private working materials."
+          }
+        },
+        {
+          "id": "integracion",
+          "es": {
+            "title": "Integración con motores",
+            "body": "Examinar qué información pueden facilitar distintos motores y cómo podrían aplicarse intervenciones narrativas. Las capacidades concretas deben evaluarse en cada integración."
+          },
+          "en": {
+            "title": "Game engine integration",
+            "body": "Examine which information different engines can expose and how narrative interventions might be applied. Specific capabilities must be assessed for each integration."
+          }
+        },
+        {
+          "id": "estado",
+          "es": {
+            "title": "Estado y documentación",
+            "body": "Proyecto de investigación y desarrollo en curso. Los resultados públicos se incorporarán después de su revisión editorial; el repositorio de trabajo no es público."
+          },
+          "en": {
+            "title": "Status and documentation",
+            "body": "Ongoing research and development project. Public results will be added after editorial review; the working repository is not public."
+          }
+        }
+      ]
     },
     {
       "id": "mapas",

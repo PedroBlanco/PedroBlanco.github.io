@@ -50,6 +50,35 @@ function renderArchive(items,documents,lang,t){
 }
 
 
+function renderDetail(item,lang,t,backSection){
+  const sections=Array.isArray(item.sections)?item.sections:[];
+  const extensive=sections.length>=3;
+  const introTitle=lang==="es"?"Sobre este proyecto":"About this project";
+  const privacyNote=item.kind==="archive"
+    ?'<p class="muted">'+(lang==="es"
+      ?"La aplicación anterior se ha retirado de la publicación prevista; esta página preservará su contexto histórico."
+      :"The former application is being retired from the planned publication; this page preserves its historical context.")+'</p>'
+    :"";
+  const intro='<section id="resumen" class="detail-section"><h2>'+esc(introTitle)+'</h2><p>'+esc(item[lang].detail)+'</p>'+privacyNote+'</section>';
+  const introContent=extensive
+    ?'<div class="detail-layout"><nav class="detail-toc" aria-label="'+esc(lang==="es"?"Índice de la ficha":"Page contents")+'">'
+      +'<h2 class="detail-toc-title">'+esc(lang==="es"?"En esta página":"On this page")+'</h2><ol>'
+      +'<li>'+link("#resumen",introTitle)+'</li>'
+      +sections.map(section=>'<li>'+link("#"+section.id,section[lang].title)+'</li>').join("")
+      +'</ol></nav><div class="detail-prose">'+intro
+      +sections.map(section=>'<section class="detail-section" id="'+esc(section.id)+'"><h2>'+esc(section[lang].title)+'</h2><p>'+esc(section[lang].body)+'</p></section>').join('')
+      +'</div></div>'
+    :'<div class="detail-prose">'+intro
+      +sections.map(section=>'<section class="detail-section" id="'+esc(section.id)+'"><h2>'+esc(section[lang].title)+'</h2><p>'+esc(section[lang].body)+'</p></section>').join("")
+      +'</div>';
+  return '<article class="section wrap detail'+(extensive?' detail-long':'')+'">'
+    +link(sectionUrl(lang,backSection),"← "+t.back)
+    +'<p class="eyebrow">'+esc(t.kind[item.kind])+' · '+esc(t.status[item.status])+'</p>'
+    +'<h1>'+esc(item[lang].title)+'</h1><p class="lede">'+esc(item[lang].summary)+'</p>'
+    +'<div class="actions">'+(item.live?link(item.live,t.try):"")+(item.source?link(item.source,t.code):"")+'</div>'
+    +mediaFigure(item,lang,'detail-media')+introContent+'</article>';
+}
+
 function render(route){
  const {langs,items}=content;const t=langs[route.lang];
  const item=route.id?items.find(x=>x.id===route.id):null;
@@ -61,14 +90,7 @@ function render(route){
  const switchLang=link(route.lang==="es"?en:es,route.lang==="es"?"EN":"ES",' class="lang" lang="'+(route.lang==="es"?"en":"es")+'" aria-label="'+(route.lang==="es"?"Read in English":"Leer en español")+'"');
  let body="";
  if(route.section==="home")body+='<section class="hero wrap"><p class="eyebrow">'+esc(t.tagline)+'</p><h1>'+esc(t.site)+'</h1><p class="lede">'+esc(t.intro)+'</p><div class="hero-actions">'+link(sectionUrl(route.lang,"projects"),t.home.heroAction,' class="primary-link"')+'</div></section>';
- if(route.section==="detail"&&item){
-   body+='<article class="section wrap detail">'+link(sectionUrl(route.lang,section),"← "+t.back)
-    +'<p class="eyebrow">'+esc(t.kind[item.kind])+' · '+esc(t.status[item.status])+'</p><h1>'+esc(item[route.lang].title)
-    +'</h1><p class="lede">'+esc(item[route.lang].summary)+'</p><div class="actions">'
-    +(item.live?link(item.live,t.try):"")+(item.source?link(item.source,t.code):"")
-    +'</div>'+mediaFigure(item,route.lang,'detail-media')+'<h2>'+(route.lang==="es"?"Sobre este proyecto":"About this project")+'</h2><p>'+esc(item[route.lang].detail)+'</p>'
-    +(item.kind==="archive"?'<p class="muted">'+(route.lang==="es"?"La aplicación anterior se ha retirado de la publicación prevista; esta página preservará su contexto histórico.":"The former application is being retired from the planned publication; this page preserves its historical context.")+'</p>':"")+'</article>';
- }
+ if(route.section==="detail"&&item)body+=renderDetail(item,route.lang,t,section);
  if(route.section==="about")body+='<section class="section wrap detail"><h1>'+esc(t.nav.about)+'</h1><p class="lede">'+esc(t.aboutText)+'</p></section>';
  if(route.section==="missing")body+='<section class="section wrap detail"><h1>'+esc(t.notFound)+'</h1><p>'+esc(t.notFoundBody)+'</p>'+link(sectionUrl(route.lang,"archive"),t.nav.archive)+'</section>';
  if(["home","tools","projects","archive"].includes(route.section)){

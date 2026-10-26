@@ -35,6 +35,21 @@ for(const [archivePath,lang] of [["archivo/index.html","es"],["en/archive/index.
  if(!html.includes('role="group"')||!html.includes('aria-pressed="true"'))throw Error("Missing accessible filter controls in "+archivePath);
 }
 if(!fs.existsSync(path.join(dist,"scripts/archive-filter.js")))throw Error("Missing filter asset");
+const researchItem=content.items.find(x=>x.id==="research");
+for(const lang of ["es","en"]){
+ const researchRoute=content.routes.find(x=>x.section==="detail"&&x.id==="research"&&x.lang===lang);
+ const researchHtml=fs.readFileSync(path.join(dist,researchRoute.path,"index.html"),"utf8");
+ if(!researchHtml.includes('class="detail-layout"')||!researchHtml.includes('class="detail-toc"'))
+  throw Error("Missing contextual index in "+researchRoute.path);
+ for(const section of [{id:"resumen"},...(researchItem.sections||[])]){
+  if(!researchHtml.includes('href="#'+section.id+'"')||!researchHtml.includes('id="'+section.id+'"'))
+   throw Error("Broken detail anchor "+section.id+" in "+researchRoute.path);
+ }
+ const shortRoute=content.routes.find(x=>x.section==="detail"&&x.id==="csv"&&x.lang===lang);
+ const shortHtml=fs.readFileSync(path.join(dist,shortRoute.path,"index.html"),"utf8");
+ if(shortHtml.includes('class="detail-toc"')||!shortHtml.includes('class="detail-prose"'))
+  throw Error("Short profile incorrectly has an index in "+shortRoute.path);
+}
 const privatePaths=["mapeo/2019-04-11 EXPORT lista_fichas_mapeo.csv","embajadores/embajadores","art-of-hosting/participantes","mapas/autores"];
 for(const p of privatePaths){if(fs.existsSync(path.join(dist,p))){console.error("PRIVATE/RETIRED CONTENT IN BUILD "+p);process.exitCode=1;}}
 for(const item of content.items){
