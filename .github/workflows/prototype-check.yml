@@ -1,0 +1,31 @@
+name: Validate bilingual prototype
+on:
+  pull_request:
+    paths:
+      - "prototype/**"
+      - ".github/workflows/prototype-check.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install
+        run: npm install --no-audit --no-fund
+        working-directory: prototype
+      - name: Build
+        run: npm run build
+        working-directory: prototype
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+      - name: Check routes
+        run: npm run check
+        working-directory: prototype
