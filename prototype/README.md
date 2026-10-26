@@ -43,6 +43,19 @@ pruebas de diseño. No se descargan tipografías externas.
 Variables CSS en `src/styles/site.css`. El acento ocre es decorativo; para
 texto pequeño se emplea una variante más oscura. No se usan bibliotecas CSS.
 
+## Tarjetas de catálogo · Decisión 24 (confirmada)
+
+**Distribución equilibrada:** tarjetas medianas y adaptables, con título,
+categoría, estado, resumen breve y enlace a la ficha. En pantallas anchas,
+cuadrícula de hasta tres columnas para la anchura actual del contenedor
+(1120 px); en móvil, una columna. Los resúmenes se redactan breves desde los
+datos de contenido, sin truncar texto mediante CSS.
+
+La portada puede presentar una selección con mayor énfasis editorial y el
+Archivo una disposición cronológica. El estilo gráfico de las tarjetas
+(fotografías/capturas, ilustraciones o solo tipografía) queda pendiente de
+la decisión 25.
+
 ## Contenido y catálogo
 
 Las rutas, fichas y traducciones provisionales están en
