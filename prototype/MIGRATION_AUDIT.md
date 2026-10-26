@@ -56,6 +56,25 @@ incorrecto y se corrigió para utilizar `/404.html`.
    e idiomas, auditar datos personales, revisar traducciones y publicar por
    workflow separado con posibilidad de reversión.
 
+## Situación de trabajo (27/10/2026)
+
+- **Realizado por ChatGPT:** diseño visual y navegación, fichas Markdown,
+  inventario selectivo de archivos, documento `CC.html` de vista previa,
+  auditoría de rutas y preparación del integrador de calculadora.
+- **Calculadora:** el repositorio privado dispone del comando
+  `npm run build:web`. La nueva integración opcional
+  `prototype/scripts/stage-calculator.mjs` acepta exclusivamente los 16
+  archivos de la distribución de ejecución e impide copiar carpetas de
+  desarrollo. **No se ha ejecutado aún con el artefacto real**.
+- **Generador de firmas:** sigue pendiente de una versión revisada y de
+  pruebas funcionales de exportación y compatibilidad con clientes de correo.
+- **Usuario:** ya ha probado el prototipo visual satisfactoriamente. Por ahora
+  no tiene que tocar `master`, crear secretos ni publicar nada.
+- **Última aprobación requerida:** uso de marca del generador, derechos de
+  archivos multimedia, traducciones y autorización de publicación.
+
+Seguimiento de tareas y aceptación: [issue #5](https://github.com/PedroBlanco/PedroBlanco.github.io/issues/5).
+
 ## Controles disponibles
 
 - `npm run build`: compila Eleventy y copia solo documentos con estado
