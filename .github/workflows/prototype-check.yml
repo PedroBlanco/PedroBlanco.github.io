@@ -17,7 +17,7 @@ jobs:
       - name: Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "22"
+          node-version: "24"
       - name: Install
         run: npm install --no-audit --no-fund
         working-directory: prototype
