@@ -77,6 +77,24 @@ automáticamente solo por fecha. Las tarjetas mantienen la densidad media
 El comportamiento móvil de los enlaces a secciones es de una sola columna.
 No se añade JavaScript a la portada para este comportamiento.
 
+## Archivo histórico · Decisión 27 (confirmada)
+
+Archivo cronológico descendente con filtros por **Atlas**, **Iniciativas** y
+**Documentos**, traducidos al español y al inglés. La cronología muestra primero
+2023 y 2019, y aparta en «Sin fecha verificada» los materiales y proyectos
+para los que todavía no se dispone de una fecha documental contrastada.
+
+Los filtros se activan mediante un script pequeño y accesible: sin JavaScript
+todos los materiales permanecen visibles en la cronología; con él, los botones
+indican su estado mediante `aria-pressed` y anuncian el número de resultados.
+Los metadatos se editan en `src/data/content.json`, con `archiveYear` y
+`archiveCategory` para los proyectos, y `archiveDocuments` para otros archivos.
+No se recopilan datos de uso ni se llama a servicios externos.
+
+**Nota de migración:** los enlaces a documentos originales siguen apuntando a
+las rutas acordadas, aunque todavía no se han trasladado esos archivos al
+directorio compilado del prototipo. Serán preservados antes de publicar.
+
 ## Contenido y catálogo
 
 Las rutas, fichas y traducciones provisionales están en

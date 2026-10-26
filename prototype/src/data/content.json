@@ -45,6 +45,18 @@
           "projects": "Desarrollo de software, investigación y repositorios públicos.",
           "archive": "Proyectos anteriores y documentación preservada."
         }
+      },
+      "archiveView": {
+        "title": "Archivo histórico",
+        "intro": "Proyectos históricos y recursos documentales organizados por períodos y categorías.",
+        "all": "Todos",
+        "atlas": "Atlas",
+        "initiatives": "Iniciativas",
+        "documents": "Documentos",
+        "undated": "Sin fecha verificada",
+        "count": "elementos",
+        "view": "Abrir ficha o recurso",
+        "filtersLabel": "Filtrar por categoría"
       }
     },
     "en": {
@@ -92,6 +104,18 @@
           "projects": "Software development, research and public repositories.",
           "archive": "Earlier projects and preserved documentation."
         }
+      },
+      "archiveView": {
+        "title": "Historical archive",
+        "intro": "Historical projects and documentary resources organized by date and category.",
+        "all": "All",
+        "atlas": "Atlases",
+        "initiatives": "Initiatives",
+        "documents": "Documents",
+        "undated": "Date not verified",
+        "count": "items",
+        "view": "Open page or resource",
+        "filtersLabel": "Filter by category"
       }
     }
   },
@@ -211,7 +235,8 @@
         "title": "Critical Knowledge Atlas",
         "summary": "Historical critical-knowledge mapping project. Its official version remains on an independent website.",
         "detail": "This historical profile replaces the former local application copy."
-      }
+      },
+      "archiveCategory": "atlas"
     },
     {
       "id": "mapeo",
@@ -227,7 +252,9 @@
         "title": "Innovation Initiatives Mapping (2019)",
         "summary": "Prototype for mapping innovation initiatives in public administration.",
         "detail": "Only a historical description is retained, not the application or old participant data exports."
-      }
+      },
+      "archiveCategory": "initiatives",
+      "archiveYear": 2019
     },
     {
       "id": "embajadores",
@@ -243,7 +270,8 @@
         "title": "Knowledge Ambassadors Atlas",
         "summary": "Historical prototype for visualizing knowledge-sharing communities and groups.",
         "detail": "Historical profile without the individual profiles or photographs from the former application."
-      }
+      },
+      "archiveCategory": "atlas"
     },
     {
       "id": "art-of-hosting",
@@ -259,7 +287,9 @@
         "title": "The Art of Collaborative Innovation",
         "summary": "Historical atlas associated with a collaborative-innovation workshop in 2023.",
         "detail": "The project is documented without retaining the participant-profile application."
-      }
+      },
+      "archiveCategory": "initiatives",
+      "archiveYear": 2023
     }
   ],
   "routes": [
@@ -420,6 +450,47 @@
       "lang": "en",
       "section": "detail",
       "id": "art-of-hosting"
+    }
+  ],
+  "archiveDocuments": [
+    {
+      "id": "cc",
+      "url": "/CC.html",
+      "archiveCategory": "documents",
+      "es": {
+        "title": "Conocimiento Crítico · materiales",
+        "summary": "Material documental sobre conocimiento crítico."
+      },
+      "en": {
+        "title": "Critical Knowledge · resources",
+        "summary": "Documentary resources on critical knowledge."
+      }
+    },
+    {
+      "id": "km2024",
+      "url": "/KM2024.html",
+      "archiveCategory": "documents",
+      "es": {
+        "title": "Gestión del Conocimiento · materiales",
+        "summary": "Recursos y presentaciones sobre gestión del conocimiento."
+      },
+      "en": {
+        "title": "Knowledge Management · resources",
+        "summary": "Resources and presentations on knowledge management."
+      }
+    },
+    {
+      "id": "revista",
+      "url": "/revista/",
+      "archiveCategory": "documents",
+      "es": {
+        "title": "Revista · documentación",
+        "summary": "Materiales audiovisuales, publicaciones y recursos."
+      },
+      "en": {
+        "title": "Magazine · documentation",
+        "summary": "Audiovisual materials, publications and resources."
+      }
     }
   ]
 }

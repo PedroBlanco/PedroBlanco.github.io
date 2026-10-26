@@ -24,6 +24,17 @@ for(const [localPath,lang] of [["index.html","es"],["en/index.html","en"]]){
  if((html.match(/class="card"/g)||[]).length!==3)
   throw Error("Expected three editorially featured project cards at "+localPath);
 }
+for(const [archivePath,lang] of [["archivo/index.html","es"],["en/archive/index.html","en"]]){
+ const html=fs.readFileSync(path.join(dist,archivePath),"utf8");
+ const years=["2023","2019","undated"];
+ for(const year of years)if(!html.includes('id="archive-period-'+year+'"'))throw Error("Missing chronological group "+year+" in "+archivePath);
+ for(const category of ["all","atlas","initiatives","documents"])if(!html.includes('data-archive-filter="'+category+'"'))throw Error("Missing archive filter "+category+" in "+archivePath);
+ for(const type of ["atlas","initiatives","documents"])if(!html.includes('data-archive-category="'+type+'"'))throw Error("Missing archive category "+type+" in "+archivePath);
+ if(!html.includes('src="/scripts/archive-filter.js"'))throw Error("Missing progressive filter script in "+archivePath);
+ if((html.match(/data-archive-entry(?!-)/g)||[]).length!==7)throw Error("Expected seven historical entries in "+archivePath);
+ if(!html.includes('role="group"')||!html.includes('aria-pressed="true"'))throw Error("Missing accessible filter controls in "+archivePath);
+}
+if(!fs.existsSync(path.join(dist,"scripts/archive-filter.js")))throw Error("Missing filter asset");
 const privatePaths=["mapeo/2019-04-11 EXPORT lista_fichas_mapeo.csv","embajadores/embajadores","art-of-hosting/participantes","mapas/autores"];
 for(const p of privatePaths){if(fs.existsSync(path.join(dist,p))){console.error("PRIVATE/RETIRED CONTENT IN BUILD "+p);process.exitCode=1;}}
 for(const item of content.items){
