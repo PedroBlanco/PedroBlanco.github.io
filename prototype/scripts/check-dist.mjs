@@ -101,7 +101,7 @@ for(const [target,lang] of [["index.html","es"],["en/index.html","en"],["herrami
  }
  if(!header.includes("aria-current="))throw Error("Current page state not exposed: "+target);
  if(!header.includes(">"+(lang==="es"?"Menú":"Menu")+"</span>"))throw Error("Untranslated menu label: "+target);
- const alternate=lang==="es"?'href="https://pedroblanco.github.io/en/"':'href="https://pedroblanco.github.io/"';
+ const alternate=target.includes("tools/")?'href="https://pedroblanco.github.io/herramientas/"':target.includes("herramientas/")?'href="https://pedroblanco.github.io/en/tools/"':lang==="es"?'href="https://pedroblanco.github.io/en/"':'href="https://pedroblanco.github.io/"';
  if(!header.includes(alternate))throw Error("Language switch missing: "+target);
 }
 const privatePaths=["mapeo/2019-04-11 EXPORT lista_fichas_mapeo.csv","embajadores/embajadores","art-of-hosting/participantes","mapas/autores"];
