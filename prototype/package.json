@@ -1,0 +1,13 @@
+{
+  "name": "pedroblanco-prototype-eleventy",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "eleventy --serve",
+    "build": "node scripts/sync-repositories.mjs && eleventy",
+    "check": "node scripts/check-dist.mjs"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "3.1.7"
+  }
+}

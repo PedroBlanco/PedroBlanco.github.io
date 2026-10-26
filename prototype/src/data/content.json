@@ -1,0 +1,395 @@
+{
+  "langs": {
+    "es": {
+      "name": "Español",
+      "site": "Proyectos, herramientas y conocimiento",
+      "tagline": "Software, investigación y archivo de proyectos",
+      "intro": "Herramientas utilizables, proyectos de desarrollo e investigación y una memoria accesible de trabajos anteriores.",
+      "nav": {
+        "home": "Inicio",
+        "tools": "Herramientas",
+        "projects": "Proyectos",
+        "archive": "Archivo",
+        "about": "Acerca de"
+      },
+      "more": "Ver ficha",
+      "try": "Abrir herramienta / sitio",
+      "code": "Repositorio público",
+      "catalog": "Otros repositorios públicos",
+      "catalogInfo": "Catálogo complementario sincronizable con GitHub y sujeto a selección editorial.",
+      "archiveInfo": "Fichas históricas y documentación preservada en sus rutas originales.",
+      "aboutText": "Espacio personal para compartir herramientas de software, proyectos de investigación y trabajos anteriores. Los contenidos publicados no representan necesariamente a las organizaciones con las que he colaborado.",
+      "featured": "Selección de trabajos",
+      "all": "Explorar",
+      "year": "Archivo histórico",
+      "status": {
+        "active": "Activo",
+        "finished": "Finalizado",
+        "historic": "Histórico"
+      },
+      "kind": {
+        "tool": "Herramienta",
+        "project": "Proyecto",
+        "archive": "Archivo"
+      },
+      "back": "Volver al listado",
+      "offline": "Repositorio público",
+      "notFound": "Página no encontrada",
+      "notFoundBody": "La página puede haberse trasladado o retirado. Puedes consultar el archivo y los proyectos disponibles.",
+      "footer": "Sitio personal · Prototipo de renovación · No publicado"
+    },
+    "en": {
+      "name": "English",
+      "site": "Projects, tools and knowledge",
+      "tagline": "Software, research and project archive",
+      "intro": "Usable tools, development and research projects, and an accessible record of earlier work.",
+      "nav": {
+        "home": "Home",
+        "tools": "Tools",
+        "projects": "Projects",
+        "archive": "Archive",
+        "about": "About"
+      },
+      "more": "View project",
+      "try": "Open tool / website",
+      "code": "Public repository",
+      "catalog": "Other public repositories",
+      "catalogInfo": "Additional GitHub repository catalogue with editorial inclusion and exclusion rules.",
+      "archiveInfo": "Historical profiles and documents preserved at their original URLs.",
+      "aboutText": "Personal space for sharing software tools, research projects and earlier work. Published content does not necessarily represent organizations I have worked with.",
+      "featured": "Selected work",
+      "all": "Explore",
+      "year": "Historical archive",
+      "status": {
+        "active": "Active",
+        "finished": "Finished",
+        "historic": "Historical"
+      },
+      "kind": {
+        "tool": "Tool",
+        "project": "Project",
+        "archive": "Archive"
+      },
+      "back": "Back to overview",
+      "offline": "Public repository",
+      "notFound": "Page not found",
+      "notFoundBody": "This page may have moved or been retired. Browse the archive and available projects instead.",
+      "footer": "Personal site · Renewal prototype · Not published"
+    }
+  },
+  "items": [
+    {
+      "id": "calculator",
+      "kind": "tool",
+      "slug": "calculadora-tiempo",
+      "status": "active",
+      "featured": true,
+      "live": "https://pedroblanco.github.io/calculadora-tiempo/",
+      "es": {
+        "title": "Calculadora de tiempo",
+        "summary": "Herramienta web para calcular periodos y méritos conforme al artículo 129 de la Ley 5/2023.",
+        "detail": "Aplicación web progresiva con lógica de cómputo de periodos. La ficha documenta su objetivo; el cálculo se realiza en la aplicación independiente."
+      },
+      "en": {
+        "title": "Time calculator",
+        "summary": "Web tool for calculating periods and service merits under Article 129 of Andalusian Law 5/2023.",
+        "detail": "Progressive web application with period-calculation logic. This page describes the project; calculations run in the independent application."
+      }
+    },
+    {
+      "id": "signature",
+      "kind": "tool",
+      "slug": "piefirma",
+      "status": "active",
+      "live": "https://pedroblanco.github.io/piefirma/",
+      "source": "https://github.com/jpcozar/piefirma",
+      "es": {
+        "title": "Generador de firmas",
+        "summary": "Herramienta para generar firmas HTML de correo electrónico corporativo.",
+        "detail": "Proyecto colaborativo cuya plantilla y validación se revisarán para actualizar referencias y mejorar su seguridad."
+      },
+      "en": {
+        "title": "Email signature generator",
+        "summary": "Tool for generating corporate HTML email signatures.",
+        "detail": "Collaborative project; its template and input validation will be reviewed to update references and improve safety."
+      }
+    },
+    {
+      "id": "pdf",
+      "kind": "tool",
+      "slug": "pdf-fotos-a-imagenes",
+      "status": "active",
+      "source": "https://github.com/PedroBlanco/pdf-fotos-a-imagenes",
+      "es": {
+        "title": "PDF de fotos a imágenes",
+        "summary": "Utilidad Python para trabajar con imágenes extraídas de documentos PDF.",
+        "detail": "Ficha técnica ampliable con requisitos, modo de uso y ejemplos."
+      },
+      "en": {
+        "title": "PDF photos to images",
+        "summary": "Python utility for working with images extracted from PDF documents.",
+        "detail": "Technical profile ready for requirements, usage instructions and examples."
+      }
+    },
+    {
+      "id": "csv",
+      "kind": "tool",
+      "slug": "csv2sqlite",
+      "status": "finished",
+      "source": "https://github.com/PedroBlanco/CSV2SQLite",
+      "es": {
+        "title": "CSV2SQLite",
+        "summary": "Conversión de archivos CSV de gran tamaño a bases de datos SQLite.",
+        "detail": "Utilidad de procesamiento de datos cuyo repositorio contiene el código y las instrucciones de uso."
+      },
+      "en": {
+        "title": "CSV2SQLite",
+        "summary": "Conversion of large CSV files into SQLite databases.",
+        "detail": "Data-processing utility; its repository contains the code and usage instructions."
+      }
+    },
+    {
+      "id": "research",
+      "kind": "project",
+      "slug": "narrativa-adaptativa",
+      "status": "active",
+      "featured": true,
+      "es": {
+        "title": "Narrativa adaptativa en videojuegos",
+        "summary": "TFG sobre un sistema reutilizable para explorar el bucle de adaptación narrativa y conectarlo a varios motores.",
+        "detail": "Trabajo de investigación y desarrollo. La ficha pública se limita al objetivo y el enfoque general; el repositorio de trabajo es privado."
+      },
+      "en": {
+        "title": "Adaptive narrative in video games",
+        "summary": "Bachelor's thesis exploring a reusable closed-loop narrative adaptation system and its integration with multiple game engines.",
+        "detail": "Research and development project. This public profile covers its purpose and high-level approach; the source repository is private."
+      }
+    },
+    {
+      "id": "mapas",
+      "kind": "archive",
+      "slug": "mapas",
+      "status": "historic",
+      "featured": true,
+      "live": "https://conocimientocritico.github.io/",
+      "es": {
+        "title": "Atlas de Conocimiento Crítico",
+        "summary": "Proyecto histórico de mapas de conocimiento crítico. La versión oficial continúa en un sitio independiente.",
+        "detail": "Se conserva una ficha contextual en lugar de la copia de la aplicación que antes se alojaba aquí."
+      },
+      "en": {
+        "title": "Critical Knowledge Atlas",
+        "summary": "Historical critical-knowledge mapping project. Its official version remains on an independent website.",
+        "detail": "This historical profile replaces the former local application copy."
+      }
+    },
+    {
+      "id": "mapeo",
+      "kind": "archive",
+      "slug": "mapeo",
+      "status": "historic",
+      "es": {
+        "title": "Mapeo de Iniciativas Innovadoras (2019)",
+        "summary": "Prototipo de un mapa de iniciativas innovadoras en la administración pública.",
+        "detail": "Se conserva su historia, no la aplicación ni las antiguas exportaciones de participantes."
+      },
+      "en": {
+        "title": "Innovation Initiatives Mapping (2019)",
+        "summary": "Prototype for mapping innovation initiatives in public administration.",
+        "detail": "Only a historical description is retained, not the application or old participant data exports."
+      }
+    },
+    {
+      "id": "embajadores",
+      "kind": "archive",
+      "slug": "embajadores",
+      "status": "historic",
+      "es": {
+        "title": "Atlas de Embajadores del Conocimiento",
+        "summary": "Prototipo histórico para representar comunidades y grupos de intercambio de conocimiento.",
+        "detail": "Ficha histórica sin perfiles ni fotografías personales de la aplicación original."
+      },
+      "en": {
+        "title": "Knowledge Ambassadors Atlas",
+        "summary": "Historical prototype for visualizing knowledge-sharing communities and groups.",
+        "detail": "Historical profile without the individual profiles or photographs from the former application."
+      }
+    },
+    {
+      "id": "art-of-hosting",
+      "kind": "archive",
+      "slug": "art-of-hosting",
+      "status": "historic",
+      "es": {
+        "title": "El Arte de la Innovación Colaborativa",
+        "summary": "Atlas histórico vinculado a un taller de innovación colaborativa celebrado en 2023.",
+        "detail": "Se documenta el proyecto sin conservar la aplicación pública de perfiles de participantes."
+      },
+      "en": {
+        "title": "The Art of Collaborative Innovation",
+        "summary": "Historical atlas associated with a collaborative-innovation workshop in 2023.",
+        "detail": "The project is documented without retaining the participant-profile application."
+      }
+    }
+  ],
+  "routes": [
+    {
+      "path": "",
+      "lang": "es",
+      "section": "home"
+    },
+    {
+      "path": "en",
+      "lang": "en",
+      "section": "home"
+    },
+    {
+      "path": "herramientas",
+      "lang": "es",
+      "section": "tools"
+    },
+    {
+      "path": "en/tools",
+      "lang": "en",
+      "section": "tools"
+    },
+    {
+      "path": "proyectos",
+      "lang": "es",
+      "section": "projects"
+    },
+    {
+      "path": "en/projects",
+      "lang": "en",
+      "section": "projects"
+    },
+    {
+      "path": "archivo",
+      "lang": "es",
+      "section": "archive"
+    },
+    {
+      "path": "en/archive",
+      "lang": "en",
+      "section": "archive"
+    },
+    {
+      "path": "acerca-de",
+      "lang": "es",
+      "section": "about"
+    },
+    {
+      "path": "en/about",
+      "lang": "en",
+      "section": "about"
+    },
+    {
+      "path": "herramientas/calculadora-tiempo",
+      "lang": "es",
+      "section": "detail",
+      "id": "calculator"
+    },
+    {
+      "path": "en/tools/calculadora-tiempo",
+      "lang": "en",
+      "section": "detail",
+      "id": "calculator"
+    },
+    {
+      "path": "herramientas/piefirma",
+      "lang": "es",
+      "section": "detail",
+      "id": "signature"
+    },
+    {
+      "path": "en/tools/piefirma",
+      "lang": "en",
+      "section": "detail",
+      "id": "signature"
+    },
+    {
+      "path": "herramientas/pdf-fotos-a-imagenes",
+      "lang": "es",
+      "section": "detail",
+      "id": "pdf"
+    },
+    {
+      "path": "en/tools/pdf-fotos-a-imagenes",
+      "lang": "en",
+      "section": "detail",
+      "id": "pdf"
+    },
+    {
+      "path": "herramientas/csv2sqlite",
+      "lang": "es",
+      "section": "detail",
+      "id": "csv"
+    },
+    {
+      "path": "en/tools/csv2sqlite",
+      "lang": "en",
+      "section": "detail",
+      "id": "csv"
+    },
+    {
+      "path": "proyectos/narrativa-adaptativa",
+      "lang": "es",
+      "section": "detail",
+      "id": "research"
+    },
+    {
+      "path": "en/projects/narrativa-adaptativa",
+      "lang": "en",
+      "section": "detail",
+      "id": "research"
+    },
+    {
+      "path": "mapas",
+      "lang": "es",
+      "section": "detail",
+      "id": "mapas"
+    },
+    {
+      "path": "en/archive/mapas",
+      "lang": "en",
+      "section": "detail",
+      "id": "mapas"
+    },
+    {
+      "path": "mapeo",
+      "lang": "es",
+      "section": "detail",
+      "id": "mapeo"
+    },
+    {
+      "path": "en/archive/mapeo",
+      "lang": "en",
+      "section": "detail",
+      "id": "mapeo"
+    },
+    {
+      "path": "embajadores",
+      "lang": "es",
+      "section": "detail",
+      "id": "embajadores"
+    },
+    {
+      "path": "en/archive/embajadores",
+      "lang": "en",
+      "section": "detail",
+      "id": "embajadores"
+    },
+    {
+      "path": "art-of-hosting",
+      "lang": "es",
+      "section": "detail",
+      "id": "art-of-hosting"
+    },
+    {
+      "path": "en/archive/art-of-hosting",
+      "lang": "en",
+      "section": "detail",
+      "id": "art-of-hosting"
+    }
+  ]
+}
