@@ -1,0 +1,6 @@
+---
+import Page from "../components/Page.astro";
+import content from "../data/content.json";
+const route=content.routes.find(x=>x.path==="");
+---
+<Page route={route}/>

@@ -1,0 +1,67 @@
+---
+import content from "../data/content.json";
+import repos from "../data/repositories.json";
+import editorial from "../data/editorial.json";
+import {root,sectionUrl,itemUrl,alternateUrl,publicCatalog} from "../data/utils.mjs";
+import "../styles/site.css";
+const {route}=Astro.props;
+const {langs,items}=content;
+const t=langs[route.lang];
+const item=route.id?items.find(i=>i.id===route.id):null;
+const pageTitle=item?item[route.lang].title:route.section==="home"?t.site:t.nav[route.section]||t.notFound;
+const current=route.section==="detail"?(item.kind==="archive"?"archive":item.kind==="tool"?"tools":"projects"):route.section;
+const altEs=root+alternateUrl(route,"es",items);
+const altEn=root+alternateUrl(route,"en",items);
+const ownUrl=root+"/"+(route.path?route.path+"/":"");
+const list=items.filter(i=>route.section==="home"?i.featured:route.section==="tools"?i.kind==="tool":route.section==="projects"?i.kind==="project":route.section==="archive"?i.kind==="archive":false);
+const catalog=publicCatalog(repos,editorial,items);
+---
+<!doctype html>
+<html lang={route.lang}>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="color-scheme" content="light dark" />
+<title>{pageTitle} · PedroBlanco</title>
+<meta name="description" content={item?item[route.lang].summary:t.intro} />
+<link rel="canonical" href={ownUrl} />
+<link rel="alternate" hreflang="es" href={altEs} />
+<link rel="alternate" hreflang="en" href={altEn} />
+<link rel="alternate" hreflang="x-default" href={altEs} />
+</head>
+<body>
+<a class="skip" href="#main">{route.lang==="es"?"Saltar al contenido":"Skip to content"}</a>
+<header class="site-header"><div class="wrap header-inner">
+<a class="brand" href={sectionUrl(route.lang,"home")}>PedroBlanco<span aria-hidden="true"> /</span> {t.site}</a>
+<nav aria-label={route.lang==="es"?"Navegación principal":"Primary navigation"}>
+{Object.entries(t.nav).map(([key,label])=><a href={sectionUrl(route.lang,key)} aria-current={current===key?"page":undefined}>{label}</a>)}
+<a class="lang" lang={route.lang==="es"?"en":"es"} href={route.lang==="es"?altEn:altEs} aria-label={route.lang==="es"?"Read in English":"Leer en español"}>{route.lang==="es"?"EN":"ES"}</a>
+</nav>
+</div></header>
+<main id="main">
+{route.section==="home"&&<section class="hero wrap"><p class="eyebrow">{t.tagline}</p><h1>{t.site}</h1><p class="lede">{t.intro}</p></section>}
+{route.section==="detail"&&item&&<article class="section wrap detail">
+<a href={sectionUrl(route.lang,current)}>← {t.back}</a>
+<p class="eyebrow">{t.kind[item.kind]} · {t.status[item.status]}</p>
+<h1>{item[route.lang].title}</h1><p class="lede">{item[route.lang].summary}</p>
+<div class="actions">{item.live&&<a href={item.live}>{t.try}</a>}{item.source&&<a href={item.source}>{t.code}</a>}</div>
+<h2>{route.lang==="es"?"Sobre este proyecto":"About this project"}</h2><p>{item[route.lang].detail}</p>
+{item.kind==="archive"&&<p class="muted">{route.lang==="es"?"La aplicación anterior se ha retirado de la publicación prevista; esta página preservará su contexto histórico.":"The former application is being retired from the planned publication; this page preserves its historical context."}</p>}
+</article>}
+{route.section==="about"&&<section class="section wrap detail"><h1>{t.nav.about}</h1><p class="lede">{t.aboutText}</p></section>}
+{route.section==="missing"&&<section class="section wrap detail"><h1>{t.notFound}</h1><p>{t.notFoundBody}</p><a href={sectionUrl(route.lang,"archive")}>{t.nav.archive}</a></section>}
+{["home","tools","projects","archive"].includes(route.section)&&<section class="section wrap">
+<div class="section-head"><h2>{route.section==="home"?t.featured:t.nav[route.section]}</h2>{route.section==="home"&&<a href={sectionUrl(route.lang,"projects")}>{t.all}</a>}</div>
+<div class="cards">{list.map(i=><article class="card">
+<div class="chips"><span class="chip">{t.kind[i.kind]}</span><span class="chip">{t.status[i.status]}</span></div>
+<h3><a href={itemUrl(i,route.lang)}>{i[route.lang].title}</a></h3><p>{i[route.lang].summary}</p><a href={itemUrl(i,route.lang)}>{t.more} →</a>
+</article>)}</div>
+{route.section==="archive"&&<><p>{t.archiveInfo}</p><div class="cards">
+<article class="card"><h3><a href="/CC.html">Conocimiento Crítico · materiales</a></h3><p>2023–2025</p></article>
+<article class="card"><h3><a href="/KM2024.html">Gestión del Conocimiento · 2024</a></h3><p>PDF, PPTX y presentaciones</p></article>
+<article class="card"><h3><a href="/revista/">Revista · documentación</a></h3><p>Vídeos, audio y recursos</p></article>
+</div></>}
+{route.section==="projects"&&<><h2>{t.catalog}</h2><p class="muted">{t.catalogInfo}</p><ul class="catalog">{catalog.map(r=><li><a href={r.url}>{r.name}</a><small>{r.description}</small><div class="chips">{r.fork&&<span class="chip">Fork</span>}{r.archived&&<span class="chip">{t.status.historic}</span>}{r.featured&&<span class="chip">★</span>}</div></li>)}</ul></>}
+</section>}
+</main><footer class="site-footer"><div class="wrap">{t.footer}</div></footer>
+</body></html>

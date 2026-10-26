@@ -1,0 +1,7 @@
+---
+import Page from "../components/Page.astro";
+import content from "../data/content.json";
+export function getStaticPaths(){return content.routes.filter(r=>r.path!=="").map(route=>({params:{slug:route.path},props:{route}}));}
+const {route}=Astro.props;
+---
+<Page route={route}/>

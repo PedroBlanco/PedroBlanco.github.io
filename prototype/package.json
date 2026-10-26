@@ -1,0 +1,13 @@
+{
+  "name": "pedroblanco-prototype-astro",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "node scripts/sync-repositories.mjs && astro build",
+    "check": "node scripts/check-dist.mjs"
+  },
+  "devDependencies": {
+    "astro": "7.4.2"
+  }
+}
