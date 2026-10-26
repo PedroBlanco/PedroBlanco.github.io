@@ -32,10 +32,16 @@ impedir la compilación del prototipo.
 | Principal | `#794654` | `#E1B4C2` |
 | Acento | `#9D7029` | `#D7A96D` |
 
-Variables CSS en `src/styles/site.css`. Se usa una tipografía de títulos serif
-(Georgia, provisional) y texto sans-serif del sistema. El acento ocre es
-decorativo; para texto pequeño se emplea una variante más oscura.
-No se usan fuentes externas ni bibliotecas CSS.
+## Tipografía · Decisión 23 (confirmada)
+
+**Editorial equilibrada:** títulos serif y texto sans-serif. La familia de
+encabezados se resuelve con Georgia/Cambria y serif del sistema; el cuerpo usa
+fuentes sans-serif del sistema. Se trata de una elección tipográfica
+confirmada, aunque sus tamaños y espaciados podrán ajustarse durante las
+pruebas de diseño. No se descargan tipografías externas.
+
+Variables CSS en `src/styles/site.css`. El acento ocre es decorativo; para
+texto pequeño se emplea una variante más oscura. No se usan bibliotecas CSS.
 
 ## Contenido y catálogo
 
