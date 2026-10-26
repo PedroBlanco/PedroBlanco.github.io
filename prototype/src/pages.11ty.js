@@ -116,7 +116,7 @@ function render(route){
  const title=item?item[route.lang].title:route.section==="home"?t.site:t.nav[route.section]||t.notFound;
  const section=route.section==="detail"?(item.kind==="archive"?"archive":item.kind==="tool"?"tools":"projects"):route.section;
  const es=root+alternateUrl(route,"es",items),en=root+alternateUrl(route,"en",items);
- const canonical=root+"/"+(route.path?route.path+"/":"");
+ const canonical=route.section==="missing"?root+"/404.html":root+"/"+(route.path?route.path+"/":"");
  const navigation=Object.entries(t.nav).map(([key,label])=>link(sectionUrl(route.lang,key),label,section===key?' aria-current="page"':"")).join("");
  const switchLang=link(route.lang==="es"?en:es,route.lang==="es"?"EN":"ES",' class="lang" lang="'+(route.lang==="es"?"en":"es")+'" aria-label="'+(route.lang==="es"?"Read in English":"Leer en español")+'"');
  let body="";
