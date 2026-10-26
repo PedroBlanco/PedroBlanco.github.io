@@ -208,6 +208,34 @@ estén aprobadas; esos controles continúan pendientes.
 Consultar `MIGRATION_AUDIT.md` para el inventario de materiales, riesgos,
 rutas pendientes y pasos necesarios antes de publicar.
 
+## Calculadora de tiempo (repositorio de origen privado)
+
+El proyecto privado `PedroBlanco/calculadora-tiempo` ya genera su
+distribución pública mediante `npm run build:web`. Para incluir **solo
+esa distribución** en una compilación local de Eleventy:
+
+```powershell
+# En el clon local de calculadora-tiempo:
+npm ci
+npm run build:web
+
+# En el clon público de PedroBlanco.github.io, rama prototype/eleventy-bilingual:
+cd prototype
+$env:CALCULADORA_WEB_DIST = "C:\\ruta\\a\\calculadora-tiempo\\dist"
+npm run build
+npm run check
+```
+
+El integrador comprueba exactamente los 16 archivos de ejecución, incluido
+`ui.js`, `src/areas.js`, `src/deadlines.js`, el SW construido y
+`.nojekyll`. No accede al código de test ni a las carpetas internas del
+repositorio privado, no publica credenciales y no hace push.
+
+Sin la variable de entorno, la integración no se realiza y la ruta queda
+señalada como pendiente. La CI pública **no tiene acceso** al repositorio
+privado. Antes de producción será necesario aportar un artefacto aprobado
+a la compilación definitiva, con controles de procedencia y revisión.
+
 ## Condiciones para publicar
 
 - Revisión humana de todas las traducciones; contenido del TFG limitado a su
