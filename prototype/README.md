@@ -1,34 +1,59 @@
-# Prototipo de renovación (no publicado)
+# Eleventy (11ty) · Renovación del sitio personal (prototipo)
 
-La implementación vive exclusivamente en la carpeta prototype/ de una rama independiente.
-No publicar ni fusionar este contenido hasta revisar privacidad, enlaces y contenido bilingüe.
+**Tecnología elegida:** Eleventy 3.1.7. La variante Astro se conserva únicamente
+como referencia de la comparación previa. **No se ha desplegado ni fusionado nada
+en master.** El código de este prototipo reside en `prototype/`.
 
-## Comandos
+## Ejecutar y verificar
 
+```sh
 cd prototype
 npm install
 npm run dev
 npm run build
 npm run check
+npm run check:publish
+```
 
-El comando build intenta sincronizar el catálogo de repositorios **públicos** desde GitHub.
-Si no hay red o se alcanza el límite de solicitudes, utiliza el snapshot incluido en
-src/data/repositories.json. La selección editorial está en src/data/editorial.json.
+`check:publish` debe fallar mientras queden traducciones sin revisión humana.
+La aprobación se documenta en `src/data/translation-review.json` mediante huellas
+de contenido español. El comando `check` informa de traducciones pendientes sin
+impedir la compilación del prototipo.
 
-## Comparación
+## Identidad visual provisional · Decisión 22
 
-Astro y Eleventy usan los mismos datos de src/data/content.json y el mismo CSS.
-Comprobar: cinco secciones, ES en /, EN en /en/, selector visible, fichas traducidas,
-cuatro rutas históricas, enlaces externos públicos, 404, compilación y experiencia móvil.
+**«Archivo contemporáneo»**, escogida provisionalmente.
 
-## Límites conocidos
+| Token | Claro | Oscuro (preferencia del sistema) |
+| --- | --- | --- |
+| Fondo | `#F7F0E6` | `#211B1F` |
+| Superficie | `#FFFCF7` | `#30282C` |
+| Texto | `#342D2A` | `#F7EEE5` |
+| Principal | `#794654` | `#E1B4C2` |
+| Acento | `#9D7029` | `#D7A96D` |
 
-- master permanece intacta; nada se despliega automáticamente.
-- Las traducciones del prototipo son borradores y requieren revisión humana.
-- El TFG tiene origen privado; su ficha no expone repositorio ni archivos privados.
-- Las aplicaciones históricas NO se borran todavía. Se necesita una operación posterior
-  controlada para retirar archivos, revisar datos personales y conservar rutas selectivas.
-- Los enlaces interiores con nombres personales se retirarán de la versión publicada.
-- Cualquier redirección en GitHub Pages será mediante páginas estáticas y no un HTTP 301 real.
-- Al migrar, copiar de forma selectiva los activos vigentes y documentos históricos,
-  nunca todas las carpetas antiguas sin revisión.
+Variables CSS en `src/styles/site.css`. Se usa una tipografía de títulos serif
+(Georgia, provisional) y texto sans-serif del sistema. El acento ocre es
+decorativo; para texto pequeño se emplea una variante más oscura.
+No se usan fuentes externas ni bibliotecas CSS.
+
+## Contenido y catálogo
+
+Las rutas, fichas y traducciones provisionales están en
+`src/data/content.json`. Los repositorios públicos se sincronizan desde GitHub
+antes de `npm run build`; si falla la API, se conserva el snapshot local.
+La selección editorial se gestiona en `src/data/editorial.json`.
+
+## Condiciones para publicar
+
+- Revisión humana de todas las traducciones; contenido del TFG limitado a su
+  descripción pública, sin exponer el repositorio privado.
+- Auditoría de privacidad, licencias, datos personales y enlaces interiores.
+- Conservación de las aplicaciones vigentes `/piefirma/` y `/calculadora-tiempo/`.
+- Conservación selectiva de documentos históricos, con URLs originales.
+- No retirar ni borrar proyectos históricos antes de revisar sus datos; las
+  fichas actuales **son prototipos**, no una migración de archivos realizada.
+- Los enlaces interiores personales no se redirigirán; se aplicará la política
+  descrita en `MIGRATION.md`.
+- Revisión visual móvil/escritorio, accesibilidad y SEO.
+- PR final y plan de reversión; no fusionar este prototipo directamente.
