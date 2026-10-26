@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "astro dev",
     "build": "node scripts/sync-repositories.mjs && astro build",
-    "check": "node scripts/check-dist.mjs"
+    "check": "node scripts/check-dist.mjs && node scripts/check-translations.mjs",
+    "translations": "node scripts/check-translations.mjs",
+    "check:publish": "node scripts/check-dist.mjs && node scripts/check-translations.mjs --strict"
   },
   "devDependencies": {
     "astro": "7.4.2"
