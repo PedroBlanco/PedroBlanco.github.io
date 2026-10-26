@@ -7,9 +7,9 @@ function validPath(p){return typeof p==="string"&&!p.startsWith("/")&&!p.include
 function gitSha(data){return createHash("sha1").update(Buffer.from("blob "+data.length+"\0")).update(data).digest("hex");}
 let staged=0;
 for(const item of manifest.entries){
- if(!validPath(item.path)||seen.has(item.path)||!["preview","preserve","hold","retire"].includes(item.status))throw Error("Invalid manifest entry");
+ if(!validPath(item.path)||seen.has(item.path)||!["preview","hold","retire"].includes(item.status))throw Error("Invalid manifest entry");
  seen.add(item.path);
- if(item.status!=="preview"&&item.status!=="preserve")continue;
+ if(item.status!=="preview")continue;
  if(!["document","binary"].includes(item.kind)||!(/^[a-f0-9]{40}$/.test(item.gitBlobSha||"")))throw Error("Unpinned preview file: "+item.path);
  const input=path.join(sourceRoot,item.path),output=path.join(dist,item.path),stat=await fs.lstat(input);
  if(!stat.isFile()||stat.isSymbolicLink())throw Error("Unsafe source: "+item.path);
