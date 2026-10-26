@@ -16,5 +16,16 @@ for(const route of content.routes){
 }
 const privatePaths=["mapeo/2019-04-11 EXPORT lista_fichas_mapeo.csv","embajadores/embajadores","art-of-hosting/participantes","mapas/autores"];
 for(const p of privatePaths){if(fs.existsSync(path.join(dist,p))){console.error("PRIVATE/RETIRED CONTENT IN BUILD "+p);process.exitCode=1;}}
+for(const item of content.items){
+ if(!item.media)continue;
+ for(const lang of ["es","en"]){
+  const media=item.media[lang];
+  if(!media?.src?.startsWith("/media/")||!media.alt?.trim()||!media.caption?.trim())throw Error("Invalid media metadata: "+item.id+" "+lang);
+  if(!fs.existsSync(path.join(dist,media.src.slice(1))))throw Error("Missing image: "+media.src);
+  const route=content.routes.find(r=>r.section==="detail"&&r.id===item.id&&r.lang===lang);
+  const html=fs.readFileSync(path.join(dist,route.path,"index.html"),"utf8");
+  if(!html.includes('src="'+media.src+'"')||!html.includes('alt="'+media.alt+'"'))throw Error("Missing localized media in "+route.path);
+ }
+}
 if(!fs.existsSync(path.join(dist,"404.html"))){console.error("MISSING 404.html");process.exitCode=1;}
 if(!process.exitCode)console.log("Validated "+paths.size+" bilingual routes and 404 page; no retired personal directories copied");

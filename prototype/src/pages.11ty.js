@@ -6,6 +6,7 @@ import {root, sectionUrl, itemUrl, alternateUrl, publicCatalog} from "./data/uti
 const esc=x=>String(x??"").replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
 const link=(href,label,other="")=>'<a href="'+esc(href)+'"'+other+'>'+esc(label)+'</a>';
 const badge=(label)=>'<span class="chip">'+esc(label)+'</span>';
+const mediaFigure=(item,lang,className)=>{const m=item?.media?.[lang];return m&&m.src?.startsWith('/media/')&&m.alt&&m.caption?'<figure class="'+esc(className)+'"><img src="'+esc(m.src)+'" alt="'+esc(m.alt)+'" width="740" height="260" loading="lazy" decoding="async"><figcaption>'+esc(m.caption)+'</figcaption></figure>':'';};
 const archiveResources=[{url:"/CC.html",label:"Conocimiento Crítico · materiales",note:"2023–2025"},{url:"/KM2024.html",label:"Gestión del Conocimiento · 2024",note:"PDF, PPTX y presentaciones"},{url:"/revista/",label:"Revista · documentación",note:"Vídeos, audio y recursos"}];
 
 function render(route){
@@ -24,14 +25,14 @@ function render(route){
     +'<p class="eyebrow">'+esc(t.kind[item.kind])+' · '+esc(t.status[item.status])+'</p><h1>'+esc(item[route.lang].title)
     +'</h1><p class="lede">'+esc(item[route.lang].summary)+'</p><div class="actions">'
     +(item.live?link(item.live,t.try):"")+(item.source?link(item.source,t.code):"")
-    +'</div><h2>'+(route.lang==="es"?"Sobre este proyecto":"About this project")+'</h2><p>'+esc(item[route.lang].detail)+'</p>'
+    +'</div>'+mediaFigure(item,route.lang,'detail-media')+'<h2>'+(route.lang==="es"?"Sobre este proyecto":"About this project")+'</h2><p>'+esc(item[route.lang].detail)+'</p>'
     +(item.kind==="archive"?'<p class="muted">'+(route.lang==="es"?"La aplicación anterior se ha retirado de la publicación prevista; esta página preservará su contexto histórico.":"The former application is being retired from the planned publication; this page preserves its historical context.")+'</p>':"")+'</article>';
  }
  if(route.section==="about")body+='<section class="section wrap detail"><h1>'+esc(t.nav.about)+'</h1><p class="lede">'+esc(t.aboutText)+'</p></section>';
  if(route.section==="missing")body+='<section class="section wrap detail"><h1>'+esc(t.notFound)+'</h1><p>'+esc(t.notFoundBody)+'</p>'+link(sectionUrl(route.lang,"archive"),t.nav.archive)+'</section>';
  if(["home","tools","projects","archive"].includes(route.section)){
    const visible=items.filter(x=>route.section==="home"?x.featured:route.section==="tools"?x.kind==="tool":route.section==="projects"?x.kind==="project":x.kind==="archive");
-   const cards=visible.map(x=>'<article class="card"><div class="chips">'+badge(t.kind[x.kind])+badge(t.status[x.status])+'</div><h3>'+link(itemUrl(x,route.lang),x[route.lang].title)+'</h3><p>'+esc(x[route.lang].summary)+'</p>'+link(itemUrl(x,route.lang),t.more+" →")+'</article>').join("");
+   const cards=visible.map(x=>'<article class="card">'+mediaFigure(x,route.lang,'card-media')+'<div class="chips">'+badge(t.kind[x.kind])+badge(t.status[x.status])+'</div><h3>'+link(itemUrl(x,route.lang),x[route.lang].title)+'</h3><p>'+esc(x[route.lang].summary)+'</p>'+link(itemUrl(x,route.lang),t.more+" →")+'</article>').join("");
    body+='<section class="section wrap"><div class="section-head"><h2>'+esc(route.section==="home"?t.featured:t.nav[route.section])+'</h2>'+(route.section==="home"?link(sectionUrl(route.lang,"projects"),t.all):"")+'</div><div class="cards">'+cards+'</div>';
    if(route.section==="archive")body+='<p>'+esc(t.archiveInfo)+'</p><div class="cards">'+archiveResources.map(x=>'<article class="card"><h3>'+link(x.url,x.label)+'</h3><p>'+esc(x.note)+'</p></article>').join("")+'</div>';
    if(route.section==="projects"){

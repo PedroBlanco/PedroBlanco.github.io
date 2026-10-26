@@ -95,6 +95,11 @@ main { min-height: 66vh; }
   border-radius: .7rem; padding: 1.5rem 1.4rem; box-shadow: var(--shadow);
   display: flex; flex-direction: column;
 }
+.card-media, .detail-media { margin: 0 0 1rem; }
+.card-media img, .detail-media img { display: block; width: 100%; height: auto; background: var(--subtle); border: 1px solid var(--border); border-radius: .45rem; }
+.card-media figcaption, .detail-media figcaption { color: var(--muted); font-size: .79rem; line-height: 1.45; margin-top: .45rem; }
+.detail-media { margin: 1.5rem 0 2.5rem; }
+.detail-media figcaption { font-style: italic; }
 .card h3 { margin: .75rem 0 .4rem; font-size: 1.37rem; line-height: 1.25; }
 .card h3 a { text-decoration: none; }
 .card h3 a:hover { text-decoration: underline; }

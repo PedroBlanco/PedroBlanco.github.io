@@ -52,9 +52,19 @@ cuadrícula de hasta tres columnas para la anchura actual del contenedor
 datos de contenido, sin truncar texto mediante CSS.
 
 La portada puede presentar una selección con mayor énfasis editorial y el
-Archivo una disposición cronológica. El estilo gráfico de las tarjetas
-(fotografías/capturas, ilustraciones o solo tipografía) queda pendiente de
-la decisión 25.
+Archivo una disposición cronológica. ## Imágenes selectivas · Decisión 25 (confirmada)
+
+Se muestran imágenes en tarjetas solo si aportan información y se dispone
+de un recurso verificado. Si falta la imagen, la tarjeta permanece tipográfica
+sin dejar un espacio vacío. Las ilustraciones se declaran en
+`src/data/content.json` como `media.es` y `media.en`, con ruta local,
+texto alternativo y pie explicativo.
+
+Incluimos un esquema conceptual bilingüe original en el TFG: no pretende
+ser una captura de ejecución ni demuestra que el bucle esté implementado.
+Las demás tarjetas mantienen su diseño tipográfico, pendientes de recursos
+reales revisados. Antes de añadir capturas o imágenes documentales, revisar
+privacidad, autoría, licencias, textos alternativos y optimización.
 
 ## Contenido y catálogo
 
