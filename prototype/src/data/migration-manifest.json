@@ -1,0 +1,84 @@
+{
+  "schema": 1,
+  "entries": [
+    {
+      "path": "CC.html",
+      "status": "preview",
+      "kind": "document",
+      "reason": "Public original index, preview only; verify linked video before publication.",
+      "gitBlobSha": "589cd8b0317814c239bd89711c685d218ef7f429"
+    },
+    {
+      "path": "KM2024.html",
+      "status": "hold",
+      "kind": "document",
+      "reason": "Existing Canva edit links must be reviewed."
+    },
+    {
+      "path": "KM2024.md",
+      "status": "hold",
+      "kind": "document",
+      "reason": "Needs intentional editorial migration."
+    },
+    {
+      "path": "CROQUETAS2024.pdf",
+      "status": "hold",
+      "kind": "binary",
+      "reason": "Review document rights and file weight."
+    },
+    {
+      "path": "NEXUM2024.pdf",
+      "status": "hold",
+      "kind": "binary",
+      "reason": "70 MB PDF; review rights and distribution limits."
+    },
+    {
+      "path": "NEXUM2024.pptx",
+      "status": "hold",
+      "kind": "binary",
+      "reason": "22 MB editable presentation; review rights."
+    },
+    {
+      "path": "revista/",
+      "status": "hold",
+      "kind": "directory",
+      "reason": "100 MB multimedia and image rights; selective migration only."
+    },
+    {
+      "path": "piefirma/",
+      "status": "hold",
+      "kind": "application",
+      "reason": "Escaping and input validation needed before release."
+    },
+    {
+      "path": "calculadora-tiempo/",
+      "status": "hold",
+      "kind": "application",
+      "reason": "Copy is stale; deploy verified artifact from authoritative project."
+    },
+    {
+      "path": "mapeo/",
+      "status": "retire",
+      "kind": "application",
+      "reason": "Replace application and participant datasets with historical page."
+    },
+    {
+      "path": "embajadores/",
+      "status": "retire",
+      "kind": "application",
+      "reason": "Replace personal profiles/photos with historical page."
+    },
+    {
+      "path": "art-of-hosting/",
+      "status": "retire",
+      "kind": "application",
+      "reason": "Replace participant application with historical page."
+    },
+    {
+      "path": "mapas/",
+      "status": "retire",
+      "kind": "application",
+      "reason": "Replace obsolete app with historical page."
+    }
+  ]
+}

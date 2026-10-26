@@ -161,6 +161,20 @@ las comprobaciones visuales pendientes y la visualización local del artefacto
 de GitHub Actions. La personalización principal está acordada; no se requiere
 añadir decisiones menores antes de revisar la implementación en navegador.
 
+## Migración selectiva de archivos históricos
+
+El inventario está en `src/data/migration-manifest.json`. `npm run build` copia
+exclusivamente archivos de estado `preview` y SHA Git conocido, sin copiar
+carpetas antiguas. Esta vista previa no implica aprobación de publicación.
+
+Se ha incorporado provisionalmente `CC.html`, verificando su integridad.
+`KM2024.html` está pendiente por enlaces de edición de Canva; las aplicaciones
+`piefirma/` y `calculadora-tiempo/` requieren adaptación propia. Las carpetas
+retiradas con perfiles personales o exportaciones quedan excluidas.
+
+`npm run check` comprueba esta política; `check:publish` sigue bloqueado
+hasta cerrar la revisión de las migraciones, traducciones y privacidad.
+
 ## Condiciones para publicar
 
 - Revisión humana de todas las traducciones; contenido del TFG limitado a su

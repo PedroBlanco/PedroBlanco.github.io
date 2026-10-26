@@ -4,10 +4,10 @@
   "type": "module",
   "scripts": {
     "dev": "eleventy --serve",
-    "build": "node scripts/sync-repositories.mjs && eleventy",
-    "check": "node scripts/check-dist.mjs && node scripts/check-theme.mjs && node scripts/check-translations.mjs",
+    "build": "node scripts/sync-repositories.mjs && eleventy && node scripts/stage-legacy.mjs",
+    "check": "node scripts/check-dist.mjs && node scripts/check-theme.mjs && node scripts/check-migration.mjs && node scripts/check-translations.mjs",
     "translations": "node scripts/check-translations.mjs",
-    "check:publish": "node scripts/check-dist.mjs && node scripts/check-theme.mjs && node scripts/check-translations.mjs --strict"
+    "check:publish": "node scripts/check-dist.mjs && node scripts/check-theme.mjs && node scripts/check-migration.mjs --strict && node scripts/check-translations.mjs --strict"
   },
   "devDependencies": {
     "@11ty/eleventy": "3.1.7"
