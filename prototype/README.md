@@ -112,6 +112,27 @@ Los ID permanecen estables entre idiomas. La ficha del TFG utiliza esta
 estructura con objetivos, enfoque, integración y estado, sin revelar los
 materiales de un repositorio privado. Las fichas breves permanecen sin índice.
 
+## Enlaces y recursos · Decisión 29 (confirmada)
+
+Los accesos principales a aplicaciones y repositorios públicos aparecen
+antes del contenido. Si una ficha carece de ellos, no se dibuja un bloque
+vacío. Los recursos complementarios se presentan **al final** del artículo,
+agrupados bajo Documentación, Descargas y Referencias, mostrando únicamente
+los grupos no vacíos. En fichas extensas, el índice contextual enlaza también
+a la sección de recursos cuando existe.
+
+El campo editorial opcional `resources` es una lista de objetos
+`{type,href,es:{label},en:{label}}`, con tipos
+`documentation`, `downloads`, `references`. Se exigen etiquetas
+traducidas, enlaces HTTPS o internos absolutos seguros y ausencia de
+duplicados con los accesos principales. El validador CI comprueba
+los recursos disponibles y el HTML generado.
+
+Para demostrar la funcionalidad se han enlazado **README públicos
+existentes** de CSV2SQLite y pdf-fotos-a-imagenes, y la página histórica
+`/CC.html` desde Atlas de Conocimiento Crítico (a incorporar al despliegue
+definitivo). No se inventan descargas ni materiales del TFG privado.
+
 ## Contenido y catálogo
 
 Las rutas, fichas y traducciones provisionales están en

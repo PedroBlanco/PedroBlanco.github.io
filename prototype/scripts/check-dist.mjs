@@ -50,6 +50,36 @@ for(const lang of ["es","en"]){
  if(shortHtml.includes('class="detail-toc"')||!shortHtml.includes('class="detail-prose"'))
   throw Error("Short profile incorrectly has an index in "+shortRoute.path);
 }
+// Verify real and translated documentation resources, without unsafe URLs.
+const resourceGroups=["documentation","downloads","references"];
+let resourcesFound=0;
+for(const item of content.items){
+ const resources=item.resources||[];
+ const urls=new Set([item.live,item.source].filter(Boolean));
+ const countByType=new Set();
+ for(const resource of resources){
+  if(!resourceGroups.includes(resource.type))throw Error("Invalid resource category "+item.id);
+  if(typeof resource.href!=="string"||!(resource.href.startsWith("/")&&!resource.href.startsWith("//")||/^https:\/\/[a-z0-9.-]+(?:\/|$)/i.test(resource.href)))
+    throw Error("Unsafe resource URL "+item.id);
+  if(urls.has(resource.href))throw Error("Duplicate primary action as supplementary resource "+item.id);
+  if(!resource.es?.label||!resource.en?.label)throw Error("Untranslated resource "+item.id);
+  if(urls.has(resource.href))throw Error("Repeated resource link "+item.id);
+  urls.add(resource.href);countByType.add(resource.type);resourcesFound++;
+ }
+ for(const lang of ["es","en"]){
+  const route=content.routes.find(r=>r.section==="detail"&&r.id===item.id&&r.lang===lang);
+  const html=fs.readFileSync(path.join(dist,route.path,"index.html"),"utf8");
+  if(resources.length){
+   if(!html.includes('id="recursos"'))throw Error("Missing supplementary resources "+route.path);
+   for(const type of countByType)if(!html.includes(content.langs[lang].resources[type]))throw Error("Untranslated resource heading "+route.path);
+   for(const res of resources)if(!html.includes('href="'+res.href+'"')||!html.includes(res[lang].label))throw Error("Missing resource "+route.path);
+  }else if(html.includes('id="recursos"'))throw Error("Empty resources displayed "+route.path);
+  const primary=[item.live,item.source].filter(Boolean);
+  if(!primary.length&&html.includes('class="actions"'))throw Error("Empty action group "+route.path);
+  if((item.sections||[]).length>=3&&resources.length&&!html.includes('href="#recursos"'))throw Error("Missing resource index link "+route.path);
+ }
+}
+if(resourcesFound!==3)throw Error("Expected three verified resource examples, got "+resourcesFound);
 const privatePaths=["mapeo/2019-04-11 EXPORT lista_fichas_mapeo.csv","embajadores/embajadores","art-of-hosting/participantes","mapas/autores"];
 for(const p of privatePaths){if(fs.existsSync(path.join(dist,p))){console.error("PRIVATE/RETIRED CONTENT IN BUILD "+p);process.exitCode=1;}}
 for(const item of content.items){

@@ -50,6 +50,25 @@ function renderArchive(items,documents,lang,t){
 }
 
 
+const resourceTypes=["documentation","downloads","references"];
+function safeResourceHref(href){
+ return typeof href==="string"&&(href.startsWith("/")&&!href.startsWith("//")||/^https:\/\/[a-z0-9.-]+(?:\/|$)/i.test(href));
+}
+function renderResources(item,lang,t){
+ const source=Array.isArray(item.resources)?item.resources:[];
+ if(!source.length)return "";
+ const groups=resourceTypes.map(type=>{
+   const group=source.filter(x=>x.type===type);
+   if(!group.length)return "";
+   const links=group.map(entry=>{
+     if(!safeResourceHref(entry.href)||!entry[lang]?.label)throw Error("Invalid resource "+item.id+" "+lang);
+     return '<li>'+link(entry.href,entry[lang].label)+'</li>';
+   }).join("");
+   return '<section class="resource-group"><h3>'+esc(t.resources[type])+'</h3><ul>'+links+'</ul></section>';
+ }).join("");
+ if(source.some(x=>!resourceTypes.includes(x.type)))throw Error("Unknown resource type "+item.id);
+ return '<section class="detail-section resources-section" id="recursos"><h2>'+esc(t.resources.title)+'</h2><div class="resource-groups">'+groups+'</div></section>';
+}
 function renderDetail(item,lang,t,backSection){
   const sections=Array.isArray(item.sections)?item.sections:[];
   const extensive=sections.length>=3;
@@ -60,23 +79,25 @@ function renderDetail(item,lang,t,backSection){
       :"The former application is being retired from the planned publication; this page preserves its historical context.")+'</p>'
     :"";
   const intro='<section id="resumen" class="detail-section"><h2>'+esc(introTitle)+'</h2><p>'+esc(item[lang].detail)+'</p>'+privacyNote+'</section>';
-  const introContent=extensive
+  const resources=renderResources(item,lang,t);
+  const articleBody=intro
+    +sections.map(section=>'<section class="detail-section" id="'+esc(section.id)+'"><h2>'+esc(section[lang].title)+'</h2><p>'+esc(section[lang].body)+'</p></section>').join('')
+    +resources;
+  const articleContent=extensive
     ?'<div class="detail-layout"><nav class="detail-toc" aria-label="'+esc(lang==="es"?"Índice de la ficha":"Page contents")+'">'
       +'<h2 class="detail-toc-title">'+esc(lang==="es"?"En esta página":"On this page")+'</h2><ol>'
       +'<li>'+link("#resumen",introTitle)+'</li>'
       +sections.map(section=>'<li>'+link("#"+section.id,section[lang].title)+'</li>').join("")
-      +'</ol></nav><div class="detail-prose">'+intro
-      +sections.map(section=>'<section class="detail-section" id="'+esc(section.id)+'"><h2>'+esc(section[lang].title)+'</h2><p>'+esc(section[lang].body)+'</p></section>').join('')
-      +'</div></div>'
-    :'<div class="detail-prose">'+intro
-      +sections.map(section=>'<section class="detail-section" id="'+esc(section.id)+'"><h2>'+esc(section[lang].title)+'</h2><p>'+esc(section[lang].body)+'</p></section>').join("")
-      +'</div>';
+      +(resources?'<li>'+link("#recursos",t.resources.title)+'</li>':"")
+      +'</ol></nav><div class="detail-prose">'+articleBody+'</div></div>'
+    :'<div class="detail-prose">'+articleBody+'</div>';
+  const actions=[item.live?link(item.live,t.try):"",item.source?link(item.source,t.code):""].filter(Boolean).join("");
   return '<article class="section wrap detail'+(extensive?' detail-long':'')+'">'
     +link(sectionUrl(lang,backSection),"← "+t.back)
     +'<p class="eyebrow">'+esc(t.kind[item.kind])+' · '+esc(t.status[item.status])+'</p>'
     +'<h1>'+esc(item[lang].title)+'</h1><p class="lede">'+esc(item[lang].summary)+'</p>'
-    +'<div class="actions">'+(item.live?link(item.live,t.try):"")+(item.source?link(item.source,t.code):"")+'</div>'
-    +mediaFigure(item,lang,'detail-media')+introContent+'</article>';
+    +(actions?'<div class="actions">'+actions+'</div>':"")
+    +mediaFigure(item,lang,'detail-media')+articleContent+'</article>';
 }
 
 function render(route){

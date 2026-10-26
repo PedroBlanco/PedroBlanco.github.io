@@ -57,6 +57,12 @@
         "count": "elementos",
         "view": "Abrir ficha o recurso",
         "filtersLabel": "Filtrar por categoría"
+      },
+      "resources": {
+        "title": "Documentación y recursos",
+        "documentation": "Documentación",
+        "downloads": "Descargas",
+        "references": "Referencias"
       }
     },
     "en": {
@@ -116,6 +122,12 @@
         "count": "items",
         "view": "Open page or resource",
         "filtersLabel": "Filter by category"
+      },
+      "resources": {
+        "title": "Documentation and resources",
+        "documentation": "Documentation",
+        "downloads": "Downloads",
+        "references": "References"
       }
     }
   },
@@ -171,7 +183,19 @@
         "title": "PDF photos to images",
         "summary": "Python utility for working with images extracted from PDF documents.",
         "detail": "Technical profile ready for requirements, usage instructions and examples."
-      }
+      },
+      "resources": [
+        {
+          "type": "documentation",
+          "href": "https://github.com/PedroBlanco/pdf-fotos-a-imagenes/blob/main/README.md",
+          "es": {
+            "label": "Instrucciones y requisitos de uso"
+          },
+          "en": {
+            "label": "Instructions and usage requirements"
+          }
+        }
+      ]
     },
     {
       "id": "csv",
@@ -188,7 +212,19 @@
         "title": "CSV2SQLite",
         "summary": "Conversion of large CSV files into SQLite databases.",
         "detail": "Data-processing utility; its repository contains the code and usage instructions."
-      }
+      },
+      "resources": [
+        {
+          "type": "documentation",
+          "href": "https://github.com/PedroBlanco/CSV2SQLite/blob/main/README.md",
+          "es": {
+            "label": "Guía y documentación del proyecto"
+          },
+          "en": {
+            "label": "Project guide and documentation"
+          }
+        }
+      ]
     },
     {
       "id": "research",
@@ -282,7 +318,19 @@
         "summary": "Historical critical-knowledge mapping project. Its official version remains on an independent website.",
         "detail": "This historical profile replaces the former local application copy."
       },
-      "archiveCategory": "atlas"
+      "archiveCategory": "atlas",
+      "resources": [
+        {
+          "type": "documentation",
+          "href": "/CC.html",
+          "es": {
+            "label": "Materiales de Conocimiento Crítico"
+          },
+          "en": {
+            "label": "Critical Knowledge resources"
+          }
+        }
+      ]
     },
     {
       "id": "mapeo",

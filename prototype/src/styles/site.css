@@ -219,3 +219,11 @@ main { min-height: 66vh; }
   .detail-toc { position: static; }
   .detail-toc ol { grid-template-columns: repeat(auto-fit,minmax(min(100%,165px),1fr)); }
 }
+
+/* Decision 29: primary project actions above; verified supplementary links below. */
+.resource-groups { display: grid; gap: 1rem; }
+.resource-group { border: 1px solid var(--border); background: var(--surface); border-radius: .55rem; padding: 1rem 1.2rem; }
+.resource-group h3 { font-family: var(--heading-font); font-size: 1.15rem; margin: 0 0 .55rem; }
+.resource-group ul { margin: 0; padding-left: 1.25rem; display: grid; gap: .45rem; }
+.resource-group li { line-height: 1.5; overflow-wrap: anywhere; }
+.resources-section { padding-top: 1.3rem !important; }
