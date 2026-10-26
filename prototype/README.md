@@ -189,6 +189,20 @@ La conversión usa `markdown-it` con HTML crudo desactivado y sin dependencias
 de navegador. Los comandos y ejemplos se muestran como bloques de código.
 Las revisiones humanas siguen siendo necesarias antes de publicar.
 
+## Auditoría de enlaces internos y recursos pendientes
+
+El comando `npm run audit:links` comprueba los enlaces y recursos de las páginas
+HTML generadas, incluidas referencias absolutas a
+`https://pedroblanco.github.io/`. Informa de las rutas que todavía no se
+incluyen en la distribución. No impide probar el prototipo porque las
+herramientas y parte del archivo multimedia están deliberadamente pendientes
+de migrar; sin embargo, `check:publish` sí bloquea la publicación cuando
+quedan enlaces locales sin resolver.
+
+**La validación visual del prototipo bilingüe está aceptada por el titular**
+(26/10/2026). No implica que la migración de contenidos o privacidad
+estén aprobadas; esos controles continúan pendientes.
+
 ## Condiciones para publicar
 
 - Revisión humana de todas las traducciones; contenido del TFG limitado a su
