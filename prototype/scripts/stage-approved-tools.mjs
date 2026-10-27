@@ -7,7 +7,8 @@ const sourceSha = process.env.WEB_ARTIFACT_EXPECTED_SHA;
 
 const provided = [manifest, archive, sourceSha].filter(Boolean).length;
 if (provided === 0) {
-  console.log("web-artifact: no approved package supplied; optional tool staging skipped");
+  const {stagePublishedCalculator}=await import("./stage-published-calculator.mjs");
+  await stagePublishedCalculator();
 } else {
   if (provided !== 3) {
     throw Error("WEB_ARTIFACT_MANIFEST, WEB_ARTIFACT_ZIP and WEB_ARTIFACT_EXPECTED_SHA must be provided together");

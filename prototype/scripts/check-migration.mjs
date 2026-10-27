@@ -41,7 +41,7 @@ for(const entry of manifest.entries.filter(x=>x.status!=="preview"&&x.status!=="
   if(!html.includes('src="safe-values.js"'))throw Error("Signature hardening not loaded");
   continue;
  }
- if(entry.path==="calculadora-tiempo/"&&entry.status==="hold"&&(process.env.CALCULADORA_WEB_DIST||process.env.WEB_ARTIFACT_MANIFEST)){
+ if(entry.path==="calculadora-tiempo/"&&entry.status==="published-tool"){
   if(!fs.existsSync(target))throw Error("Calculator integration requested but build missing");
   continue; // Separately validated by check-calculator.mjs.
  }

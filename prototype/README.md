@@ -355,6 +355,21 @@ Los archivos autorizados deben incluir `reviewedBy`, `reviewedAt`
 y `evidence` de derechos y privacidad. En la salida final se
 comprueba también el hash de los recursos aprobados.
 
+## Calculadora ya publicada como distribución de referencia
+
+El prototipo incluye ahora por defecto la **versión pública aprobada**
+de `/calculadora-tiempo/` (PR #7). La lista cerrada de dieciséis archivos
+con tamaños y hashes Git está en `src/data/published-calculator.json`.
+El script `stage-published-calculator.mjs` solo copia esos archivos,
+rechaza añadidos, sustituciones y enlaces simbólicos y no modifica
+la aplicación publicada.
+
+Cuando se aporta un ZIP y manifiesto con las tres variables
+`WEB_ARTIFACT_MANIFEST`, `WEB_ARTIFACT_ZIP` y
+`WEB_ARTIFACT_EXPECTED_SHA`, **se usa el integrador genérico**
+en lugar de la versión de referencia. El fallback no reconstruye la
+aplicación ni recupera código del repositorio privado.
+
 ## Condiciones para publicar
 
 - Revisión humana de todas las traducciones; contenido del TFG limitado a su

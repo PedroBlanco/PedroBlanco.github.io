@@ -95,9 +95,9 @@
     },
     {
       "path": "calculadora-tiempo/",
-      "status": "hold",
+      "status": "published-tool",
       "kind": "application",
-      "reason": "Copy is stale; deploy verified artifact from authoritative project."
+      "reason": "Already published after approval in PR #7; pin 16 public runtime blobs and stage as baseline when no newer web-artifact is supplied."
     },
     {
       "path": "mapeo/",
