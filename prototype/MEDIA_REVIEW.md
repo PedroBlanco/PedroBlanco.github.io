@@ -19,7 +19,7 @@ La página antigua `revista/index.html` es un prototipo con artículos repetidos
 | `CROQUETAS2024.pdf` | document | 8.16 | hold · conservación solicitada | Conservar PDF completo: decisión del titular 27/10/2026; derechos, privacidad y revisión visual todavía pendientes. |
 | `NEXUM2024.pdf` | document | 67.30 | hold | Review personal data, embedded media, author/license, access and download size. |
 | `NEXUM2024.pptx` | presentation | 21.11 | hold · conservación solicitada | Conservar editable completo: revisar diapositivas, notas, comentarios, vínculos, objetos incrustados, licencias y datos personales. |
-| `revista/2023-10-17_Revista_Enredados_Presentacion.mp4` | video | 53.35 | hold | Review people shown, licenses and continued hosting of large video. |
+| `revista/2023-10-17_Revista_Enredados_Presentacion.mp4` | video | 53.35 | hold · conservación solicitada | Producción propia declarada por el titular; revisión de participantes, voces, música, elementos de terceros y metadatos pendiente. |
 | `revista/2024-09-23_presentacion_revista.pdf` | document | 1.94 | hold | Review personal data, embedded media, author/license, access and download size. |
 | `revista/Caballeria-ligera.mp3` | audio | 7.37 | hold | Audio may involve third-party recordings/music: establish public distribution rights. |
 | `revista/crucigrama-001.html` | html | 0.25 | hold | Contains Exolve MIT code plus puzzle content: verify both license notice and puzzle authorship. |
@@ -95,3 +95,12 @@ la carpeta.
 - **Comparación inicial con PDF:** ambos presentan 20 páginas/diapositivas; **no se ha comprobado identidad del contenido** y la equivalencia queda pendiente de inspección visual.
 - **Pendiente:** comprobar visualmente todas las diapositivas, elementos ocultos y notas, confirmar derechos del contenido y determinar si es necesario eliminar propiedades personales para preparar una copia publicable.
 - **Relación con archivo 02:** el PDF `NEXUM2024.pdf` se revisa de forma independiente; tener ambos archivos no demuestra identidad de contenido ni autorización para redistribuirlos.
+
+## Expediente individual 04 — Revista EnRed@2.0: vídeo 2023
+
+- **Decisión del titular (27/10/2026):** conservar el MP4 íntegro en la ruta histórica. Declara expresamente que es una **producción propia suya**. Se registra la afirmación de autoría como declaración del titular, no como licencia general sobre aportaciones de terceros.
+- **Archivo:** `revista/2023-10-17_Revista_Enredados_Presentacion.mp4`, 55.941.137 bytes (53,35 MiB), Git blob `2d9746db23cbf415dc6c9cb6df0321872ed228b4`.
+- **Contexto:** el índice histórico `CC.html` lo describía como «Proceso Editorial (GitHub) - Octubre 2023»; el mismo índice tiene un enlace alternativo a YouTube, **sin haber comprobado que los dos vídeos sean idénticos**.
+- **Control técnico:** el script `prototype/scripts/audit-legacy-video.py` valida el hash y obtiene datos agregados con ffprobe: duración, codecs, dimensiones, pistas, capítulos y **solo nombres de campos de metadatos**, sin divulgar valores, fotogramas ni contenido de audio en los logs.
+- **Pendiente:** revisar manualmente imágenes y voces, derechos de música y recursos externos, permisos de posibles participantes identificables y metadatos que puedan revelar información personal. La declaración de producción propia no resuelve automáticamente esos elementos.
+- **Estado:** `hold`, con decisión `preserve-full`; el prototipo Eleventy todavía **no redistribuye** el MP4. Para publicar, confirmar el resultado de la inspección visual y los permisos de las personas y de los materiales incluidos.
