@@ -267,6 +267,29 @@ rechaza sobrescribir carpetas. El componente todavía está limitado a
 `calculadora-tiempo`, sin publicación automática. Los ensayos sintéticos
 se ejecutan con `npm run test:integration`.
 
+## Primera integración real del contrato: calculadora-tiempo
+
+El ZIP `calculadora-tiempo-0.1.0.zip` y su manifiesto v1.0.0 se han
+generado y validado dentro de la CI del **repositorio privado**, y el
+integrador de esta rama los ha incorporado a una distribución Eleventy
+de revisión, sin publicar el sitio.
+
+Resultados verificados (ejecución privada
+`PedroBlanco/calculadora-tiempo/actions/runs/40496459816`):
+- 99 pruebas de la calculadora, 6 pruebas del contrato y 4 del integrador.
+- Integración de 16 archivos de ejecución bajo `/calculadora-tiempo/`.
+- Comprobación de procedencia contra el commit esperado de la PR.
+- Desaparece la ruta de la calculadora del informe de enlaces faltantes:
+  quedan 4 destinos heredados sin migrar.
+- Artefacto de revisión privada `eleventy-with-calculadora-preview`.
+
+**Pendiente:** aprobación funcional del usuario en navegador, instalación
+y uso sin conexión, upgrade de SW, política definitiva de versiones
+aprobadas y revisión de las demás rutas. Los cambios siguen en
+las PR de borrador [sitio #4](https://github.com/PedroBlanco/PedroBlanco.github.io/pull/4)
+y [calculadora #52](https://github.com/PedroBlanco/calculadora-tiempo/pull/52).
+Seguimiento en [issue #6](https://github.com/PedroBlanco/PedroBlanco.github.io/issues/6).
+
 ## Condiciones para publicar
 
 - Revisión humana de todas las traducciones; contenido del TFG limitado a su
