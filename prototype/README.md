@@ -314,6 +314,16 @@ Los archivos se toman del mismo repositorio, en sus rutas heredadas, y
 el build comprueba que no han cambiado desde la revisión. La vista previa
 de Eleventy queda todavía bloqueada para publicación completa.
 
+## Inventario verificable de archivos históricos
+
+`MEDIA_REVIEW.md` presenta los **23 archivos**
+documentales/multimedia de `revista/`, Croquetas y NEXUM; todos requieren
+decisión editorial por archivo. Los datos de hash, tamaño, motivo y estado
+están en `src/data/media-review.json`. El comando
+`npm run audit:media`, incluido en las comprobaciones automatizadas,
+detecta adiciones o alteraciones del origen y evita incluir materiales
+pendientes en `dist/`.
+
 ## Condiciones para publicar
 
 - Revisión humana de todas las traducciones; contenido del TFG limitado a su

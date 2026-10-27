@@ -1,0 +1,194 @@
+{
+  "schemaVersion": 1,
+  "policy": "allowlist-review",
+  "reviewDate": "2026-10-27",
+  "sourceRepository": "PedroBlanco/PedroBlanco.github.io",
+  "sourceRef": "master",
+  "notes": "None of the entries below are approved for redistribution by this review manifest. Files may already exist on the old public site; that alone does not establish rights.",
+  "entries": [
+    {
+      "path": "CROQUETAS2024.pdf",
+      "bytes": 8561246,
+      "gitBlobSha": "c2e92197c526a5c4e2235fe3fc01522f3b119776",
+      "category": "document",
+      "status": "hold",
+      "reason": "Review personal data, embedded media, author/license, access and download size."
+    },
+    {
+      "path": "NEXUM2024.pdf",
+      "bytes": 70568492,
+      "gitBlobSha": "fcc95fa427fa59fc7915a9e60a3d1ea2b93846c5",
+      "category": "document",
+      "status": "hold",
+      "reason": "Review personal data, embedded media, author/license, access and download size."
+    },
+    {
+      "path": "NEXUM2024.pptx",
+      "bytes": 22130560,
+      "gitBlobSha": "85ce183b1f876f4ea178cd19d34ff1af3a33ae75",
+      "category": "presentation",
+      "status": "hold",
+      "reason": "Review personal data, embedded media, author/license, access and download size."
+    },
+    {
+      "path": "revista/2023-10-17_Revista_Enredados_Presentacion.mp4",
+      "bytes": 55941137,
+      "gitBlobSha": "2d9746db23cbf415dc6c9cb6df0321872ed228b4",
+      "category": "video",
+      "status": "hold",
+      "reason": "Review people shown, licenses and continued hosting of large video."
+    },
+    {
+      "path": "revista/2024-09-23_presentacion_revista.pdf",
+      "bytes": 2030694,
+      "gitBlobSha": "3131c375dc10c0e96b3f0cbd6982c4e32e3d76e2",
+      "category": "document",
+      "status": "hold",
+      "reason": "Review personal data, embedded media, author/license, access and download size."
+    },
+    {
+      "path": "revista/Caballeria-ligera.mp3",
+      "bytes": 7728813,
+      "gitBlobSha": "cd24f03732083a44ce676fe15ffd39742292fb6c",
+      "category": "audio",
+      "status": "hold",
+      "reason": "Audio may involve third-party recordings/music: establish public distribution rights."
+    },
+    {
+      "path": "revista/crucigrama-001.html",
+      "bytes": 257663,
+      "gitBlobSha": "fdd096a85edd9f88f3d862c3d0f1e201d10b240d",
+      "category": "html",
+      "status": "hold",
+      "reason": "Contains Exolve MIT code plus puzzle content: verify both license notice and puzzle authorship."
+    },
+    {
+      "path": "revista/crucigrama-002.html",
+      "bytes": 258237,
+      "gitBlobSha": "bbf94f67cda0767f095494edb1455ccaf3ea0ca6",
+      "category": "html",
+      "status": "hold",
+      "reason": "Contains Exolve MIT code plus puzzle content: verify both license notice and puzzle authorship."
+    },
+    {
+      "path": "revista/Duelo-cancion.mp3",
+      "bytes": 5366064,
+      "gitBlobSha": "5db485d009a861f379b7cdedf465afb7b997cb3b",
+      "category": "audio",
+      "status": "hold",
+      "reason": "Audio may involve third-party recordings/music: establish public distribution rights."
+    },
+    {
+      "path": "revista/Duelo-cancion.ogg",
+      "bytes": 6498581,
+      "gitBlobSha": "461d4ce8489f5076ecb1a6b11784e773fbdf18ff",
+      "category": "audio",
+      "status": "hold",
+      "reason": "Audio may involve third-party recordings/music: establish public distribution rights."
+    },
+    {
+      "path": "revista/img/Italica_246.jpg",
+      "bytes": 9054204,
+      "gitBlobSha": "6453d071ae2fe44c08060496f3f0a77f54ba504d",
+      "category": "image",
+      "status": "hold",
+      "reason": "Verify image origin, attribution and whether people appear."
+    },
+    {
+      "path": "revista/img/Italica_448.jpg",
+      "bytes": 7396437,
+      "gitBlobSha": "48e604cb0a083c4639443393e5572167733179a7",
+      "category": "image",
+      "status": "hold",
+      "reason": "Verify image origin, attribution and whether people appear."
+    },
+    {
+      "path": "revista/img/Preparativos.png",
+      "bytes": 752282,
+      "gitBlobSha": "9eed2240c908275672d83d5f7ae5f08c8869cfa5",
+      "category": "image",
+      "status": "hold",
+      "reason": "Verify image origin, attribution and whether people appear."
+    },
+    {
+      "path": "revista/img/Restout_-_Morpheus.jpg",
+      "bytes": 61393,
+      "gitBlobSha": "42b5e680d632c2e2fd86572e4bdf41b1a4a22d21",
+      "category": "image",
+      "status": "hold",
+      "reason": "Verify image origin, attribution and whether people appear."
+    },
+    {
+      "path": "revista/index.html",
+      "bytes": 6688,
+      "gitBlobSha": "6b9f13f0575ae6f8d252796527d59a0e0f0039cb",
+      "category": "html",
+      "status": "hold",
+      "reason": "Prototype magazine layout with placeholder article titles; do not present as a complete publication."
+    },
+    {
+      "path": "revista/logo_limpio_redondo_64px.png",
+      "bytes": 22083,
+      "gitBlobSha": "de7c2a5ac246aa4f5fd61b2a6614d3ee9a763bc5",
+      "category": "image",
+      "status": "hold",
+      "reason": "Verify image origin, attribution and whether people appear."
+    },
+    {
+      "path": "revista/Numero14/Revista_IAAP_Caso_practico_12_Turnos_de_trabajo.ods",
+      "bytes": 48093,
+      "gitBlobSha": "9a89d9a27d4894796cbcd53025371d0b9c2a1ede",
+      "category": "spreadsheet",
+      "status": "hold",
+      "reason": "Inspect spreadsheet content, author metadata and redistribution rights."
+    },
+    {
+      "path": "revista/Numero14/Revista_IAAP_Casos_practicos_9y11_Funcion_SUMAPRODUCTO.ods",
+      "bytes": 22756,
+      "gitBlobSha": "589bd0cea874d5f03acdc1bf729dde45b8204c26",
+      "category": "spreadsheet",
+      "status": "hold",
+      "reason": "Inspect spreadsheet content, author metadata and redistribution rights."
+    },
+    {
+      "path": "revista/secciones/Actualidad.png",
+      "bytes": 1332,
+      "gitBlobSha": "f058b4bffe93f3e09b2ee344d264fedb7de5b945",
+      "category": "image",
+      "status": "hold",
+      "reason": "Verify image origin, attribution and whether people appear."
+    },
+    {
+      "path": "revista/Silencio - 3s.mp3",
+      "bytes": 12481,
+      "gitBlobSha": "0f7bef4af233f108f51db02a8b7ea9dfc41aeb9b",
+      "category": "audio",
+      "status": "hold",
+      "reason": "Audio may involve third-party recordings/music: establish public distribution rights."
+    },
+    {
+      "path": "revista/TimTaj - Breaking News - 15s.mp3",
+      "bytes": 389396,
+      "gitBlobSha": "2266a458f72c4dda03df8672e244ed2a0a4d387b",
+      "category": "audio",
+      "status": "hold",
+      "reason": "Audio may involve third-party recordings/music: establish public distribution rights."
+    },
+    {
+      "path": "revista/TimTaj - Breaking News.mp3",
+      "bytes": 2604930,
+      "gitBlobSha": "0567afa7a8343703f05f993d992fa7e672b3942a",
+      "category": "audio",
+      "status": "hold",
+      "reason": "Audio may involve third-party recordings/music: establish public distribution rights."
+    },
+    {
+      "path": "revista/Video-Arantxa.mp4",
+      "bytes": 2977071,
+      "gitBlobSha": "5cc18dda230e9d975ec5d50e40a1808393e1a20d",
+      "category": "video",
+      "status": "hold",
+      "reason": "Named-person video: check participant consent and public distribution."
+    }
+  ]
+}
