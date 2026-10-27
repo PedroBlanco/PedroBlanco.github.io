@@ -5,16 +5,17 @@
   "scripts": {
     "dev": "eleventy --serve",
     "build": "node scripts/sync-repositories.mjs && eleventy && node scripts/stage-legacy.mjs && node scripts/stage-approved-tools.mjs",
-    "check": "node scripts/check-dist.mjs && node scripts/check-theme.mjs && node scripts/check-migration.mjs && node scripts/check-calculator.mjs && node scripts/audit-links.mjs && node scripts/check-translations.mjs && npm run test:contract && npm run test:integration && npm run audit:media",
+    "check": "node scripts/check-dist.mjs && node scripts/check-theme.mjs && node scripts/check-migration.mjs && node scripts/check-calculator.mjs && node scripts/audit-links.mjs && node scripts/check-translations.mjs && npm run test:contract && npm run test:integration && npm run audit:media && node scripts/generate-translation-review.mjs --check",
     "translations": "node scripts/check-translations.mjs",
-    "check:publish": "node scripts/check-dist.mjs && node scripts/check-theme.mjs && node scripts/audit-links.mjs --strict && node scripts/check-migration.mjs --strict && node scripts/check-calculator.mjs --strict && node scripts/check-translations.mjs --strict && npm run test:contract && npm run test:integration && npm run audit:media",
+    "check:publish": "node scripts/check-dist.mjs && node scripts/check-theme.mjs && node scripts/audit-links.mjs --strict && node scripts/check-migration.mjs --strict && node scripts/check-calculator.mjs --strict && node scripts/check-translations.mjs --strict && npm run test:contract && npm run test:integration && npm run audit:media && node scripts/generate-translation-review.mjs --check",
     "audit:links": "node scripts/audit-links.mjs",
     "check:calculator": "node scripts/check-calculator.mjs",
     "validate:artifact": "node scripts/validate-web-artifact.mjs",
     "test:contract": "node --test scripts/test-web-artifact.mjs",
     "integrate:artifact": "node scripts/integrate-web-artifact.mjs",
     "test:integration": "node --test scripts/test-integrate-web-artifact.mjs",
-    "audit:media": "node scripts/check-media-review.mjs"
+    "audit:media": "node scripts/check-media-review.mjs",
+    "translations:report": "node scripts/generate-translation-review.mjs"
   },
   "devDependencies": {
     "@11ty/eleventy": "3.1.7",
