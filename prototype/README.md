@@ -236,6 +236,25 @@ señalada como pendiente. La CI pública **no tiene acceso** al repositorio
 privado. Antes de producción será necesario aportar un artefacto aprobado
 a la compilación definitiva, con controles de procedencia y revisión.
 
+## Contrato común de distribuciones web · web-artifact 1.0.0
+
+El formato de integración de herramientas está formalizado en
+`contracts/web-artifact/README.md`, con JSON Schema Draft 2020-12,
+ejemplos de herramienta estática y PWA, validador e integridad SHA-256
+(opcionalmente contra un ZIP real).
+
+Comprobar su implementación independiente de la calculadora con:
+
+```sh
+npm run test:contract
+node scripts/validate-web-artifact.mjs contracts/web-artifact/v1.0.0/examples/calculadora-pwa.example.json
+```
+
+**No se ha adaptado ni probado todavía un ZIP real de la calculadora al
+contrato v1:** esa es la siguiente fase, separada de este commit.
+El antiguo integrador ad hoc sigue sin modificaciones funcionales y
+el despliegue en `master` continúa deshabilitado.
+
 ## Condiciones para publicar
 
 - Revisión humana de todas las traducciones; contenido del TFG limitado a su
