@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="res/formulario.css" type="text/css" media="screen" />
 	<script type="text/javascript" src="config.js" defer></script>
 	<script type="text/javascript" src="validar.js" defer></script>
+	<script type="text/javascript" src="safe-values.js" defer></script>
 	<script type="text/javascript" src="generar_html.js" defer></script>
 </head>
 <body>
@@ -78,7 +79,7 @@
                 <label for="email">Correo electr&oacute;nico</label> <input id="email" name="email" type="text" placeholder="p.e. correo@juntadeandalucia.es" autofocus required type="email" pattern=".+@juntadeandalucia.es" size="75" tabindex="10" /><br />
             </div>
             <br />
-            <input type="submit" name="genera_pie" value="Generar pie de firma" tabindex="11" onclick="downloadFile()"/>
+            <input type="submit" name="genera_pie" value="Generar pie de firma" tabindex="11"/>
             <input type="reset" name="limpiar" value="Limpiar" tabindex="12" onclick="limpia_firma()"/>
             <br />
             <div id="container" style="display: none;">
