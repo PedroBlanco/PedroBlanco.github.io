@@ -116,8 +116,22 @@
       "review": {
         "rights": "producer-claims-own-authorship; third-party-elements-unverified",
         "privacy": "pending-visual-and-audio-review",
-        "technical": "pending-media-preflight",
-        "notes": "Preserve complete MP4 at same historical path. Authorship self-declared by user; no assertion about faces/voices/music/third-party rights. Do not include in Eleventy build until technical and manual review."
+        "technical": "aggregate-video-preflight-passed",
+        "notes": "Preserve complete MP4 at same historical path. Authorship self-declared by user; no assertion about faces/voices/music/third-party rights. Do not include in Eleventy build until technical and manual review.",
+        "technicalExecution": "https://github.com/PedroBlanco/PedroBlanco.github.io/actions/runs/40567732706",
+        "technicalFindings": {
+          "sha256": "a5f30ca33bfd995f50d8af18e541605d545e2dd595a900e69b8fde4e84395ad8",
+          "durationSeconds": 216.533,
+          "videoCodec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "framesPerSecond": 25,
+          "audioCodec": "aac",
+          "audioChannels": 2,
+          "sampleRateHz": 48000,
+          "streamCount": 2,
+          "chapterCount": 0
+        }
       }
     },
     {
