@@ -36,6 +36,7 @@ jobs:
           python -m pip install --disable-pip-version-check "pypdf>=5,<7"
           python prototype/scripts/audit-legacy-pdf.py
           python prototype/scripts/audit-legacy-pdf.py NEXUM2024.pdf
+          python prototype/scripts/audit-legacy-pptx.py
       - name: Upload static review artifact
         uses: actions/upload-artifact@v4
         with:
