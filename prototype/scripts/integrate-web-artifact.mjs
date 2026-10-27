@@ -76,7 +76,7 @@ export async function integrateWebArtifact({
         continue;
       }
       await fsp.mkdir(path.dirname(target), { recursive: true });
-      const input = await zip.openReadStream(entry);
+      const input = await zip.openReadStreamPromise(entry);
       await pipeline(input, fs.createWriteStream(target, { flags: "wx", mode: 0o644 }));
     }
     if (!seen.has(manifest.entryPoint.toLowerCase())) throw Error("ZIP entryPoint is missing");
