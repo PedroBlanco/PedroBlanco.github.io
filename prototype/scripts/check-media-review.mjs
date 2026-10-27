@@ -14,6 +14,8 @@ for(const e of all){
  seen.add(e.path);
  if(!allowedCategories.has(e.category)||!allowedStatuses.has(e.status)||!/^[a-f0-9]{40}$/.test(e.gitBlobSha)||!Number.isSafeInteger(e.bytes)||e.bytes<0||!e.reason)
   throw Error("Incomplete media review entry: "+e.path);
+ if(e.status==="approved"&&(!e.reviewedBy||!/^\d{4}-\d{2}-\d{2}$/.test(e.reviewedAt||"")||!e.evidence))
+  throw Error("Missing explicit rights/privacy approval metadata for "+e.path);
  const name=path.join(source,e.path);
  const info=fs.lstatSync(name);
  if(!info.isFile()||info.isSymbolicLink()||info.size!==e.bytes)throw Error("Media source modified, missing or unsafe: "+e.path);
@@ -21,6 +23,11 @@ for(const e of all){
  const stream=fs.createReadStream(name);
  for await (const data of stream)sha.update(data);
  if(sha.digest("hex")!==e.gitBlobSha)throw Error("Media source hash changed; re-review: "+e.path);
+ if(e.status==="approved"&&fs.existsSync(path.join(output,e.path))){
+  const outputBytes=fs.readFileSync(path.join(output,e.path));
+  const outputHash=createHash("sha1").update(Buffer.from("blob "+outputBytes.length+"\0")).update(outputBytes).digest("hex");
+  if(outputHash!==e.gitBlobSha)throw Error("Approved media output differs from reviewed source: "+e.path);
+ }
  if(e.path==="revista/index.html"&&e.status==="retire"&&fs.existsSync(path.join(output,e.path))){
   const curated=fs.readFileSync(path.join(output,e.path),"utf8");
   if(!curated.includes('data-curated-archive="revista-v1"')||curated.includes("Artículo 1")||/<script\b|<img\b|<video\b|<audio\b/i.test(curated))
@@ -44,3 +51,4 @@ if(unlisted.length||missing.length)throw Error("Media inventory changed: unliste
 const counts=all.reduce((o,e)=>{o[e.category]=(o[e.category]||0)+1;return o;},{});
 console.log("Media audit OK: "+all.length+" files, "+all.reduce((a,e)=>a+e.bytes,0)+" bytes; categories="+JSON.stringify(counts)+".");
 console.log("Review status: "+all.filter(e=>e.status==="hold").length+" on hold; "+all.filter(e=>e.status==="approved").length+" approved.");
+if(process.argv.includes("--strict")&&all.some(e=>e.status==="hold"))throw Error("Full archive publication blocked: "+all.filter(e=>e.status==="hold").length+" media files still require a rights/privacy decision.");

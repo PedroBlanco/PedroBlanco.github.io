@@ -343,6 +343,18 @@ inacabada, sin reproducir fotos, vídeos ni audio, y conserva enlaces
 hacia `CC.html` y `KM2024.html`. No constituye autorización para
 los demás recursos de la revista: el inventario sigue en revisión.
 
+## Puertas de publicación basadas en evidencias
+
+El comando `check:publish` no utiliza ya un fallo incondicional:
+identifica las entradas pendientes en el inventario de migración,
+los archivos multimedia en estado `hold`, los enlaces rotos y los
+bloques de traducción aún sin revisión. Ningún recurso pasa a
+`approved` por estar disponible en la web antigua.
+
+Los archivos autorizados deben incluir `reviewedBy`, `reviewedAt`
+y `evidence` de derechos y privacidad. En la salida final se
+comprueba también el hash de los recursos aprobados.
+
 ## Condiciones para publicar
 
 - Revisión humana de todas las traducciones; contenido del TFG limitado a su

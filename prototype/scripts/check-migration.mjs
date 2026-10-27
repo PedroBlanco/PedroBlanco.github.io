@@ -4,14 +4,14 @@ import {createHash} from "node:crypto";
 import manifest from "../src/data/migration-manifest.json" with {type:"json"};
 const dist=path.resolve("dist");
 const gitSha=data=>createHash("sha1").update(Buffer.from("blob "+data.length+"\0")).update(data).digest("hex");
-const staged=manifest.entries.filter(x=>x.status==="preview");
+const staged=manifest.entries.filter(x=>x.status==="preview"||x.status==="approved");
 const names=staged.map(x=>x.path).sort();
 if(JSON.stringify(names)!==JSON.stringify(["CC.html","KM2024.html"]))throw Error("Unreviewed document list changed");
 for(const entry of staged){
  const loc=path.join(dist,entry.path);
  if(!fs.existsSync(loc)||gitSha(fs.readFileSync(loc))!==entry.gitBlobSha)throw Error("Missing or modified staged document: "+entry.path);
 }
-for(const entry of manifest.entries.filter(x=>x.status!=="preview")){
+for(const entry of manifest.entries.filter(x=>x.status!=="preview"&&x.status!=="approved")){
  const target=path.join(dist,entry.path);
  if(entry.status==="curated-index"){
   if(entry.path!=="revista/"||!fs.existsSync(target)||!fs.statSync(target).isDirectory())
@@ -23,7 +23,7 @@ for(const entry of manifest.entries.filter(x=>x.status!=="preview")){
     throw Error("Unreviewed active or multimedia content in curated archive");
   continue;
  }
- if(entry.status==="preview-tool"){
+ if(entry.status==="preview-tool"||entry.status==="approved-tool"){
   if(entry.path!=="piefirma/"||entry.files?.length!==10)throw Error("Unexpected legacy tool");
   const actual=[];
   const walk=(dir,pre="")=>{
@@ -66,5 +66,8 @@ const links=[...cc.matchAll(/href=["']([^"']+)["']/g)].map(x=>x[1]);
 if(!links.length||links.some(x=>!x.startsWith("https://")))throw Error("Staged CC.html contains non-HTTPS link");
 const unresolved=links.filter(s=>s.startsWith("https://pedroblanco.github.io/")&&!fs.existsSync(path.join(dist,new URL(s).pathname.slice(1))));
 if(unresolved.length)console.warn("Legacy page links to "+unresolved.length+" not-yet-staged original media file(s).");
-if(process.argv.includes("--strict"))throw Error("Full Eleventy deployment blocked: historical media, document rights and route migration are not fully reviewed.");
+if(process.argv.includes("--strict")){
+ const pending=manifest.entries.filter(x=>["hold","preview","preview-tool"].includes(x.status));
+ if(pending.length)throw Error("Full Eleventy deployment blocked by "+pending.length+" outstanding migration review(s): "+pending.map(x=>x.path).join(", "));
+}
 console.log("Selective preservation verified: "+staged.length+" fixed original file; "+manifest.entries.filter(x=>x.status==="retire").length+" retired applications excluded.");

@@ -7,9 +7,9 @@ function validPath(p){return typeof p==="string"&&!p.startsWith("/")&&!p.include
 function gitSha(data){return createHash("sha1").update(Buffer.from("blob "+data.length+"\0")).update(data).digest("hex");}
 let staged=0;
 for(const item of manifest.entries){
- if(!validPath(item.path)||seen.has(item.path)||!["preview","preview-tool","curated-index","hold","retire"].includes(item.status))throw Error("Invalid manifest entry");
+ if(!validPath(item.path)||seen.has(item.path)||!["preview","approved","preview-tool","approved-tool","curated-index","hold","retire"].includes(item.status))throw Error("Invalid manifest entry");
  seen.add(item.path);
- if(item.status==="preview-tool"){
+ if(item.status==="preview-tool"||item.status==="approved-tool"){
   if(item.path!=="piefirma/"||item.files?.length!==10)throw Error("Unknown legacy tool or incomplete allowlist");
   const seenFiles=new Set();
   for(const file of item.files){
@@ -27,7 +27,7 @@ for(const item of manifest.entries){
   }
   continue;
  }
- if(item.status!=="preview")continue;
+ if(item.status!=="preview"&&item.status!=="approved")continue;
  if(!["document","binary"].includes(item.kind)||!(/^[a-f0-9]{40}$/.test(item.gitBlobSha||"")))throw Error("Unpinned preview file: "+item.path);
  const input=path.join(sourceRoot,item.path),output=path.join(dist,item.path),stat=await fs.lstat(input);
  if(!stat.isFile()||stat.isSymbolicLink())throw Error("Unsafe source: "+item.path);
