@@ -18,7 +18,7 @@ La página antigua `revista/index.html` es un prototipo con artículos repetidos
 |---|---|---:|---|---|
 | `CROQUETAS2024.pdf` | document | 8.16 | hold · conservación solicitada | Conservar PDF completo: decisión del titular 27/10/2026; derechos, privacidad y revisión visual todavía pendientes. |
 | `NEXUM2024.pdf` | document | 67.30 | hold | Review personal data, embedded media, author/license, access and download size. |
-| `NEXUM2024.pptx` | presentation | 21.11 | hold | Review personal data, embedded media, author/license, access and download size. |
+| `NEXUM2024.pptx` | presentation | 21.11 | hold · conservación solicitada | Conservar editable completo: revisar diapositivas, notas, comentarios, vínculos, objetos incrustados, licencias y datos personales. |
 | `revista/2023-10-17_Revista_Enredados_Presentacion.mp4` | video | 53.35 | hold | Review people shown, licenses and continued hosting of large video. |
 | `revista/2024-09-23_presentacion_revista.pdf` | document | 1.94 | hold | Review personal data, embedded media, author/license, access and download size. |
 | `revista/Caballeria-ligera.mp3` | audio | 7.37 | hold | Audio may involve third-party recordings/music: establish public distribution rights. |
@@ -85,3 +85,12 @@ la carpeta.
 - **Comprobación técnica:** el script `prototype/scripts/audit-legacy-pdf.py` se aplica al PDF en CI, verificando hash y emitiendo únicamente señales agregadas (sin texto de páginas ni nombres de autor). Este procedimiento no identifica visualmente personas, capturas corporativas ni derechos de materiales gráficos.
 - **Comprobaciones humanas pendientes:** revisar todas las páginas, datos personales (incluso dentro de capturas/imágenes), posibles nombres de asistentes o autores, información administrativa no pública, licencias de fotografías y permiso de redistribución. Examinar metadatos del PDF antes de publicarlo en Eleventy.
 - **Estado operativo:** `hold`; decisión de conservación `preserve-full`, todavía no `approved`.
+
+## Expediente individual 03 — NEXUM2024.pptx
+
+- **Decisión del titular (27/10/2026):** conservar el PowerPoint editable completo (22.130.560 bytes; 21,11 MiB), condicionado a revisar derechos y privacidad. No equivale a autorizar la publicación.
+- **Integridad:** hash Git de origen fijado en `src/data/media-review.json`. El archivo permanece en `hold` y no se copia al resultado Eleventy.
+- **Riesgos específicos del formato editable:** diapositivas ocultas, notas del presentador, comentarios, autor/último editor en metadatos, hipervínculos, medios y objetos incrustados, capturas e información interna visible o no visible en la presentación.
+- **Análisis técnico limitado:** `python prototype/scripts/audit-legacy-pptx.py` inspecciona el paquete Open XML (sin extraerlo ni ejecutar macros) y registra solo cifras agregadas. No publica texto ni autoría identificable. Inspeccionar los resultados de CI para valorar el alcance de la revisión humana.
+- **Pendiente:** comprobar visualmente todas las diapositivas, elementos ocultos y notas, confirmar derechos del contenido y determinar si es necesario eliminar propiedades personales para preparar una copia publicable.
+- **Relación con archivo 02:** el PDF `NEXUM2024.pdf` se revisa de forma independiente; tener ambos archivos no demuestra identidad de contenido ni autorización para redistribuirlos.
