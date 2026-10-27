@@ -72,8 +72,29 @@
       "review": {
         "rights": "pending-confirmation",
         "privacy": "pending-slide-and-notes-review",
-        "technical": "pending-archive-inspection",
-        "notes": "The editable presentation requires independent review from the PDF. No permission for new redistribution has been verified."
+        "technical": "aggregate-pptx-preflight-passed",
+        "notes": "The editable presentation requires independent review from the PDF. No permission for new redistribution has been verified.",
+        "technicalExecution": "https://github.com/PedroBlanco/PedroBlanco.github.io/actions/runs/40563265136",
+        "technicalFindings": {
+          "sha256": "9ee2637863c36bc81f7eb70a23974e21756cad4a64ef57b3e1cb4b65cd043f1e",
+          "slides": 20,
+          "hiddenSlides": 0,
+          "notesFiles": 0,
+          "commentFiles": 0,
+          "embeddedObjects": 0,
+          "mediaFiles": 82,
+          "mediaBytes": 20909902,
+          "externalRelationshipTargets": 1,
+          "activeContentIndicators": 0,
+          "coreMetadataFields": [
+            "lastModifiedBy",
+            "title"
+          ],
+          "slidesWithLittleExtractableText": 11,
+          "emailLikeMatchesInText": 0,
+          "dniLikeMatchesInText": 0,
+          "ibanLikeMatchesInText": 0
+        }
       }
     },
     {
