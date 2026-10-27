@@ -56,5 +56,5 @@ const links=[...cc.matchAll(/href=["']([^"']+)["']/g)].map(x=>x[1]);
 if(!links.length||links.some(x=>!x.startsWith("https://")))throw Error("Staged CC.html contains non-HTTPS link");
 const unresolved=links.filter(s=>s.startsWith("https://pedroblanco.github.io/")&&!fs.existsSync(path.join(dist,new URL(s).pathname.slice(1))));
 if(unresolved.length)console.warn("Legacy page links to "+unresolved.length+" not-yet-staged original media file(s).");
-if(process.argv.includes("--strict"))throw Error("Cannot publish: historical assets still pending review, security migration and manual authorization.");
+if(process.argv.includes("--strict"))throw Error("Full Eleventy deployment blocked: historical media, document rights and route migration are not fully reviewed.");
 console.log("Selective preservation verified: "+staged.length+" fixed original file; "+manifest.entries.filter(x=>x.status==="retire").length+" retired applications excluded.");
