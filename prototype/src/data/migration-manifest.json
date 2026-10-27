@@ -10,9 +10,10 @@
     },
     {
       "path": "KM2024.html",
-      "status": "hold",
+      "status": "preview",
       "kind": "document",
-      "reason": "Existing Canva edit links must be reviewed."
+      "reason": "Read-only original page with two editor links removed; publishing rights of external media still need review.",
+      "gitBlobSha": "547d3558569a7ac84129932f07dc4225f5c7e7da"
     },
     {
       "path": "KM2024.md",
@@ -46,9 +47,51 @@
     },
     {
       "path": "piefirma/",
-      "status": "hold",
+      "status": "preview-tool",
       "kind": "application",
-      "reason": "Escaping and input validation needed before release."
+      "reason": "Existing generator hardened and published; staged as a pinned runtime-only legacy adapter. Branding/email-client QA remains.",
+      "files": [
+        {
+          "path": "index.html",
+          "gitBlobSha": "0fe17528f48761dad51d5f2a4e1db0d475051e66"
+        },
+        {
+          "path": "config.js",
+          "gitBlobSha": "ee78874f447b91dd2cb44311ef5d860079674ea5"
+        },
+        {
+          "path": "validar.js",
+          "gitBlobSha": "16b33c2b45484e0319a75d4fabc4fa08d4ce38d3"
+        },
+        {
+          "path": "generar_html.js",
+          "gitBlobSha": "6d99714da7dfdff00258184b56bae2099b4962e9"
+        },
+        {
+          "path": "safe-values.js",
+          "gitBlobSha": "c5ac32f23cca2795d43578c794be699bf5738288"
+        },
+        {
+          "path": "res/formulario.css",
+          "gitBlobSha": "1b4a05720917a1ee9b045740c15cd8cb44330a31"
+        },
+        {
+          "path": "res/JdA-logo-email.png",
+          "gitBlobSha": "7f9d497abebebb2297feb7ebebf6a06bb98f135f"
+        },
+        {
+          "path": "res/bg_top.jpg",
+          "gitBlobSha": "62e43c8bd1d68bf88dcf23abaf2ad88c580f4101"
+        },
+        {
+          "path": "res/tittop-atrian.gif",
+          "gitBlobSha": "b646737b42e7f7f1a216259b6175c3ead0bfe8d8"
+        },
+        {
+          "path": "res/tittop.gif",
+          "gitBlobSha": "f74655272b2ee503c35070013f38454620b7e740"
+        }
+      ]
     },
     {
       "path": "calculadora-tiempo/",

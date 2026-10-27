@@ -307,6 +307,20 @@ El control de procedencia definitivo debe reforzarse con un registro de
 commits aprobados; por ahora el SHA esperado lo suministra explícitamente
 el operador o una CI autorizada.
 
+## Actualización incremental de documentos y firmas
+
+Se han incorporado al prototipo las versiones publicadas y revisadas de
+`KM2024.html` y `piefirma/`. El documento conserva su ruta tras eliminar
+dos enlaces de edición de terceros. El generador se copia mediante una
+lista fija de **diez archivos runtime** con SHA Git comprobado, excluyendo
+documentación y cualquier carpeta no autorizada. Se preserva el aspecto de
+la herramienta original; quedan pendientes los clientes de correo y la
+validación de marca institucional.
+
+Los archivos se toman del mismo repositorio, en sus rutas heredadas, y
+el build comprueba que no han cambiado desde la revisión. La vista previa
+de Eleventy queda todavía bloqueada para publicación completa.
+
 ## Condiciones para publicar
 
 - Revisión humana de todas las traducciones; contenido del TFG limitado a su

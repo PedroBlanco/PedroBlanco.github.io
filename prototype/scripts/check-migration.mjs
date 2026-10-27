@@ -5,13 +5,32 @@ import manifest from "../src/data/migration-manifest.json" with {type:"json"};
 const dist=path.resolve("dist");
 const gitSha=data=>createHash("sha1").update(Buffer.from("blob "+data.length+"\0")).update(data).digest("hex");
 const staged=manifest.entries.filter(x=>x.status==="preview");
-if(staged.length!==1||staged[0].path!=="CC.html")throw Error("Preview inventory changed: review checks");
+const names=staged.map(x=>x.path).sort();
+if(JSON.stringify(names)!==JSON.stringify(["CC.html","KM2024.html"]))throw Error("Unreviewed document list changed");
 for(const entry of staged){
  const loc=path.join(dist,entry.path);
  if(!fs.existsSync(loc)||gitSha(fs.readFileSync(loc))!==entry.gitBlobSha)throw Error("Missing or modified staged document: "+entry.path);
 }
 for(const entry of manifest.entries.filter(x=>x.status!=="preview")){
  const target=path.join(dist,entry.path);
+ if(entry.status==="preview-tool"){
+  if(entry.path!=="piefirma/"||entry.files?.length!==10)throw Error("Unexpected legacy tool");
+  const actual=[];
+  const walk=(dir,pre="")=>{
+   for(const x of fs.readdirSync(dir,{withFileTypes:true})){
+    const rel=pre+x.name;
+    if(x.isDirectory())walk(path.join(dir,x.name),rel+"/");
+    else {if(!x.isFile())throw Error("Unsafe legacy output: "+rel);actual.push(rel);}
+   }
+  };
+  walk(target);
+  const expected=entry.files.map(x=>x.path).sort();
+  if(JSON.stringify(actual.sort())!==JSON.stringify(expected))throw Error("Unvetted tool asset in output");
+  for(const f of entry.files)if(gitSha(fs.readFileSync(path.join(target,f.path)))!==f.gitBlobSha)throw Error("Tool asset was modified: "+f.path);
+  const html=fs.readFileSync(path.join(target,"index.html"),"utf8");
+  if(!html.includes('src="safe-values.js"'))throw Error("Signature hardening not loaded");
+  continue;
+ }
  if(entry.path==="calculadora-tiempo/"&&entry.status==="hold"&&(process.env.CALCULADORA_WEB_DIST||process.env.WEB_ARTIFACT_MANIFEST)){
   if(!fs.existsSync(target))throw Error("Calculator integration requested but build missing");
   continue; // Separately validated by check-calculator.mjs.
@@ -29,6 +48,8 @@ for(const entry of manifest.entries.filter(x=>x.status!=="preview")){
  }
  if(fs.existsSync(target))throw Error("Blocked resource leaked: "+entry.path);
 }
+const km=fs.readFileSync(path.join(dist,"KM2024.html"),"utf8");
+if(km.includes('/edit"')||!km.includes("Enlace público de consulta pendiente"))throw Error("Unreviewed KM2024 links leaked");
 const cc=fs.readFileSync(path.join(dist,"CC.html"),"utf8");
 if(/<script\b|mailto:|data:/i.test(cc))throw Error("Unsafe active links in staged CC.html");
 const links=[...cc.matchAll(/href=["']([^"']+)["']/g)].map(x=>x[1]);
