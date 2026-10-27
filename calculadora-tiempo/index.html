@@ -16,7 +16,6 @@
   <body>
     <main>
       <header>
-        <p class="eyebrow">Artículo 129 · Junta de Andalucía</p>
         <h1>Calculadora de tiempo</h1>
         <p>
           Calcula los dos méritos del artículo 129 —experiencia profesional y antigüedad—, aplica
@@ -26,14 +25,14 @@
       </header>
 
       <form id="calculator" novalidate>
-        <section class="card" aria-labelledby="periods-title">
+        <section class="card" aria-labelledby="call-data-title">
           <div class="section-heading">
-            <h2 id="periods-title">Periodos</h2>
+            <h2 id="call-data-title">Datos de la convocatoria y del puesto solicitado</h2>
           </div>
 
           <label>
             Fecha de convocatoria/publicación
-            <input id="call-date" type="date" />
+            <input id="call-date" type="date" autofocus />
           </label>
           <label>
             Fecha fin del plazo de solicitudes
@@ -74,6 +73,12 @@
             <input id="target-relational-area" type="text" autocomplete="off" />
           </label>
           <p class="hint">El área relacional puede dejarse vacía si el puesto no la tiene.</p>
+        </section>
+
+        <section class="card" aria-labelledby="periods-title">
+          <div class="section-heading">
+            <h2 id="periods-title">Rangos de servicios a baremar</h2>
+          </div>
 
           <div id="periods"></div>
 
@@ -203,5 +208,6 @@
     </template>
 
     <script type="module" src="./app.js"></script>
+    <script type="module" src="./ui.js"></script>
   </body>
 </html>
