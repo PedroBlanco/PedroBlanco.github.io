@@ -115,3 +115,14 @@ y clientes de correo, y pruebas de instalación/actualización PWA
 La autorización general de publicación no implica afirmar que estos
 controles se hayan superado: la nueva web se desplegará únicamente
 cuando su distribución completa se pueda verificar sin pérdidas.
+
+## Enlaces documentales pendientes de permisos — versión editorial
+
+El índice `CC.html` de la rama Eleventy conserva los enlaces externos
+históricos pero sustituye el enlace al MP4 local de 2023 por una nota
+de revisión de derechos y privacidad. `KM2024.html` conserva los
+enlaces de lectura externos y sustituye el enlace al PDF local
+`CROQUETAS2024.pdf` por una nota equivalente. El contenido original
+continúa en el historial y la web antigua hasta el despliegue final.
+**No se ha aprobado ni copiado el vídeo ni el PDF.** Ambas modificaciones
+están fijadas por hash de blob Git en el inventario de migración.

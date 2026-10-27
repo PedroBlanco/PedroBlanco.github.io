@@ -5,15 +5,15 @@
       "path": "CC.html",
       "status": "preview",
       "kind": "document",
-      "reason": "Public original index, preview only; verify linked video before publication.",
-      "gitBlobSha": "589cd8b0317814c239bd89711c685d218ef7f429"
+      "reason": "Curated historical references: original video link withheld until rights/privacy review; alternative third-party links preserved as references.",
+      "gitBlobSha": "40422d1c4a4d0edb01a3fd9eb345dfd2d2a65f53"
     },
     {
       "path": "KM2024.html",
       "status": "preview",
       "kind": "document",
-      "reason": "Read-only original page with two editor links removed; publishing rights of external media still need review.",
-      "gitBlobSha": "547d3558569a7ac84129932f07dc4225f5c7e7da"
+      "reason": "Curated 2024 page: external viewing links retained, local PDF link withheld until rights/privacy review.",
+      "gitBlobSha": "50a99402e750c3fe86c5751a1c84081d3cdbe715"
     },
     {
       "path": "KM2024.md",
