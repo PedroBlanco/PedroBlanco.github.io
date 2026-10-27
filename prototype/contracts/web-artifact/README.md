@@ -81,7 +81,12 @@ El segundo ejemplo solo valida estructura; el tercero valida estructura **y los 
 
 ## Siguiente fase acordada
 
-**Aplicar y probar con `PedroBlanco/calculadora-tiempo`**, sin cambiar aún su actual script de publicación ni activar Pages. Se generará el ZIP y el manifiesto desde su `build:web`; después se contrastará con este contrato y se planificarán la extracción segura y la integración genérica.
+**Prueba realizada:** `PedroBlanco/calculadora-tiempo` entrega ZIP y
+manifiesto desde `npm run package:web`. La CI privada verificó la
+distribución real con este contrato y la integró en Eleventy de forma
+aislada. La PR #52 se fusionó y la versión runtime se publicó por la
+PR #7 sin desplegar aún el rediseño de Eleventy. Pendiente: registro
+central de versiones aprobadas y pruebas PWA instalables/offline.
 
 ## Integrador experimental para calculadora-tiempo
 

@@ -91,3 +91,27 @@ del historial deben evaluarse por separado.
 
 Este documento registra el estado de la PR experimental. No constituye una
 autorización para fusionar o publicar.
+
+## Actualización tras autorización de publicación (27/10/2026)
+
+Publicaciones incrementales confirmadas en `master`, sin fusionar la
+PR #4 (Eleventy):
+
+- PR #7: 16 archivos de la calculadora, desde distribución autorizada.
+- PR #8: corrección de validación y escapado en el generador de firmas.
+- PR #9: enlaces de edición de Canva retirados de `KM2024.html`.
+
+La vista previa Eleventy ya conserva por lista blanca `CC.html`,
+`KM2024.html` y los diez archivos runtime del generador de firmas,
+comprobados mediante SHA de blob Git. La calculadora se incluye al
+proporcionar el artefacto `web-artifact` con su commit esperado.
+
+**Pendiente para publicar el rediseño completo:** derechos de
+`/revista/` y su vídeo, documentación adjunta de Croquetas y NEXUM,
+revisión editorial de diez conjuntos de traducción, validación de marca
+y clientes de correo, y pruebas de instalación/actualización PWA
+(no imprescindibles para el despliegue limitado de #7).
+
+La autorización general de publicación no implica afirmar que estos
+controles se hayan superado: la nueva web se desplegará únicamente
+cuando su distribución completa se pueda verificar sin pérdidas.

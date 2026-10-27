@@ -208,33 +208,27 @@ estén aprobadas; esos controles continúan pendientes.
 Consultar `MIGRATION_AUDIT.md` para el inventario de materiales, riesgos,
 rutas pendientes y pasos necesarios antes de publicar.
 
-## Calculadora de tiempo (repositorio de origen privado)
+## Calculadora de tiempo (repositorio privado, contrato v1)
 
-El proyecto privado `PedroBlanco/calculadora-tiempo` ya genera su
-distribución pública mediante `npm run build:web`. Para incluir **solo
-esa distribución** en una compilación local de Eleventy:
+La versión aprobada de `PedroBlanco/calculadora-tiempo` genera el ZIP y
+el manifiesto externo con `npm run package:web`. La integración en
+Eleventy utiliza **solo** ese artefacto, no una copia del directorio Git.
+
+En Windows, con los dos repositorios clonados, desde
+`prototype/` en la rama experimental:
 
 ```powershell
-# En el clon local de calculadora-tiempo:
-npm ci
-npm run build:web
-
-# En el clon público de PedroBlanco.github.io, rama prototype/eleventy-bilingual:
-cd prototype
-$env:CALCULADORA_WEB_DIST = "C:\\ruta\\a\\calculadora-tiempo\\dist"
-npm run build
-npm run check
+.\scripts\build-with-calculator.ps1 -CalculatorRepository "C:\ruta\calculadora-tiempo"
 ```
 
-El integrador comprueba exactamente los 16 archivos de ejecución, incluido
-`ui.js`, `src/areas.js`, `src/deadlines.js`, el SW construido y
-`.nojekyll`. No accede al código de test ni a las carpetas internas del
-repositorio privado, no publica credenciales y no hace push.
+El asistente comprueba la rama y el estado de Git, ejecuta pruebas,
+genera `web-artifact.json` y el ZIP y verifica la integración.
+Sin publicar, y sin transferir archivos del repositorio privado a
+la web salvo los recursos de ejecución aprobados.
 
-Sin la variable de entorno, la integración no se realiza y la ruta queda
-señalada como pendiente. La CI pública **no tiene acceso** al repositorio
-privado. Antes de producción será necesario aportar un artefacto aprobado
-a la compilación definitiva, con controles de procedencia y revisión.
+La CI privada realizó una integración real completa sin desplegar.
+En el CI público, al no proporcionarse ZIP autenticado, la herramienta
+se omite de la vista previa, sin bloquear la compilación de diseño.
 
 ## Contrato común de distribuciones web · web-artifact 1.0.0
 
@@ -250,10 +244,9 @@ npm run test:contract
 node scripts/validate-web-artifact.mjs contracts/web-artifact/v1.0.0/examples/calculadora-pwa.example.json
 ```
 
-**No se ha adaptado ni probado todavía un ZIP real de la calculadora al
-contrato v1:** esa es la siguiente fase, separada de este commit.
-El antiguo integrador ad hoc sigue sin modificaciones funcionales y
-el despliegue en `master` continúa deshabilitado.
+**Ya se ha probado el ZIP real y su integración estática.**
+El integrador especial anterior se ha retirado. La calculadora fue
+publicada incrementalmente por la PR #7, sin publicar todavía Eleventy.
 
 ## Integrador de web-artifact (solo vista previa)
 
