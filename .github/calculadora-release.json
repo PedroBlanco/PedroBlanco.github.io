@@ -1,0 +1,22 @@
+{
+  "contractVersion": "1.0.0",
+  "id": "calculadora-tiempo",
+  "path": "/calculadora-tiempo/",
+  "source": {
+    "repository": "PedroBlanco/calculadora-tiempo",
+    "commit": "403bb7ad2eb378eee1fbd9d24b889cfd44e60056",
+    "pr": 52
+  },
+  "reproducibility": {
+    "originCI": "40496459816",
+    "validatedArchive": "calculadora-tiempo-0.1.0.zip",
+    "verifiedArchiveBytes": 28743,
+    "serviceWorkerBuildHash": "82d1a6571700",
+    "runtimeFiles": 16
+  },
+  "limits": {
+    "publishFullSite": false,
+    "untestedPwaInstallation": true,
+    "updaterReviewPending": true
+  }
+}

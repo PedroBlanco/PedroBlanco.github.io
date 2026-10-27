@@ -1,0 +1,52 @@
+name: Validate calculator-only release
+on:
+  pull_request:
+    paths:
+      - "calculadora-tiempo/**"
+      - ".github/calculadora-release.json"
+      - ".github/workflows/calculator-release-check.yml"
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Verify isolated runtime and PWA cache
+        shell: bash
+        run: |
+          node --input-type=module <<'NODE'
+          import assert from "node:assert/strict";
+          import fs from "node:fs";
+          import path from "node:path";
+          const root="calculadora-tiempo",expected=["index.html","app.js","ui.js","styles.css","manifest.webmanifest","icon.svg","sw.js",".nojekyll","src/areas.js","src/deadlines.js","src/time.js","src/periods.js","src/requirement.js","src/scoring.js","src/seniority.js","src/article129.js"];
+          const files=[];
+          function walk(dir,prefix=""){
+            for(const entry of fs.readdirSync(dir,{withFileTypes:true})){
+              const name=prefix+entry.name,full=path.join(dir,entry.name);
+              if(entry.isDirectory())walk(full,name+"/");
+              else{assert.equal(entry.isFile(),true);files.push(name);}
+            }
+          }
+          walk(root);
+          assert.deepEqual(files.sort(),expected.sort());
+          const index=fs.readFileSync(path.join(root,"index.html"),"utf8");
+          for(const file of ["./app.js","./ui.js"])assert.ok(index.includes(file));
+          const sw=fs.readFileSync(path.join(root,"sw.js"),"utf8");
+          assert.equal(sw.includes("__BUILD_HASH__"),false);
+          for(const file of ["./ui.js","./src/areas.js","./src/deadlines.js"])assert.ok(sw.includes(file));
+          const manifest=JSON.parse(fs.readFileSync(path.join(root,"manifest.webmanifest"),"utf8"));
+          assert.equal(manifest.scope,"./");
+          assert.equal(manifest.start_url,"./");
+          const release=JSON.parse(fs.readFileSync(".github/calculadora-release.json","utf8"));
+          assert.equal(release.path,"/calculadora-tiempo/");
+          assert.match(release.source.commit,/^[a-f0-9]{40}$/);
+          assert.ok(sw.includes(release.reproducibility.serviceWorkerBuildHash));
+          console.log("Validated "+expected.length+" runtime files in the isolated release.");
+          NODE
