@@ -7,7 +7,7 @@ function validPath(p){return typeof p==="string"&&!p.startsWith("/")&&!p.include
 function gitSha(data){return createHash("sha1").update(Buffer.from("blob "+data.length+"\0")).update(data).digest("hex");}
 let staged=0;
 for(const item of manifest.entries){
- if(!validPath(item.path)||seen.has(item.path)||!["preview","approved","preview-tool","approved-tool","curated-index","hold","retire"].includes(item.status))throw Error("Invalid manifest entry");
+ if(!validPath(item.path)||seen.has(item.path)||!["preview","approved","preview-tool","approved-tool","published-tool","curated-index","hold","retire"].includes(item.status))throw Error("Invalid manifest entry");
  seen.add(item.path);
  if(item.status==="preview-tool"||item.status==="approved-tool"){
   if(item.path!=="piefirma/"||item.files?.length!==10)throw Error("Unknown legacy tool or incomplete allowlist");
