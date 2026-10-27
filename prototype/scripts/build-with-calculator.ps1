@@ -19,6 +19,11 @@ if ($Remote -notmatch 'github[.]com[:/]PedroBlanco/calculadora-tiempo([.]git)?$'
 $Branch = (& git -C $Source branch --show-current).Trim()
 Require-Ok 'No se pudo leer la rama de origen'
 if ($Branch -ne 'main') { throw 'La calculadora debe estar en main' }
+$Dirty = & git -C $Source status --porcelain --untracked-files=no
+Require-Ok 'No se pudo comprobar el estado de Git'
+if ($Dirty) { throw 'Hay cambios locales sin confirmar en la calculadora; no se puede atribuir el paquete al commit HEAD' }
+$SourceSha = (& git -C $Source rev-parse HEAD).Trim()
+Require-Ok 'No se pudo obtener el commit de origen'
 
 $SiteRoot = (Resolve-Path -LiteralPath (Join-Path $Site '..')).Path
 $SiteBranch = (& git -C $SiteRoot branch --show-current).Trim()
@@ -27,25 +32,40 @@ if ($SiteBranch -ne 'prototype/eleventy-bilingual') {
   throw 'Esta operación solo se admite en la rama experimental de Eleventy'
 }
 
-Write-Host '1/4 - Instalar dependencias privadas (no se copia el código fuente al sitio)'
+Write-Host '1/4 - Instalar y probar las dependencias de la calculadora'
 & npm --prefix $Source ci
 Require-Ok 'No se pudieron instalar las dependencias de la calculadora'
-Write-Host '2/4 - Ejecutar las pruebas del proyecto privado'
 & npm --prefix $Source test
-Require-Ok 'Han fallado pruebas de la calculadora'
-Write-Host '3/4 - Generar artefacto web estático'
-& npm --prefix $Source run build:web
-Require-Ok 'No se pudo crear el artefacto web'
-Write-Host '4/4 - Construir y verificar el prototipo sin despliegue'
-$OldValue = [Environment]::GetEnvironmentVariable('CALCULADORA_WEB_DIST')
+Require-Ok 'Han fallado las pruebas de la calculadora'
+
+Write-Host '2/4 - Generar ZIP y manifiesto externo desde el repositorio privado'
+& npm --prefix $Source run package:web
+Require-Ok 'No se pudo empaquetar la herramienta'
+
+$Version = (& node -p "require('$($Source.Replace('\','/'))/package.json').version").Trim()
+Require-Ok 'No se pudo obtener la version'
+$Package = Join-Path $Source ("artifacts/web/calculadora-tiempo-" + $Version + ".zip")
+$Manifest = Join-Path $Source 'artifacts/web/web-artifact.json'
+if (-not (Test-Path -LiteralPath $Package -PathType Leaf)) { throw 'No se ha generado el ZIP' }
+if (-not (Test-Path -LiteralPath $Manifest -PathType Leaf)) { throw 'No se ha generado el manifiesto' }
+
+Write-Host '3/4 - Construir y validar la web con el contrato v1'
+$Vars = @('WEB_ARTIFACT_MANIFEST','WEB_ARTIFACT_ZIP','WEB_ARTIFACT_EXPECTED_SHA')
+$Old = @{}
+foreach ($key in $Vars) { $Old[$key] = [Environment]::GetEnvironmentVariable($key) }
 try {
-  $env:CALCULADORA_WEB_DIST = (Join-Path $Source 'dist')
+  $env:WEB_ARTIFACT_MANIFEST = $Manifest
+  $env:WEB_ARTIFACT_ZIP = $Package
+  $env:WEB_ARTIFACT_EXPECTED_SHA = $SourceSha
   & npm --prefix $Site run build
-  Require-Ok 'Falló la compilación del sitio'
+  Require-Ok 'Falló la compilación e integración del artefacto'
+  Write-Host '4/4 - Verificar todo el sitio'
   & npm --prefix $Site run check
   Require-Ok 'Falló la verificación del sitio'
 } finally {
-  if ($null -eq $OldValue) { Remove-Item Env:CALCULADORA_WEB_DIST -ErrorAction SilentlyContinue }
-  else { $env:CALCULADORA_WEB_DIST = $OldValue }
+  foreach ($key in $Vars) {
+    if ($null -eq $Old[$key]) { Remove-Item ("Env:" + $key) -ErrorAction SilentlyContinue }
+    else { [Environment]::SetEnvironmentVariable($key, $Old[$key]) }
+  }
 }
-Write-Host 'Revisión local completa. No se han enviado cambios ni publicado la web.'
+Write-Host 'Vista previa integrada validada. No se ha hecho push ni desplegado.'

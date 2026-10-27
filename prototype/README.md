@@ -290,6 +290,23 @@ las PR de borrador [sitio #4](https://github.com/PedroBlanco/PedroBlanco.github.
 y [calculadora #52](https://github.com/PedroBlanco/calculadora-tiempo/pull/52).
 Seguimiento en [issue #6](https://github.com/PedroBlanco/PedroBlanco.github.io/issues/6).
 
+## Integración única mediante web-artifact
+
+La compilación Eleventy utiliza ahora `scripts/stage-approved-tools.mjs`
+como receptor único de paquetes aprobados. El antiguo integrador de archivos
+específico de la calculadora se ha retirado. Para aportar un paquete real
+se usan conjuntamente `WEB_ARTIFACT_MANIFEST`, `WEB_ARTIFACT_ZIP`
+y `WEB_ARTIFACT_EXPECTED_SHA`: el sistema valida formato, integridad,
+procedencia declarada y archivo ZIP, y limita la extracción a su directorio.
+
+El asistente PowerShell `scripts/build-with-calculator.ps1` usa ya
+`npm run package:web`, comprueba que el origen no tenga cambios locales
+sin confirmar e integra por el nuevo contrato; no efectúa despliegues.
+
+El control de procedencia definitivo debe reforzarse con un registro de
+commits aprobados; por ahora el SHA esperado lo suministra explícitamente
+el operador o una CI autorizada.
+
 ## Condiciones para publicar
 
 - Revisión humana de todas las traducciones; contenido del TFG limitado a su
