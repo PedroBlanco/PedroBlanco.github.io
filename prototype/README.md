@@ -385,6 +385,15 @@ La auditoría de enlaces se ejecuta en modo **estricto también en CI**:
 la introducción de un destino interno inexistente debe hacer fallar
 `npm run check`. No se han autorizado los bytes de estos materiales.
 
+## Expedientes de revisión individuales
+
+El titular ha solicitado conservar íntegramente `CROQUETAS2024.pdf`.
+La solicitud está registrada, pero el archivo permanece `hold` hasta
+acreditar su autorización de distribución y revisar sus páginas,
+recursos gráficos y posibles datos personales. La CI realiza una primera
+inspección técnica **sin imprimir texto ni nombres del documento**.
+Los demás archivos pendientes se revisarán individualmente.
+
 ## Condiciones para publicar
 
 - Revisión humana de todas las traducciones; contenido del TFG limitado a su

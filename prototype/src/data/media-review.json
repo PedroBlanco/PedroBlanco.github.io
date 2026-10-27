@@ -12,7 +12,20 @@
       "gitBlobSha": "c2e92197c526a5c4e2235fe3fc01522f3b119776",
       "category": "document",
       "status": "hold",
-      "reason": "Review personal data, embedded media, author/license, access and download size."
+      "reason": "Owner requests retaining the full PDF. Rights/privacy checks pending: official IAAP project context does not prove this specific PDF may be republished.",
+      "ownerDecision": "preserve-full",
+      "ownerDecisionRecordedAt": "2026-10-27",
+      "ownerDecisionStatus": "requested-not-yet-approved",
+      "review": {
+        "rights": "pending-confirmation",
+        "privacy": "pending-page-by-page-review",
+        "technical": "not-yet-run",
+        "contextEvidence": [
+          "https://www.juntadeandalucia.es/sites/default/files/2024-10/Programa%20%20VII%20Jornada%20%20Gesti%C3%B3n%20del%20Conocimiento.pdf",
+          "https://ws168.juntadeandalucia.es/iaap/gestiondelconocimiento/wp-content/uploads/sites/10/2024/10/Dossieer-de-Prensa-Programa-Embajadores-del-Conocimiento.pdf"
+        ],
+        "notes": "IAAP official references confirm the project context but not a redistribution license for this particular PDF. Keep hold until page/imagery/privacy and authorization checks."
+      }
     },
     {
       "path": "NEXUM2024.pdf",

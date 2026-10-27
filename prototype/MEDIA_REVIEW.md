@@ -16,7 +16,7 @@ La página antigua `revista/index.html` es un prototipo con artículos repetidos
 
 | Archivo original | Tipo | Tamaño (MiB) | Estado | Punto de revisión |
 |---|---|---:|---|---|
-| `CROQUETAS2024.pdf` | document | 8.16 | hold | Review personal data, embedded media, author/license, access and download size. |
+| `CROQUETAS2024.pdf` | document | 8.16 | hold · conservación solicitada | Conservar PDF completo: decisión del titular 27/10/2026; derechos, privacidad y revisión visual todavía pendientes. |
 | `NEXUM2024.pdf` | document | 67.30 | hold | Review personal data, embedded media, author/license, access and download size. |
 | `NEXUM2024.pptx` | presentation | 21.11 | hold | Review personal data, embedded media, author/license, access and download size. |
 | `revista/2023-10-17_Revista_Enredados_Presentacion.mp4` | video | 53.35 | hold | Review people shown, licenses and continued hosting of large video. |
@@ -66,3 +66,12 @@ siguen pendientes de revisión. El archivo anterior `revista/index.html`
 permanece inventariado como `retire`: **no se copia el original**.
 No se modifica el estado `hold` de los otros diecinueve archivos de
 la carpeta.
+
+## Expediente individual 01 — CROQUETAS2024.pdf
+
+- **Decisión del titular (27/10/2026):** conservar el archivo PDF completo, sujeto a comprobar derechos y privacidad. **No equivale a aprobar la nueva publicación.**
+- **Evidencia contextual:** el IAAP incluye Croquetas del Conocimiento en el programa de la VII Jornada de Gestión del Conocimiento (22/10/2024) y en su dossier público de proyectos. Estas publicaciones **no prueban** una licencia de distribución aplicable a los bytes concretos de `CROQUETAS2024.pdf`.
+- **Contenido interior:** revisión visual de todas las páginas y recursos gráficos **pendiente**; no se debe inferir ausencia de personas, datos personales ni imágenes de terceros a partir de la extracción textual.
+- **Preflight automatizado:** `python prototype/scripts/audit-legacy-pdf.py` en CI lee únicamente el PDF del inventario, valida su Git blob y emite señales **agregadas sin nombres ni texto de páginas** (metadatos presentes, páginas, imágenes/adjuntos aparentes, enlaces, patrones de datos personales, indicios de licencia). No sustituye la inspección humana.
+- **Preguntas por confirmar:** quién autorizó la presentación, si las diapositivas o imágenes de terceros pueden redistribuirse, si hay fotografías o nombres personales sin consentimiento aplicable, y si debemos mantener los metadatos PDF originales o generar una copia saneada conservando la versión histórica.
+- **Estado operativo:** `hold`, excluido de Eleventy; reserva de URL `/CROQUETAS2024.pdf` hasta completar revisión.
