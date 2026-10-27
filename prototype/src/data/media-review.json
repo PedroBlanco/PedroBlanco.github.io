@@ -65,7 +65,16 @@
       "gitBlobSha": "85ce183b1f876f4ea178cd19d34ff1af3a33ae75",
       "category": "presentation",
       "status": "hold",
-      "reason": "Review personal data, embedded media, author/license, access and download size."
+      "reason": "Conservar PPTX íntegro solicitado por el titular; revisar notas, comentarios, adjuntos, datos personales, permisos y licencia antes de publicar.",
+      "ownerDecision": "preserve-full",
+      "ownerDecisionRecordedAt": "2026-10-27",
+      "ownerDecisionStatus": "requested-not-yet-approved",
+      "review": {
+        "rights": "pending-confirmation",
+        "privacy": "pending-slide-and-notes-review",
+        "technical": "pending-archive-inspection",
+        "notes": "The editable presentation requires independent review from the PDF. No permission for new redistribution has been verified."
+      }
     },
     {
       "path": "revista/2023-10-17_Revista_Enredados_Presentacion.mp4",
