@@ -103,7 +103,22 @@
       "gitBlobSha": "2d9746db23cbf415dc6c9cb6df0321872ed228b4",
       "category": "video",
       "status": "hold",
-      "reason": "Review people shown, licenses and continued hosting of large video."
+      "reason": "Full MP4 retention requested; owner confirms own production, but release awaits review of recognizable persons, voices, music, visual rights and technical metadata.",
+      "ownerDecision": "preserve-full",
+      "ownerDecisionRecordedAt": "2026-10-27",
+      "ownerDecisionStatus": "requested-not-yet-approved",
+      "authorshipStatement": {
+        "source": "declaration-by-repository-owner-in-chat",
+        "claim": "Owner states the MP4 is their own video production",
+        "recordedAt": "2026-10-27",
+        "thirdPartyRightsNotReviewed": true
+      },
+      "review": {
+        "rights": "producer-claims-own-authorship; third-party-elements-unverified",
+        "privacy": "pending-visual-and-audio-review",
+        "technical": "pending-media-preflight",
+        "notes": "Preserve complete MP4 at same historical path. Authorship self-declared by user; no assertion about faces/voices/music/third-party rights. Do not include in Eleventy build until technical and manual review."
+      }
     },
     {
       "path": "revista/2024-09-23_presentacion_revista.pdf",
