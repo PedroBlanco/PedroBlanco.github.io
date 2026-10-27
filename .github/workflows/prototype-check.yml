@@ -36,6 +36,7 @@ jobs:
           python -m pip install --disable-pip-version-check "pypdf>=5,<7"
           python prototype/scripts/audit-legacy-pdf.py
           python prototype/scripts/audit-legacy-pdf.py NEXUM2024.pdf
+          python prototype/scripts/audit-legacy-pdf.py revista/2024-09-23_presentacion_revista.pdf
           python prototype/scripts/audit-legacy-pptx.py
       - name: Inspect owner-produced video (metadata only)
         run: |

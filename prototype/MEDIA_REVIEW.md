@@ -20,7 +20,7 @@ La página antigua `revista/index.html` es un prototipo con artículos repetidos
 | `NEXUM2024.pdf` | document | 67.30 | hold | Review personal data, embedded media, author/license, access and download size. |
 | `NEXUM2024.pptx` | presentation | 21.11 | hold · conservación solicitada | Conservar editable completo: revisar diapositivas, notas, comentarios, vínculos, objetos incrustados, licencias y datos personales. |
 | `revista/2023-10-17_Revista_Enredados_Presentacion.mp4` | video | 53.35 | hold · conservación solicitada | Producción propia declarada por el titular; revisión de participantes, voces, música, elementos de terceros y metadatos pendiente. |
-| `revista/2024-09-23_presentacion_revista.pdf` | document | 1.94 | hold | Review personal data, embedded media, author/license, access and download size. |
+| `revista/2024-09-23_presentacion_revista.pdf` | document | 1.94 | hold · conservación solicitada | Mantener PDF completo tras revisión de derechos, imágenes, posibles datos personales y contenido; pendiente. |
 | `revista/Caballeria-ligera.mp3` | audio | 7.37 | hold | Audio may involve third-party recordings/music: establish public distribution rights. |
 | `revista/crucigrama-001.html` | html | 0.25 | hold | Contains Exolve MIT code plus puzzle content: verify both license notice and puzzle authorship. |
 | `revista/crucigrama-002.html` | html | 0.25 | hold | Contains Exolve MIT code plus puzzle content: verify both license notice and puzzle authorship. |
@@ -104,3 +104,11 @@ la carpeta.
 - **Inspección técnica superada:** [GitHub Actions #40567732706](https://github.com/PedroBlanco/PedroBlanco.github.io/actions/runs/40567732706). Integridad y SHA-256 comprobados. Duración **216,533 s (3:36,5)**, vídeo **H.264 1920 × 1080 a 25 fps**, audio **AAC estéreo a 48 kHz**. Dos pistas y ningún capítulo detectado. No se han publicado valores de metadatos, fotogramas, nombres ni contenido de audio en los registros. La inspección no determina presencia de personas, voces, música ajena ni autorizaciones aplicables.
 - **Pendiente:** revisar manualmente imágenes y voces, derechos de música y recursos externos, permisos de posibles participantes identificables y metadatos que puedan revelar información personal. La declaración de producción propia no resuelve automáticamente esos elementos.
 - **Estado:** `hold`, con decisión `preserve-full`; el prototipo Eleventy todavía **no redistribuye** el MP4. Para publicar, confirmar el resultado de la inspección visual y los permisos de las personas y de los materiales incluidos.
+
+## Expediente individual 05 — Presentación Revista EnRed@2.0 (2024)
+
+- **Decisión del titular (27/10/2026):** conservar íntegro `revista/2024-09-23_presentacion_revista.pdf` (2.030.694 bytes, 1,94 MiB) sujeto a comprobaciones. No es aprobación de redistribución.
+- **Identidad:** archivo PDF del índice histórico de la revista; la fecha 23/09/2024 procede del nombre del fichero, no de una verificación del contenido. Autoría no confirmada.
+- **Procedencia técnica:** SHA de blob Git `3131c375dc10c0e96b3f0cbd6982c4e32e3d76e2` fijado en inventario. Se realizará preflight con `prototype/scripts/audit-legacy-pdf.py`, que informa de páginas, referencias a imágenes, enlaces y coincidencias de patrones sin revelar texto ni metadatos personales.
+- **Pendientes:** revisar visualmente todas las páginas, fotografías, nombres, imágenes y logos; confirmar si hay datos personales, material de terceros y permiso de difusión; comprobar metadatos y anotaciones antes de publicar.
+- **Estado:** `hold`, decisión `preserve-full` y revisión de privacidad y derechos pendiente; no se copia al build Eleventy.

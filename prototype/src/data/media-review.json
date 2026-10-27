@@ -140,7 +140,17 @@
       "gitBlobSha": "3131c375dc10c0e96b3f0cbd6982c4e32e3d76e2",
       "category": "document",
       "status": "hold",
-      "reason": "Review personal data, embedded media, author/license, access and download size."
+      "reason": "Conservar PDF completo solicitado por el titular; pendiente revisión visual, derechos sobre imágenes/personas y posible información personal.",
+      "ownerDecision": "preserve-full",
+      "ownerDecisionRecordedAt": "2026-10-27",
+      "ownerDecisionStatus": "requested-not-yet-approved",
+      "review": {
+        "rights": "pending-confirmation",
+        "privacy": "pending-page-by-page-review",
+        "technical": "queued-in-ci",
+        "context": "Historic Revista EnRed@2.0 presentation file named 2024-09-23; precise contents and authorship not established by filename.",
+        "notes": "Preserve full historical PDF, subject to review. Hash and size are pinned. Technical checks do not establish privacy clearance or permission to redistribute."
+      }
     },
     {
       "path": "revista/Caballeria-ligera.mp3",

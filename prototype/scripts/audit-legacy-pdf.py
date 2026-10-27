@@ -19,7 +19,7 @@ def main():
     args = parser.parse_args()
     root = Path.cwd()
     pdf_path = (root / args.path).resolve()
-    allowed = {"CROQUETAS2024.pdf", "NEXUM2024.pdf"}
+    allowed = {"CROQUETAS2024.pdf", "NEXUM2024.pdf", "revista/2024-09-23_presentacion_revista.pdf"}
     if args.path not in allowed or pdf_path != (root / args.path).resolve():
         raise RuntimeError("Only individually inventoried legacy PDFs may be inspected")
     data = json.loads((root / args.inventory).read_text(encoding="utf-8"))
