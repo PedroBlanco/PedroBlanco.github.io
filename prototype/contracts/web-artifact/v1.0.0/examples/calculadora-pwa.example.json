@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "calculadora-tiempo",
+  "version": "0.1.0",
+  "basePath": "/calculadora-tiempo/",
+  "entryPoint": "index.html",
+  "type": "pwa",
+  "source": {
+    "repository": "PedroBlanco/calculadora-tiempo",
+    "commit": "d3527f728613ec44a7a6b80540e0e4c436e87cab"
+  },
+  "artifact": {
+    "format": "zip",
+    "filename": "calculadora-tiempo-0.1.0.zip",
+    "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "sizeBytes": 12345
+  },
+  "pwa": {
+    "manifest": "manifest.webmanifest",
+    "serviceWorker": "sw.js",
+    "scope": "/calculadora-tiempo/"
+  }
+}
