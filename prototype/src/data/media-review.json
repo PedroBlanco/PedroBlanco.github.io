@@ -147,9 +147,32 @@
       "review": {
         "rights": "pending-confirmation",
         "privacy": "pending-page-by-page-review",
-        "technical": "queued-in-ci",
+        "technical": "aggregate-pdf-preflight-passed",
         "context": "Historic Revista EnRed@2.0 presentation file named 2024-09-23; precise contents and authorship not established by filename.",
-        "notes": "Preserve full historical PDF, subject to review. Hash and size are pinned. Technical checks do not establish privacy clearance or permission to redistribute."
+        "notes": "Preserve full historical PDF, subject to review. Hash and size are pinned. Technical checks do not establish privacy clearance or permission to redistribute.",
+        "technicalExecution": "https://github.com/PedroBlanco/PedroBlanco.github.io/actions/runs/40574518062",
+        "technicalFindings": {
+          "sha256": "e699a69e2670da810de7297353b46540270b59040b5ed7508b8ff0b279266d2c",
+          "pages": 5,
+          "textCharacters": 417,
+          "pagesWithLittleOrNoExtractableText": 0,
+          "imageXObjectReferences": 23,
+          "annotations": 0,
+          "externalLinkAnnotations": 0,
+          "metadataFields": [
+            "Title",
+            "Author",
+            "Creator",
+            "Producer",
+            "CreationDate",
+            "ModDate",
+            "Keywords"
+          ],
+          "emailLikeMatchesInExtractableText": 0,
+          "dniLikeMatchesInExtractableText": 0,
+          "ibanLikeMatchesInExtractableText": 0,
+          "licenseKeywordMatchesInExtractableText": 0
+        }
       }
     },
     {
