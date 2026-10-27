@@ -126,3 +126,11 @@ enlaces de lectura externos y sustituye el enlace al PDF local
 continúa en el historial y la web antigua hasta el despliegue final.
 **No se ha aprobado ni copiado el vídeo ni el PDF.** Ambas modificaciones
 están fijadas por hash de blob Git en el inventario de migración.
+
+## Endurecimiento de enlaces del prototipo
+
+Tras incorporar la versión pública fijada de `/calculadora-tiempo/` y
+editar las versiones del prototipo de `CC.html` y `KM2024.html`,
+la auditoría de enlaces internos forma parte de las pruebas de CI
+en modo estricto. Los materiales audiovisuales/documentales de
+origen permanecen sin copiar y deben tratarse conforme a la issue #10.

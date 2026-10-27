@@ -370,6 +370,21 @@ Cuando se aporta un ZIP y manifiesto con las tres variables
 en lugar de la versión de referencia. El fallback no reconstruye la
 aplicación ni recupera código del repositorio privado.
 
+## Referencias locales pendientes de derechos — enlaces corregidos
+
+En la rama Eleventy se han revisado las dos referencias históricas a
+recursos locales que todavía no pueden copiarse:
+
+- `CC.html` incluye una nota en lugar de enlazar al vídeo de
+  presentación de Revista (octubre de 2023), conservando la referencia
+  externa alternativa que ya figuraba en el índice.
+- `KM2024.html` presenta la referencia a **Croquetas del Conocimiento**
+  sin enlazar al PDF todavía no autorizado.
+
+La auditoría de enlaces se ejecuta en modo **estricto también en CI**:
+la introducción de un destino interno inexistente debe hacer fallar
+`npm run check`. No se han autorizado los bytes de estos materiales.
+
 ## Condiciones para publicar
 
 - Revisión humana de todas las traducciones; contenido del TFG limitado a su
