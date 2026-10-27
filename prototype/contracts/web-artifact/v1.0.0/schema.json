@@ -131,7 +131,10 @@
       "then": {
         "required": [
           "pwa"
-        ]
+        ],
+        "properties": {
+          "pwa": {}
+        }
       },
       "else": {
         "not": {
