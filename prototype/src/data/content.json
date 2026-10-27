@@ -160,12 +160,12 @@
       "es": {
         "title": "Generador de firmas",
         "summary": "Herramienta para generar firmas HTML de correo electrónico corporativo.",
-        "detail": "Proyecto colaborativo cuya plantilla y validación se revisarán para actualizar referencias y mejorar su seguridad."
+        "detail": "Generador de firmas HTML con validación y escapado de los datos del formulario incorporados. Se mantiene la plantilla histórica hasta confirmar su identidad institucional y compatibilidad con clientes de correo."
       },
       "en": {
         "title": "Email signature generator",
         "summary": "Tool for generating corporate HTML email signatures.",
-        "detail": "Collaborative project; its template and input validation will be reviewed to update references and improve safety."
+        "detail": "HTML email signature generator with input validation and HTML escaping in place. The historical template remains pending branding and email-client compatibility checks."
       }
     },
     {

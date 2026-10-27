@@ -324,6 +324,17 @@ están en `src/data/media-review.json`. El comando
 detecta adiciones o alteraciones del origen y evita incluir materiales
 pendientes en `dist/`.
 
+## Revisión editorial bilingüe verificable
+
+`TRANSLATION_REVIEW.md` ofrece una comparación ES/EN de la interfaz,
+fichas y documentación Markdown. Las aprobaciones se registran por
+bloque en `src/data/translation-review.json`, conservando **dos hashes**
+por bloque, uno ES y otro EN, e identificando al revisor y la fecha.
+
+`node scripts/check-translations.mjs --hashes` imprime los hashes,
+pero **no marca nada como aprobado**. Si cambia cualquier idioma,
+apartado extenso o recurso, el bloque vuelve a revisión.
+
 ## Condiciones para publicar
 
 - Revisión humana de todas las traducciones; contenido del TFG limitado a su
