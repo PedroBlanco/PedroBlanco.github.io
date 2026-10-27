@@ -19,8 +19,9 @@ def main():
     args = parser.parse_args()
     root = Path.cwd()
     pdf_path = (root / args.path).resolve()
-    if pdf_path != (root / "CROQUETAS2024.pdf").resolve():
-        raise RuntimeError("This audit is explicitly scoped to CROQUETAS2024.pdf")
+    allowed = {"CROQUETAS2024.pdf", "NEXUM2024.pdf"}
+    if args.path not in allowed or pdf_path != (root / args.path).resolve():
+        raise RuntimeError("Only individually inventoried legacy PDFs may be inspected")
     data = json.loads((root / args.inventory).read_text(encoding="utf-8"))
     entry = next(x for x in data["entries"] if x["path"] == args.path)
     raw = pdf_path.read_bytes()

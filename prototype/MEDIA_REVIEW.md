@@ -76,3 +76,12 @@ la carpeta.
 - **Método técnico:** `python prototype/scripts/audit-legacy-pdf.py` en CI lee únicamente el PDF del inventario, valida su Git blob y emite señales **agregadas sin nombres ni texto de páginas** (metadatos presentes, páginas, imágenes/adjuntos aparentes, enlaces, patrones de datos personales, indicios de licencia). No sustituye la inspección humana.
 - **Preguntas por confirmar:** quién autorizó la presentación, si las diapositivas o imágenes de terceros pueden redistribuirse, si hay fotografías o nombres personales sin consentimiento aplicable, y si debemos mantener los metadatos PDF originales o generar una copia saneada conservando la versión histórica.
 - **Estado operativo:** `hold`, excluido de Eleventy; reserva de URL `/CROQUETAS2024.pdf` hasta completar revisión.
+
+## Expediente individual 02 — NEXUM2024.pdf
+
+- **Decisión del titular (27/10/2026):** conservar el PDF completo (70.568.492 bytes, 67,30 MiB), condicionado a comprobar derechos y privacidad. **No significa que esté autorizado para nueva publicación.**
+- **Procedencia técnica:** ruta pública histórica `/NEXUM2024.pdf`, Git blob `fcc95fa427fa59fc7915a9e60a3d1ea2b93846c5`. No se ha podido inspeccionar directamente el documento binario en el entorno de conversación; su contenido sigue pendiente de revisión visual.
+- **Relación documental:** existe además `/NEXUM2024.pptx` (archivo 3/22), que se valorará **por separado**; la conservación de PDF no implica autorizar el PPTX editable.
+- **Comprobación técnica:** el script `prototype/scripts/audit-legacy-pdf.py` se aplica al PDF en CI, verificando hash y emitiendo únicamente señales agregadas (sin texto de páginas ni nombres de autor). Este procedimiento no identifica visualmente personas, capturas corporativas ni derechos de materiales gráficos.
+- **Comprobaciones humanas pendientes:** revisar todas las páginas, datos personales (incluso dentro de capturas/imágenes), posibles nombres de asistentes o autores, información administrativa no pública, licencias de fotografías y permiso de redistribución. Examinar metadatos del PDF antes de publicarlo en Eleventy.
+- **Estado operativo:** `hold`; decisión de conservación `preserve-full`, todavía no `approved`.

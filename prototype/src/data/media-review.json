@@ -47,7 +47,17 @@
       "gitBlobSha": "fcc95fa427fa59fc7915a9e60a3d1ea2b93846c5",
       "category": "document",
       "status": "hold",
-      "reason": "Review personal data, embedded media, author/license, access and download size."
+      "reason": "Owner wants full PDF retained; human review of all pages, personal data, images, rights and possible sensitive internal screenshots remains mandatory.",
+      "ownerDecision": "preserve-full",
+      "ownerDecisionRecordedAt": "2026-10-27",
+      "ownerDecisionStatus": "requested-not-yet-approved",
+      "review": {
+        "rights": "pending-confirmation",
+        "privacy": "pending-page-by-page-review",
+        "technical": "queued-in-ci",
+        "relatedSource": "NEXUM2024.pptx (separate file 3/22; rights must be reviewed independently)",
+        "notes": "Owner requests preserving the complete PDF, subject to content/privacy and redistribution-rights review. Its current public accessibility does not establish reuse permissions. No rights or page-content clearance has been granted."
+      }
     },
     {
       "path": "NEXUM2024.pptx",
