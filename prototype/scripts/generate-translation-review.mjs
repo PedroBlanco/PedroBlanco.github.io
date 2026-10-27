@@ -2,7 +2,7 @@ import fs from "node:fs/promises";
 import content from "../src/data/content.json" with {type:"json"};
 const flatten=(o,prefix="")=>Object.entries(o||{}).flatMap(([k,v])=>v&&typeof v==="object"&&!Array.isArray(v)?flatten(v,prefix+k+"."):[{key:prefix+k,val:v}]);
 const cell=v=>String(v??"").replaceAll("|","\\|").replaceAll("\n"," · ");
-const header=\`# Paquete de revisión ES/EN · Eleventy
+const header=`# Paquete de revisión ES/EN · Eleventy
 
 **Estado:** borrador generado para facilitar la revisión humana. **No supone aprobación de ninguna traducción.**
 
@@ -11,9 +11,9 @@ La revisión incluye los **10 bloques editoriales**: interfaz del sitio y nueve 
 ## Cómo revisar
 
 1. Comprobar correspondencia fiel entre ambas versiones, naturalidad inglesa, títulos, nombres propios y terminología.
-2. Indicar correcciones en los archivos fuente (no únicamente en este documento): \\\`src/data/content.json\\\`, \\\`src/content/es/*.md\\\`, \\\`src/content/en/*.md\\\`.
-3. Registrar la aprobación de cada bloque con \\\`sourceDigest\\\` y \\\`targetDigest\\\`, generados con \\\`node scripts/check-translations.mjs --hashes\\\`, y metadatos \\\`reviewedBy\\\` y \\\`reviewedAt\\\`. El registro está en \\\`src/data/translation-review.json\\\`.
-4. Ejecutar \\\`npm run check\\\` y, antes del despliegue completo, \\\`node scripts/check-translations.mjs --strict\\\`. El reporte y los hashes cambian cuando cambie el contenido.
+2. Indicar correcciones en los archivos fuente (no únicamente en este documento): \`src/data/content.json\`, \`src/content/es/*.md\`, \`src/content/en/*.md\`.
+3. Registrar la aprobación de cada bloque con \`sourceDigest\` y \`targetDigest\`, generados con \`node scripts/check-translations.mjs --hashes\`, y metadatos \`reviewedBy\` y \`reviewedAt\`. El registro está en \`src/data/translation-review.json\`.
+4. Ejecutar \`npm run check\` y, antes del despliegue completo, \`node scripts/check-translations.mjs --strict\`. El reporte y los hashes cambian cuando cambie el contenido.
 
 **Ninguna aprobación se concede por silencio ni por traducción automática.**
 
@@ -21,7 +21,7 @@ La revisión incluye los **10 bloques editoriales**: interfaz del sitio y nueve 
 
 | Clave | Español | Inglés |
 |---|---|---|
-\`;
+`;
 let output=header;
 const en=new Map(flatten(content.langs.en).map(x=>[x.key,x.val]));
 for(const x of flatten(content.langs.es)){
