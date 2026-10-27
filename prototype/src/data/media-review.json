@@ -19,12 +19,26 @@
       "review": {
         "rights": "pending-confirmation",
         "privacy": "pending-page-by-page-review",
-        "technical": "not-yet-run",
+        "technical": "aggregate-pdf-preflight-passed",
         "contextEvidence": [
           "https://www.juntadeandalucia.es/sites/default/files/2024-10/Programa%20%20VII%20Jornada%20%20Gesti%C3%B3n%20del%20Conocimiento.pdf",
           "https://ws168.juntadeandalucia.es/iaap/gestiondelconocimiento/wp-content/uploads/sites/10/2024/10/Dossieer-de-Prensa-Programa-Embajadores-del-Conocimiento.pdf"
         ],
-        "notes": "IAAP official references confirm the project context but not a redistribution license for this particular PDF. Keep hold until page/imagery/privacy and authorization checks."
+        "notes": "IAAP official references confirm the project context but not a redistribution license for this particular PDF. Keep hold until page/imagery/privacy and authorization checks. Technical inspection completed in CI: 20 pages, 81 image XObject references, 6 pages with little/no extractable text; no machine-detected sensitive patterns or license clues. These signals cannot rule out text embedded in images, identifiable people, copyright or hidden content. Human full-document review and authorization still required.",
+        "technicalExecution": "https://github.com/PedroBlanco/PedroBlanco.github.io/actions/runs/40556104172",
+        "technicalFindings": {
+          "sha256": "5b1534484f7b930c67de0b44a71a624008eaec275beea3118c98eb196abf886d",
+          "pages": 20,
+          "textCharacters": 1338,
+          "pagesWithLittleOrNoExtractableText": 6,
+          "imageXObjectReferences": 81,
+          "hasAuthorMetadata": true,
+          "externalLinkAnnotations": 0,
+          "emailLikeMatchesInExtractableText": 0,
+          "dniLikeMatchesInExtractableText": 0,
+          "ibanLikeMatchesInExtractableText": 0,
+          "licenseKeywordMatchesInExtractableText": 0
+        }
       }
     },
     {
