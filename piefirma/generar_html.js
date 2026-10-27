@@ -21,6 +21,7 @@ document.body.addEventListener('dragend', function(e) {
 }, false);
 
 var cleanUp = function(a) {
+  if (!a) return;
   a.textContent = 'pie_firma.html';
   a.dataset.disabled = true;
 
@@ -79,36 +80,22 @@ var downloadFile = function() {
   var prevLink = output.querySelector('a');
   if (prevLink) {
     window.URL.revokeObjectURL(prevLink.href);
-    output.innerHTML = '';
+    output.replaceChildren();
   }
 
-  // Vamos a regenerar el documento cada vez
-  var pie_firma = new Array ( 1 );
-  pie_firma[0] = orig_pie_firma;
-
-  // Rellenamos con los campos proporcionados
-  // FIXME: Validar las entradas para evitar sobreescribir/manipular los campos...
-  // FIXME: Comprobar y añadir sólo los que estén definidos
-  pie_firma[0] = pie_firma[0].replaceAll ( 'NOMBREAPELLIDOS', document.querySelector('#nombreapellidos').value );
-  pie_firma[0] = pie_firma[0].replace ( 'CARGO', document.querySelector('#cargo').value );
-  pie_firma[0] = pie_firma[0].replace ( 'ORG1', document.querySelector('#organismo1').value );
-  pie_firma[0] = pie_firma[0].replace ( 'ORG2', document.querySelector('#organismo2').value );
-  pie_firma[0] = pie_firma[0].replace ( 'DIRECCION', document.querySelector('#direccion').value );
-  
-  // FIXME: Comprobar y añadir sólo los que estén definidos
-  pie_firma[0] = pie_firma[0].replaceAll ( 'TEL_C', document.querySelector('#tel_fijo_corp').value );
-  pie_firma[0] = pie_firma[0].replaceAll ( 'TEL', document.querySelector('#tel_fijo').value );
-  
-  // FIXME: Comprobar y añadir sólo los que estén definidos
-  pie_firma[0] = pie_firma[0].replaceAll ( 'MOV_C', document.querySelector('#tel_movil_corp').value );
-  pie_firma[0] = pie_firma[0].replaceAll ( 'MOV', document.querySelector('#tel_movil').value );
-  
-  // FIXME: Comprobar y añadir sólo si está definido
-  pie_firma[0] = pie_firma[0].replaceAll ( 'EMAIL', document.querySelector('#email').value );
-
-  // Sustituimos IMG_BLOB dentro de pie_firma por _img_blob, que se supone que es la conversión a Base64 de la imagen
-  // Esta sustitución debe ser la última, no sea que aparezcan alguna cadena anterior en la imagen convertida (p.e. TEL)
-  pie_firma[0] = pie_firma[0].replace ( 'IMG_BLOB', _img_blob );
+  var formValues = {};
+  ["nombreapellidos","cargo","organismo1","organismo2","direccion",
+   "tel_fijo","tel_fijo_corp","tel_movil","tel_movil_corp","email"].forEach(function (name) {
+    formValues[name] = document.getElementById(name).value;
+  });
+  var pie_firma;
+  try {
+    pie_firma = [safeSignatureRender(orig_pie_firma, formValues, _img_blob)];
+  } catch (error) {
+    alert(error.message);
+    limpia_firma();
+    return false;
+  }
 
   var bb = new Blob( pie_firma,
     {type: MIME_TYPE} );
@@ -165,7 +152,6 @@ var _img_blob;
 
 toDataURL('res/JdA-logo-email.png', function(dataUrl) {
     _img_blob = dataUrl;
-    console.log('Logo in:', _img_blob);
 })
 
 
