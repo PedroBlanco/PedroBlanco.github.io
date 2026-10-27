@@ -1,11 +1,14 @@
-const CACHE = "calculadora-tiempo-c013a3cd7459";
+const CACHE = "calculadora-tiempo-82d1a6571700";
 const ASSETS = [
   "./",
   "./index.html",
   "./app.js",
+  "./ui.js",
   "./styles.css",
   "./manifest.webmanifest",
   "./icon.svg",
+  "./src/areas.js",
+  "./src/deadlines.js",
   "./src/time.js",
   "./src/periods.js",
   "./src/requirement.js",
