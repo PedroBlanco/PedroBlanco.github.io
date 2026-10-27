@@ -30,7 +30,7 @@ La página antigua `revista/index.html` es un prototipo con artículos repetidos
 | `revista/img/Italica_448.jpg` | image | 7.05 | hold | Verify image origin, attribution and whether people appear. |
 | `revista/img/Preparativos.png` | image | 0.72 | hold | Verify image origin, attribution and whether people appear. |
 | `revista/img/Restout_-_Morpheus.jpg` | image | 0.06 | hold | Verify image origin, attribution and whether people appear. |
-| `revista/index.html` | html | 0.01 | hold | Prototype magazine layout with placeholder article titles; do not present as a complete publication. |
+| `revista/index.html` | html | 0.01 | retire | Original page is only a placeholder layout; replace with curated documentation-only index, without copying original page or images. |
 | `revista/logo_limpio_redondo_64px.png` | image | 0.02 | hold | Verify image origin, attribution and whether people appear. |
 | `revista/Numero14/Revista_IAAP_Caso_practico_12_Turnos_de_trabajo.ods` | spreadsheet | 0.05 | hold | Inspect spreadsheet content, author metadata and redistribution rights. |
 | `revista/Numero14/Revista_IAAP_Casos_practicos_9y11_Funcion_SUMAPRODUCTO.ods` | spreadsheet | 0.02 | hold | Inspect spreadsheet content, author metadata and redistribution rights. |
@@ -56,3 +56,13 @@ Ejecutar `npm run audit:media` desde `prototype/`, después de la compilación.
 **Atención:** borrar una distribución estática no elimina contenidos del
 historial de Git ni de los archivos ya descargados. El análisis de privacidad
 del historial es una tarea separada.
+
+## Decisión editorial provisional para `/revista/`
+
+Se habilita en el prototipo una **nueva portada documental sin imágenes ni medios**
+que identifica la antigua portada como maqueta. Enlaza únicamente a
+`CC.html` y `KM2024.html`, y informa de que los archivos audiovisuales
+siguen pendientes de revisión. El archivo anterior `revista/index.html`
+permanece inventariado como `retire`: **no se copia el original**.
+No se modifica el estado `hold` de los otros diecinueve archivos de
+la carpeta.

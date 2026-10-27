@@ -21,8 +21,13 @@ for(const e of all){
  const stream=fs.createReadStream(name);
  for await (const data of stream)sha.update(data);
  if(sha.digest("hex")!==e.gitBlobSha)throw Error("Media source hash changed; re-review: "+e.path);
- if(e.status!=="approved"&&fs.existsSync(path.join(output,e.path)))
+ if(e.path==="revista/index.html"&&e.status==="retire"&&fs.existsSync(path.join(output,e.path))){
+  const curated=fs.readFileSync(path.join(output,e.path),"utf8");
+  if(!curated.includes('data-curated-archive="revista-v1"')||curated.includes("Artículo 1")||/<script\b|<img\b|<video\b|<audio\b/i.test(curated))
+    throw Error("Original placeholder or unreviewed media leaked into curated archive");
+ }else if(e.status!=="approved"&&fs.existsSync(path.join(output,e.path))){
   throw Error("Unreviewed media copied into published artifact: "+e.path);
+ }
 }
 const actual=[];
 function walk(dir, prefix=""){

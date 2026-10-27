@@ -335,6 +335,14 @@ por bloque, uno ES y otro EN, e identificando al revisor y la fecha.
 pero **no marca nada como aprobado**. Si cambia cualquier idioma,
 apartado extenso o recurso, el bloque vuelve a revisión.
 
+## Portada segura del archivo de revista
+
+La ruta histórica `/revista/` dispone de una portada documental
+curada en `src/curated/revista/index.html`. Sustituye una maqueta
+inacabada, sin reproducir fotos, vídeos ni audio, y conserva enlaces
+hacia `CC.html` y `KM2024.html`. No constituye autorización para
+los demás recursos de la revista: el inventario sigue en revisión.
+
 ## Condiciones para publicar
 
 - Revisión humana de todas las traducciones; contenido del TFG limitado a su

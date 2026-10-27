@@ -41,9 +41,9 @@
     },
     {
       "path": "revista/",
-      "status": "hold",
+      "status": "curated-index",
       "kind": "directory",
-      "reason": "100 MB multimedia and image rights; selective migration only."
+      "reason": "The old /revista/ index is a placeholder layout, replaced by a safe documentation-only historical landing; media files remain on hold."
     },
     {
       "path": "piefirma/",

@@ -123,8 +123,8 @@
       "bytes": 6688,
       "gitBlobSha": "6b9f13f0575ae6f8d252796527d59a0e0f0039cb",
       "category": "html",
-      "status": "hold",
-      "reason": "Prototype magazine layout with placeholder article titles; do not present as a complete publication."
+      "status": "retire",
+      "reason": "Original page is only a placeholder layout; replace with curated documentation-only index, without copying original page or images."
     },
     {
       "path": "revista/logo_limpio_redondo_64px.png",

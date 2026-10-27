@@ -13,6 +13,16 @@ for(const entry of staged){
 }
 for(const entry of manifest.entries.filter(x=>x.status!=="preview")){
  const target=path.join(dist,entry.path);
+ if(entry.status==="curated-index"){
+  if(entry.path!=="revista/"||!fs.existsSync(target)||!fs.statSync(target).isDirectory())
+    throw Error("Missing curated historical archive");
+  const contents=fs.readdirSync(target);
+  if(contents.length!==1||contents[0]!=="index.html")throw Error("Unexpected historical media in curated index");
+  const document=fs.readFileSync(path.join(target,"index.html"),"utf8");
+  if(!document.includes('data-curated-archive="revista-v1"')||/<script\b|<img\b|<video\b|<audio\b/i.test(document))
+    throw Error("Unreviewed active or multimedia content in curated archive");
+  continue;
+ }
  if(entry.status==="preview-tool"){
   if(entry.path!=="piefirma/"||entry.files?.length!==10)throw Error("Unexpected legacy tool");
   const actual=[];
