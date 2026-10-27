@@ -23,7 +23,9 @@ for(const e of all){
  const stream=fs.createReadStream(name);
  for await (const data of stream)sha.update(data);
  if(sha.digest("hex")!==e.gitBlobSha)throw Error("Media source hash changed; re-review: "+e.path);
- if(e.status==="approved"&&fs.existsSync(path.join(output,e.path))){
+ if(e.status==="approved"){
+  if(!fs.existsSync(path.join(output,e.path)))
+    throw Error("Approved resource missing from site output: "+e.path);
   const outputBytes=fs.readFileSync(path.join(output,e.path));
   const outputHash=createHash("sha1").update(Buffer.from("blob "+outputBytes.length+"\0")).update(outputBytes).digest("hex");
   if(outputHash!==e.gitBlobSha)throw Error("Approved media output differs from reviewed source: "+e.path);
