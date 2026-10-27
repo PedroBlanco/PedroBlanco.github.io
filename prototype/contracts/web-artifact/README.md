@@ -54,8 +54,8 @@ Los ejemplos JSON incorporados son **sintéticos**, con SHA-256 y tamaño fictic
 | Metadatos | JSON Schema 2020-12, SemVer, `basePath=id`, ámbito PWA | Sí, `validate-web-artifact.mjs` |
 | Integridad | Calcular SHA-256 y tamaño del ZIP local indicado y cotejarlos con el manifiesto | Sí, opción `--artifact` |
 | Procedencia | Corroborar commit/origen contra el registro de versión **aprobada** | Pendiente |
-| ZIP | Examinar entradas, permisos, enlaces y tamaño descomprimido antes de extraer | Pendiente |
-| Integración | Copiar a ruta aislada, revisar enlaces y PWA, rechazar colisiones | Pendiente |
+| ZIP | Inspección de entradas, permisos, rutas, tamaño y extracción contenida (solo prueba) | **Prototipo** |
+| Integración | Copiar a ruta aislada, revisar manifiesto y scope PWA, rechazar colisiones | **Prototipo** |
 | Publicación | Pruebas de sitio completo, revisión de PR y autorización explícita | Pendiente |
 
 Los controles que faltan son bloqueantes para admitir paquetes de terceros como distribuciones de producción. Validar el esquema **no implica** aprobar un artefacto.
@@ -82,3 +82,16 @@ El segundo ejemplo solo valida estructura; el tercero valida estructura **y los 
 ## Siguiente fase acordada
 
 **Aplicar y probar con `PedroBlanco/calculadora-tiempo`**, sin cambiar aún su actual script de publicación ni activar Pages. Se generará el ZIP y el manifiesto desde su `build:web`; después se contrastará con este contrato y se planificarán la extracción segura y la integración genérica.
+
+## Integrador experimental para calculadora-tiempo
+
+El módulo `scripts/integrate-web-artifact.mjs` valida el ZIP **antes** de
+extraerlo a la distribución Eleventy y exige `WEB_ARTIFACT_EXPECTED_SHA`
+como commit de origen autorizado por el llamante. Solo admite
+`PedroBlanco/calculadora-tiempo` y su ruta asignada, rechaza symlinks,
+rutas peligrosas, entradas duplicadas, archivos especiales, límites de
+descompresión y sobrescrituras. Usa una carpeta temporal y no publica.
+
+Se trata de una prueba de integración, no de una garantía completa de
+procedencia: la procedencia ha de verificarse en una CI de confianza, y el
+registro de versiones aprobadas se desarrollará antes del despliegue.

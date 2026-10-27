@@ -12,7 +12,7 @@ for(const entry of staged){
 }
 for(const entry of manifest.entries.filter(x=>x.status!=="preview")){
  const target=path.join(dist,entry.path);
- if(entry.path==="calculadora-tiempo/"&&entry.status==="hold"&&process.env.CALCULADORA_WEB_DIST){
+ if(entry.path==="calculadora-tiempo/"&&entry.status==="hold"&&(process.env.CALCULADORA_WEB_DIST||process.env.WEB_ARTIFACT_MANIFEST)){
   if(!fs.existsSync(target))throw Error("Calculator integration requested but build missing");
   continue; // Separately validated by check-calculator.mjs.
  }

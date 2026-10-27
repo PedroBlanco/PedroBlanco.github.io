@@ -255,6 +255,18 @@ contrato v1:** esa es la siguiente fase, separada de este commit.
 El antiguo integrador ad hoc sigue sin modificaciones funcionales y
 el despliegue en `master` continúa deshabilitado.
 
+## Integrador de web-artifact (solo vista previa)
+
+`npm run integrate:artifact -- --manifest <ruta.json> --artifact <ruta.zip>`
+incorpora un paquete previamente construido únicamente si las variables
+`WEB_ARTIFACT_EXPECTED_SHA` (commit de origen validado externamente) y
+`WEB_ARTIFACT_SITE_DIST` (salida, por defecto `dist`) son coherentes.
+
+El validador limita número de archivos, tamaño, rutas, modo ZIP y scope PWA;
+rechaza sobrescribir carpetas. El componente todavía está limitado a
+`calculadora-tiempo`, sin publicación automática. Los ensayos sintéticos
+se ejecutan con `npm run test:integration`.
+
 ## Condiciones para publicar
 
 - Revisión humana de todas las traducciones; contenido del TFG limitado a su
