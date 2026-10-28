@@ -197,7 +197,20 @@
       "gitBlobSha": "fdd096a85edd9f88f3d862c3d0f1e201d10b240d",
       "category": "html",
       "status": "hold",
-      "reason": "Contains Exolve MIT code plus puzzle content: verify both license notice and puzzle authorship."
+      "reason": "Owner requests full interactive puzzle; Exolve MIT engine license is evidenced, but puzzle copyright permission and browser operation remain to be reviewed.",
+      "ownerDecision": "preserve-full",
+      "ownerDecisionRecordedAt": "2026-10-28",
+      "ownerDecisionStatus": "requested-not-yet-approved",
+      "review": {
+        "rights": "pending-permission-for-puzzle-content",
+        "privacy": "public-byline-present; check original publication authorization",
+        "technical": "static-source-check-queued-in-ci",
+        "authorClaimFromSource": "Verónica Sirvent Segura (Exolve byline)",
+        "puzzleCopyrightFromSource": "2022 Revista EnRed@2.0",
+        "engine": "Exolve",
+        "engineLicense": "MIT (notice preserved)",
+        "notes": "Exolve engine MIT does not establish rights over puzzle clues or answers. Static checks do not demonstrate browser functionality. Keep hold until review."
+      }
     },
     {
       "path": "revista/crucigrama-002.html",

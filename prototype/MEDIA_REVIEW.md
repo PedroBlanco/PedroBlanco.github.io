@@ -22,7 +22,7 @@ La página antigua `revista/index.html` es un prototipo con artículos repetidos
 | `revista/2023-10-17_Revista_Enredados_Presentacion.mp4` | video | 53.35 | hold · conservación solicitada | Producción propia declarada por el titular; revisión de participantes, voces, música, elementos de terceros y metadatos pendiente. |
 | `revista/2024-09-23_presentacion_revista.pdf` | document | 1.94 | hold · conservación solicitada | Mantener PDF completo tras revisión de derechos, imágenes, posibles datos personales y contenido; pendiente. |
 | `revista/Caballeria-ligera.mp3` | audio | 7.37 | retire · referencia histórica | Decisión 28/10/2026: conservar únicamente mención histórica textual. No redistribuir MP3. Derechos de grabación sin revisar. |
-| `revista/crucigrama-001.html` | html | 0.25 | hold | Contains Exolve MIT code plus puzzle content: verify both license notice and puzzle authorship. |
+| `revista/crucigrama-001.html` | html | 0.25 | hold · conservación solicitada | Exolve MIT; validar consentimiento/licencia de contenido de la autora y ejecución interactiva en navegador. |
 | `revista/crucigrama-002.html` | html | 0.25 | hold | Contains Exolve MIT code plus puzzle content: verify both license notice and puzzle authorship. |
 | `revista/Duelo-cancion.mp3` | audio | 5.12 | hold | Audio may involve third-party recordings/music: establish public distribution rights. |
 | `revista/Duelo-cancion.ogg` | audio | 6.20 | hold | Audio may involve third-party recordings/music: establish public distribution rights. |
@@ -121,11 +121,12 @@ la carpeta.
 - **Derechos:** no se ha acreditado una licencia de la grabación; esta decisión evita que la migración vuelva a distribuirla. No hace falta inspeccionar ni emitir el audio para conservar su mención histórica.
 - **Alcance:** el archivo original todavía puede permanecer accesible en el sitio antiguo y en el historial de Git, hasta el reemplazo completo. Esta decisión **no es una solicitud de borrado del historial ni una retirada inmediata del archivo publicado**.
 
-## Ficha preliminar 07 — crucigrama-001.html (decisión pendiente)
+## Expediente individual 07 — crucigrama-001.html
 
+- **Decisión del titular (28/10/2026):** conservar el crucigrama interactivo completo sujeto a comprobaciones. **No autorizado para redistribuir todavía; se mantiene en `hold`.**
 - **Original:** `revista/crucigrama-001.html`, 257.663 bytes según inventario. Permanece `hold`; no está incluido en la nueva compilación de Eleventy.
 - **Contenido observado (revisión estática del archivo):** crucigrama en español **«Crucigrama #1»**, fechado por su atribución de copyright en **2022**; **26 filas**, **8 pistas horizontales** y **6 verticales**. La autora del crucigrama figura acreditada como **Verónica Sirvent Segura**; el copyright mostrado para el contenido es **«2022 Revista EnRed@2.0»**.
 - **Motor técnico:** incluye localmente el motor **Exolve**, atribuido a **Viresh Ratnakar** bajo **licencia MIT**, cuyo aviso completo está presente en el HTML. La licencia del motor **no prueba** automáticamente la autorización para redistribuir las pistas y soluciones del crucigrama.
 - **Privacidad/seguridad preliminar:** el HTML incorpora JavaScript local, referencias a `localStorage` para guardar el progreso y enlaces de apoyo al motor; no se detectan `<iframe>` ni scripts externos mediante atributo `src`. No se ha realizado prueba dinámica de navegador ni auditoría de comportamiento.
 - **Correcciones recomendables si se decide conservar:** verificar consentimiento/licencia de la autora o titular de los derechos del contenido, conservar atribución y aviso MIT, comprobar juego y almacenamiento en navegador, personalizar el título de pestaña actualmente genérico de Exolve y validar accesibilidad.
-- **Decisión solicitada al titular:** conservar HTML interactivo completo sujeto a revisión; conservar referencia histórica sin la aplicación; excluir; o posponer. **Ninguna decisión se ha supuesto.**
+- **Estado:** conservación completa solicitada. La publicación requiere comprobar derechos sobre pistas/soluciones, conservar licencia MIT y aprobar el funcionamiento en navegador. La web antigua puede seguir sirviendo el original mientras la PR esté en borrador.
