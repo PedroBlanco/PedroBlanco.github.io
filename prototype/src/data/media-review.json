@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "policy": "allowlist-review",
-  "reviewDate": "2026-10-27",
+  "reviewDate": "2026-10-28",
   "sourceRepository": "PedroBlanco/PedroBlanco.github.io",
   "sourceRef": "master",
   "notes": "None of the entries below are approved for redistribution by this review manifest. Files may already exist on the old public site; that alone does not establish rights.",
@@ -277,7 +277,17 @@
       "gitBlobSha": "6453d071ae2fe44c08060496f3f0a77f54ba504d",
       "category": "image",
       "status": "hold",
-      "reason": "Verify image origin, attribution and whether people appear."
+      "reason": "Owner requests retaining the full original file, conditional on independent review of distribution rights, privacy and content/metadata; not approved for the redesigned site yet.",
+      "ownerDecision": "preserve-full",
+      "ownerDecisionRecordedAt": "2026-10-28",
+      "ownerDecisionStatus": "requested-not-yet-approved",
+      "review": {
+        "rights": "pending-confirmation",
+        "privacy": "pending-image-people-and-metadata-review",
+        "technical": "git-master-tree-size-and-blob-sha-matched",
+        "historicalLabel": "Itálica 246",
+        "notes": "Original image requested for preservation, not yet approved for republishing. Check visual content, potentially recognizable persons, image provenance, licenses, credits and EXIF/metadata. No image pixels or metadata were examined during this batch."
+      }
     },
     {
       "path": "revista/img/Italica_448.jpg",
@@ -285,7 +295,17 @@
       "gitBlobSha": "48e604cb0a083c4639443393e5572167733179a7",
       "category": "image",
       "status": "hold",
-      "reason": "Verify image origin, attribution and whether people appear."
+      "reason": "Owner requests retaining the full original file, conditional on independent review of distribution rights, privacy and content/metadata; not approved for the redesigned site yet.",
+      "ownerDecision": "preserve-full",
+      "ownerDecisionRecordedAt": "2026-10-28",
+      "ownerDecisionStatus": "requested-not-yet-approved",
+      "review": {
+        "rights": "pending-confirmation",
+        "privacy": "pending-image-people-and-metadata-review",
+        "technical": "git-master-tree-size-and-blob-sha-matched",
+        "historicalLabel": "Itálica 448",
+        "notes": "Original image requested for preservation, not yet approved for republishing. Check visual content, potentially recognizable persons, image provenance, licenses, credits and EXIF/metadata. No image pixels or metadata were examined during this batch."
+      }
     },
     {
       "path": "revista/img/Preparativos.png",
@@ -293,7 +313,17 @@
       "gitBlobSha": "9eed2240c908275672d83d5f7ae5f08c8869cfa5",
       "category": "image",
       "status": "hold",
-      "reason": "Verify image origin, attribution and whether people appear."
+      "reason": "Owner requests retaining the full original file, conditional on independent review of distribution rights, privacy and content/metadata; not approved for the redesigned site yet.",
+      "ownerDecision": "preserve-full",
+      "ownerDecisionRecordedAt": "2026-10-28",
+      "ownerDecisionStatus": "requested-not-yet-approved",
+      "review": {
+        "rights": "pending-confirmation",
+        "privacy": "pending-image-people-and-metadata-review",
+        "technical": "git-master-tree-size-and-blob-sha-matched",
+        "historicalLabel": "Preparativos",
+        "notes": "Original image requested for preservation, not yet approved for republishing. Check visual content, potentially recognizable persons, image provenance, licenses, credits and EXIF/metadata. No image pixels or metadata were examined during this batch."
+      }
     },
     {
       "path": "revista/img/Restout_-_Morpheus.jpg",
@@ -301,7 +331,17 @@
       "gitBlobSha": "42b5e680d632c2e2fd86572e4bdf41b1a4a22d21",
       "category": "image",
       "status": "hold",
-      "reason": "Verify image origin, attribution and whether people appear."
+      "reason": "Owner requests retaining the full original file, conditional on independent review of distribution rights, privacy and content/metadata; not approved for the redesigned site yet.",
+      "ownerDecision": "preserve-full",
+      "ownerDecisionRecordedAt": "2026-10-28",
+      "ownerDecisionStatus": "requested-not-yet-approved",
+      "review": {
+        "rights": "pending-confirmation",
+        "privacy": "pending-image-people-and-metadata-review",
+        "technical": "git-master-tree-size-and-blob-sha-matched",
+        "historicalLabel": "Restout — Morpheus",
+        "notes": "Original image requested for preservation, not yet approved for republishing. Check visual content, potentially recognizable persons, image provenance, licenses, credits and EXIF/metadata. No image pixels or metadata were examined during this batch."
+      }
     },
     {
       "path": "revista/index.html",
@@ -317,7 +357,17 @@
       "gitBlobSha": "de7c2a5ac246aa4f5fd61b2a6614d3ee9a763bc5",
       "category": "image",
       "status": "hold",
-      "reason": "Verify image origin, attribution and whether people appear."
+      "reason": "Owner requests retaining the full original file, conditional on independent review of distribution rights, privacy and content/metadata; not approved for the redesigned site yet.",
+      "ownerDecision": "preserve-full",
+      "ownerDecisionRecordedAt": "2026-10-28",
+      "ownerDecisionStatus": "requested-not-yet-approved",
+      "review": {
+        "rights": "pending-confirmation",
+        "privacy": "pending-image-people-and-metadata-review",
+        "technical": "git-master-tree-size-and-blob-sha-matched",
+        "historicalLabel": "Logotipo circular de Revista EnRed@2.0",
+        "notes": "Original image requested for preservation, not yet approved for republishing. Check visual content, potentially recognizable persons, image provenance, licenses, credits and EXIF/metadata. No image pixels or metadata were examined during this batch."
+      }
     },
     {
       "path": "revista/Numero14/Revista_IAAP_Caso_practico_12_Turnos_de_trabajo.ods",
@@ -325,7 +375,17 @@
       "gitBlobSha": "9a89d9a27d4894796cbcd53025371d0b9c2a1ede",
       "category": "spreadsheet",
       "status": "hold",
-      "reason": "Inspect spreadsheet content, author metadata and redistribution rights."
+      "reason": "Owner requests retaining the full original file, conditional on independent review of distribution rights, privacy and content/metadata; not approved for the redesigned site yet.",
+      "ownerDecision": "preserve-full",
+      "ownerDecisionRecordedAt": "2026-10-28",
+      "ownerDecisionStatus": "requested-not-yet-approved",
+      "review": {
+        "rights": "pending-confirmation",
+        "privacy": "pending-full-workbook-hidden-data-and-metadata-review",
+        "technical": "git-master-tree-size-and-blob-sha-matched",
+        "historicalLabel": "Caso práctico 12: turnos de trabajo",
+        "notes": "Original Calc file requested for preservation, not yet approved for republishing. Inspect visible/hidden sheets, formula content, embedded objects, external links, document properties, copyright and any personal data. No ODS internal contents were examined during this batch."
+      }
     },
     {
       "path": "revista/Numero14/Revista_IAAP_Casos_practicos_9y11_Funcion_SUMAPRODUCTO.ods",
@@ -333,7 +393,17 @@
       "gitBlobSha": "589bd0cea874d5f03acdc1bf729dde45b8204c26",
       "category": "spreadsheet",
       "status": "hold",
-      "reason": "Inspect spreadsheet content, author metadata and redistribution rights."
+      "reason": "Owner requests retaining the full original file, conditional on independent review of distribution rights, privacy and content/metadata; not approved for the redesigned site yet.",
+      "ownerDecision": "preserve-full",
+      "ownerDecisionRecordedAt": "2026-10-28",
+      "ownerDecisionStatus": "requested-not-yet-approved",
+      "review": {
+        "rights": "pending-confirmation",
+        "privacy": "pending-full-workbook-hidden-data-and-metadata-review",
+        "technical": "git-master-tree-size-and-blob-sha-matched",
+        "historicalLabel": "Casos prácticos 9 y 11: SUMAPRODUCTO",
+        "notes": "Original Calc file requested for preservation, not yet approved for republishing. Inspect visible/hidden sheets, formula content, embedded objects, external links, document properties, copyright and any personal data. No ODS internal contents were examined during this batch."
+      }
     },
     {
       "path": "revista/secciones/Actualidad.png",
@@ -341,39 +411,89 @@
       "gitBlobSha": "f058b4bffe93f3e09b2ee344d264fedb7de5b945",
       "category": "image",
       "status": "hold",
-      "reason": "Verify image origin, attribution and whether people appear."
+      "reason": "Owner requests retaining the full original file, conditional on independent review of distribution rights, privacy and content/metadata; not approved for the redesigned site yet.",
+      "ownerDecision": "preserve-full",
+      "ownerDecisionRecordedAt": "2026-10-28",
+      "ownerDecisionStatus": "requested-not-yet-approved",
+      "review": {
+        "rights": "pending-confirmation",
+        "privacy": "pending-image-people-and-metadata-review",
+        "technical": "git-master-tree-size-and-blob-sha-matched",
+        "historicalLabel": "Imagen de sección: actualidad",
+        "notes": "Original image requested for preservation, not yet approved for republishing. Check visual content, potentially recognizable persons, image provenance, licenses, credits and EXIF/metadata. No image pixels or metadata were examined during this batch."
+      }
     },
     {
       "path": "revista/Silencio - 3s.mp3",
       "bytes": 12481,
       "gitBlobSha": "0f7bef4af233f108f51db02a8b7ea9dfc41aeb9b",
       "category": "audio",
-      "status": "hold",
-      "reason": "Audio may involve third-party recordings/music: establish public distribution rights."
+      "status": "retire",
+      "reason": "Owner instructs to preserve only a descriptive historical reference; do not include, link, stream, or download the source media file in the new Eleventy build.",
+      "ownerDecision": "reference-only",
+      "ownerDecisionRecordedAt": "2026-10-28",
+      "ownerDecisionStatus": "approved-for-reference-only",
+      "review": {
+        "redistribution": "not-authorized-and-not-requested",
+        "historicalReference": "revista/index.html",
+        "historicalLabel": "Silencio (archivo «3s»)",
+        "technical": "git-master-tree-size-and-blob-sha-matched",
+        "notes": "Editorial reference only. Original source remains in master and Git history; no audio/video playback, analysis, visual review, rights check or participant consent verification was performed. Filename is not evidence of authorship, length or content."
+      }
     },
     {
       "path": "revista/TimTaj - Breaking News - 15s.mp3",
       "bytes": 389396,
       "gitBlobSha": "2266a458f72c4dda03df8672e244ed2a0a4d387b",
       "category": "audio",
-      "status": "hold",
-      "reason": "Audio may involve third-party recordings/music: establish public distribution rights."
+      "status": "retire",
+      "reason": "Owner instructs to preserve only a descriptive historical reference; do not include, link, stream, or download the source media file in the new Eleventy build.",
+      "ownerDecision": "reference-only",
+      "ownerDecisionRecordedAt": "2026-10-28",
+      "ownerDecisionStatus": "approved-for-reference-only",
+      "review": {
+        "redistribution": "not-authorized-and-not-requested",
+        "historicalReference": "revista/index.html",
+        "historicalLabel": "TimTaj — Breaking News (archivo «15s»)",
+        "technical": "git-master-tree-size-and-blob-sha-matched",
+        "notes": "Editorial reference only. Original source remains in master and Git history; no audio/video playback, analysis, visual review, rights check or participant consent verification was performed. Filename is not evidence of authorship, length or content."
+      }
     },
     {
       "path": "revista/TimTaj - Breaking News.mp3",
       "bytes": 2604930,
       "gitBlobSha": "0567afa7a8343703f05f993d992fa7e672b3942a",
       "category": "audio",
-      "status": "hold",
-      "reason": "Audio may involve third-party recordings/music: establish public distribution rights."
+      "status": "retire",
+      "reason": "Owner instructs to preserve only a descriptive historical reference; do not include, link, stream, or download the source media file in the new Eleventy build.",
+      "ownerDecision": "reference-only",
+      "ownerDecisionRecordedAt": "2026-10-28",
+      "ownerDecisionStatus": "approved-for-reference-only",
+      "review": {
+        "redistribution": "not-authorized-and-not-requested",
+        "historicalReference": "revista/index.html",
+        "historicalLabel": "TimTaj — Breaking News (archivo sin duración indicada)",
+        "technical": "git-master-tree-size-and-blob-sha-matched",
+        "notes": "Editorial reference only. Original source remains in master and Git history; no audio/video playback, analysis, visual review, rights check or participant consent verification was performed. Filename is not evidence of authorship, length or content."
+      }
     },
     {
       "path": "revista/Video-Arantxa.mp4",
       "bytes": 2977071,
       "gitBlobSha": "5cc18dda230e9d975ec5d50e40a1808393e1a20d",
       "category": "video",
-      "status": "hold",
-      "reason": "Named-person video: check participant consent and public distribution."
+      "status": "retire",
+      "reason": "Owner instructs to preserve only a descriptive historical reference; do not include, link, stream, or download the source media file in the new Eleventy build.",
+      "ownerDecision": "reference-only",
+      "ownerDecisionRecordedAt": "2026-10-28",
+      "ownerDecisionStatus": "approved-for-reference-only",
+      "review": {
+        "redistribution": "not-authorized-and-not-requested",
+        "historicalReference": "revista/index.html",
+        "historicalLabel": "Vídeo Arantxa",
+        "technical": "git-master-tree-size-and-blob-sha-matched",
+        "notes": "Editorial reference only. Original source remains in master and Git history; no audio/video playback, analysis, visual review, rights check or participant consent verification was performed. Filename is not evidence of authorship, length or content."
+      }
     }
   ]
 }

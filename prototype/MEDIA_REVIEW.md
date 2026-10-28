@@ -1,6 +1,6 @@
 # Revisión de materiales históricos — inventario verificable
 
-Fecha de inventario: **27/10/2026**. Fuente: archivos ya existentes en `master`, con hash de blob Git y tamaño. **Ningún archivo de esta lista queda aprobado automáticamente para una nueva publicación.**
+Fecha de inventario original: **27/10/2026**. Última actualización editorial: **28/10/2026**. Fuente: archivos ya existentes en `master`, con hash de blob Git y tamaño. **Ningún archivo de esta lista queda aprobado automáticamente para una nueva publicación.**
 
 El inventario recoge **23 archivos**, **202.690.633 bytes (193.3 MiB)**, repartidos en 3 de tipo document, 1 de tipo presentation, 2 de tipo video, 6 de tipo audio, 3 de tipo html, 6 de tipo image, 2 de tipo spreadsheet.
 
@@ -17,28 +17,28 @@ La página antigua `revista/index.html` es un prototipo con artículos repetidos
 | Archivo original | Tipo | Tamaño (MiB) | Estado | Punto de revisión |
 |---|---|---:|---|---|
 | `CROQUETAS2024.pdf` | document | 8.16 | hold · conservación solicitada | Conservar PDF completo: decisión del titular 27/10/2026; derechos, privacidad y revisión visual todavía pendientes. |
-| `NEXUM2024.pdf` | document | 67.30 | hold | Review personal data, embedded media, author/license, access and download size. |
+| `NEXUM2024.pdf` | document | 67.30 | hold · conservación solicitada | PDF completo solicitado el 27/10/2026; revisar derechos, contenido, privacidad y tamaño de descarga antes de publicar. |
 | `NEXUM2024.pptx` | presentation | 21.11 | hold · conservación solicitada | Conservar editable completo: revisar diapositivas, notas, comentarios, vínculos, objetos incrustados, licencias y datos personales. |
 | `revista/2023-10-17_Revista_Enredados_Presentacion.mp4` | video | 53.35 | hold · conservación solicitada | Producción propia declarada por el titular; revisión de participantes, voces, música, elementos de terceros y metadatos pendiente. |
 | `revista/2024-09-23_presentacion_revista.pdf` | document | 1.94 | hold · conservación solicitada | Mantener PDF completo tras revisión de derechos, imágenes, posibles datos personales y contenido; pendiente. |
 | `revista/Caballeria-ligera.mp3` | audio | 7.37 | retire · referencia histórica | Decisión 28/10/2026: conservar únicamente mención histórica textual. No redistribuir MP3. Derechos de grabación sin revisar. |
 | `revista/crucigrama-001.html` | html | 0.25 | hold · conservación solicitada | Exolve MIT; validar consentimiento/licencia de contenido de la autora y ejecución interactiva en navegador. |
 | `revista/crucigrama-002.html` | html | 0.25 | hold · conservación solicitada | Crucigrama #2, autoría indicada en HTML pero aún sin confirmación del titular; motor Exolve MIT. Derechos y funcionamiento pendientes. |
-| `revista/Duelo-cancion.mp3` | audio | 5.12 | retire · referencia histórica | Decisión 28/10/2026: conservar exclusivamente mención textual, sin distribuir la grabación MP3. El archivo OGG se revisará por separado. |
+| `revista/Duelo-cancion.mp3` | audio | 5.12 | retire · referencia histórica | Decisión independiente 28/10/2026: solo referencia textual, sin MP3. El OGG también tiene decisión reference-only. |
 | `revista/Duelo-cancion.ogg` | audio | 6.20 | retire · referencia histórica | Conservación exclusivamente textual decidida el 28/10/2026; no redistribuir OGG. |
-| `revista/img/Italica_246.jpg` | image | 8.63 | hold | Verify image origin, attribution and whether people appear. |
-| `revista/img/Italica_448.jpg` | image | 7.05 | hold | Verify image origin, attribution and whether people appear. |
-| `revista/img/Preparativos.png` | image | 0.72 | hold | Verify image origin, attribution and whether people appear. |
-| `revista/img/Restout_-_Morpheus.jpg` | image | 0.06 | hold | Verify image origin, attribution and whether people appear. |
+| `revista/img/Italica_246.jpg` | image | 8.63 | hold · conservación solicitada | Conservar original íntegro solicitado el 28/10/2026; revisar procedencia, licencias, personas y metadatos antes de publicar. |
+| `revista/img/Italica_448.jpg` | image | 7.05 | hold · conservación solicitada | Conservar original íntegro solicitado el 28/10/2026; revisar procedencia, licencias, personas y metadatos antes de publicar. |
+| `revista/img/Preparativos.png` | image | 0.72 | hold · conservación solicitada | Conservar original íntegro solicitado el 28/10/2026; revisar procedencia, licencias, personas y metadatos antes de publicar. |
+| `revista/img/Restout_-_Morpheus.jpg` | image | 0.06 | hold · conservación solicitada | Conservar original íntegro solicitado el 28/10/2026; revisar procedencia, licencias, personas y metadatos antes de publicar. |
 | `revista/index.html` | html | 0.01 | retire | Original page is only a placeholder layout; replace with curated documentation-only index, without copying original page or images. |
-| `revista/logo_limpio_redondo_64px.png` | image | 0.02 | hold | Verify image origin, attribution and whether people appear. |
-| `revista/Numero14/Revista_IAAP_Caso_practico_12_Turnos_de_trabajo.ods` | spreadsheet | 0.05 | hold | Inspect spreadsheet content, author metadata and redistribution rights. |
-| `revista/Numero14/Revista_IAAP_Casos_practicos_9y11_Funcion_SUMAPRODUCTO.ods` | spreadsheet | 0.02 | hold | Inspect spreadsheet content, author metadata and redistribution rights. |
-| `revista/secciones/Actualidad.png` | image | 0.00 | hold | Verify image origin, attribution and whether people appear. |
-| `revista/Silencio - 3s.mp3` | audio | 0.01 | hold | Audio may involve third-party recordings/music: establish public distribution rights. |
-| `revista/TimTaj - Breaking News - 15s.mp3` | audio | 0.37 | hold | Audio may involve third-party recordings/music: establish public distribution rights. |
-| `revista/TimTaj - Breaking News.mp3` | audio | 2.48 | hold | Audio may involve third-party recordings/music: establish public distribution rights. |
-| `revista/Video-Arantxa.mp4` | video | 2.84 | hold | Named-person video: check participant consent and public distribution. |
+| `revista/logo_limpio_redondo_64px.png` | image | 0.02 | hold · conservación solicitada | Conservar original íntegro solicitado el 28/10/2026; revisar procedencia, licencias, personas y metadatos antes de publicar. |
+| `revista/Numero14/Revista_IAAP_Caso_practico_12_Turnos_de_trabajo.ods` | spreadsheet | 0.05 | hold · conservación solicitada | Conservar hoja Calc íntegra solicitado el 28/10/2026; revisar derechos, hojas ocultas, vínculos y datos/metadatos antes de publicar. |
+| `revista/Numero14/Revista_IAAP_Casos_practicos_9y11_Funcion_SUMAPRODUCTO.ods` | spreadsheet | 0.02 | hold · conservación solicitada | Conservar hoja Calc íntegra solicitado el 28/10/2026; revisar derechos, hojas ocultas, vínculos y datos/metadatos antes de publicar. |
+| `revista/secciones/Actualidad.png` | image | 0.00 | hold · conservación solicitada | Conservar original íntegro solicitado el 28/10/2026; revisar procedencia, licencias, personas y metadatos antes de publicar. |
+| `revista/Silencio - 3s.mp3` | audio | 0.01 | retire · referencia histórica | Solo referencia histórica aprobada el 28/10/2026; no redistribuir ni enlazar MP3. |
+| `revista/TimTaj - Breaking News - 15s.mp3` | audio | 0.37 | retire · referencia histórica | Solo referencia histórica aprobada el 28/10/2026; no redistribuir ni enlazar MP3. |
+| `revista/TimTaj - Breaking News.mp3` | audio | 2.48 | retire · referencia histórica | Solo referencia histórica aprobada el 28/10/2026; no redistribuir ni enlazar MP3. |
+| `revista/Video-Arantxa.mp4` | video | 2.84 | retire · referencia histórica | Solo referencia histórica aprobada el 28/10/2026; no redistribuir ni enlazar MP4. |
 
 ## Control técnico
 
@@ -64,8 +64,7 @@ que identifica la antigua portada como maqueta. Enlaza únicamente a
 `CC.html` y `KM2024.html`, y informa de que los archivos audiovisuales
 siguen pendientes de revisión. El archivo anterior `revista/index.html`
 permanece inventariado como `retire`: **no se copia el original**.
-No se modifica el estado `hold` de los otros diecinueve archivos de
-la carpeta.
+Las decisiones editoriales individuales se reflejan en la tabla y el inventario; los recursos en `hold` permanecen excluidos hasta revisar derechos y privacidad.
 
 ## Expediente individual 01 — CROQUETAS2024.pdf
 
@@ -155,4 +154,31 @@ la carpeta.
 - **Comprobación técnica posible:** la ruta, tamaño exacto y SHA de blob Git `461d4ce8489f5076ecb1a6b11784e773fbdf18ff` coinciden con el árbol completo de `master` consultado mediante GitHub. La presencia en Git no acredita la licencia del audio. No se ha podido leer o decodificar la grabación para determinar códec, duración, contenido audible o similitud con el MP3.
 - **Derechos:** no confirmados; no es necesaria su autorización para una mención descriptiva sin reproducción. No se da por hecho que MP3 y OGG contengan el mismo audio.
 - **Alcance:** esta decisión afecta únicamente a la distribución reconstruida en Eleventy; no borra los ficheros ya accesibles en `master` ni el historial Git.
-- **Siguiente expediente 11/22:** `revista/img/Italica_246.jpg`, 9.054.204 bytes (8,63 MiB), blob Git `6453d071ae2fe44c08060496f3f0a77f54ba504d`; estado `hold`, pendiente de origen, atribución, autoría, posibles personas identificables y decisión editorial.
+- **Expedientes 11/22–22/22:** decisiones editoriales recibidas conjuntamente el 28/10/2026; constan individualmente a continuación. Las revisiones materiales siguen pendientes.
+
+## Revisión editorial conjunta — expedientes 11/22 a 22/22 (28/10/2026)
+
+El titular resolvió en una sola respuesta los **12 expedientes restantes**, identificados por su lista editorial, que excluye el antiguo `revista/index.html` (maqueta ya sustituida). El inventario físico conserva **23 entradas**: 22 expedientes editoriales y 1 portada original retirada. Son decisiones de conservación, **no autorizaciones de publicación de terceros**.
+
+| Expediente | Archivo | Decisión editorial | Tamaño (bytes) |
+|---|---|---|---:|
+| 11/22 | `revista/img/Italica_246.jpg` | Conservar íntegro; pendiente de autorización | 9.054.204 |
+| 12/22 | `revista/img/Italica_448.jpg` | Conservar íntegro; pendiente de autorización | 7.396.437 |
+| 13/22 | `revista/img/Preparativos.png` | Conservar íntegro; pendiente de autorización | 752.282 |
+| 14/22 | `revista/img/Restout_-_Morpheus.jpg` | Conservar íntegro; pendiente de autorización | 61.393 |
+| 15/22 | `revista/logo_limpio_redondo_64px.png` | Conservar íntegro; pendiente de autorización | 22.083 |
+| 16/22 | `revista/Numero14/Revista_IAAP_Caso_practico_12_Turnos_de_trabajo.ods` | Conservar íntegro; pendiente de autorización | 48.093 |
+| 17/22 | `revista/Numero14/Revista_IAAP_Casos_practicos_9y11_Funcion_SUMAPRODUCTO.ods` | Conservar íntegro; pendiente de autorización | 22.756 |
+| 18/22 | `revista/secciones/Actualidad.png` | Conservar íntegro; pendiente de autorización | 1332 |
+| 19/22 | `revista/Silencio - 3s.mp3` | Solo referencia histórica; sin archivo distribuido | 12.481 |
+| 20/22 | `revista/TimTaj - Breaking News - 15s.mp3` | Solo referencia histórica; sin archivo distribuido | 389.396 |
+| 21/22 | `revista/TimTaj - Breaking News.mp3` | Solo referencia histórica; sin archivo distribuido | 2.604.930 |
+| 22/22 | `revista/Video-Arantxa.mp4` | Solo referencia histórica; sin archivo distribuido | 2.977.071 |
+
+**Verificación técnica de esta tanda:** para cada uno de los doce recursos se cotejaron la ruta, el tamaño y el SHA del blob Git previamente inventariados con el árbol completo de `master` (`truncated=false`). Esta validación no abre ni examina el contenido binario, ni sustituye la revisión visual, los derechos y la privacidad. No se han generado nuevas copias de los medios.
+
+**Materiales conservados íntegramente (11–18):** seis imágenes y dos archivos ODS permanecen en `hold`, fuera de Eleventy, hasta revisión individual de licencias, autoría, atribución, posibles personas en fotografías, metadatos EXIF, hojas ocultas, fórmulas, objetos incrustados, enlaces externos y datos personales, según formato.
+
+**Materiales solo referenciados (19–22):** tres grabaciones MP3 y un MP4 pasan a `retire` con `ownerDecision=reference-only`. Su mención en la portada es únicamente descriptiva, sin descarga, enlace ni reproductor. Los ficheros anteriores permanecen accesibles en `master` mientras no se realice la sustitución definitiva; no se purga el historial. Los nombres de archivo no acreditan duración, derechos ni contenido audiovisual.
+
+**Estado editorial total:** 22/22 expedientes con decisión; 15 recursos `hold` por revisión de derechos/privacidad, 7 `retire` como referencia histórica y 1 `retire` correspondiente a la antigua maqueta. **0 recursos `approved`**. La puerta estricta de publicación integral continúa bloqueada. Pendiente además autoría/licencia de crucigramas y pruebas humanas de funcionamiento, documentos, vídeos, imágenes, hojas y traducciones.
