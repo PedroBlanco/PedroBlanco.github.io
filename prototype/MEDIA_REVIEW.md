@@ -120,3 +120,12 @@ la carpeta.
 - **Resultado editorial:** `status=retire`, `ownerDecision=reference-only`. La nueva portada curada de `/revista/` incluye el nombre del material en texto, sin reproducirlo ni enlazar la descarga.
 - **Derechos:** no se ha acreditado una licencia de la grabación; esta decisión evita que la migración vuelva a distribuirla. No hace falta inspeccionar ni emitir el audio para conservar su mención histórica.
 - **Alcance:** el archivo original todavía puede permanecer accesible en el sitio antiguo y en el historial de Git, hasta el reemplazo completo. Esta decisión **no es una solicitud de borrado del historial ni una retirada inmediata del archivo publicado**.
+
+## Ficha preliminar 07 — crucigrama-001.html (decisión pendiente)
+
+- **Original:** `revista/crucigrama-001.html`, 257.663 bytes según inventario. Permanece `hold`; no está incluido en la nueva compilación de Eleventy.
+- **Contenido observado (revisión estática del archivo):** crucigrama en español **«Crucigrama #1»**, fechado por su atribución de copyright en **2022**; **26 filas**, **8 pistas horizontales** y **6 verticales**. La autora del crucigrama figura acreditada como **Verónica Sirvent Segura**; el copyright mostrado para el contenido es **«2022 Revista EnRed@2.0»**.
+- **Motor técnico:** incluye localmente el motor **Exolve**, atribuido a **Viresh Ratnakar** bajo **licencia MIT**, cuyo aviso completo está presente en el HTML. La licencia del motor **no prueba** automáticamente la autorización para redistribuir las pistas y soluciones del crucigrama.
+- **Privacidad/seguridad preliminar:** el HTML incorpora JavaScript local, referencias a `localStorage` para guardar el progreso y enlaces de apoyo al motor; no se detectan `<iframe>` ni scripts externos mediante atributo `src`. No se ha realizado prueba dinámica de navegador ni auditoría de comportamiento.
+- **Correcciones recomendables si se decide conservar:** verificar consentimiento/licencia de la autora o titular de los derechos del contenido, conservar atribución y aviso MIT, comprobar juego y almacenamiento en navegador, personalizar el título de pestaña actualmente genérico de Exolve y validar accesibilidad.
+- **Decisión solicitada al titular:** conservar HTML interactivo completo sujeto a revisión; conservar referencia histórica sin la aplicación; excluir; o posponer. **Ninguna decisión se ha supuesto.**
