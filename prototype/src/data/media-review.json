@@ -180,8 +180,16 @@
       "bytes": 7728813,
       "gitBlobSha": "cd24f03732083a44ce676fe15ffd39742292fb6c",
       "category": "audio",
-      "status": "hold",
-      "reason": "Audio may involve third-party recordings/music: establish public distribution rights."
+      "status": "retire",
+      "reason": "Owner explicitly chooses to retain only a historical textual reference. Do not distribute the original MP3 in the Eleventy build; recording rights unverified.",
+      "ownerDecision": "reference-only",
+      "ownerDecisionRecordedAt": "2026-10-28",
+      "ownerDecisionStatus": "approved-for-reference-only",
+      "review": {
+        "redistribution": "not-authorized-and-not-requested",
+        "historicalReference": "revista/index.html",
+        "notes": "The old GitHub Pages file may remain accessible until full-site transition. Choosing reference-only does not erase historical Git objects or previous downloads."
+      }
     },
     {
       "path": "revista/crucigrama-001.html",

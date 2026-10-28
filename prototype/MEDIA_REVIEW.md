@@ -21,7 +21,7 @@ La página antigua `revista/index.html` es un prototipo con artículos repetidos
 | `NEXUM2024.pptx` | presentation | 21.11 | hold · conservación solicitada | Conservar editable completo: revisar diapositivas, notas, comentarios, vínculos, objetos incrustados, licencias y datos personales. |
 | `revista/2023-10-17_Revista_Enredados_Presentacion.mp4` | video | 53.35 | hold · conservación solicitada | Producción propia declarada por el titular; revisión de participantes, voces, música, elementos de terceros y metadatos pendiente. |
 | `revista/2024-09-23_presentacion_revista.pdf` | document | 1.94 | hold · conservación solicitada | Mantener PDF completo tras revisión de derechos, imágenes, posibles datos personales y contenido; pendiente. |
-| `revista/Caballeria-ligera.mp3` | audio | 7.37 | hold | Audio may involve third-party recordings/music: establish public distribution rights. |
+| `revista/Caballeria-ligera.mp3` | audio | 7.37 | retire · referencia histórica | Decisión 28/10/2026: conservar únicamente mención histórica textual. No redistribuir MP3. Derechos de grabación sin revisar. |
 | `revista/crucigrama-001.html` | html | 0.25 | hold | Contains Exolve MIT code plus puzzle content: verify both license notice and puzzle authorship. |
 | `revista/crucigrama-002.html` | html | 0.25 | hold | Contains Exolve MIT code plus puzzle content: verify both license notice and puzzle authorship. |
 | `revista/Duelo-cancion.mp3` | audio | 5.12 | hold | Audio may involve third-party recordings/music: establish public distribution rights. |
@@ -113,3 +113,10 @@ la carpeta.
 - **Inspección técnica superada:** [CI #40574518062](https://github.com/PedroBlanco/PedroBlanco.github.io/actions/runs/40574518062). Hash Git y tamaño verificados, **5 páginas**, **417 caracteres de texto extraíble**, **23 referencias a imágenes**, **0 errores de extracción**, **0 anotaciones de enlace externo**. Existen metadatos de autoría, creación y edición. Sin coincidencias de correo, DNI, IBAN o indicadores textuales de licencia en texto extraíble. **Esto no descarta datos personales presentes en imágenes ni acredita derechos de redistribución.**
 - **Pendientes:** revisar visualmente todas las páginas, fotografías, nombres, imágenes y logos; confirmar si hay datos personales, material de terceros y permiso de difusión; comprobar metadatos y anotaciones antes de publicar.
 - **Estado:** `hold`, decisión `preserve-full` y revisión de privacidad y derechos pendiente; no se copia al build Eleventy.
+
+## Expediente individual 06 — Caballeria-ligera.mp3
+
+- **Decisión del titular (28/10/2026):** conservar **únicamente la referencia histórica** al archivo `revista/Caballeria-ligera.mp3` (7.728.813 bytes; 7,37 MiB). **No distribuir el audio** desde la nueva web.
+- **Resultado editorial:** `status=retire`, `ownerDecision=reference-only`. La nueva portada curada de `/revista/` incluye el nombre del material en texto, sin reproducirlo ni enlazar la descarga.
+- **Derechos:** no se ha acreditado una licencia de la grabación; esta decisión evita que la migración vuelva a distribuirla. No hace falta inspeccionar ni emitir el audio para conservar su mención histórica.
+- **Alcance:** el archivo original todavía puede permanecer accesible en el sitio antiguo y en el historial de Git, hasta el reemplazo completo. Esta decisión **no es una solicitud de borrado del historial ni una retirada inmediata del archivo publicado**.
