@@ -55,9 +55,9 @@ test("Exolve license, crossword content and structure are intact",()=>{
  console.log("Crossword static checks:",JSON.stringify(x),"- rights and browser operation NOT cleared");
 });
 test("incorrect grid size is rejected",()=>{
- const changed=html.replace("exolve-height: 26","exolve-height: 27");
+ const changed=html.replace("......G...........",".....G...........");
  assert.notEqual(changed,html);
- assert.throws(()=>examine(changed),/row count/);
+ assert.throws(()=>examine(changed),/Incorrect grid width/);
 });
 test("missing license and altered byline are rejected",()=>{
  assert.throws(()=>examine(html.replace("MIT License","License not found")),/MIT License/);
