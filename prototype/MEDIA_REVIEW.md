@@ -25,7 +25,7 @@ La página antigua `revista/index.html` es un prototipo con artículos repetidos
 | `revista/crucigrama-001.html` | html | 0.25 | hold · conservación solicitada | Exolve MIT; validar consentimiento/licencia de contenido de la autora y ejecución interactiva en navegador. |
 | `revista/crucigrama-002.html` | html | 0.25 | hold · conservación solicitada | Crucigrama #2, autoría indicada en HTML pero aún sin confirmación del titular; motor Exolve MIT. Derechos y funcionamiento pendientes. |
 | `revista/Duelo-cancion.mp3` | audio | 5.12 | retire · referencia histórica | Decisión 28/10/2026: conservar exclusivamente mención textual, sin distribuir la grabación MP3. El archivo OGG se revisará por separado. |
-| `revista/Duelo-cancion.ogg` | audio | 6.20 | hold | Audio may involve third-party recordings/music: establish public distribution rights. |
+| `revista/Duelo-cancion.ogg` | audio | 6.20 | retire · referencia histórica | Conservación exclusivamente textual decidida el 28/10/2026; no redistribuir OGG. |
 | `revista/img/Italica_246.jpg` | image | 8.63 | hold | Verify image origin, attribution and whether people appear. |
 | `revista/img/Italica_448.jpg` | image | 7.05 | hold | Verify image origin, attribution and whether people appear. |
 | `revista/img/Preparativos.png` | image | 0.72 | hold | Verify image origin, attribution and whether people appear. |
@@ -145,5 +145,14 @@ la carpeta.
 - **Decisión del titular (28/10/2026):** conservar **solo la referencia histórica** a `revista/Duelo-cancion.mp3` (5.366.064 bytes; 5,12 MiB); no redistribuir la grabación MP3 desde Eleventy.
 - **Estado:** `status=retire`, `ownerDecision=reference-only`. Se incorpora a `/revista/` una mención textual sin reproductor ni descarga, conservando la ruta histórica en el expediente pero no en la portada.
 - **Derechos:** no acreditados ni necesarios para conservar una referencia textual. No se supone composición ni grabación propia.
-- **Relación con archivo 10:** `revista/Duelo-cancion.ogg` (6.498.581 bytes; 6,20 MiB) permanece `hold` y **sin decisión**. Compartir nombre no demuestra identidad sonora ni concede permiso para distribuir el OGG.
+- **Relación con archivo 10:** `revista/Duelo-cancion.ogg` (6.498.581 bytes; 6,20 MiB) tiene ahora decisión independiente `reference-only`, `status=retire`. Compartir nombre no demuestra identidad sonora; no se ha comparado el audio.
 - **Alcance de la retirada:** no se ha modificado el fichero del `master` actual, no se ha eliminado historial Git y la URL de la versión antigua puede seguir accesible hasta la sustitución del sitio.
+
+## Expediente individual 10 — Duelo-cancion.ogg
+
+- **Decisión del titular (28/10/2026):** conservar únicamente una **referencia histórica textual** al archivo `revista/Duelo-cancion.ogg` (6.498.581 bytes; 6,20 MiB). No redistribuir, insertar reproductor ni enlazar la descarga OGG desde el nuevo sitio.
+- **Inventario:** `status=retire`, `ownerDecision=reference-only`, `ownerDecisionStatus=approved-for-reference-only`. La portada `/revista/` menciona «Duelo — canción» como referencia compartida por el MP3 (09/22) y este OGG (10/22), sin distribuir ninguna grabación.
+- **Comprobación técnica posible:** la ruta, tamaño exacto y SHA de blob Git `461d4ce8489f5076ecb1a6b11784e773fbdf18ff` coinciden con el árbol completo de `master` consultado mediante GitHub. La presencia en Git no acredita la licencia del audio. No se ha podido leer o decodificar la grabación para determinar códec, duración, contenido audible o similitud con el MP3.
+- **Derechos:** no confirmados; no es necesaria su autorización para una mención descriptiva sin reproducción. No se da por hecho que MP3 y OGG contengan el mismo audio.
+- **Alcance:** esta decisión afecta únicamente a la distribución reconstruida en Eleventy; no borra los ficheros ya accesibles en `master` ni el historial Git.
+- **Siguiente expediente 11/22:** `revista/img/Italica_246.jpg`, 9.054.204 bytes (8,63 MiB), blob Git `6453d071ae2fe44c08060496f3f0a77f54ba504d`; estado `hold`, pendiente de origen, atribución, autoría, posibles personas identificables y decisión editorial.

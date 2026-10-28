@@ -249,7 +249,7 @@
         "redistribution": "not-authorized-and-not-requested",
         "historicalReference": "revista/index.html",
         "historicalLabel": "Duelo — canción",
-        "notes": "The OGG recording remains file 10/22 under hold and requires a separate decision; no identity of tracks or rights is assumed. The old public URL and Git history are not removed."
+        "notes": "Both the MP3 (file 09/22) and OGG (file 10/22) are now reference-only, independently decided by the owner on 2026-10-28. Their audible identity has not been verified. Neither is copied to Eleventy; the old public URLs and Git history remain unaffected."
       }
     },
     {
@@ -257,8 +257,19 @@
       "bytes": 6498581,
       "gitBlobSha": "461d4ce8489f5076ecb1a6b11784e773fbdf18ff",
       "category": "audio",
-      "status": "hold",
-      "reason": "Audio may involve third-party recordings/music: establish public distribution rights."
+      "status": "retire",
+      "reason": "Owner explicitly requests retaining only a historical textual reference to Duelo-cancion.ogg; do not distribute the OGG recording in the new Eleventy website.",
+      "ownerDecision": "reference-only",
+      "ownerDecisionRecordedAt": "2026-10-28",
+      "ownerDecisionStatus": "approved-for-reference-only",
+      "review": {
+        "redistribution": "not-authorized-and-not-requested",
+        "historicalReference": "revista/index.html",
+        "historicalLabel": "Duelo — canción",
+        "relatedFormat": "revista/Duelo-cancion.mp3 (file 09/22; also reference-only)",
+        "technical": "original-git-tree-blob-sha-and-size-verified",
+        "notes": "Verified the original OGG path, byte size and Git blob SHA against the full master Git tree (not truncated). No audio decoding or codec/duration comparison was performed; MP3 and OGG audible identity is unverified. Do not embed or link either file in Eleventy. Files in master and historical Git objects are not removed."
+      }
     },
     {
       "path": "revista/img/Italica_246.jpg",
