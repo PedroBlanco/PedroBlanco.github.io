@@ -188,7 +188,8 @@
       "review": {
         "redistribution": "not-authorized-and-not-requested",
         "historicalReference": "revista/index.html",
-        "notes": "The old GitHub Pages file may remain accessible until full-site transition. Choosing reference-only does not erase historical Git objects or previous downloads."
+        "notes": "The old GitHub Pages file may remain accessible until full-site transition. Choosing reference-only does not erase historical Git objects or previous downloads.",
+        "historicalLabel": "Caballería ligera"
       }
     },
     {
@@ -239,8 +240,17 @@
       "bytes": 5366064,
       "gitBlobSha": "5db485d009a861f379b7cdedf465afb7b997cb3b",
       "category": "audio",
-      "status": "hold",
-      "reason": "Audio may involve third-party recordings/music: establish public distribution rights."
+      "status": "retire",
+      "reason": "Owner explicitly requests only a historical textual reference to Duelo-cancion.mp3, without copying or distributing the recording in Eleventy.",
+      "ownerDecision": "reference-only",
+      "ownerDecisionRecordedAt": "2026-10-28",
+      "ownerDecisionStatus": "approved-for-reference-only",
+      "review": {
+        "redistribution": "not-authorized-and-not-requested",
+        "historicalReference": "revista/index.html",
+        "historicalLabel": "Duelo — canción",
+        "notes": "The OGG recording remains file 10/22 under hold and requires a separate decision; no identity of tracks or rights is assumed. The old public URL and Git history are not removed."
+      }
     },
     {
       "path": "revista/Duelo-cancion.ogg",

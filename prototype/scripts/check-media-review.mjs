@@ -38,6 +38,16 @@ for(const e of all){
   throw Error("Unreviewed media copied into published artifact: "+e.path);
  }
 }
+for(const e of all.filter(e=>e.ownerDecision==="reference-only")){
+ if(e.status!=="retire"||!e.review?.historicalReference||!e.review?.historicalLabel)
+  throw Error("Reference-only decision missing archive metadata: "+e.path);
+ const page=path.join(output,e.review.historicalReference);
+ if(!fs.existsSync(page))throw Error("Missing historical reference page for "+e.path);
+ const html=fs.readFileSync(page,"utf8");
+ if(!html.includes(e.review.historicalLabel))throw Error("Missing historical reference label for "+e.path);
+ const basename=path.basename(e.path);
+ if(html.includes(basename))throw Error("Reference-only page must not expose original audio file path: "+e.path);
+}
 const actual=[];
 function walk(dir, prefix=""){
  for(const entry of fs.readdirSync(dir,{withFileTypes:true})){

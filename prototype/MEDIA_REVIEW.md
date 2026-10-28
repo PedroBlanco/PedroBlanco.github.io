@@ -24,7 +24,7 @@ La página antigua `revista/index.html` es un prototipo con artículos repetidos
 | `revista/Caballeria-ligera.mp3` | audio | 7.37 | retire · referencia histórica | Decisión 28/10/2026: conservar únicamente mención histórica textual. No redistribuir MP3. Derechos de grabación sin revisar. |
 | `revista/crucigrama-001.html` | html | 0.25 | hold · conservación solicitada | Exolve MIT; validar consentimiento/licencia de contenido de la autora y ejecución interactiva en navegador. |
 | `revista/crucigrama-002.html` | html | 0.25 | hold · conservación solicitada | Crucigrama #2, autoría indicada en HTML pero aún sin confirmación del titular; motor Exolve MIT. Derechos y funcionamiento pendientes. |
-| `revista/Duelo-cancion.mp3` | audio | 5.12 | hold | Audio may involve third-party recordings/music: establish public distribution rights. |
+| `revista/Duelo-cancion.mp3` | audio | 5.12 | retire · referencia histórica | Decisión 28/10/2026: conservar exclusivamente mención textual, sin distribuir la grabación MP3. El archivo OGG se revisará por separado. |
 | `revista/Duelo-cancion.ogg` | audio | 6.20 | hold | Audio may involve third-party recordings/music: establish public distribution rights. |
 | `revista/img/Italica_246.jpg` | image | 8.63 | hold | Verify image origin, attribution and whether people appear. |
 | `revista/img/Italica_448.jpg` | image | 7.05 | hold | Verify image origin, attribution and whether people appear. |
@@ -139,3 +139,11 @@ la carpeta.
 - **Estructura estática:** Exolve en español, cuadrícula **28 columnas × 15 filas**, **19 pistas horizontales y 19 verticales**; motor JavaScript incluido en el HTML, con aviso MIT de Viresh Ratnakar, sin `script src` externo. Almacenamiento `localStorage` disponible en código.
 - **Verificación de compilación:** se incorporan pruebas estáticas de licencia, autoría declarada en el HTML, ancho/alto de cuadrícula, número de pistas, identidad Git del original y análisis sintáctico de JavaScript sin ejecutarlo. **No sustituye las pruebas funcionales de teclado, guardado, respuestas, accesibilidad ni móvil**.
 - **Pendiente:** confirmación explícita de autoría/derechos sobre definiciones y soluciones y autorización de distribución; validación en navegador. Motor y contenido tienen derechos independientes.
+
+## Expediente individual 09 — Duelo-cancion.mp3
+
+- **Decisión del titular (28/10/2026):** conservar **solo la referencia histórica** a `revista/Duelo-cancion.mp3` (5.366.064 bytes; 5,12 MiB); no redistribuir la grabación MP3 desde Eleventy.
+- **Estado:** `status=retire`, `ownerDecision=reference-only`. Se incorpora a `/revista/` una mención textual sin reproductor ni descarga, conservando la ruta histórica en el expediente pero no en la portada.
+- **Derechos:** no acreditados ni necesarios para conservar una referencia textual. No se supone composición ni grabación propia.
+- **Relación con archivo 10:** `revista/Duelo-cancion.ogg` (6.498.581 bytes; 6,20 MiB) permanece `hold` y **sin decisión**. Compartir nombre no demuestra identidad sonora ni concede permiso para distribuir el OGG.
+- **Alcance de la retirada:** no se ha modificado el fichero del `master` actual, no se ha eliminado historial Git y la URL de la versión antigua puede seguir accesible hasta la sustitución del sitio.
