@@ -23,7 +23,7 @@ La página antigua `revista/index.html` es un prototipo con artículos repetidos
 | `revista/2024-09-23_presentacion_revista.pdf` | document | 1.94 | hold · conservación solicitada | Mantener PDF completo tras revisión de derechos, imágenes, posibles datos personales y contenido; pendiente. |
 | `revista/Caballeria-ligera.mp3` | audio | 7.37 | retire · referencia histórica | Decisión 28/10/2026: conservar únicamente mención histórica textual. No redistribuir MP3. Derechos de grabación sin revisar. |
 | `revista/crucigrama-001.html` | html | 0.25 | hold · conservación solicitada | Exolve MIT; validar consentimiento/licencia de contenido de la autora y ejecución interactiva en navegador. |
-| `revista/crucigrama-002.html` | html | 0.25 | hold | Contains Exolve MIT code plus puzzle content: verify both license notice and puzzle authorship. |
+| `revista/crucigrama-002.html` | html | 0.25 | hold · conservación solicitada | Crucigrama #2, autoría indicada en HTML pero aún sin confirmación del titular; motor Exolve MIT. Derechos y funcionamiento pendientes. |
 | `revista/Duelo-cancion.mp3` | audio | 5.12 | hold | Audio may involve third-party recordings/music: establish public distribution rights. |
 | `revista/Duelo-cancion.ogg` | audio | 6.20 | hold | Audio may involve third-party recordings/music: establish public distribution rights. |
 | `revista/img/Italica_246.jpg` | image | 8.63 | hold | Verify image origin, attribution and whether people appear. |
@@ -130,3 +130,12 @@ la carpeta.
 - **Privacidad/seguridad preliminar:** el HTML incorpora JavaScript local, referencias a `localStorage` para guardar el progreso y enlaces de apoyo al motor; no se detectan `<iframe>` ni scripts externos mediante atributo `src`. No se ha realizado prueba dinámica de navegador ni auditoría de comportamiento.
 - **Correcciones recomendables si se decide conservar:** verificar consentimiento/licencia de la autora o titular de los derechos del contenido, conservar atribución y aviso MIT, comprobar juego y almacenamiento en navegador, personalizar el título de pestaña actualmente genérico de Exolve y validar accesibilidad.
 - **Estado:** conservación completa solicitada. La publicación requiere comprobar derechos sobre pistas/soluciones, conservar licencia MIT y aprobar el funcionamiento en navegador. La web antigua puede seguir sirviendo el original mientras la PR esté en borrador.
+
+## Expediente individual 08 — crucigrama-002.html
+
+- **Decisión del titular (28/10/2026):** conservar el HTML interactivo completo, sujeto a revisión de derechos y funcionamiento. La decisión se anota como `preserve-full`; permanece en `hold` y todavía no se distribuye en Eleventy.
+- **Archivo:** `revista/crucigrama-002.html`, 258.237 bytes, Git blob `bbf94f67cda0767f095494edb1455ccaf3ea0ca6`.
+- **Atribución presente en la fuente:** `exolve-setter: Pedro Blanco Wasmer`, `exolve-copyright: 2022 Revista EnRed@2.0`. **Todavía falta confirmación del usuario de que escribió las definiciones y respuestas y de la autorización de publicación.** No se presupone por coincidencia de nombre.
+- **Estructura estática:** Exolve en español, cuadrícula **28 columnas × 15 filas**, **19 pistas horizontales y 19 verticales**; motor JavaScript incluido en el HTML, con aviso MIT de Viresh Ratnakar, sin `script src` externo. Almacenamiento `localStorage` disponible en código.
+- **Verificación de compilación:** se incorporan pruebas estáticas de licencia, autoría declarada en el HTML, ancho/alto de cuadrícula, número de pistas, identidad Git del original y análisis sintáctico de JavaScript sin ejecutarlo. **No sustituye las pruebas funcionales de teclado, guardado, respuestas, accesibilidad ni móvil**.
+- **Pendiente:** confirmación explícita de autoría/derechos sobre definiciones y soluciones y autorización de distribución; validación en navegador. Motor y contenido tienen derechos independientes.

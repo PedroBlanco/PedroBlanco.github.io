@@ -17,7 +17,7 @@
     "audit:media": "node scripts/check-media-review.mjs",
     "translations:report": "node scripts/generate-translation-review.mjs",
     "test:release-gates": "node --test scripts/test-release-gates.mjs",
-    "test:crossword": "node --test scripts/test-crossword-review.mjs"
+    "test:crossword": "node --test scripts/test-crossword-review.mjs scripts/test-crossword-002.mjs"
   },
   "devDependencies": {
     "@11ty/eleventy": "3.1.7",

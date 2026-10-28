@@ -218,7 +218,21 @@
       "gitBlobSha": "bbf94f67cda0767f095494edb1455ccaf3ea0ca6",
       "category": "html",
       "status": "hold",
-      "reason": "Contains Exolve MIT code plus puzzle content: verify both license notice and puzzle authorship."
+      "reason": "Owner requests retaining the complete interactive crossword, pending authored-puzzle rights confirmation and browser QA; Exolve engine MIT notice is present.",
+      "ownerDecision": "preserve-full",
+      "ownerDecisionRecordedAt": "2026-10-28",
+      "ownerDecisionStatus": "requested-not-yet-approved",
+      "review": {
+        "rights": "pending-confirmation-of-puzzle-authorship-and-publication-rights",
+        "privacy": "public-original-byline-present; attribution and licensing pending",
+        "technical": "static-source-check-queued-in-ci",
+        "authorClaimFromSource": "Pedro Blanco Wasmer (Exolve setter field; user confirmation not yet received)",
+        "puzzleCopyrightFromSource": "2022 Revista EnRed@2.0",
+        "engine": "Exolve",
+        "engineLicense": "MIT (original notice present)",
+        "originalUrl": "https://pedroblanco.github.io/revista/crucigrama-002.html",
+        "notes": "User requested explicit authorship confirmation if not already established. Do not equate HTML byline with verified ownership. Keep hold until permission and browser operation are reviewed."
+      }
     },
     {
       "path": "revista/Duelo-cancion.mp3",
