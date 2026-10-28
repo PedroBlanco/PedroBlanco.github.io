@@ -182,3 +182,20 @@ El titular resolvió en una sola respuesta los **12 expedientes restantes**, ide
 **Materiales solo referenciados (19–22):** tres grabaciones MP3 y un MP4 pasan a `retire` con `ownerDecision=reference-only`. Su mención en la portada es únicamente descriptiva, sin descarga, enlace ni reproductor. Los ficheros anteriores permanecen accesibles en `master` mientras no se realice la sustitución definitiva; no se purga el historial. Los nombres de archivo no acreditan duración, derechos ni contenido audiovisual.
 
 **Estado editorial total:** 22/22 expedientes con decisión; 15 recursos `hold` por revisión de derechos/privacidad, 7 `retire` como referencia histórica y 1 `retire` correspondiente a la antigua maqueta. **0 recursos `approved`**. La puerta estricta de publicación integral continúa bloqueada. Pendiente además autoría/licencia de crucigramas y pruebas humanas de funcionamiento, documentos, vídeos, imágenes, hojas y traducciones.
+
+## Auditoría local de imágenes y hojas Calc — 28/10/2026
+
+Se añade una inspección técnica **de solo lectura** para las **6 imágenes JPEG/PNG** y los **2 ficheros ODS** cuya conservación íntegra está solicitada en los expedientes 11–18. No se confunde una comprobación técnica con una autorización de distribución; no se copian medios a Eleventy ni cambian estados o permisos.
+
+**Ejecutar desde la raíz del repositorio, en Windows PowerShell (sin WSL):**
+
+```powershell
+py -3 prototype\scripts\test-audit-legacy-assets.py
+py -3 prototype\scripts\audit-legacy-assets.py --all
+```
+
+Se puede limitar a un recurso mediante `--path revista/img/Italica_246.jpg`. Solo necesita Python 3 y bibliotecas estándar; no requiere red ni Actions. No modifica archivos ni imprime valores de metadatos, celdas o datos personales. El resultado es un JSON de señales técnicas agregadas.
+
+Comprueba tamaño y SHA Git de origen; en PNG/JPEG detecta dimensiones y existencia de EXIF, XMP, comentarios, perfiles ICC y otros bloques; en ODS revisa ZIP/manifest, hojas ocultas, fórmulas, vínculos externos, indicios de macros, objetos, cifrado y patrones de datos personales. El detector de patrones es parcial y **no descarta información incrustada ni sustituye revisión visual o autorización de derechos**.
+
+**Evidencia hasta ahora:** ocho pruebas sintéticas superadas localmente fuera de GitHub Actions. La auditoría de los ocho binarios **reales todavía no se ha ejecutado**, porque los contenidos binarios no estaban disponibles en esta sesión. No marcar `approved`, `privacy=cleared` ni `technical=passed` hasta obtener evidencias sobre originales y revisar licencias, imágenes y privacidad.
