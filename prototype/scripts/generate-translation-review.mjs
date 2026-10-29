@@ -1,4 +1,5 @@
 import fs from "node:fs/promises";
+import {normalizeReviewLineEndings,sameReviewSnapshot} from "./review-line-endings.mjs";
 import content from "../src/data/content.json" with {type:"json"};
 const flatten=(o,prefix="")=>Object.entries(o||{}).flatMap(([k,v])=>v&&typeof v==="object"&&!Array.isArray(v)?flatten(v,prefix+k+"."):[{key:prefix+k,val:v}]);
 const cell=v=>String(v??"").replaceAll("|","\\|").replaceAll("\n"," · ");
@@ -43,15 +44,15 @@ for(const item of content.items){
   output+="| Recurso "+r.type+" · "+cell(r.href)+" | "+cell(r.es?.label)+" | "+cell(r.en?.label)+" |\n";
  }
  if(item.markdown){
-  const es=await fs.readFile(new URL("../src/content/es/"+item.id+".md",import.meta.url),"utf8");
-  const en=await fs.readFile(new URL("../src/content/en/"+item.id+".md",import.meta.url),"utf8");
+  const es=normalizeReviewLineEndings(await fs.readFile(new URL("../src/content/es/"+item.id+".md",import.meta.url),"utf8"));
+  const en=normalizeReviewLineEndings(await fs.readFile(new URL("../src/content/en/"+item.id+".md",import.meta.url),"utf8"));
   output+="\n### Descripción extendida — ES\n\n"+es+"\n\n### Extended description — EN\n\n"+en+"\n";
  }
 }
 const file=new URL("../TRANSLATION_REVIEW.md",import.meta.url);
 if(process.argv.includes("--check")){
  const saved=await fs.readFile(file,"utf8");
- if(saved!==output)throw Error("Translation review snapshot is outdated; run npm run translations:report and commit the result.");
+ if(!sameReviewSnapshot(saved,output))throw Error("Translation review snapshot is outdated; run npm run translations:report and commit the result.");
  console.log("Translation review snapshot is current ("+content.items.length+" project fiches and site UI).");
 }else{
  await fs.writeFile(file,output,"utf8");
