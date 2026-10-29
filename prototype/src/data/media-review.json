@@ -628,5 +628,14 @@
       ],
       "limitations": "Not a build/test execution; did not read original media bytes, recompute Git hashes, run Python scripts or validate dist output. No publication rights inferred."
     }
+  },
+  "editorialReview": {
+    "status": "closed",
+    "closedAt": "2026-10-29",
+    "decisionsComplete": 22,
+    "totalEditorialFiles": 22,
+    "publicationAuthorization": "not-granted",
+    "nextPhase": "eleventy-migration-and-publication-gates",
+    "note": "Closing editorial selection does not approve distribution of hold items; preserve-full items remain on hold until rights/privacy clearance. References remain excluded."
   }
 }
