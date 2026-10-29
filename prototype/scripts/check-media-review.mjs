@@ -5,6 +5,7 @@ import manifest from "../src/data/media-review.json" with {type:"json"};
 const source=path.resolve(".."), output=path.resolve("dist");
 const allowedCategories=new Set(["document","presentation","video","audio","spreadsheet","html","image"]);
 const allowedStatuses=new Set(["hold","approved","retire"]);
+const gitSha=bytes=>createHash("sha1").update(Buffer.from("blob "+bytes.length+"\0")).update(bytes).digest("hex");
 if(manifest.schemaVersion!==1||!Array.isArray(manifest.entries))throw Error("Unexpected media review manifest format");
 const all=manifest.entries;
 const seen=new Set();
@@ -18,11 +19,21 @@ for(const e of all){
   throw Error("Missing explicit rights/privacy approval metadata for "+e.path);
  const name=path.join(source,e.path);
  const info=fs.lstatSync(name);
- if(!info.isFile()||info.isSymbolicLink()||info.size!==e.bytes)throw Error("Media source modified, missing or unsafe: "+e.path);
- const sha=createHash("sha1").update(Buffer.from("blob "+info.size+"\0"));
- const stream=fs.createReadStream(name);
- for await (const data of stream)sha.update(data);
- if(sha.digest("hex")!==e.gitBlobSha)throw Error("Media source hash changed; re-review: "+e.path);
+ if(!info.isFile()||info.isSymbolicLink())throw Error("Media source modified, missing or unsafe: "+e.path);
+ if(/\.html$/i.test(e.path)){
+  const raw=fs.readFileSync(name);
+  if(raw.length!==e.bytes||gitSha(raw)!==e.gitBlobSha){
+   const normalized=Buffer.from(raw.toString("utf8").replace(/\r\n/g,"\n"),"utf8");
+   if(normalized.length!==e.bytes||gitSha(normalized)!==e.gitBlobSha)
+    throw Error("Media source hash changed; re-review: "+e.path);
+  }
+ }else{
+  if(info.size!==e.bytes)throw Error("Media source modified, missing or unsafe: "+e.path);
+  const sha=createHash("sha1").update(Buffer.from("blob "+info.size+"\0"));
+  const stream=fs.createReadStream(name);
+  for await (const data of stream)sha.update(data);
+  if(sha.digest("hex")!==e.gitBlobSha)throw Error("Media source hash changed; re-review: "+e.path);
+ }
  if(e.status==="approved"){
   if(!fs.existsSync(path.join(output,e.path)))
     throw Error("Approved resource missing from site output: "+e.path);
