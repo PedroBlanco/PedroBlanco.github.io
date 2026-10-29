@@ -31,8 +31,15 @@ for(const item of manifest.entries){
  if(!["document","binary"].includes(item.kind)||!(/^[a-f0-9]{40}$/.test(item.gitBlobSha||"")))throw Error("Unpinned preview file: "+item.path);
  const input=path.join(sourceRoot,item.path),output=path.join(dist,item.path),stat=await fs.lstat(input);
  if(!stat.isFile()||stat.isSymbolicLink())throw Error("Unsafe source: "+item.path);
- const contents=await fs.readFile(input);
- if(gitSha(contents)!==item.gitBlobSha)throw Error("Changed legacy file, review before updating manifest: "+item.path);
+ let contents=await fs.readFile(input);
+ if(gitSha(contents)!==item.gitBlobSha){
+  // Windows checkouts may convert committed LF newlines to CRLF.
+  // Only accept a byte-exact match after reversing that conversion for HTML.
+  if(!item.path.endsWith(".html"))throw Error("Changed legacy file, review before updating manifest: "+item.path);
+  const normalized=Buffer.from(contents.toString("utf8").replace(/\r\n/g,"\n"),"utf8");
+  if(gitSha(normalized)!==item.gitBlobSha)throw Error("Changed legacy file, review before updating manifest: "+item.path);
+  contents=normalized;
+ }
  await fs.mkdir(path.dirname(output),{recursive:true});
  await fs.writeFile(output,contents,{flag:"wx"});
  staged++;
