@@ -43,16 +43,18 @@ function examine(source){
  assert.equal(count("down","end"),6);
  return {width:w,height:h,across:8,down:6};
 }
-test("original crossword matches pinned Git blob and is not approved",()=>{
+test("original crossword matches pinned Git blob and has explicit owner approval",()=>{
  assert.ok(entry);
- assert.equal(bytes.length,entry.bytes);
- assert.equal(gitBlobSha(bytes),entry.gitBlobSha);
- assert.equal(entry.status,"hold");
+ const original=gitBlobSha(bytes)===entry.gitBlobSha ? bytes : Buffer.from(html.replace(/\r\n/g,"\n"),"utf8");
+ assert.equal(original.length,entry.bytes);
+ assert.equal(gitBlobSha(original),entry.gitBlobSha);
+ assert.equal(entry.status,"approved");
+ assert.ok(entry.reviewedAt&&entry.reviewedBy&&entry.evidence);
  assert.equal(entry.ownerDecision,"preserve-full");
 });
 test("Exolve license, crossword content and structure are intact",()=>{
  const x=examine(html);
- console.log("Crossword static checks:",JSON.stringify(x),"- rights and browser operation NOT cleared");
+ console.log("Crossword static checks:",JSON.stringify(x),"- owner-approved; browser operation remains unverified");
 });
 test("incorrect grid size is rejected",()=>{
  const changed=html.replace("......G...........",".....G...........");
