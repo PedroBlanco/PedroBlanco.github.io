@@ -235,3 +235,14 @@ Se autoriza exclusivamente **auditoría automatizada, sin inspección humana de 
 - [x] Se ha comprobado por inspección estática que el script `check-media-review.mjs` **contiene** validaciones de hash de origen, exclusión del resultado, referencias y bloqueo `--strict`. No se afirma que se hayan ejecutado.
 - [ ] **Pendiente:** ejecución de auditorías sobre binarios originales, compilación Eleventy y pruebas de salida `dist/` en entorno con repositorio completo. El acceso por conector permite leer los fuentes, pero no sustituye un checkout local. No lanzar Actions únicamente para verificar cambios de documentación.
 - **Privacidad:** se registran solo recuentos y categorías de comprobación, sin valores de metadatos, celdas o contenido personal. Las autorizaciones editoriales y estados de publicación permanecen inalterados.
+
+
+## Ejecución agrupada local de auditorías (29/10/2026)
+
+Se añade [`prototype/scripts/run-media-audit.ps1`](scripts/run-media-audit.ps1), commit [`01629ed`](https://github.com/PedroBlanco/PedroBlanco.github.io/commit/01629edded812c14cae274951538387c1f2797af), para Windows PowerShell **sin WSL y sin GitHub Actions**. Valida rama y árbol limpio, ejecuta pruebas sintéticas, inspecciones automatizadas de imágenes/ODS originales, tres auditorías PDF y compilación + comprobaciones de Eleventy (incluidos crucigramas y exclusión de medios). Muestra solo nombres y PASS/FAIL; descarta salida detallada y no guarda logs personales. Requiere Git, Python Launcher, Node/npm, dependencias npm y los originales en un checkout completo.
+
+```powershell
+.\prototype\scripts\run-media-audit.ps1
+```
+
+**Pendiente ejecutar en el PC con checkout local**. En el entorno de esta sesión, `git ls-remote` falla por imposibilidad de resolver `github.com`, por lo que no se declara superado ningún examen de bytes reales, ni la build. La existencia del script tampoco implica que todas las auditorías estén completas: la presentación PPTX y el vídeo cuentan con inspecciones agregadas previas; no se ha incorporado aquí un nuevo analizador individual para ellos. Los controles y las decisiones de conservación/publicación siguen independientes; PR en borrador, `status=hold` sin cambios.
