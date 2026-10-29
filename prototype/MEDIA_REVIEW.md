@@ -246,3 +246,13 @@ Se añade [`prototype/scripts/run-media-audit.ps1`](scripts/run-media-audit.ps1)
 ```
 
 **Pendiente ejecutar en el PC con checkout local**. En el entorno de esta sesión, `git ls-remote` falla por imposibilidad de resolver `github.com`, por lo que no se declara superado ningún examen de bytes reales, ni la build. La existencia del script tampoco implica que todas las auditorías estén completas: la presentación PPTX y el vídeo cuentan con inspecciones agregadas previas; no se ha incorporado aquí un nuevo analizador individual para ellos. Los controles y las decisiones de conservación/publicación siguen independientes; PR en borrador, `status=hold` sin cambios.
+
+
+## Cierre de selección editorial y paso a migración Eleventy (29/10/2026)
+
+**Selección editorial cerrada por decisión expresa del titular:** 22/22 decisiones. Se detiene la revisión archivo por archivo y las auditorías individuales no imprescindibles para la migración. El siguiente trabajo se concentra en Eleventy, su compilación y pruebas de publicación: rutas heredadas, enlaces, ES/EN, controles de exclusión de medios, integración y pruebas de publicación antes de cualquier merge.
+
+- **Sin autorización implícita:** siguen 15 recursos `hold` (`preserve-full` solicitado, derechos/privacidad pendientes), 7 recursos `retire` + `reference-only` y 1 maqueta `retire`. 0 `approved`. No copiar los `hold` a la nueva publicación.
+- **Prioridad de pruebas:** ejecutar en local `npm run build`, `npm run check` y las comprobaciones de publicación sin recurrir a Actions si se pueden ejecutar localmente. Resolver instalación de dependencias sin lockfile sin interpretar fallos de entorno como defectos en medios.
+- **CI y publicación:** mantener PR #4 en borrador; no fusionar, no desplegar ni modificar `master` o historia Git. Solo solicitar decisiones nuevas si afectan a una publicación concreta, derechos o privacidad.
+- **Resultados locales existentes:** tests Python sintéticos e imágenes/ODS sobre originales `PASS`; tres auditorías PDF y `npm ci` dieron `FAIL` (dependencia `pypdf` por verificar; no existe `prototype/package-lock.json`). Esos fallos no implican daño en PDF ni cambian las decisiones editoriales.
