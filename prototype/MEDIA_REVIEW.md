@@ -256,3 +256,10 @@ Se añade [`prototype/scripts/run-media-audit.ps1`](scripts/run-media-audit.ps1)
 - **Prioridad de pruebas:** ejecutar en local `npm run build`, `npm run check` y las comprobaciones de publicación sin recurrir a Actions si se pueden ejecutar localmente. Resolver instalación de dependencias sin lockfile sin interpretar fallos de entorno como defectos en medios.
 - **CI y publicación:** mantener PR #4 en borrador; no fusionar, no desplegar ni modificar `master` o historia Git. Solo solicitar decisiones nuevas si afectan a una publicación concreta, derechos o privacidad.
 - **Resultados locales existentes:** tests Python sintéticos e imágenes/ODS sobre originales `PASS`; tres auditorías PDF y `npm ci` dieron `FAIL` (dependencia `pypdf` por verificar; no existe `prototype/package-lock.json`). Esos fallos no implican daño en PDF ni cambian las decisiones editoriales.
+
+
+## Autorización de distribución y preparación Eleventy (29/10/2026)
+
+El titular confirma haber revisado manualmente y autoriza distribuir los **3 PDF** y los **12 archivos restantes** seleccionados para conservación íntegra: **15 `approved`**, con constancia de la declaración del titular y fecha en el inventario. Las **7 referencias históricas** siguen en `retire` y la antigua portada `revista/index.html` sigue sustituida, sin redistribución del original.
+
+El build incorpora `scripts/stage-approved-media.mjs`, que toma únicamente entradas `approved` con evidencia y decisión `preserve-full`, comprueba fichero regular, tamaño y SHA de blob Git, y copia al árbol `dist` sin sobrescribir destinos. `npm run audit:media` sigue verificando integridad y exclusión de los retirados. No se han ejecutado build ni tests locales de esta revisión; quedan pendientes antes de fusionar PR #4. No se modifica `master` ni se despliega. El permiso declarado no reemplaza las verificaciones técnicas de la salida compilada.
