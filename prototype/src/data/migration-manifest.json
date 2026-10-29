@@ -22,28 +22,10 @@
       "reason": "Needs intentional editorial migration."
     },
     {
-      "path": "CROQUETAS2024.pdf",
-      "status": "hold",
-      "kind": "binary",
-      "reason": "Review document rights and file weight."
-    },
-    {
-      "path": "NEXUM2024.pdf",
-      "status": "hold",
-      "kind": "binary",
-      "reason": "70 MB PDF; review rights and distribution limits."
-    },
-    {
-      "path": "NEXUM2024.pptx",
-      "status": "hold",
-      "kind": "binary",
-      "reason": "22 MB editable presentation; review rights."
-    },
-    {
       "path": "revista/",
       "status": "curated-index",
       "kind": "directory",
-      "reason": "The old /revista/ index is a placeholder layout, replaced by a safe documentation-only historical landing; media files remain on hold."
+      "reason": "Legacy index replaced by curated landing; approved original media are managed exclusively by src/data/media-review.json and its checksum-verified stage."
     },
     {
       "path": "piefirma/",
