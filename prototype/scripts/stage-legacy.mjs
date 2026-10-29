@@ -5,6 +5,17 @@ import manifest from "../src/data/migration-manifest.json" with { type:"json" };
 const sourceRoot=path.resolve(".."),dist=path.resolve("dist"),seen=new Set();
 function validPath(p){return typeof p==="string"&&!p.startsWith("/")&&!p.includes("\\")&&!p.includes("\0")&&p.split("/").every(part=>part!=="."&&part!=="..");}
 function gitSha(data){return createHash("sha1").update(Buffer.from("blob "+data.length+"\0")).update(data).digest("hex");}
+// Checkout Windows may convert line endings of tracked text files to CRLF.
+// Reversing that conversion is allowed only when the result matches the pinned Git blob.
+async function readPinned(filePath, expectedSha, label){
+ let bytes=await fs.readFile(filePath);
+ if(gitSha(bytes)===expectedSha)return bytes;
+ if(!/\.(?:html|js|css|md)$/i.test(label))throw Error("Changed legacy file, review before updating manifest: "+label);
+ const canonical=Buffer.from(bytes.toString("utf8").replace(/\r\n/g,"\n"),"utf8");
+ if(gitSha(canonical)!==expectedSha)throw Error("Changed legacy file, review before updating manifest: "+label);
+ return canonical;
+}
+
 let staged=0;
 for(const item of manifest.entries){
  if(!validPath(item.path)||seen.has(item.path)||!["preview","approved","preview-tool","approved-tool","published-tool","curated-index","hold","retire"].includes(item.status))throw Error("Invalid manifest entry");
@@ -19,8 +30,7 @@ for(const item of manifest.entries){
    const out=path.join(dist,item.path,file.path);
    const stat=await fs.lstat(src);
    if(!stat.isFile()||stat.isSymbolicLink())throw Error("Unsafe legacy tool asset: "+file.path);
-   const bytes=await fs.readFile(src);
-   if(gitSha(bytes)!==file.gitBlobSha)throw Error("Changed legacy tool file: "+file.path);
+   const bytes=await readPinned(src,file.gitBlobSha,item.path+file.path);
    await fs.mkdir(path.dirname(out),{recursive:true});
    await fs.writeFile(out,bytes,{flag:"wx"});
    staged++;
@@ -31,15 +41,7 @@ for(const item of manifest.entries){
  if(!["document","binary"].includes(item.kind)||!(/^[a-f0-9]{40}$/.test(item.gitBlobSha||"")))throw Error("Unpinned preview file: "+item.path);
  const input=path.join(sourceRoot,item.path),output=path.join(dist,item.path),stat=await fs.lstat(input);
  if(!stat.isFile()||stat.isSymbolicLink())throw Error("Unsafe source: "+item.path);
- let contents=await fs.readFile(input);
- if(gitSha(contents)!==item.gitBlobSha){
-  // Windows checkouts may convert committed LF newlines to CRLF.
-  // Only accept a byte-exact match after reversing that conversion for HTML.
-  if(!item.path.endsWith(".html"))throw Error("Changed legacy file, review before updating manifest: "+item.path);
-  const normalized=Buffer.from(contents.toString("utf8").replace(/\r\n/g,"\n"),"utf8");
-  if(gitSha(normalized)!==item.gitBlobSha)throw Error("Changed legacy file, review before updating manifest: "+item.path);
-  contents=normalized;
- }
+ const contents=await readPinned(input,item.gitBlobSha,item.path);
  await fs.mkdir(path.dirname(output),{recursive:true});
  await fs.writeFile(output,contents,{flag:"wx"});
  staged++;
