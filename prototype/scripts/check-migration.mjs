@@ -41,6 +41,8 @@ for(const entry of manifest.entries.filter(x=>x.status!=="preview"&&x.status!=="
  }
  if(entry.status==="preview-tool"||entry.status==="approved-tool"){
   if(entry.path!=="piefirma/"||entry.files?.length!==10)throw Error("Unexpected legacy tool");
+  if(!fs.existsSync(target)||!fs.statSync(target).isDirectory())
+   throw Error("Missing staged tool "+entry.path+"; complete npm run build before running npm run check");
   const actual=[];
   const walk=(dir,pre="")=>{
    for(const x of fs.readdirSync(dir,{withFileTypes:true})){
