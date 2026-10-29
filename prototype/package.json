@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "eleventy --serve",
-    "build": "node scripts/sync-repositories.mjs && eleventy && node scripts/stage-legacy.mjs && node scripts/stage-approved-tools.mjs && node scripts/stage-approved-media.mjs",
+    "build": "node scripts/clean-dist.mjs && node scripts/sync-repositories.mjs && eleventy && node scripts/stage-legacy.mjs && node scripts/stage-approved-tools.mjs && node scripts/stage-approved-media.mjs",
     "check": "node scripts/check-dist.mjs && node scripts/check-theme.mjs && node scripts/check-migration.mjs && node scripts/check-calculator.mjs && node scripts/audit-links.mjs --strict && node scripts/check-translations.mjs && npm run test:contract && npm run test:integration && npm run audit:media && node scripts/generate-translation-review.mjs --check && npm run test:release-gates && npm run test:crossword",
     "translations": "node scripts/check-translations.mjs",
     "check:publish": "node scripts/check-dist.mjs && node scripts/check-theme.mjs && node scripts/audit-links.mjs --strict && node scripts/check-migration.mjs --strict && node scripts/check-calculator.mjs --strict && node scripts/check-translations.mjs --strict && npm run test:contract && npm run test:integration && node scripts/check-media-review.mjs --strict && node scripts/generate-translation-review.mjs --check && npm run test:crossword",
