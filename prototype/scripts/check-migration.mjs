@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import {createHash} from "node:crypto";
 import manifest from "../src/data/migration-manifest.json" with {type:"json"};
+import mediaManifest from "../src/data/media-review.json" with {type:"json"};
 const dist=path.resolve("dist");
 const gitSha=data=>createHash("sha1").update(Buffer.from("blob "+data.length+"\0")).update(data).digest("hex");
 const staged=manifest.entries.filter(x=>x.status==="preview"||x.status==="approved");
@@ -16,8 +17,23 @@ for(const entry of manifest.entries.filter(x=>x.status!=="preview"&&x.status!=="
  if(entry.status==="curated-index"){
   if(entry.path!=="revista/"||!fs.existsSync(target)||!fs.statSync(target).isDirectory())
     throw Error("Missing curated historical archive");
-  const contents=fs.readdirSync(target);
-  if(contents.length!==1||contents[0]!=="index.html")throw Error("Unexpected historical media in curated index");
+  // The historical landing page remains curated; only individually approved
+  // media from the separate review manifest may coexist under /revista/.
+  const expected=new Set(["index.html",...mediaManifest.entries
+   .filter(e=>e.status==="approved"&&e.ownerDecision==="preserve-full"&&e.path.startsWith("revista/"))
+   .map(e=>e.path.slice("revista/".length))]);
+  const actual=[];
+  const walkRevista=(dir,prefix="")=>{
+   for(const item of fs.readdirSync(dir,{withFileTypes:true})){
+    const rel=prefix+item.name,loc=path.join(dir,item.name);
+    if(item.isDirectory())walkRevista(loc,rel+"/");
+    else if(item.isFile())actual.push(rel);
+    else throw Error("Unexpected non-file in curated archive: "+rel);
+   }
+  };
+  walkRevista(target);
+  if(JSON.stringify(actual.sort())!==JSON.stringify([...expected].sort()))
+   throw Error("Curated archive output differs from its approved-media allowlist");
   const document=fs.readFileSync(path.join(target,"index.html"),"utf8");
   if(!document.includes('data-curated-archive="revista-v1"')||/<script\b|<img\b|<video\b|<audio\b/i.test(document))
     throw Error("Unreviewed active or multimedia content in curated archive");
