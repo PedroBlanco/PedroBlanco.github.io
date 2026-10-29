@@ -199,3 +199,19 @@ Se puede limitar a un recurso mediante `--path revista/img/Italica_246.jpg`. Sol
 Comprueba tamaño y SHA Git de origen; en PNG/JPEG detecta dimensiones y existencia de EXIF, XMP, comentarios, perfiles ICC y otros bloques; en ODS revisa ZIP/manifest, hojas ocultas, fórmulas, vínculos externos, indicios de macros, objetos, cifrado y patrones de datos personales. El detector de patrones es parcial y **no descarta información incrustada ni sustituye revisión visual o autorización de derechos**.
 
 **Evidencia hasta ahora:** ocho pruebas sintéticas superadas localmente fuera de GitHub Actions. La auditoría de los ocho binarios **reales todavía no se ha ejecutado**, porque los contenidos binarios no estaban disponibles en esta sesión. No marcar `approved`, `privacy=cleared` ni `technical=passed` hasta obtener evidencias sobre originales y revisar licencias, imágenes y privacidad.
+
+## Primera inspección real de imágenes y ODS — 29/10/2026
+
+Esta revisión complementa la auditoría sintética anterior: se accedió a los **bytes originales de cuatro imágenes y dos archivos ODS** mediante GitHub Contents en Base64. Los encabezados PNG/JPEG se examinaron en el entorno de análisis; para ODS se abrió el ZIP y se descomprimieron `content.xml`, `meta.xml` y `styles.xml` sin publicar contenido de celdas, metadatos personales ni fórmulas textuales. No se ha ejecutado todavía el script Python `--all` directamente sobre una copia completa del repositorio.
+
+| Archivo | Indicadores técnicos objetivos | Revisión aún necesaria |
+|---|---|---|
+| `revista/img/Preparativos.png` | PNG 1226×815; sin bloques EXIF, texto o ICC reconocidos; aparece parcialmente una persona sosteniendo una mariposa | Origen, autoría, licencia y posibles personas/privacidad |
+| `revista/img/Restout_-_Morpheus.jpg` | JPEG 640×480; no se hallan bloques EXIF, APP1, APP2, APP13 ni comentarios | Derechos de la obra pictórica y de su reproducción digital concreta |
+| `revista/logo_limpio_redondo_64px.png` | PNG 64×64; bloques de texto y perfil ICC presentes | Revisar valores reales de metadatos y autorización del logotipo |
+| `revista/secciones/Actualidad.png` | PNG 103×22; bloques de texto y perfil ICC presentes | Revisar metadatos y licencia del elemento gráfico |
+| `revista/Numero14/Revista_IAAP_Caso_practico_12_Turnos_de_trabajo.ods` | ODS: 17 elementos ZIP, 2 hojas, 0 ocultas por atributo, 2617 atributos de fórmula, 0 referencias externas xlink:href observadas, 0 rutas de macro u objetos/imágenes; meta.xml presente | Revisar las hojas y fórmulas, estilos de ocultación, contenido, vínculos no representados por xlink, licencia y datos personales |
+| `revista/Numero14/Revista_IAAP_Casos_practicos_9y11_Funcion_SUMAPRODUCTO.ods` | ODS: 17 elementos ZIP, 2 hojas, 0 ocultas por atributo, 27 atributos de fórmula, 0 referencias externas xlink:href observadas, 0 rutas de macro u objetos/imágenes; meta.xml presente | Igual: revisión de datos, fórmulas, estilos de ocultación, derechos y privacidad |
+| `revista/img/Italica_246.jpg` / `revista/img/Italica_448.jpg` | Tamaño y SHA registrados coinciden con el árbol completo de Git de `master`; la API Contents no devolvió bytes de esos archivos mayores de 1 MiB | **Inspección visual y metadatos íntegramente pendientes** |
+
+En el XML examinado de los dos ODS no se detectaron patrones textuales corrientes de correo electrónico, DNI o IBAN españoles; esto **no excluye** datos personales, texto compartido en otros elementos, documentos ocultos ni información embebida. La ausencia de un bloque EXIF tampoco certifica ausencia de privacidad o copyright. El auditor Python con **8 pruebas sintéticas** se volvió a ejecutar fuera de Actions y superó todas las pruebas. La política de salida se mantiene: **15 `hold`, 7 referencias sin archivo, 1 portada original retirada; 0 `approved`**.

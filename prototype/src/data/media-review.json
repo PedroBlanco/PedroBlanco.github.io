@@ -284,9 +284,11 @@
       "review": {
         "rights": "pending-confirmation",
         "privacy": "pending-image-people-and-metadata-review",
-        "technical": "git-master-tree-size-and-blob-sha-matched",
+        "technical": "git-master-tree-only-original-base64-unavailable-over-1mb",
         "historicalLabel": "Itálica 246",
-        "notes": "Original image requested for preservation, not yet approved for republishing. Check visual content, potentially recognizable persons, image provenance, licenses, credits and EXIF/metadata. No image pixels or metadata were examined during this batch."
+        "notes": "Original image requested for preservation, not yet approved for republishing. Check visual content, potentially recognizable persons, image provenance, licenses, credits and EXIF/metadata. No image pixels or metadata were examined during this batch.",
+        "inspectionLimitations": "Original binary not available via GitHub Contents API (empty Base64 content over size threshold). Visual image inspection, EXIF and licence remain pending.",
+        "inspectedAt": "2026-10-29"
       }
     },
     {
@@ -302,9 +304,11 @@
       "review": {
         "rights": "pending-confirmation",
         "privacy": "pending-image-people-and-metadata-review",
-        "technical": "git-master-tree-size-and-blob-sha-matched",
+        "technical": "git-master-tree-only-original-base64-unavailable-over-1mb",
         "historicalLabel": "Itálica 448",
-        "notes": "Original image requested for preservation, not yet approved for republishing. Check visual content, potentially recognizable persons, image provenance, licenses, credits and EXIF/metadata. No image pixels or metadata were examined during this batch."
+        "notes": "Original image requested for preservation, not yet approved for republishing. Check visual content, potentially recognizable persons, image provenance, licenses, credits and EXIF/metadata. No image pixels or metadata were examined during this batch.",
+        "inspectionLimitations": "Original binary not available via GitHub Contents API (empty Base64 content over size threshold). Visual image inspection, EXIF and licence remain pending.",
+        "inspectedAt": "2026-10-29"
       }
     },
     {
@@ -320,9 +324,22 @@
       "review": {
         "rights": "pending-confirmation",
         "privacy": "pending-image-people-and-metadata-review",
-        "technical": "git-master-tree-size-and-blob-sha-matched",
+        "technical": "github-base64-png-structure-and-visual-preflight",
         "historicalLabel": "Preparativos",
-        "notes": "Original image requested for preservation, not yet approved for republishing. Check visual content, potentially recognizable persons, image provenance, licenses, credits and EXIF/metadata. No image pixels or metadata were examined during this batch."
+        "notes": "Original image requested for preservation, not yet approved for republishing. Check visual content, potentially recognizable persons, image provenance, licenses, credits and EXIF/metadata. No image pixels or metadata were examined during this batch.",
+        "technicalFindings": {
+          "format": "PNG",
+          "width": 1226,
+          "height": 815,
+          "hasExifChunk": false,
+          "hasTextChunks": false,
+          "hasIccChunk": false,
+          "animated": false
+        },
+        "preliminaryVisualOrContentObservation": "Image shows a partly framed person's hands/torso holding a butterfly; no identity assessment. Check provenance, rights, and any applicable privacy considerations.",
+        "inspectedAt": "2026-10-29",
+        "inspectionMethod": "Read original source bytes from GitHub connector as Base64; JS header/ZIP inspection in isolated analysis tool; no originals modified.",
+        "inspectionLimitations": "No publication permission, no full personal-data clearance, no full workbook formula/external-data validation; do not set approved."
       }
     },
     {
@@ -338,9 +355,23 @@
       "review": {
         "rights": "pending-confirmation",
         "privacy": "pending-image-people-and-metadata-review",
-        "technical": "git-master-tree-size-and-blob-sha-matched",
+        "technical": "github-base64-jpeg-structure-and-visual-preflight",
         "historicalLabel": "Restout — Morpheus",
-        "notes": "Original image requested for preservation, not yet approved for republishing. Check visual content, potentially recognizable persons, image provenance, licenses, credits and EXIF/metadata. No image pixels or metadata were examined during this batch."
+        "notes": "Original image requested for preservation, not yet approved for republishing. Check visual content, potentially recognizable persons, image provenance, licenses, credits and EXIF/metadata. No image pixels or metadata were examined during this batch.",
+        "technicalFindings": {
+          "format": "JPEG",
+          "width": 640,
+          "height": 480,
+          "hasExif": false,
+          "otherApp1": false,
+          "app2OrICC": false,
+          "app13": false,
+          "hasComment": false
+        },
+        "preliminaryVisualOrContentObservation": "Reproduction of a painting. Copyright/status of both artwork and this particular digital reproduction must be verified; the filename alone does not establish license.",
+        "inspectedAt": "2026-10-29",
+        "inspectionMethod": "Read original source bytes from GitHub connector as Base64; JS header/ZIP inspection in isolated analysis tool; no originals modified.",
+        "inspectionLimitations": "No publication permission, no full personal-data clearance, no full workbook formula/external-data validation; do not set approved."
       }
     },
     {
@@ -364,9 +395,22 @@
       "review": {
         "rights": "pending-confirmation",
         "privacy": "pending-image-people-and-metadata-review",
-        "technical": "git-master-tree-size-and-blob-sha-matched",
+        "technical": "github-base64-png-structure-and-visual-preflight",
         "historicalLabel": "Logotipo circular de Revista EnRed@2.0",
-        "notes": "Original image requested for preservation, not yet approved for republishing. Check visual content, potentially recognizable persons, image provenance, licenses, credits and EXIF/metadata. No image pixels or metadata were examined during this batch."
+        "notes": "Original image requested for preservation, not yet approved for republishing. Check visual content, potentially recognizable persons, image provenance, licenses, credits and EXIF/metadata. No image pixels or metadata were examined during this batch.",
+        "technicalFindings": {
+          "format": "PNG",
+          "width": 64,
+          "height": 64,
+          "hasExifChunk": false,
+          "hasTextChunks": true,
+          "hasIccChunk": true,
+          "animated": false
+        },
+        "preliminaryVisualOrContentObservation": "Small round puzzle-shaped logo. Confirm origin and authorization. Text/ICC chunks exist and need value-level privacy review before release.",
+        "inspectedAt": "2026-10-29",
+        "inspectionMethod": "Read original source bytes from GitHub connector as Base64; JS header/ZIP inspection in isolated analysis tool; no originals modified.",
+        "inspectionLimitations": "No publication permission, no full personal-data clearance, no full workbook formula/external-data validation; do not set approved."
       }
     },
     {
@@ -382,9 +426,29 @@
       "review": {
         "rights": "pending-confirmation",
         "privacy": "pending-full-workbook-hidden-data-and-metadata-review",
-        "technical": "git-master-tree-size-and-blob-sha-matched",
+        "technical": "github-base64-zip-xml-structural-preflight",
         "historicalLabel": "Caso práctico 12: turnos de trabajo",
-        "notes": "Original Calc file requested for preservation, not yet approved for republishing. Inspect visible/hidden sheets, formula content, embedded objects, external links, document properties, copyright and any personal data. No ODS internal contents were examined during this batch."
+        "notes": "Original Calc file requested for preservation, not yet approved for republishing. Inspect visible/hidden sheets, formula content, embedded objects, external links, document properties, copyright and any personal data. No ODS internal contents were examined during this batch.",
+        "technicalFindings": {
+          "format": "ODS",
+          "zipMembers": 17,
+          "unpackedBytes": 681112,
+          "sheetCount": 2,
+          "hiddenTableAttributesFound": 0,
+          "formulaAttributes": 2617,
+          "externalXlinkHrefFound": 0,
+          "hasMetaXml": true,
+          "macroPathPartsFound": 0,
+          "imageOrObjectPartsFound": 0,
+          "zipEncryptionFlagFound": false,
+          "plainXmlEmailPatternFound": false,
+          "plainXmlDniPatternFound": false,
+          "plainXmlSpanishIbanPatternFound": false
+        },
+        "preliminaryVisualOrContentObservation": "Structure inspected via ZIP decompression of content.xml, styles.xml and meta.xml; not a review of actual sheet values, interpreted formulas or rights.",
+        "inspectedAt": "2026-10-29",
+        "inspectionMethod": "Read original source bytes from GitHub connector as Base64; JS header/ZIP inspection in isolated analysis tool; no originals modified.",
+        "inspectionLimitations": "No publication permission, no full personal-data clearance, no full workbook formula/external-data validation; do not set approved."
       }
     },
     {
@@ -400,9 +464,29 @@
       "review": {
         "rights": "pending-confirmation",
         "privacy": "pending-full-workbook-hidden-data-and-metadata-review",
-        "technical": "git-master-tree-size-and-blob-sha-matched",
+        "technical": "github-base64-zip-xml-structural-preflight",
         "historicalLabel": "Casos prácticos 9 y 11: SUMAPRODUCTO",
-        "notes": "Original Calc file requested for preservation, not yet approved for republishing. Inspect visible/hidden sheets, formula content, embedded objects, external links, document properties, copyright and any personal data. No ODS internal contents were examined during this batch."
+        "notes": "Original Calc file requested for preservation, not yet approved for republishing. Inspect visible/hidden sheets, formula content, embedded objects, external links, document properties, copyright and any personal data. No ODS internal contents were examined during this batch.",
+        "technicalFindings": {
+          "format": "ODS",
+          "zipMembers": 17,
+          "unpackedBytes": 125493,
+          "sheetCount": 2,
+          "hiddenTableAttributesFound": 0,
+          "formulaAttributes": 27,
+          "externalXlinkHrefFound": 0,
+          "hasMetaXml": true,
+          "macroPathPartsFound": 0,
+          "imageOrObjectPartsFound": 0,
+          "zipEncryptionFlagFound": false,
+          "plainXmlEmailPatternFound": false,
+          "plainXmlDniPatternFound": false,
+          "plainXmlSpanishIbanPatternFound": false
+        },
+        "preliminaryVisualOrContentObservation": "Structure inspected via ZIP decompression of content.xml, styles.xml and meta.xml; not a review of actual sheet values, interpreted formulas or rights.",
+        "inspectedAt": "2026-10-29",
+        "inspectionMethod": "Read original source bytes from GitHub connector as Base64; JS header/ZIP inspection in isolated analysis tool; no originals modified.",
+        "inspectionLimitations": "No publication permission, no full personal-data clearance, no full workbook formula/external-data validation; do not set approved."
       }
     },
     {
@@ -418,9 +502,22 @@
       "review": {
         "rights": "pending-confirmation",
         "privacy": "pending-image-people-and-metadata-review",
-        "technical": "git-master-tree-size-and-blob-sha-matched",
+        "technical": "github-base64-png-structure-and-visual-preflight",
         "historicalLabel": "Imagen de sección: actualidad",
-        "notes": "Original image requested for preservation, not yet approved for republishing. Check visual content, potentially recognizable persons, image provenance, licenses, credits and EXIF/metadata. No image pixels or metadata were examined during this batch."
+        "notes": "Original image requested for preservation, not yet approved for republishing. Check visual content, potentially recognizable persons, image provenance, licenses, credits and EXIF/metadata. No image pixels or metadata were examined during this batch.",
+        "technicalFindings": {
+          "format": "PNG",
+          "width": 103,
+          "height": 22,
+          "hasExifChunk": false,
+          "hasTextChunks": true,
+          "hasIccChunk": true,
+          "animated": false
+        },
+        "preliminaryVisualOrContentObservation": "Small 'Actualidad' label with bell icon. Confirm asset provenance and rights; text/ICC chunks require review before release.",
+        "inspectedAt": "2026-10-29",
+        "inspectionMethod": "Read original source bytes from GitHub connector as Base64; JS header/ZIP inspection in isolated analysis tool; no originals modified.",
+        "inspectionLimitations": "No publication permission, no full personal-data clearance, no full workbook formula/external-data validation; do not set approved."
       }
     },
     {
