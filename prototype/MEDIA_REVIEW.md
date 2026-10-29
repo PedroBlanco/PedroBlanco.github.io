@@ -226,3 +226,12 @@ Se autoriza exclusivamente **auditoría automatizada, sin inspección humana de 
 - **Publicación:** no cambiar ningún `hold` a `approved`; mantener los siete `reference-only` en `retire`. No copiar medios a Eleventy, modificar `master`, reescribir historia Git ni fusionar la PR #4.
 - **Control estático del inventario en esta sesión:** 23 entradas, 15 `hold`, 8 `retire`, cero `approved`; todas las entradas de conservación y referencia cumplen los estados esperados. **Este control no equivale a ejecutar los auditores sobre los archivos binarios originales.**
 - **Limitación de ejecución:** el entorno local disponible en esta sesión no puede resolver github.com para clonar el repositorio; las inspecciones sobre binarios originales, compilación Eleventy y pruebas automatizadas que los requieren permanecen pendientes. No se simula una auditoría superada.
+
+
+## Verificación estática cruzada posterior a la autorización (29/10/2026)
+
+- [x] Comprobados por lectura de los ficheros de la rama, sin Actions: **23 entradas**, rutas únicas y formatos de SHA Git y tamaños válidos; **15 `hold`**, **7 referencias `retire`** y portada histórica `retire`; **0 `approved`**.
+- [x] Las **siete referencias** tienen etiqueta documental en la portada curada; ninguna contiene su nombre de archivo original como ruta visible en esa portada.
+- [x] Se ha comprobado por inspección estática que el script `check-media-review.mjs` **contiene** validaciones de hash de origen, exclusión del resultado, referencias y bloqueo `--strict`. No se afirma que se hayan ejecutado.
+- [ ] **Pendiente:** ejecución de auditorías sobre binarios originales, compilación Eleventy y pruebas de salida `dist/` en entorno con repositorio completo. El acceso por conector permite leer los fuentes, pero no sustituye un checkout local. No lanzar Actions únicamente para verificar cambios de documentación.
+- **Privacidad:** se registran solo recuentos y categorías de comprobación, sin valores de metadatos, celdas o contenido personal. Las autorizaciones editoriales y estados de publicación permanecen inalterados.
