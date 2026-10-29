@@ -11,9 +11,16 @@ for(const e of manifest.entries){
  if(!e.path||e.path.startsWith("/")||e.path.includes("\\")||e.path.split("/").some(s=>!s||s==="."||s===".."))throw Error("Invalid path");
  const src=path.join(root,e.path),dst=path.join(out,e.path);
  const stat=await fs.lstat(src);
- if(!stat.isFile()||stat.isSymbolicLink()||stat.size!==e.bytes)throw Error("Approved source invalid: "+e.path);
- const bytes=await fs.readFile(src);
- if(sha(bytes)!==e.gitBlobSha)throw Error("Approved source mismatch: "+e.path);
+ if(!stat.isFile()||stat.isSymbolicLink())throw Error("Approved source invalid: "+e.path);
+ let bytes=await fs.readFile(src);
+ if(bytes.length!==e.bytes||sha(bytes)!==e.gitBlobSha){
+  if(!/\.html$/i.test(e.path))throw Error("Approved source mismatch: "+e.path);
+  // Revert CRLF checkout conversion only if exact original Git blob is recovered.
+  const normalized=Buffer.from(bytes.toString("utf8").replace(/\r\n/g,"\n"),"utf8");
+  if(normalized.length!==e.bytes||sha(normalized)!==e.gitBlobSha)
+   throw Error("Approved source mismatch: "+e.path);
+  bytes=normalized;
+ }
  await fs.mkdir(path.dirname(dst),{recursive:true});
  await fs.writeFile(dst,bytes,{flag:"wx"});
  copied++;
