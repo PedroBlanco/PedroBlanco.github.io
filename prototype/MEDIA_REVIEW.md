@@ -215,3 +215,14 @@ Esta revisión complementa la auditoría sintética anterior: se accedió a los 
 | `revista/img/Italica_246.jpg` / `revista/img/Italica_448.jpg` | Tamaño y SHA registrados coinciden con el árbol completo de Git de `master`; la API Contents no devolvió bytes de esos archivos mayores de 1 MiB | **Inspección visual y metadatos íntegramente pendientes** |
 
 En el XML examinado de los dos ODS no se detectaron patrones textuales corrientes de correo electrónico, DNI o IBAN españoles; esto **no excluye** datos personales, texto compartido en otros elementos, documentos ocultos ni información embebida. La ausencia de un bloque EXIF tampoco certifica ausencia de privacidad o copyright. El auditor Python con **8 pruebas sintéticas** se volvió a ejecutar fuera de Actions y superó todas las pruebas. La política de salida se mantiene: **15 `hold`, 7 referencias sin archivo, 1 portada original retirada; 0 `approved`**.
+
+
+## Autorización conjunta de auditorías técnicas (29/10/2026)
+
+Se autoriza exclusivamente **auditoría automatizada, sin inspección humana de contenido** de seis grupos: 6 images, 2 ODS, 4 PDF/PPTX, 1 MP4, 2 HTML, 7 reference-only. Incluye análisis estático estructural, comprobación de integridad, metadatos en forma agregada y pruebas no interactivas de HTML, así como comprobación de exclusión de archivos con referencia histórica. **No se autoriza revisar visualmente imágenes, escuchar audios/vídeos ni leer manualmente datos de documentos y hojas.**
+
+- **Registro:** exclusivamente indicadores agregados, sin celdas, metadatos personales, voces, fotogramas o contenido sensible en logs; resultados agrupados en inventario, informe e issue #10.
+- **Ejecución:** priorizar comprobaciones locales, sin WSL; usar GitHub Actions solo cuando una prueba no sea viable localmente y esté justificado su coste. Ninguna ejecución de Actions se inicia por esta autorización.
+- **Publicación:** no cambiar ningún `hold` a `approved`; mantener los siete `reference-only` en `retire`. No copiar medios a Eleventy, modificar `master`, reescribir historia Git ni fusionar la PR #4.
+- **Control estático del inventario en esta sesión:** 23 entradas, 15 `hold`, 8 `retire`, cero `approved`; todas las entradas de conservación y referencia cumplen los estados esperados. **Este control no equivale a ejecutar los auditores sobre los archivos binarios originales.**
+- **Limitación de ejecución:** el entorno local disponible en esta sesión no puede resolver github.com para clonar el repositorio; las inspecciones sobre binarios originales, compilación Eleventy y pruebas automatizadas que los requieren permanecen pendientes. No se simula una auditoría superada.
