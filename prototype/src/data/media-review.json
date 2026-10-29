@@ -592,5 +592,25 @@
         "notes": "Editorial reference only. Original source remains in master and Git history; no audio/video playback, analysis, visual review, rights check or participant consent verification was performed. Filename is not evidence of authorship, length or content."
       }
     }
-  ]
+  ],
+  "technicalAuditPolicy": {
+    "recordedAt": "2026-10-29",
+    "scope": "all 22 editorial files; six audit groups",
+    "mode": "automated-only",
+    "manualContentInspection": "not-authorized-in-this-round",
+    "logging": "aggregate-only-no-personal-values",
+    "execution": "prefer-local; GitHub Actions only if local infeasible",
+    "recording": "grouped-in-inventory-report-issue",
+    "publicationApproval": "none",
+    "distribution": "no-change",
+    "sourceBranch": "prototype/eleventy-bilingual",
+    "groups": [
+      "6 images",
+      "2 ODS",
+      "4 PDF/PPTX",
+      "1 MP4",
+      "2 HTML",
+      "7 reference-only"
+    ]
+  }
 }
