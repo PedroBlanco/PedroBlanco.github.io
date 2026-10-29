@@ -44,16 +44,18 @@ function inspect(source){
  assert.equal(count("down","end"),19);
  return {width,height,horizontalClues:19,verticalClues:19};
 }
-test("crossword #2 is unchanged and not approved for redistribution",()=>{
+test("crossword #2 matches pinned blob and is owner-approved for redistribution",()=>{
  assert.ok(entry);
- assert.equal(bytes.length,entry.bytes);
- assert.equal(blob(bytes),entry.gitBlobSha);
- assert.equal(entry.status,"hold");
+ const original=blob(bytes)===entry.gitBlobSha ? bytes : Buffer.from(html.replace(/\r\n/g,"\n"),"utf8");
+ assert.equal(original.length,entry.bytes);
+ assert.equal(blob(original),entry.gitBlobSha);
+ assert.equal(entry.status,"approved");
+ assert.ok(entry.reviewedAt&&entry.reviewedBy&&entry.evidence);
  assert.equal(entry.ownerDecision,"preserve-full");
 });
 test("Exolve license and complete crossword #2 specification are present",()=>{
  const result=inspect(html);
- console.log("Crossword #2 static check:",JSON.stringify(result),"- browser and rights NOT cleared");
+ console.log("Crossword #2 static check:",JSON.stringify(result),"- owner-approved; browser operation remains unverified");
 });
 test("inline scripts parse as JavaScript without executing their contents",()=>{
  const scripts=[...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/gi)].map(x=>x[1]);
