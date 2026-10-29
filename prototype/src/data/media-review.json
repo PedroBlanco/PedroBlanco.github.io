@@ -611,6 +611,22 @@
       "1 MP4",
       "2 HTML",
       "7 reference-only"
-    ]
+    ],
+    "staticCrossFileVerification": {
+      "date": "2026-10-29",
+      "method": "read-only-github-connector-cross-file-check",
+      "itemsChecked": 23,
+      "referenceOnlyChecked": 7,
+      "holdChecked": 15,
+      "issuesDetected": 0,
+      "checks": [
+        "unique paths and valid blob-id formats",
+        "status consistent with all owner decisions",
+        "historical labels in curated archive",
+        "no original reference-only filename linked or included in curated archive",
+        "source contains integrity/export/strict publish-gate checks"
+      ],
+      "limitations": "Not a build/test execution; did not read original media bytes, recompute Git hashes, run Python scripts or validate dist output. No publication rights inferred."
+    }
   }
 }
