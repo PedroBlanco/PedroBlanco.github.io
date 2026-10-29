@@ -5,6 +5,7 @@ import media from "../src/data/media-review.json" with {type:"json"};
 import migration from "../src/data/migration-manifest.json" with {type:"json"};
 import content from "../src/data/content.json" with {type:"json"};
 import approvals from "../src/data/translation-review.json" with {type:"json"};
+import {normalizeReviewLineEndings,sameReviewSnapshot} from "./review-line-endings.mjs";
 
 function verify(script,blocked,message){
   const run=spawnSync(process.execPath,["scripts/"+script,"--strict"],{
@@ -30,4 +31,18 @@ test("unreviewed bilingual content cannot pass strict publication gate",()=>{
  const count=1+content.items.length;
  const missing=Object.keys(approvals.approved).length<count;
  verify("check-translations.mjs",missing,/Publishing blocked until translation review/);
+});
+
+test("translation review snapshot is invariant to Windows CRLF checkout",()=>{
+ const lf="# Revisión ES/EN\n\n| Español | Inglés |\n| Hola | Hello |\n";
+ const crlf=lf.replace(/\n/g,"\r\n");
+ assert.equal(sameReviewSnapshot(crlf,lf),true);
+ assert.equal(sameReviewSnapshot(lf,crlf),true);
+ assert.equal(normalizeReviewLineEndings(crlf),lf);
+});
+test("actual translation changes still invalidate review snapshot",()=>{
+ const source="Texto español\nEnglish text\n";
+ assert.equal(sameReviewSnapshot(source,source.replace("English","Changed")),false);
+ assert.equal(sameReviewSnapshot(source,source.replace("español","espanol")),false);
+ assert.equal(sameReviewSnapshot(source,source+"\n"),false);
 });
