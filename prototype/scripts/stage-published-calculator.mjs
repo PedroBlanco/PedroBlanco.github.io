@@ -1,10 +1,10 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import {createHash} from "node:crypto";
+import {verifyPinnedCheckout} from "./verify-pinned-checkout.mjs";
 import snapshot from "../src/data/published-calculator.json" with {type:"json"};
 
 const src=path.resolve("../calculadora-tiempo"),dest=path.resolve("dist/calculadora-tiempo");
-const blob=bytes=>createHash("sha1").update(Buffer.from("blob "+bytes.length+"\0")).update(bytes).digest("hex");
+
 
 export async function stagePublishedCalculator(){
  if(snapshot.path!=="/calculadora-tiempo/"||snapshot.files.length!==16)throw Error("Published calculator inventory changed");
@@ -27,9 +27,9 @@ export async function stagePublishedCalculator(){
   if(!entry.path||entry.path.startsWith("/")||entry.path.includes("\\")||entry.path.split("/").some(s=>!s||s==="."||s==="..")||!/^[a-f0-9]{40}$/.test(entry.gitBlobSha))
    throw Error("Invalid published calculator manifest");
   const name=path.join(src,entry.path),stat=await fs.lstat(name);
-  if(!stat.isFile()||stat.isSymbolicLink()||stat.size!==entry.bytes)throw Error("Calculator runtime changed: "+entry.path);
-  const bytes=await fs.readFile(name);
-  if(blob(bytes)!==entry.gitBlobSha)throw Error("Calculator runtime hash mismatch: "+entry.path);
+  if(!stat.isFile()||stat.isSymbolicLink())throw Error("Unsafe calculator runtime: "+entry.path);
+  const raw=await fs.readFile(name);
+  const bytes=verifyPinnedCheckout(raw,{path:entry.path,expectedBytes:entry.bytes,expectedSha:entry.gitBlobSha});
   contents.push({path:entry.path,bytes});
  }
  try{await fs.mkdir(dest);}catch(e){throw Error("Refusing to overwrite calculator route: "+e.message);}
