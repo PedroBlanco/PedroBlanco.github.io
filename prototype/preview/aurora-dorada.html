@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Vista previa · Aurora dorada · Eleventy</title>
+<link rel="stylesheet" href="../src/styles/site.css">
+<style>
+.preview-label{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0}
+.preview-swatches{display:flex;gap:.5rem;flex-wrap:wrap;margin-block:1rem}
+.preview-swatch{width:64px;height:44px;border:1px solid var(--border);border-radius:.35rem}
+.preview-swatch span{position:absolute;clip:rect(0,0,0,0)}
+</style>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<header class="site-header"><div class="wrap header-inner">
+ <a class="brand" href="#contenido">Proyectos <span>&amp;</span> conocimiento</a>
+ <nav class="desktop-nav" aria-label="Navegación de muestra">
+  <a href="#contenido" aria-current="page">Inicio</a>
+  <a href="#herramientas">Herramientas</a>
+  <a href="#archivo">Archivo</a>
+ </nav>
+ <div class="header-controls"><a class="lang" href="#archivo" lang="en" aria-label="Ejemplo de selector de idioma">EN</a></div>
+</div></header>
+<main id="contenido">
+ <section class="hero">
+  <div class="wrap">
+   <p class="eyebrow">Archivo contemporáneo · Aurora dorada</p>
+   <h1>Software, investigación y memoria</h1>
+   <p class="lede">Una muestra local de la nueva paleta: marfil, tinta azul, malva y acentos ámbar. Los colores cambian automáticamente según la preferencia del sistema.</p>
+   <div class="hero-actions"><a class="primary-link" href="#herramientas">Explorar herramientas</a></div>
+  </div>
+ </section>
+ <section class="section wrap" id="herramientas">
+  <p class="preview-label">Tarjetas, enlaces y etiquetas</p>
+  <h2>Selección de trabajos</h2>
+  <div class="cards">
+   <article class="card"><div class="chips"><span class="chip">Herramienta</span><span class="chip">Activo</span></div>
+    <h3><a href="#archivo">Calculadora de tiempo</a></h3><p>Una ficha de ejemplo para comprobar la lectura, el color de enlaces y los contrastes en tarjetas.</p>
+    <a href="#archivo">Ver ficha</a></article>
+   <article class="card"><div class="chips"><span class="chip">Proyecto</span></div>
+    <h3><a href="#archivo">Narrativa adaptativa</a></h3><p>Una demostración de la combinación de tipografía editorial, fondo marfil y acentos de amanecer.</p>
+    <a href="#archivo">Ver ficha</a></article>
+  </div>
+  <div class="actions"><a href="#archivo">Acción principal</a><a href="#archivo">Más información</a></div>
+ </section>
+ <section class="section wrap" id="archivo">
+  <p class="preview-label">Archivo documental</p>
+  <h2>Archivo histórico</h2>
+  <div class="archive-period">
+   <div class="archive-period-items">
+    <article class="archive-entry"><div class="chips"><span class="chip">Documento</span></div>
+     <h3><a href="#contenido">Revista EnRed@2.0</a></h3>
+     <p>Ejemplo de recurso documental histórico, con tipografía y contraste auténticos de la hoja CSS del proyecto.</p>
+     <a class="archive-entry-link" href="#contenido">Abrir ficha o recurso</a></article>
+   </div>
+  </div>
+ </section>
+</main>
+<footer class="site-footer"><div class="wrap">Vista previa local de Aurora dorada · Sin publicación en GitHub Pages</div></footer>
+</body>
+</html>
