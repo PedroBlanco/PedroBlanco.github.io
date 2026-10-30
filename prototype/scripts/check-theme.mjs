@@ -46,4 +46,39 @@ for(const [mode,label,foreground,background] of cases){
 }
 if(css.includes("@import")||/fonts\.googleapis\.com/.test(css))
  throw Error("External fonts are not intended");
+const legacyPages=[
+ ["../legacy-staged/CC.html","link"],
+ ["../legacy-staged/KM2024.html","link"],
+ ["../src/curated/revista/index.html","primary"]
+];
+for(const [file,linkToken] of legacyPages){
+ const html=fs.readFileSync(new URL(file,import.meta.url),"utf8");
+ const [day,night]=html.split("@media(prefers-color-scheme:dark)");
+ if(!night)throw Error("Missing automatic dark palette: "+file);
+ for(const [mode,source,target] of [["light",day,light],["dark",night,dark]]){
+  for(const token of ["bg","surface","ink","border","focus"]){
+   if(get(source,token)!==get(target,token))
+    throw Error(file+" "+mode+" "+token+" does not match site theme");
+  }
+  if(get(source,linkToken)!==get(target,"primary"))
+   throw Error(file+" "+mode+" link does not match site theme");
+  const result=ratio(get(source,linkToken),get(source,"bg"));
+  if(result<4.5)throw Error(file+" "+mode+" link contrast below WCAG AA");
+ }
+}
+for(const lang of ["es","en"]){
+ const path="../src/media/adaptation-loop-"+lang+".svg";
+ const svg=fs.readFileSync(new URL(path,import.meta.url),"utf8");
+ if(!svg.includes("@media (prefers-color-scheme: dark)"))
+  throw Error("Missing diagram dark palette: "+lang);
+ for(const token of ["bg","surface","ink","primary"]){
+  for(const mode of ["light","dark"]){
+   const color=get(sourceByMode[mode],token);
+   if(!svg.includes(color))throw Error("Missing diagram "+mode+" "+token+" color: "+lang);
+  }
+ }
+ for(const oldColor of ["#F7F0E6","#342D2A","#794654","#9D7029"])
+  if(svg.includes(oldColor))throw Error("Stale historic diagram palette: "+lang);
+}
+
 console.log("Bruma del Alba: "+cases.length+" light/dark text contrast checks >= 4.5:1; system dark mode present.");
