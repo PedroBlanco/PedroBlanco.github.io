@@ -26,7 +26,7 @@ La revisión incluye los **10 bloques editoriales**: interfaz del sitio y nueve 
 | `nav.projects` | Proyectos | Projects |
 | `nav.archive` | Archivo | Archive |
 | `nav.about` | Acerca de | About |
-| `more` | Ver ficha | View project |
+| `more` | Ver ficha | View details |
 | `try` | Abrir herramienta / sitio | Open tool / website |
 | `code` | Repositorio público | Public repository |
 | `catalog` | Otros repositorios públicos | Other public repositories |
@@ -46,7 +46,7 @@ La revisión incluye los **10 bloques editoriales**: interfaz del sitio y nueve 
 | `offline` | Repositorio público | Public repository |
 | `notFound` | Página no encontrada | Page not found |
 | `notFoundBody` | La página puede haberse trasladado o retirado. Puedes consultar el archivo y los proyectos disponibles. | This page may have moved or been retired. Browse the archive and available projects instead. |
-| `footer` | Sitio personal · Prototipo de renovación · No publicado | Personal site · Renewal prototype · Not published |
+| `footer` | Sitio personal · Proyectos, herramientas y archivo | Personal site · Projects, tools and archive |
 | `home.heroAction` | Explorar proyectos | Explore projects |
 | `home.exploreTitle` | Explora el sitio | Explore the site |
 | `home.exploreDescriptions.tools` | Aplicaciones y utilidades disponibles para usar. | Apps and useful software tools. |
@@ -73,7 +73,7 @@ La revisión incluye los **10 bloques editoriales**: interfaz del sitio y nueve 
 |---|---|---|
 | title | Calculadora de tiempo | Time calculator |
 | summary | Herramienta web para calcular periodos y méritos conforme al artículo 129 de la Ley 5/2023. | Web tool for calculating periods and service merits under Article 129 of Andalusian Law 5/2023. |
-| detail | Aplicación web progresiva con lógica de cómputo de periodos. La ficha documenta su objetivo; el cálculo se realiza en la aplicación independiente. | Progressive web application with period-calculation logic. This page describes the project; calculations run in the independent application. |
+| detail | Aplicación web progresiva con lógica de cómputo de periodos. La ficha documenta su objetivo; el cálculo se realiza en la aplicación independiente. | Progressive web app that calculates time periods. This page describes the project; calculations are performed in a separate application. |
 
 ## signature: Generador de firmas / Email signature generator
 
@@ -81,7 +81,7 @@ La revisión incluye los **10 bloques editoriales**: interfaz del sitio y nueve 
 |---|---|---|
 | title | Generador de firmas | Email signature generator |
 | summary | Herramienta para generar firmas HTML de correo electrónico corporativo. | Tool for generating corporate HTML email signatures. |
-| detail | Generador de firmas HTML con validación y escapado de los datos del formulario incorporados. Se mantiene la plantilla histórica hasta confirmar su identidad institucional y compatibilidad con clientes de correo. | HTML email signature generator with input validation and HTML escaping in place. The historical template remains pending branding and email-client compatibility checks. |
+| detail | Generador de firmas HTML con validación y escapado de los datos del formulario incorporados. Se mantiene la plantilla histórica hasta confirmar su identidad institucional y compatibilidad con clientes de correo. | HTML email signature generator with form input validation and HTML escaping. The historical template is retained; institutional branding and compatibility across email clients may still need separate checks. |
 
 ## pdf: PDF de fotos a imágenes / PDF photos to images
 
@@ -121,7 +121,7 @@ FOSS Python tool for **extracting individual photographs from scanned PDF docume
 
 ### How it works
 
-The tool renders PDF pages using **pypdfium2**, detects photographs with an adapted `autocrop` implementation, crops them and can automatically correct their rotation. It exports JPEG or PNG images.
+The tool renders PDF pages using **pypdfium2**, detects photographs with an adapted `autocrop` implementation, crops them and can automatically correct their skew (tilt). It exports JPEG or PNG images.
 
 ### Requirements and usage
 
