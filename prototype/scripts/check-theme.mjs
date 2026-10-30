@@ -26,6 +26,16 @@ for(const [mode,tokens] of Object.entries(expected)){
  for(const [name,value] of Object.entries(tokens))
   if(get(source,name)!==value)throw Error("Bruma del Alba "+mode+" token "+name+" differs from selected palette");
 }
+// Manual dark mode must have the same complete palette as OS-controlled dark.
+if(!css.includes(':root:not([data-theme="light"])'))
+ throw Error("System dark mode ignores manual light override");
+const manuallyDark=css.split(':root[data-theme="dark"] {')[1]?.split("}")[0];
+if(!manuallyDark)throw Error("No manually selectable dark mode");
+for(const key of ["bg","surface","ink","primary","accent","accent-text","border","muted","subtle","chip-bg","chip-ink","focus"])
+ if(get(manuallyDark,key)!==get(dark,key))
+  throw Error("Manual dark mode differs from system dark mode: "+key);
+if(!css.includes(':root[data-theme="dark"] .actions a:first-child'))
+ throw Error("Missing manual dark mode button contrast");
 const cases=[];
 for(const [mode,source] of Object.entries(sourceByMode)){
  const pair=(label,a,b)=>cases.push([mode,label,get(source,a),get(source,b)]);
