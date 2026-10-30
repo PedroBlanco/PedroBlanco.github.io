@@ -1,13 +1,13 @@
 # Diseño del sitio · Eleventy (11ty)
 
 Este documento registra las decisiones editoriales y visuales confirmadas para
-la nueva web personal. **El prototipo no se ha desplegado en GitHub Pages.**
+la nueva web personal. **El código Eleventy está integrado en `master`, pero el despliegue de la nueva web sigue pendiente.**
 
 ## Diseño acordado
 
 | Decisión | Estado | Acuerdo |
 | --- | --- | --- |
-| 22 | Provisional | «Archivo contemporáneo»: fondo `#F7F0E6`, texto `#342D2A`, principal `#794654`, acento `#9D7029`. Modo oscuro equivalente. |
+| 22 | Bruma del Alba (rama de diseño) | Se mantiene «Archivo contemporáneo» con azul bruma `#EDF3F7`, tinta azul `#202F46`, azul petróleo `#245E80`, coral `#C76B51` y variante oscura automática (`#18243A`, `#F4F6FA`, `#9EC5DD`, `#F0AF91`). Pendiente validar la nueva vista previa antes de publicar. |
 | 23 | Confirmado | Títulos serif (Georgia/Cambria), texto sans-serif del sistema, sin fuentes descargadas. |
 | 24 | Confirmado | Tarjetas medianas responsivas, títulos, categoría, estado, resumen breve y enlace. |
 | 25 | Confirmado | Imágenes solo cuando aporten información; texto alternativo, pie y revisión de derechos. |
@@ -39,10 +39,22 @@ la nueva web personal. **El prototipo no se ha desplegado en GitHub Pages.**
 
 ## Vista previa
 
-La PR de Eleventy ejecuta compilación y controles automáticos. El workflow
-incluye como artefacto descargable el directorio `prototype/dist`, sin desplegarlo.
-Para visualizar sus rutas absolutas correctamente, alojar localmente el directorio
-en la raíz de un servidor HTTP. Por ejemplo, tras ejecutar `npm run build`:
+El nuevo color puede revisarse sin modificar la web pública desde la rama
+`design/bruma-del-alba`. La muestra estática local
+`prototype/preview/bruma-del-alba.html` importa la **misma hoja CSS** que
+Eleventy, y se sirve desde la raíz de `prototype/`:
+
+```powershell
+# Desde prototype/
+py -3 -m http.server 8001
+```
+
+Abre `http://localhost:8001/preview/bruma-del-alba.html`. Usa la
+preferencia de color del sistema (o la simulación en DevTools).
+La muestra no se copia a `dist/` ni al sitio público.
+
+Para comprobar las páginas reales, genera `dist/` y sirve
+ese directorio desde la raíz del servidor HTTP:
 
 ```sh
 cd prototype/dist
@@ -56,7 +68,7 @@ la web emplea rutas absolutas desde `/`.
 
 ## Antes de publicar
 
-Revisión editorial de las traducciones, auditoría de privacidad e historial,
-conservación de documentos y las herramientas originales, revisión selectiva de
-las rutas históricas, validación visual real en navegadores y plan de reversión.
-No fusionar la PR de prototipo directamente en `master`.
+Las traducciones y la revisión editorial anteriores están aprobadas.
+Antes de desplegar falta revisar visualmente **Bruma del Alba** en claro/oscuro,
+verificar `npm run check:publish` y fusionar la rama de diseño. No publicar
+ni cambiar GitHub Pages durante esta revisión.
