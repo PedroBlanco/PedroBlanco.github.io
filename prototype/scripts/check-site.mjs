@@ -8,6 +8,14 @@ if(!fs.existsSync(dist)||!fs.statSync(dist).isDirectory())
  throw Error("Missing Eleventy dist/; run npm run build first");
 if(!Array.isArray(content.routes)||!Array.isArray(content.items))
  throw Error("Invalid content routing manifest");
+const themeScript=path.join(dist,"scripts","theme-toggle.js");
+if(!fs.existsSync(themeScript)||!fs.statSync(themeScript).isFile())
+ throw Error("Missing persistent color-mode controller in generated site");
+for(const language of ["es","en"])for(const mode of ["light","dark"]){
+ const variant=path.join(dist,"media","adaptation-loop-"+language+"-"+mode+".svg");
+ if(!fs.existsSync(variant)||!fs.statSync(variant).isFile())
+  throw Error("Missing manual theme diagram variant: "+language+"/"+mode);
+}
 const seen=new Set();
 const routeFiles=new Map();
 function safeRoute(route){
@@ -25,12 +33,21 @@ for(const route of content.routes){
  if(!fs.existsSync(file)||!fs.statSync(file).isFile())throw Error("Missing generated page: "+rel);
  const html=fs.readFileSync(file,"utf8");
  if(!html.includes('<html lang="'+route.lang+'"'))throw Error("Wrong document language: "+rel);
+ if(!html.includes('<button class="theme-toggle" type="button" data-theme-toggle hidden>'))
+  throw Error("Missing progressive-enhancement theme button: "+rel);
+ const themeInclude=html.indexOf('<script src="/scripts/theme-toggle.js"></script>');
+ const stylesheet=html.indexOf('<link rel="stylesheet" href="/styles/site.css">');
+ if(themeInclude<0||stylesheet<0||themeInclude>stylesheet)
+  throw Error("Theme preference must initialize before CSS: "+rel);
  for(const token of ['hreflang="es"','hreflang="en"','rel="canonical"'])
   if(!html.includes(token))throw Error("Missing "+token+" in "+rel);
  routeFiles.set(route.path,html);
 }
 const notFound=path.join(dist,"404.html");
 if(!fs.existsSync(notFound)||!fs.statSync(notFound).isFile())throw Error("Missing 404.html");
+const fallback=fs.readFileSync(notFound,"utf8");
+if(!fallback.includes('data-theme-toggle hidden')||!fallback.includes('/scripts/theme-toggle.js'))
+ throw Error("Missing theme control on 404 page");
 let images=0;
 for(const item of content.items){
  if(!item.media)continue;
@@ -43,7 +60,7 @@ for(const item of content.items){
   const detail=content.routes.find(x=>x.section==="detail"&&x.id===item.id&&x.lang===lang);
   if(!detail)throw Error("Missing localized detail page: "+item.id+" "+lang);
   const html=routeFiles.get(detail.path);
-  if(!html?.includes('src="'+media.src+'"')||!html.includes('alt="'+media.alt+'"'))
+  if(!html?.includes('src="'+media.src+'"')||!html.includes('data-theme-image="'+media.src+'"')||!html.includes('alt="'+media.alt+'"'))
    throw Error("Missing localized image in "+detail.path);
   images++;
  }

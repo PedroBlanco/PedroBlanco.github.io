@@ -1,8 +1,9 @@
 # Eleventy (11ty) · Renovación del sitio personal (prototipo)
 
 **Tecnología elegida:** Eleventy 3.1.7. La variante Astro se conserva únicamente
-como referencia de la comparación previa. **No se ha desplegado ni fusionado nada
-en master.** El código de este prototipo reside en `prototype/`.
+como referencia de la comparación previa. El código Eleventy está integrado
+en `master`, pero **la nueva web todavía no se ha desplegado en GitHub Pages**.
+La fuente del sitio está en `prototype/`.
 
 ## Ejecutar y verificar
 
@@ -72,17 +73,57 @@ GitHub Pages requiere configurar explícitamente el origen `gh-pages / (root)`
 desde su interfaz. GitHub seguirá realizando su propio despliegue interno
 de Pages aunque no se use un workflow personalizado de compilación.
 
-## Identidad visual provisional · Decisión 22
+## Identidad visual · Archivo contemporáneo / Bruma del Alba
 
-**«Archivo contemporáneo»**, escogida provisionalmente.
+Paleta **«Bruma del Alba»**, propuesta para revisión visual antes de decidir el diseño definitivo.
+El modo claro/oscuro cambia automáticamente según el sistema.
+Los elementos de navegación, fichas y archivos históricos utilizan la
+misma familia cromática; la calculadora y el generador de firmas conservan
+sus estilos funcionales y su identidad propia.
 
 | Token | Claro | Oscuro (preferencia del sistema) |
 | --- | --- | --- |
-| Fondo | `#F7F0E6` | `#211B1F` |
-| Superficie | `#FFFCF7` | `#30282C` |
-| Texto | `#342D2A` | `#F7EEE5` |
-| Principal | `#794654` | `#E1B4C2` |
-| Acento | `#9D7029` | `#D7A96D` |
+| Fondo | `#EDF3F7` | `#18243A` |
+| Superficie | `#FFFFFF` | `#23334A` |
+| Texto | `#202F46` | `#F4F6FA` |
+| Principal | `#245E80` | `#9EC5DD` |
+| Acento decorativo | `#C76B51` | `#F0AF91` |
+
+La rama `design/bruma-del-alba` permite comparar una muestra con la hoja CSS
+real desde `prototype/preview/bruma-del-alba.html`. **No se ha desplegado.**
+Para ver la muestra local, desde `prototype/` ejecuta
+`py -3 -m http.server 8001` y visita
+`http://localhost:8001/preview/bruma-del-alba.html`.
+Para revisar la web completa, usa `npm run build` y
+`py -3 -m http.server 8000 --directory dist` desde `prototype/`.
+Consulta también [`DESIGN.md`](DESIGN.md).
+
+## Selector de modo claro/oscuro
+
+La navegación general incluye un **botón** de modo de color en todas las
+páginas Eleventy (ES/EN), junto al selector de idioma. El estado inicial,
+cuando no hay preferencia guardada, es **Sistema**: se adapta automáticamente
+a `prefers-color-scheme`. Al pulsar el botón se activa primero el modo
+opuesto al del sistema, después el otro modo manual y, por último, se recupera
+`Sistema`. El botón muestra el estado actual y anuncia el siguiente
+cambio mediante `aria-label`; en pantallas estrechas se presenta como icono
+con nombre accesible.
+
+La preferencia manual se guarda solo en el navegador con la clave
+`pedroblanco-color-mode` de `localStorage`. Volver a `Sistema` la elimina.
+Si el navegador bloquea este almacenamiento, el control sigue funcionando en
+la página abierta; si JavaScript está desactivado, el botón permanece oculto y
+la web sigue el modo del sistema. El controlador carga antes de la CSS para
+evitar parpadeos de paleta al navegar.
+
+Los diagramas conceptuales de la ficha de narrativa adaptativa alternan entre
+sus variantes claras y oscuras; al recuperar `Sistema` vuelven a sus SVG
+originales con detección automática. Los archivos históricos autónomos,
+conservados sin JavaScript, siguen utilizando únicamente la preferencia del
+sistema. Las dos herramientas independientes conservan sus controles propios.
+
+Prueba de comportamiento: `npm run test:theme`; también forma parte de
+`npm run check` y de `npm run check:publish`.
 
 ## Tipografía · Decisión 23 (confirmada)
 
@@ -92,7 +133,7 @@ fuentes sans-serif del sistema. Se trata de una elección tipográfica
 confirmada, aunque sus tamaños y espaciados podrán ajustarse durante las
 pruebas de diseño. No se descargan tipografías externas.
 
-Variables CSS en `src/styles/site.css`. El acento ocre es decorativo; para
+Variables CSS en `src/styles/site.css`. El acento coral es decorativo; para
 texto pequeño se emplea una variante más oscura. No se usan bibliotecas CSS.
 
 ## Tarjetas de catálogo · Decisión 24 (confirmada)
