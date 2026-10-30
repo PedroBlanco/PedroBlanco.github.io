@@ -37,6 +37,39 @@ Conservar el inventario editorial y la evidencia sin convertirlos en tests
 recurrentes. La retirada exige verificar que no se pierde ningún control
 general de enlaces, seguridad o publicación.
 
+## Cierre editorial y publicación con rama gh-pages
+
+Tras la revisión de 30/10/2026 se aprobaron las dos páginas históricas adaptadas
+(`CC.html` y `KM2024.html`), la conservación de `KM2024.md` **solo en Git**
+y el mantenimiento del generador `piefirma/` con sus diez ficheros.
+Los enlaces a los 15 materiales históricos autorizados se ofrecen sin
+distribuir los recursos de referencia exclusivamente histórica.
+
+La revisión ES/EN **asistida** de los diez bloques se documenta en
+[`TRANSLATION_REVIEW_SUMMARY.md`](TRANSLATION_REVIEW_SUMMARY.md); las
+correcciones propuestas se muestran íntegramente en
+[`TRANSLATION_REVIEW.md`](TRANSLATION_REVIEW.md).
+**No hay aprobación de traducciones registrada:** el titular debe validar
+la versión definitiva antes de generar los hashes de revisión.
+
+El modelo aprobado es compilar **localmente en Windows (PowerShell)** y enviar
+únicamente los archivos `prototype/dist/` a `gh-pages` con `.nojekyll`;
+se evita la compilación habitual con GitHub Actions. El workflow de Eleventy
+queda exclusivamente bajo ejecución manual. Guía de validación, envío y
+reversión: [`PUBLISHING.md`](PUBLISHING.md).
+
+```powershell
+# Desde prototype/; solo valida, no publica
+.\scripts\publish-gh-pages.ps1
+
+# SOLO tras aprobar traducciones, fusionar los cambios y superar check:publish
+.\scripts\publish-gh-pages.ps1 -Publish
+```
+
+GitHub Pages requiere configurar explícitamente el origen `gh-pages / (root)`
+desde su interfaz. GitHub seguirá realizando su propio despliegue interno
+de Pages aunque no se use un workflow personalizado de compilación.
+
 ## Identidad visual provisional · Decisión 22
 
 **«Archivo contemporáneo»**, escogida provisionalmente.
