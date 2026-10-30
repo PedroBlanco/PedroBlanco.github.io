@@ -9,16 +9,33 @@ en master.** El código de este prototipo reside en `prototype/`.
 ```sh
 cd prototype
 npm install
-npm run dev
 npm run build
 npm run check
+npm run test:migration
 npm run check:publish
 ```
 
-`check:publish` debe fallar mientras queden traducciones sin revisión humana.
-La aprobación se documenta en `src/data/translation-review.json` mediante huellas
-de contenido español. El comando `check` informa de traducciones pendientes sin
-impedir la compilación del prototipo.
+`npm run dev` inicia la vista previa local. Durante la transición se distinguen
+**tres niveles de pruebas**, sin duplicar la revisión histórica en cada cambio:
+
+| Comando | Uso | Vigencia |
+| --- | --- | --- |
+| `npm run check` | Rutas actuales a partir del catálogo, 404, enlaces, contraste, ES/EN, informe bilingüe y contratos de herramientas | Permanente, para actualizaciones ordinarias |
+| `npm run test:migration` | Preservación de originales, salida heredada, calculadora publicada, 15 medios autorizados y crucigramas concretos | Temporal, hasta cerrar y verificar la migración |
+| `npm run check:publish` | Ejecuta los dos anteriores y añade bloqueos estrictos de migración, herramientas, traducciones y medios | Obligatorio antes de publicar la PR #4 |
+
+Los contenidos nuevos **no requieren tests personalizados por fichero**: bastan
+los controles generales; solo se añaden pruebas de lógica si aparece una
+funcionalidad nueva. `check:publish` seguirá bloqueado mientras haya traducciones
+o entradas de migración pendientes, aunque `check` sea correcto. Ninguna
+aprobación ES/EN se concede automáticamente; se documenta en
+`src/data/translation-review.json` con huellas de ambos idiomas.
+
+**Retirada prevista:** tras fusionar y comprobar la nueva web, archivar
+`test:migration` y retirar sus pruebas del CI y la puerta de publicación.
+Conservar el inventario editorial y la evidencia sin convertirlos en tests
+recurrentes. La retirada exige verificar que no se pierde ningún control
+general de enlaces, seguridad o publicación.
 
 ## Identidad visual provisional · Decisión 22
 
@@ -172,8 +189,9 @@ Se ha incorporado provisionalmente `CC.html`, verificando su integridad.
 `piefirma/` y `calculadora-tiempo/` requieren adaptación propia. Las carpetas
 retiradas con perfiles personales o exportaciones quedan excluidas.
 
-`npm run check` comprueba esta política; `check:publish` sigue bloqueado
-hasta cerrar la revisión de las migraciones, traducciones y privacidad.
+`npm run test:migration` comprueba esta política mientras dura la transición;
+`check:publish` añade los controles estrictos que impiden publicar una
+migración o traducción pendiente.
 
 ## Actualización manual de contenidos Markdown
 
@@ -316,13 +334,13 @@ de Eleventy queda todavía bloqueada para publicación completa.
 
 ## Inventario verificable de archivos históricos
 
-`MEDIA_REVIEW.md` presenta los **23 archivos**
-documentales/multimedia de `revista/`, Croquetas y NEXUM; todos requieren
-decisión editorial por archivo. Los datos de hash, tamaño, motivo y estado
-están en `src/data/media-review.json`. El comando
-`npm run audit:media`, incluido en las comprobaciones automatizadas,
-detecta adiciones o alteraciones del origen y evita incluir materiales
-pendientes en `dist/`.
+`MEDIA_REVIEW.md` documenta los **23 archivos físicos** del inventario
+histórico: **15 originales aprobados** para distribución por el titular y
+**8 entradas retiradas** de la distribución original (7 referencias históricas
+y la portada sustituida). La selección editorial de 22 materiales está cerrada.
+Los hashes, tamaños y decisiones constan en `src/data/media-review.json`.
+`npm run audit:media` se ejecuta en `test:migration` durante la transición:
+verifica integridad, copia de aprobados y exclusión de retirados.
 
 ## Revisión editorial bilingüe verificable
 
@@ -338,18 +356,19 @@ apartado extenso o recurso, el bloque vuelve a revisión.
 ## Portada segura del archivo de revista
 
 La ruta histórica `/revista/` dispone de una portada documental
-curada en `src/curated/revista/index.html`. Sustituye una maqueta
-inacabada, sin reproducir fotos, vídeos ni audio, y conserva enlaces
-hacia `CC.html` y `KM2024.html`. No constituye autorización para
-los demás recursos de la revista: el inventario sigue en revisión.
+curada en `src/curated/revista/index.html` que sustituye una maqueta
+inacabada. Los originales aprobados se copian en sus rutas históricas
+con verificación de hashes; las referencias musicales no se distribuyen.
+El inventario editorial ya está cerrado.
 
 ## Puertas de publicación basadas en evidencias
 
 El comando `check:publish` no utiliza ya un fallo incondicional:
 identifica las entradas pendientes en el inventario de migración,
-los archivos multimedia en estado `hold`, los enlaces rotos y los
-bloques de traducción aún sin revisión. Ningún recurso pasa a
-`approved` por estar disponible en la web antigua.
+los medios sin autorización, los enlaces rotos y los bloques de
+traducción aún sin revisión. Ningún recurso pasa a `approved`
+por estar disponible en la web antigua; los 15 originales aprobados
+tienen autorización manual expresa.
 
 Los archivos autorizados deben incluir `reviewedBy`, `reviewedAt`
 y `evidence` de derechos y privacidad. En la salida final se
@@ -370,29 +389,17 @@ Cuando se aporta un ZIP y manifiesto con las tres variables
 en lugar de la versión de referencia. El fallback no reconstruye la
 aplicación ni recupera código del repositorio privado.
 
-## Referencias locales pendientes de derechos — enlaces corregidos
+## Enlaces históricos y cierre editorial
 
-En la rama Eleventy se han revisado las dos referencias históricas a
-recursos locales que todavía no pueden copiarse:
+`CC.html` y `KM2024.html` mantienen por ahora sus referencias documentales
+anteriores a la autorización de distribución. La inclusión de los 15 archivos
+aprobados en la compilación no implica que ya se hayan actualizado todos los
+enlaces y textos históricos: esa coherencia se verifica antes de publicar.
+Las siete referencias históricas sin distribución continúan excluidas.
 
-- `CC.html` incluye una nota en lugar de enlazar al vídeo de
-  presentación de Revista (octubre de 2023), conservando la referencia
-  externa alternativa que ya figuraba en el índice.
-- `KM2024.html` presenta la referencia a **Croquetas del Conocimiento**
-  sin enlazar al PDF todavía no autorizado.
-
-La auditoría de enlaces se ejecuta en modo **estricto también en CI**:
-la introducción de un destino interno inexistente debe hacer fallar
-`npm run check`. No se han autorizado los bytes de estos materiales.
-
-## Expedientes de revisión individuales
-
-El titular ha solicitado conservar íntegramente `CROQUETAS2024.pdf`.
-La solicitud está registrada, pero el archivo permanece `hold` hasta
-acreditar su autorización de distribución y revisar sus páginas,
-recursos gráficos y posibles datos personales. La CI realiza una primera
-inspección técnica **sin imprimir texto ni nombres del documento**.
-Los demás archivos pendientes se revisarán individualmente.
+El conjunto `test:migration` comprueba temporalmente estos casos concretos.
+`npm run check` verifica los enlaces y la estructura general de forma
+reutilizable para las siguientes actualizaciones de la web.
 
 ## Condiciones para publicar
 
