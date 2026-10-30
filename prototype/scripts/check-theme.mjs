@@ -4,10 +4,14 @@ const darkBreak="@media (prefers-color-scheme: dark)";
 if(!css.includes(darkBreak))throw Error("Missing automatic dark-mode override");
 const [light,dark]=css.split(darkBreak);
 const get=(source,key)=>{
- const match=source.match(new RegExp("--"+key+":\\s*(#[0-9A-Fa-f]{6})\\s*;"));
+ const match=source.match(new RegExp("--"+key+":\\s*(#[0-9A-Fa-f]{6})(?=\\s*(?:;|\\}))"));
  if(!match)throw Error("Missing color token "+key);
  return match[1].toUpperCase();
 };
+// CSS permits omitting the final semicolon before a closing brace.
+for(const decl of ["--focus:#123ABC}","--focus: #123ABC;","--focus:#123abc }"]){
+ if(get(decl,"focus")!=="#123ABC")throw Error("Final CSS declaration parsing regression");
+}
 const rgb=s=>[1,3,5].map(i=>parseInt(s.slice(i,i+2),16)/255)
  .map(v=>v<=0.04045?v/12.92:((v+0.055)/1.055)**2.4);
 const lum=s=>{const [r,g,b]=rgb(s);return r*.2126+g*.7152+b*.0722;};
