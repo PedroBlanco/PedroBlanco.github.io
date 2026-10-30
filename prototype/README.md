@@ -1,8 +1,9 @@
 # Eleventy (11ty) · Renovación del sitio personal (prototipo)
 
 **Tecnología elegida:** Eleventy 3.1.7. La variante Astro se conserva únicamente
-como referencia de la comparación previa. **No se ha desplegado ni fusionado nada
-en master.** El código de este prototipo reside en `prototype/`.
+como referencia de la comparación previa. El código Eleventy está integrado
+en `master`, pero **la nueva web todavía no se ha desplegado en GitHub Pages**.
+La fuente del sitio está en `prototype/`.
 
 ## Ejecutar y verificar
 
@@ -72,17 +73,30 @@ GitHub Pages requiere configurar explícitamente el origen `gh-pages / (root)`
 desde su interfaz. GitHub seguirá realizando su propio despliegue interno
 de Pages aunque no se use un workflow personalizado de compilación.
 
-## Identidad visual provisional · Decisión 22
+## Identidad visual · Archivo contemporáneo / Aurora dorada
 
-**«Archivo contemporáneo»**, escogida provisionalmente.
+Paleta **«Aurora dorada»**, elegida para el siguiente diseño de la web.
+El modo claro/oscuro cambia automáticamente según el sistema.
+Los elementos de navegación, fichas y archivos históricos utilizan la
+misma familia cromática; la calculadora y el generador de firmas conservan
+sus estilos funcionales y su identidad propia.
 
 | Token | Claro | Oscuro (preferencia del sistema) |
 | --- | --- | --- |
-| Fondo | `#F7F0E6` | `#211B1F` |
-| Superficie | `#FFFCF7` | `#30282C` |
-| Texto | `#342D2A` | `#F7EEE5` |
-| Principal | `#794654` | `#E1B4C2` |
-| Acento | `#9D7029` | `#D7A96D` |
+| Fondo | `#FBF5E6` | `#202639` |
+| Superficie | `#FFFDF6` | `#2C3447` |
+| Texto | `#2B3447` | `#F5F0E7` |
+| Principal | `#65517F` | `#D6B7F0` |
+| Acento decorativo | `#C48137` | `#F8C078` |
+
+La rama `design/aurora-dorada` permite comparar una muestra con la hoja CSS
+real desde `prototype/preview/aurora-dorada.html`. **No se ha desplegado.**
+Para ver la muestra local, desde `prototype/` ejecuta
+`py -3 -m http.server 8001` y visita
+`http://localhost:8001/preview/aurora-dorada.html`.
+Para revisar la web completa, usa `npm run build` y
+`py -3 -m http.server 8000 --directory dist` desde `prototype/`.
+Consulta también [`DESIGN.md`](DESIGN.md).
 
 ## Tipografía · Decisión 23 (confirmada)
 
