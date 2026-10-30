@@ -1,24 +1,24 @@
 /*
- * Archivo contemporáneo — propuesta provisional (decisión 22)
- * Paleta clara: #F7F0E6 fondo, #342D2A texto, #794654 principal, #9D7029 acento.
- * Los colores y fuentes usan variables para poder ajustar el diseño sin rehacer las fichas.
- * Nota: el ocre decorativo no se usa para textos pequeños sobre fondos claros.
+ * Archivo contemporáneo — paleta «Aurora dorada» (revisión previa al lanzamiento).
+ * Amanecer: marfil cálido, tinta azul y malva con destellos ámbar.
+ * El ámbar es decorativo; para texto pequeño se usa --accent-text.
+ * Respeta automáticamente prefers-color-scheme: dark.
  */
 :root {
   color-scheme: light;
-  --bg: #F7F0E6;
-  --surface: #FFFCF7;
-  --ink: #342D2A;
-  --primary: #794654;
-  --accent: #9D7029;
-  --accent-text: #7C551A;
-  --border: #E6D9C9;
-  --muted: #625750;
-  --subtle: #F0E5D9;
-  --chip-bg: #F2E2E4;
-  --chip-ink: #663B48;
-  --focus: #794654;
-  --shadow: 0 10px 28px rgb(52 45 42 / 6%);
+  --bg: #FBF5E6;
+  --surface: #FFFDF6;
+  --ink: #2B3447;
+  --primary: #65517F;
+  --accent: #C48137;
+  --accent-text: #795019;
+  --border: #D8CEBA;
+  --muted: #505A6C;
+  --subtle: #F1E6CF;
+  --chip-bg: #EEE4F2;
+  --chip-ink: #514065;
+  --focus: #65517F;
+  --shadow: 0 10px 28px rgb(43 52 71 / 7%);
   --heading-font: Georgia, Cambria, "Times New Roman", serif;
   --body-font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --reading-width: 69ch;
@@ -88,7 +88,7 @@ nav a[aria-current="page"] { font-weight: 750; text-decoration: underline; text-
     position: absolute; z-index: 30; right: 0; top: calc(100% - 1px);
     width: min(82vw, 290px); padding: .35rem;
     border: 1px solid var(--primary); border-radius: .45rem 0 .45rem .45rem;
-    background: var(--surface); box-shadow: 0 12px 28px rgb(52 45 42 / 15%);
+    background: var(--surface); box-shadow: 0 12px 28px rgb(43 52 71 / 15%);
   }
   .mobile-nav a {
     display: flex; align-items: center; min-height: 44px;
@@ -209,13 +209,13 @@ main { min-height: 66vh; }
 @media (prefers-color-scheme: dark) {
   :root {
     color-scheme: dark;
-    --bg: #211B1F; --surface: #30282C; --ink: #F7EEE5;
-    --primary: #E1B4C2; --accent: #D7A96D; --accent-text: #E6B77B;
-    --border: #57454A; --muted: #D4C3B8; --subtle: #3D3034;
-    --chip-bg: #49343D; --chip-ink: #F4DBE2; --focus: #F5D09A;
+    --bg: #202639; --surface: #2C3447; --ink: #F5F0E7;
+    --primary: #D6B7F0; --accent: #F8C078; --accent-text: #F8C078;
+    --border: #545D75; --muted: #CDD0DB; --subtle: #343B52;
+    --chip-bg: #433B59; --chip-ink: #F3EAFB; --focus: #F8C078;
     --shadow: 0 10px 30px rgb(0 0 0 / 14%);
   }
-  .actions a:first-child { color: #211B1F; }
+  .actions a:first-child { color: #202639; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0s !important; }
