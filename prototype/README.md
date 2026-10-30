@@ -49,8 +49,10 @@ La revisión ES/EN **asistida** de los diez bloques se documenta en
 [`TRANSLATION_REVIEW_SUMMARY.md`](TRANSLATION_REVIEW_SUMMARY.md); las
 correcciones propuestas se muestran íntegramente en
 [`TRANSLATION_REVIEW.md`](TRANSLATION_REVIEW.md).
-**No hay aprobación de traducciones registrada:** el titular debe validar
-la versión definitiva antes de generar los hashes de revisión.
+**Aprobación bilingüe registrada (30/10/2026):** el titular ha validado los
+diez bloques de la revisión asistida, y sus hashes ES/EN se conservan con
+metadatos de revisión en `src/data/translation-review.json`. Cualquier
+cambio posterior de los textos requiere revisión nueva.
 
 El modelo aprobado es compilar **localmente en Windows (PowerShell)** y enviar
 únicamente los archivos `prototype/dist/` a `gh-pages` con `.nojekyll`;
