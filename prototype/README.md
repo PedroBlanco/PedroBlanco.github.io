@@ -75,7 +75,7 @@ de Pages aunque no se use un workflow personalizado de compilación.
 
 ## Identidad visual · Archivo contemporáneo / Bruma del Alba
 
-Paleta **«Bruma del Alba»**, elegida para el siguiente diseño de la web.
+Paleta **«Bruma del Alba»**, propuesta para revisión visual antes de decidir el diseño definitivo.
 El modo claro/oscuro cambia automáticamente según el sistema.
 Los elementos de navegación, fichas y archivos históricos utilizan la
 misma familia cromática; la calculadora y el generador de firmas conservan
