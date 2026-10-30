@@ -9,6 +9,8 @@ const staged=manifest.entries.filter(x=>x.status==="preview"||x.status==="approv
 const names=staged.map(x=>x.path).sort();
 if(JSON.stringify(names)!==JSON.stringify(["CC.html","KM2024.html"]))throw Error("Unreviewed document list changed");
 for(const entry of staged){
+ if(entry.status==="approved"&&(!entry.reviewedBy||!/^\d{4}-\d{2}-\d{2}$/.test(entry.reviewedAt||"")||!entry.evidence))
+  throw Error("Missing owner approval evidence for "+entry.path);
  const loc=path.join(dist,entry.path);
  if(!fs.existsSync(loc)||gitSha(fs.readFileSync(loc))!==entry.gitBlobSha)throw Error("Missing or modified staged document: "+entry.path);
 }
@@ -40,6 +42,8 @@ for(const entry of manifest.entries.filter(x=>x.status!=="preview"&&x.status!=="
   continue;
  }
  if(entry.status==="preview-tool"||entry.status==="approved-tool"){
+  if(entry.status==="approved-tool"&&(!entry.reviewedBy||!/^\d{4}-\d{2}-\d{2}$/.test(entry.reviewedAt||"")||!entry.evidence))
+   throw Error("Missing owner approval evidence for "+entry.path);
   if(entry.path!=="piefirma/"||entry.files?.length!==10)throw Error("Unexpected legacy tool");
   if(!fs.existsSync(target)||!fs.statSync(target).isDirectory())
    throw Error("Missing staged tool "+entry.path+"; complete npm run build before running npm run check");
