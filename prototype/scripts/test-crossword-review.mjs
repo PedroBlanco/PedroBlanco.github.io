@@ -63,5 +63,10 @@ test("incorrect grid size is rejected",()=>{
 });
 test("missing license and altered byline are rejected",()=>{
  assert.throws(()=>examine(html.replace("MIT License","License not found")),/MIT License/);
- assert.throws(()=>examine(html.replace("exolve-setter: Verónica Sirvent Segura","exolve-setter: Unknown")),/Verónica Sirvent Segura/);
+ const altered=html.replace("exolve-setter: Verónica Sirvent Segura","exolve-setter: Unknown");
+ assert.notEqual(altered,html);
+ assert.throws(()=>examine(altered),error=>
+  error.code==="ERR_ASSERTION"&&error.operator==="strictEqual"&&
+  error.actual==="Unknown"&&error.expected==="Verónica Sirvent Segura"
+ );
 });
