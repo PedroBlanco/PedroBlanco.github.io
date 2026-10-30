@@ -31,7 +31,7 @@ o entradas de migración pendientes, aunque `check` sea correcto. Ninguna
 aprobación ES/EN se concede automáticamente; se documenta en
 `src/data/translation-review.json` con huellas de ambos idiomas.
 
-**Retirada prevista:** tras fusionar y comprobar la nueva web, archivar
+**Retirada prevista (issue [#11](https://github.com/PedroBlanco/PedroBlanco.github.io/issues/11)):** tras fusionar y comprobar la nueva web, archivar
 `test:migration` y retirar sus pruebas del CI y la puerta de publicación.
 Conservar el inventario editorial y la evidencia sin convertirlos en tests
 recurrentes. La retirada exige verificar que no se pierde ningún control
