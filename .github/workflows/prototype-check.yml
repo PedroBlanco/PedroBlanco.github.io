@@ -1,9 +1,5 @@
-name: Validate bilingual prototype
+name: Validate Eleventy prototype (manual)
 on:
-  pull_request:
-    paths:
-      - "prototype/**"
-      - ".github/workflows/prototype-check.yml"
   workflow_dispatch:
 permissions:
   contents: read
@@ -31,8 +27,8 @@ jobs:
       - name: Check routes
         run: npm run check
         working-directory: prototype
-      # Keep migration safeguards in the PR workflow until PR #4 is merged.
-      # One-off PDF/video audits were completed editorially and are not rerun.
+      # One-time migration checks remain callable manually until launch.
+      # Local validation is the default; no PR-triggered Actions.
       - name: Check one-time migration
         run: npm run test:migration
         working-directory: prototype
