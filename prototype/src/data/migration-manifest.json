@@ -5,8 +5,8 @@
       "path": "CC.html",
       "status": "approved",
       "kind": "document",
-      "reason": "Curated historical reference index approved by owner 2026-10-30; redistributes explicitly authorized original presentation MP4.",
-      "gitBlobSha": "acca2fa935d1f6d500e1245beb712e64b31c35c1",
+      "reason": "Curated historical reference index approved by owner 2026-10-30; redistributes explicitly authorized original presentation MP4. Presentation CSS updated to Aurora dorada light/dark palette; text, external links and redistribution decisions retained.",
+      "gitBlobSha": "88c04ba131ef91cbcde5c27a1d87432c259dff88",
       "reviewedBy": "repository-owner",
       "reviewedAt": "2026-10-30",
       "evidence": "Owner approved four legacy migration proposals in conversation 2026-10-30"
@@ -15,8 +15,8 @@
       "path": "KM2024.html",
       "status": "approved",
       "kind": "document",
-      "reason": "Curated knowledge-management index approved with original authorized PDF/PPTX downloads; edit links remain removed.",
-      "gitBlobSha": "4c9b7282641f99bb5225307347fe070d9f3f9e54",
+      "reason": "Curated knowledge-management index approved with original authorized PDF/PPTX downloads; edit links remain removed. Presentation CSS updated to Aurora dorada light/dark palette; text, external links and redistribution decisions retained.",
+      "gitBlobSha": "a8346109cc7a96f9ac23fc6d8ee71739d073b6af",
       "reviewedBy": "repository-owner",
       "reviewedAt": "2026-10-30",
       "evidence": "Owner approved four legacy migration proposals in conversation 2026-10-30"
