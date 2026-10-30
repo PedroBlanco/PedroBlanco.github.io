@@ -63,6 +63,10 @@ for(const entry of manifest.entries.filter(x=>x.status!=="preview"&&x.status!=="
   if(!fs.existsSync(target))throw Error("Calculator integration requested but build missing");
   continue; // Separately validated by check-calculator.mjs.
  }
+ if(entry.status==="retire"&&entry.path==="KM2024.md"){
+  if(fs.existsSync(target))throw Error("Source-only Markdown was published: "+entry.path);
+  continue;
+ }
  if(entry.status==="retire"){
   // The retired application's root becomes a historical page, with no former assets.
   const allowed=["mapeo/","embajadores/","art-of-hosting/","mapas/"];
@@ -77,11 +81,18 @@ for(const entry of manifest.entries.filter(x=>x.status!=="preview"&&x.status!=="
  if(fs.existsSync(target))throw Error("Blocked resource leaked: "+entry.path);
 }
 const ccSource=fs.readFileSync(path.join(dist,"CC.html"),"utf8");
-if(!ccSource.includes('data-curated-archive="critical-knowledge-v1"')||ccSource.includes("/revista/2023-10-17_Revista_Enredados_Presentacion.mp4"))
- throw Error("Unreviewed legacy video link in critical knowledge index");
+const video="/revista/2023-10-17_Revista_Enredados_Presentacion.mp4";
+if(!ccSource.includes('data-curated-archive="critical-knowledge-v1"')||
+   !ccSource.includes('href="https://pedroblanco.github.io'+video+'"')||
+   ccSource.includes("Material audiovisual pendiente"))
+ throw Error("Approved historical video link missing or obsolete notice remains");
 const km=fs.readFileSync(path.join(dist,"KM2024.html"),"utf8");
-if(km.includes('/edit"')||km.includes('href="https://pedroblanco.github.io/CROQUETAS2024.pdf"')||!km.includes("Documento PDF pendiente"))
- throw Error("Unreviewed editing link or PDF reference leaked into KM2024");
+if(km.includes('/edit"')||km.includes("Documento PDF pendiente"))
+ throw Error("Editing link or obsolete pending review message in KM2024");
+for(const original of ["CROQUETAS2024.pdf","NEXUM2024.pdf","NEXUM2024.pptx"]){
+ if(!km.includes('href="https://pedroblanco.github.io/'+original+'"'))
+  throw Error("Approved local document link missing from KM2024: "+original);
+}
 const cc=fs.readFileSync(path.join(dist,"CC.html"),"utf8");
 if(/<script\b|mailto:|data:/i.test(cc))throw Error("Unsafe active links in staged CC.html");
 const links=[...cc.matchAll(/href=["']([^"']+)["']/g)].map(x=>x[1]);
