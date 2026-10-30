@@ -1,24 +1,24 @@
 /*
- * Archivo contemporáneo — propuesta provisional (decisión 22)
- * Paleta clara: #F7F0E6 fondo, #342D2A texto, #794654 principal, #9D7029 acento.
- * Los colores y fuentes usan variables para poder ajustar el diseño sin rehacer las fichas.
- * Nota: el ocre decorativo no se usa para textos pequeños sobre fondos claros.
+ * Archivo contemporáneo — «Bruma del Alba» (revisión visual previa al lanzamiento).
+ * Amanecer frío: azul bruma, tinta profunda y detalles coral.
+ * El coral en modo claro es decorativo; --accent-text mantiene el contraste del texto.
+ * Modo claro/oscuro automático mediante prefers-color-scheme.
  */
 :root {
   color-scheme: light;
-  --bg: #F7F0E6;
-  --surface: #FFFCF7;
-  --ink: #342D2A;
-  --primary: #794654;
-  --accent: #9D7029;
-  --accent-text: #7C551A;
-  --border: #E6D9C9;
-  --muted: #625750;
-  --subtle: #F0E5D9;
-  --chip-bg: #F2E2E4;
-  --chip-ink: #663B48;
-  --focus: #794654;
-  --shadow: 0 10px 28px rgb(52 45 42 / 6%);
+  --bg: #EDF3F7;
+  --surface: #FFFFFF;
+  --ink: #202F46;
+  --primary: #245E80;
+  --accent: #C76B51;
+  --accent-text: #924630;
+  --border: #CCDBE5;
+  --muted: #4D6073;
+  --subtle: #DDEAF2;
+  --chip-bg: #E0EDF4;
+  --chip-ink: #27536F;
+  --focus: #245E80;
+  --shadow: 0 10px 28px rgb(32 47 70 / 7%);
   --heading-font: Georgia, Cambria, "Times New Roman", serif;
   --body-font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --reading-width: 69ch;
@@ -88,7 +88,7 @@ nav a[aria-current="page"] { font-weight: 750; text-decoration: underline; text-
     position: absolute; z-index: 30; right: 0; top: calc(100% - 1px);
     width: min(82vw, 290px); padding: .35rem;
     border: 1px solid var(--primary); border-radius: .45rem 0 .45rem .45rem;
-    background: var(--surface); box-shadow: 0 12px 28px rgb(52 45 42 / 15%);
+    background: var(--surface); box-shadow: 0 12px 28px rgb(32 47 70 / 15%);
   }
   .mobile-nav a {
     display: flex; align-items: center; min-height: 44px;
@@ -209,13 +209,13 @@ main { min-height: 66vh; }
 @media (prefers-color-scheme: dark) {
   :root {
     color-scheme: dark;
-    --bg: #211B1F; --surface: #30282C; --ink: #F7EEE5;
-    --primary: #E1B4C2; --accent: #D7A96D; --accent-text: #E6B77B;
-    --border: #57454A; --muted: #D4C3B8; --subtle: #3D3034;
-    --chip-bg: #49343D; --chip-ink: #F4DBE2; --focus: #F5D09A;
+    --bg: #18243A; --surface: #23334A; --ink: #F4F6FA;
+    --primary: #9EC5DD; --accent: #F0AF91; --accent-text: #F0AF91;
+    --border: #52667C; --muted: #C8D3DE; --subtle: #30445C;
+    --chip-bg: #32495E; --chip-ink: #E4F1F9; --focus: #F0AF91;
     --shadow: 0 10px 30px rgb(0 0 0 / 14%);
   }
-  .actions a:first-child { color: #211B1F; }
+  .actions a:first-child { color: #18243A; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0s !important; }
