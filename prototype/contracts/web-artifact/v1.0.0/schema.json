@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Web Artifact Contract 1.0.0",
+  "description": "Machine-readable metadata for a reviewed static web distribution. Manifest is EXTERNAL to the ZIP.",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "id",
+    "version",
+    "basePath",
+    "entryPoint",
+    "type",
+    "source",
+    "artifact"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "maxLength": 64
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-(?:0|[1-9][0-9]*|[0-9A-Za-z-]*[A-Za-z-][0-9A-Za-z-]*)(?:\\.(?:0|[1-9][0-9]*|[0-9A-Za-z-]*[A-Za-z-][0-9A-Za-z-]*))*)?(?:\\+[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?$",
+      "maxLength": 128
+    },
+    "basePath": {
+      "type": "string",
+      "pattern": "^/[a-z0-9]+(?:-[a-z0-9]+)*/$",
+      "maxLength": 66
+    },
+    "entryPoint": {
+      "const": "index.html"
+    },
+    "type": {
+      "enum": [
+        "static",
+        "pwa"
+      ]
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "repository",
+        "commit"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "repository": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$",
+          "maxLength": 150
+        },
+        "commit": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{40}$"
+        }
+      }
+    },
+    "artifact": {
+      "type": "object",
+      "required": [
+        "format",
+        "filename",
+        "sha256",
+        "sizeBytes"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "format": {
+          "const": "zip"
+        },
+        "filename": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*\\.zip$",
+          "maxLength": 200
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "sizeBytes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483648
+        }
+      }
+    },
+    "pwa": {
+      "type": "object",
+      "required": [
+        "manifest",
+        "serviceWorker",
+        "scope"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "manifest": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._/-]*$",
+          "maxLength": 150
+        },
+        "serviceWorker": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._/-]*$",
+          "maxLength": 150
+        },
+        "scope": {
+          "type": "string",
+          "pattern": "^/[a-z0-9]+(?:-[a-z0-9]+)*/$"
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "pwa"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "required": [
+          "pwa"
+        ],
+        "properties": {
+          "pwa": {}
+        }
+      },
+      "else": {
+        "not": {
+          "required": [
+            "pwa"
+          ]
+        }
+      }
+    }
+  ]
+}

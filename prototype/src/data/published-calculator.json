@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "repository": "PedroBlanco/PedroBlanco.github.io",
+  "path": "/calculadora-tiempo/",
+  "source": "Public GitHub Pages release: PR #7 (authorized and deployed)",
+  "files": [
+    {
+      "path": ".nojekyll",
+      "gitBlobSha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0
+    },
+    {
+      "path": "app.js",
+      "gitBlobSha": "297ffabaf5c3d40ab701cd28ffddb761315d1d18",
+      "bytes": 26718
+    },
+    {
+      "path": "icon.svg",
+      "gitBlobSha": "9f1196bbdb00ed3ff6cae6870c28ee106e4ef0c6",
+      "bytes": 489
+    },
+    {
+      "path": "index.html",
+      "gitBlobSha": "30c3f3fd636857f9d2b0160882645c4c08ca93d3",
+      "bytes": 8809
+    },
+    {
+      "path": "manifest.webmanifest",
+      "gitBlobSha": "3295ad76cf872b5a95b04333431b03fbf081ba82",
+      "bytes": 456
+    },
+    {
+      "path": "src/areas.js",
+      "gitBlobSha": "42853873824e21db4306e5c6c331d6c1eb6ffc10",
+      "bytes": 3283
+    },
+    {
+      "path": "src/article129.js",
+      "gitBlobSha": "8e4f7e03dd99531134949e12d854bcb012dd3c20",
+      "bytes": 2926
+    },
+    {
+      "path": "src/deadlines.js",
+      "gitBlobSha": "c83d9a644e004dab3fc06f6818283704085e680a",
+      "bytes": 2227
+    },
+    {
+      "path": "src/periods.js",
+      "gitBlobSha": "06342058964bbdabe9450367364f4ee4e42f82a6",
+      "bytes": 13300
+    },
+    {
+      "path": "src/requirement.js",
+      "gitBlobSha": "fd7e903e2ca74e09feb6b4dab24719de4d5c34fb",
+      "bytes": 12722
+    },
+    {
+      "path": "src/scoring.js",
+      "gitBlobSha": "f24290b4f2720c26552468eb3fa2787d020967eb",
+      "bytes": 9559
+    },
+    {
+      "path": "src/seniority.js",
+      "gitBlobSha": "ad5fa3ac743c6ad17e2e74871f29b82a2ff243de",
+      "bytes": 2172
+    },
+    {
+      "path": "src/time.js",
+      "gitBlobSha": "7c9a2add797bd3309b1a445b89001be5bb2e6a98",
+      "bytes": 4472
+    },
+    {
+      "path": "styles.css",
+      "gitBlobSha": "37f7c0163f9fbd36e1a581d90c300be022bc3868",
+      "bytes": 2346
+    },
+    {
+      "path": "sw.js",
+      "gitBlobSha": "4d6b8b4db196b73550ca7f71083a09d3e667af8d",
+      "bytes": 957
+    },
+    {
+      "path": "ui.js",
+      "gitBlobSha": "eed98459dc18e224594354b51e36ec51b19bdbed",
+      "bytes": 5715
+    }
+  ]
+}

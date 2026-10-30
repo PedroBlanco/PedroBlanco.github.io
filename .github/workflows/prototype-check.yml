@@ -1,0 +1,46 @@
+name: Validate bilingual prototype
+on:
+  pull_request:
+    paths:
+      - "prototype/**"
+      - ".github/workflows/prototype-check.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Install
+        run: npm install --no-audit --no-fund
+        working-directory: prototype
+      - name: Build
+        run: npm run build
+        working-directory: prototype
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+      - name: Check routes
+        run: npm run check
+        working-directory: prototype
+      # Keep migration safeguards in the PR workflow until PR #4 is merged.
+      # One-off PDF/video audits were completed editorially and are not rerun.
+      - name: Check one-time migration
+        run: npm run test:migration
+        working-directory: prototype
+      - name: Upload static review artifact (manual only)
+        if: github.event_name == 'workflow_dispatch'
+        uses: actions/upload-artifact@v4
+        with:
+          name: eleventy-bilingual-preview
+          path: prototype/dist/
+          if-no-files-found: error
+          retention-days: 14

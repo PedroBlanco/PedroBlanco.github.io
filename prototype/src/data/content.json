@@ -1,0 +1,592 @@
+{
+  "langs": {
+    "es": {
+      "name": "Español",
+      "site": "Proyectos, herramientas y conocimiento",
+      "tagline": "Software, investigación y archivo de proyectos",
+      "intro": "Herramientas utilizables, proyectos de desarrollo e investigación y una memoria accesible de trabajos anteriores.",
+      "nav": {
+        "home": "Inicio",
+        "tools": "Herramientas",
+        "projects": "Proyectos",
+        "archive": "Archivo",
+        "about": "Acerca de"
+      },
+      "more": "Ver ficha",
+      "try": "Abrir herramienta / sitio",
+      "code": "Repositorio público",
+      "catalog": "Otros repositorios públicos",
+      "catalogInfo": "Catálogo complementario sincronizable con GitHub y sujeto a selección editorial.",
+      "archiveInfo": "Fichas históricas y documentación preservada en sus rutas originales.",
+      "aboutText": "Espacio personal para compartir herramientas de software, proyectos de investigación y trabajos anteriores. Los contenidos publicados no representan necesariamente a las organizaciones con las que he colaborado.",
+      "featured": "Selección de trabajos",
+      "all": "Explorar",
+      "year": "Archivo histórico",
+      "status": {
+        "active": "Activo",
+        "finished": "Finalizado",
+        "historic": "Histórico"
+      },
+      "kind": {
+        "tool": "Herramienta",
+        "project": "Proyecto",
+        "archive": "Archivo"
+      },
+      "back": "Volver al listado",
+      "offline": "Repositorio público",
+      "notFound": "Página no encontrada",
+      "notFoundBody": "La página puede haberse trasladado o retirado. Puedes consultar el archivo y los proyectos disponibles.",
+      "footer": "Sitio personal · Prototipo de renovación · No publicado",
+      "home": {
+        "heroAction": "Explorar proyectos",
+        "exploreTitle": "Explora el sitio",
+        "exploreDescriptions": {
+          "tools": "Aplicaciones y utilidades disponibles para usar.",
+          "projects": "Desarrollo de software, investigación y repositorios públicos.",
+          "archive": "Proyectos anteriores y documentación preservada."
+        }
+      },
+      "archiveView": {
+        "title": "Archivo histórico",
+        "intro": "Proyectos históricos y recursos documentales organizados por períodos y categorías.",
+        "all": "Todos",
+        "atlas": "Atlas",
+        "initiatives": "Iniciativas",
+        "documents": "Documentos",
+        "undated": "Sin fecha verificada",
+        "count": "elementos",
+        "view": "Abrir ficha o recurso",
+        "filtersLabel": "Filtrar por categoría"
+      },
+      "resources": {
+        "title": "Documentación y recursos",
+        "documentation": "Documentación",
+        "downloads": "Descargas",
+        "references": "Referencias"
+      }
+    },
+    "en": {
+      "name": "English",
+      "site": "Projects, tools and knowledge",
+      "tagline": "Software, research and project archive",
+      "intro": "Usable tools, development and research projects, and an accessible record of earlier work.",
+      "nav": {
+        "home": "Home",
+        "tools": "Tools",
+        "projects": "Projects",
+        "archive": "Archive",
+        "about": "About"
+      },
+      "more": "View project",
+      "try": "Open tool / website",
+      "code": "Public repository",
+      "catalog": "Other public repositories",
+      "catalogInfo": "Additional GitHub repository catalogue with editorial inclusion and exclusion rules.",
+      "archiveInfo": "Historical profiles and documents preserved at their original URLs.",
+      "aboutText": "Personal space for sharing software tools, research projects and earlier work. Published content does not necessarily represent organizations I have worked with.",
+      "featured": "Selected work",
+      "all": "Explore",
+      "year": "Historical archive",
+      "status": {
+        "active": "Active",
+        "finished": "Finished",
+        "historic": "Historical"
+      },
+      "kind": {
+        "tool": "Tool",
+        "project": "Project",
+        "archive": "Archive"
+      },
+      "back": "Back to overview",
+      "offline": "Public repository",
+      "notFound": "Page not found",
+      "notFoundBody": "This page may have moved or been retired. Browse the archive and available projects instead.",
+      "footer": "Personal site · Renewal prototype · Not published",
+      "home": {
+        "heroAction": "Explore projects",
+        "exploreTitle": "Explore the site",
+        "exploreDescriptions": {
+          "tools": "Apps and useful software tools.",
+          "projects": "Software development, research and public repositories.",
+          "archive": "Earlier projects and preserved documentation."
+        }
+      },
+      "archiveView": {
+        "title": "Historical archive",
+        "intro": "Historical projects and documentary resources organized by date and category.",
+        "all": "All",
+        "atlas": "Atlases",
+        "initiatives": "Initiatives",
+        "documents": "Documents",
+        "undated": "Date not verified",
+        "count": "items",
+        "view": "Open page or resource",
+        "filtersLabel": "Filter by category"
+      },
+      "resources": {
+        "title": "Documentation and resources",
+        "documentation": "Documentation",
+        "downloads": "Downloads",
+        "references": "References"
+      }
+    }
+  },
+  "items": [
+    {
+      "id": "calculator",
+      "kind": "tool",
+      "slug": "calculadora-tiempo",
+      "status": "active",
+      "featured": true,
+      "live": "https://pedroblanco.github.io/calculadora-tiempo/",
+      "es": {
+        "title": "Calculadora de tiempo",
+        "summary": "Herramienta web para calcular periodos y méritos conforme al artículo 129 de la Ley 5/2023.",
+        "detail": "Aplicación web progresiva con lógica de cómputo de periodos. La ficha documenta su objetivo; el cálculo se realiza en la aplicación independiente."
+      },
+      "en": {
+        "title": "Time calculator",
+        "summary": "Web tool for calculating periods and service merits under Article 129 of Andalusian Law 5/2023.",
+        "detail": "Progressive web application with period-calculation logic. This page describes the project; calculations run in the independent application."
+      }
+    },
+    {
+      "id": "signature",
+      "kind": "tool",
+      "slug": "piefirma",
+      "status": "active",
+      "live": "https://pedroblanco.github.io/piefirma/",
+      "source": "https://github.com/jpcozar/piefirma",
+      "es": {
+        "title": "Generador de firmas",
+        "summary": "Herramienta para generar firmas HTML de correo electrónico corporativo.",
+        "detail": "Generador de firmas HTML con validación y escapado de los datos del formulario incorporados. Se mantiene la plantilla histórica hasta confirmar su identidad institucional y compatibilidad con clientes de correo."
+      },
+      "en": {
+        "title": "Email signature generator",
+        "summary": "Tool for generating corporate HTML email signatures.",
+        "detail": "HTML email signature generator with input validation and HTML escaping in place. The historical template remains pending branding and email-client compatibility checks."
+      }
+    },
+    {
+      "id": "pdf",
+      "kind": "tool",
+      "slug": "pdf-fotos-a-imagenes",
+      "status": "active",
+      "source": "https://github.com/PedroBlanco/pdf-fotos-a-imagenes",
+      "es": {
+        "title": "PDF de fotos a imágenes",
+        "summary": "Extracción automática de fotografías individuales desde páginas PDF escaneadas.",
+        "detail": "Utilidad Python FOSS para separar fotografías escaneadas, con corrección opcional de la inclinación."
+      },
+      "en": {
+        "title": "PDF photos to images",
+        "summary": "Automatic extraction of individual photographs from scanned PDF pages.",
+        "detail": "FOSS Python tool to separate scanned photographs, with optional deskewing."
+      },
+      "resources": [
+        {
+          "type": "documentation",
+          "href": "https://github.com/PedroBlanco/pdf-fotos-a-imagenes/blob/main/README.md",
+          "es": {
+            "label": "Instrucciones y requisitos de uso"
+          },
+          "en": {
+            "label": "Instructions and usage requirements"
+          }
+        }
+      ],
+      "markdown": true
+    },
+    {
+      "id": "csv",
+      "kind": "tool",
+      "slug": "csv2sqlite",
+      "status": "finished",
+      "source": "https://github.com/PedroBlanco/CSV2SQLite",
+      "es": {
+        "title": "CSV2SQLite",
+        "summary": "Conversión de archivos CSV grandes a bases de datos SQLite por lotes.",
+        "detail": "Utilidad de procesamiento de datos cuyo repositorio contiene el código y las instrucciones de uso."
+      },
+      "en": {
+        "title": "CSV2SQLite",
+        "summary": "Chunked conversion of large CSV files into SQLite databases.",
+        "detail": "Data-processing utility; its repository contains the code and usage instructions."
+      },
+      "resources": [
+        {
+          "type": "documentation",
+          "href": "https://github.com/PedroBlanco/CSV2SQLite/blob/main/README.md",
+          "es": {
+            "label": "Guía y documentación del proyecto"
+          },
+          "en": {
+            "label": "Project guide and documentation"
+          }
+        }
+      ],
+      "markdown": true
+    },
+    {
+      "id": "research",
+      "kind": "project",
+      "slug": "narrativa-adaptativa",
+      "status": "active",
+      "featured": true,
+      "es": {
+        "title": "Narrativa adaptativa en videojuegos",
+        "summary": "TFG sobre un sistema reutilizable para explorar el bucle de adaptación narrativa y conectarlo a varios motores.",
+        "detail": "Trabajo de investigación y desarrollo. La ficha pública se limita al objetivo y el enfoque general; el repositorio de trabajo es privado."
+      },
+      "en": {
+        "title": "Adaptive narrative in video games",
+        "summary": "Bachelor's thesis exploring a reusable closed-loop narrative adaptation system and its integration with multiple game engines.",
+        "detail": "Research and development project. This public profile covers its purpose and high-level approach; the source repository is private."
+      },
+      "media": {
+        "es": {
+          "src": "/media/adaptation-loop-es.svg",
+          "alt": "Diagrama conceptual: juego o motor, observación, decisión y adaptación, unidos por retroalimentación.",
+          "caption": "Esquema conceptual del bucle de adaptación, no evidencia de una implementación completa."
+        },
+        "en": {
+          "src": "/media/adaptation-loop-en.svg",
+          "alt": "Conceptual diagram: game or engine, observation, decision and adaptation, joined by feedback.",
+          "caption": "Conceptual adaptation loop, not evidence of a complete implementation."
+        }
+      },
+      "sections": [
+        {
+          "id": "objetivos",
+          "es": {
+            "title": "Objetivos",
+            "body": "Diseñar e implementar un sistema reutilizable para explorar el bucle cerrado de adaptación narrativa y estudiar su integración con motores de juego existentes."
+          },
+          "en": {
+            "title": "Goals",
+            "body": "Design and implement a reusable system for exploring closed-loop narrative adaptation and study how it can be integrated with existing game engines."
+          }
+        },
+        {
+          "id": "enfoque",
+          "es": {
+            "title": "Enfoque",
+            "body": "Separar el sistema de adaptación de los juegos conectados para estudiar distintas formas de observación, decisión y respuesta. La ficha presenta el enfoque general sin exponer material de trabajo privado."
+          },
+          "en": {
+            "title": "Approach",
+            "body": "Keep the adaptation system separate from connected games to study different ways of observing, deciding and responding. This page describes the general approach without disclosing private working materials."
+          }
+        },
+        {
+          "id": "integracion",
+          "es": {
+            "title": "Integración con motores",
+            "body": "Examinar qué información pueden facilitar distintos motores y cómo podrían aplicarse intervenciones narrativas. Las capacidades concretas deben evaluarse en cada integración."
+          },
+          "en": {
+            "title": "Game engine integration",
+            "body": "Examine which information different engines can expose and how narrative interventions might be applied. Specific capabilities must be assessed for each integration."
+          }
+        },
+        {
+          "id": "estado",
+          "es": {
+            "title": "Estado y documentación",
+            "body": "Proyecto de investigación y desarrollo en curso. Los resultados públicos se incorporarán después de su revisión editorial; el repositorio de trabajo no es público."
+          },
+          "en": {
+            "title": "Status and documentation",
+            "body": "Ongoing research and development project. Public results will be added after editorial review; the working repository is not public."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mapas",
+      "kind": "archive",
+      "slug": "mapas",
+      "status": "historic",
+      "featured": true,
+      "live": "https://conocimientocritico.github.io/",
+      "es": {
+        "title": "Atlas de Conocimiento Crítico",
+        "summary": "Proyecto histórico de mapas de conocimiento crítico. La versión oficial continúa en un sitio independiente.",
+        "detail": "Se conserva una ficha contextual en lugar de la copia de la aplicación que antes se alojaba aquí."
+      },
+      "en": {
+        "title": "Critical Knowledge Atlas",
+        "summary": "Historical critical-knowledge mapping project. Its official version remains on an independent website.",
+        "detail": "This historical profile replaces the former local application copy."
+      },
+      "archiveCategory": "atlas",
+      "resources": [
+        {
+          "type": "documentation",
+          "href": "/CC.html",
+          "es": {
+            "label": "Materiales de Conocimiento Crítico"
+          },
+          "en": {
+            "label": "Critical Knowledge resources"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mapeo",
+      "kind": "archive",
+      "slug": "mapeo",
+      "status": "historic",
+      "es": {
+        "title": "Mapeo de Iniciativas Innovadoras (2019)",
+        "summary": "Prototipo de un mapa de iniciativas innovadoras en la administración pública.",
+        "detail": "Se conserva su historia, no la aplicación ni las antiguas exportaciones de participantes."
+      },
+      "en": {
+        "title": "Innovation Initiatives Mapping (2019)",
+        "summary": "Prototype for mapping innovation initiatives in public administration.",
+        "detail": "Only a historical description is retained, not the application or old participant data exports."
+      },
+      "archiveCategory": "initiatives",
+      "archiveYear": 2019
+    },
+    {
+      "id": "embajadores",
+      "kind": "archive",
+      "slug": "embajadores",
+      "status": "historic",
+      "es": {
+        "title": "Atlas de Embajadores del Conocimiento",
+        "summary": "Prototipo histórico para representar comunidades y grupos de intercambio de conocimiento.",
+        "detail": "Ficha histórica sin perfiles ni fotografías personales de la aplicación original."
+      },
+      "en": {
+        "title": "Knowledge Ambassadors Atlas",
+        "summary": "Historical prototype for visualizing knowledge-sharing communities and groups.",
+        "detail": "Historical profile without the individual profiles or photographs from the former application."
+      },
+      "archiveCategory": "atlas"
+    },
+    {
+      "id": "art-of-hosting",
+      "kind": "archive",
+      "slug": "art-of-hosting",
+      "status": "historic",
+      "es": {
+        "title": "El Arte de la Innovación Colaborativa",
+        "summary": "Atlas histórico vinculado a un taller de innovación colaborativa celebrado en 2023.",
+        "detail": "Se documenta el proyecto sin conservar la aplicación pública de perfiles de participantes."
+      },
+      "en": {
+        "title": "The Art of Collaborative Innovation",
+        "summary": "Historical atlas associated with a collaborative-innovation workshop in 2023.",
+        "detail": "The project is documented without retaining the participant-profile application."
+      },
+      "archiveCategory": "initiatives",
+      "archiveYear": 2023
+    }
+  ],
+  "routes": [
+    {
+      "path": "",
+      "lang": "es",
+      "section": "home"
+    },
+    {
+      "path": "en",
+      "lang": "en",
+      "section": "home"
+    },
+    {
+      "path": "herramientas",
+      "lang": "es",
+      "section": "tools"
+    },
+    {
+      "path": "en/tools",
+      "lang": "en",
+      "section": "tools"
+    },
+    {
+      "path": "proyectos",
+      "lang": "es",
+      "section": "projects"
+    },
+    {
+      "path": "en/projects",
+      "lang": "en",
+      "section": "projects"
+    },
+    {
+      "path": "archivo",
+      "lang": "es",
+      "section": "archive"
+    },
+    {
+      "path": "en/archive",
+      "lang": "en",
+      "section": "archive"
+    },
+    {
+      "path": "acerca-de",
+      "lang": "es",
+      "section": "about"
+    },
+    {
+      "path": "en/about",
+      "lang": "en",
+      "section": "about"
+    },
+    {
+      "path": "herramientas/calculadora-tiempo",
+      "lang": "es",
+      "section": "detail",
+      "id": "calculator"
+    },
+    {
+      "path": "en/tools/calculadora-tiempo",
+      "lang": "en",
+      "section": "detail",
+      "id": "calculator"
+    },
+    {
+      "path": "herramientas/piefirma",
+      "lang": "es",
+      "section": "detail",
+      "id": "signature"
+    },
+    {
+      "path": "en/tools/piefirma",
+      "lang": "en",
+      "section": "detail",
+      "id": "signature"
+    },
+    {
+      "path": "herramientas/pdf-fotos-a-imagenes",
+      "lang": "es",
+      "section": "detail",
+      "id": "pdf"
+    },
+    {
+      "path": "en/tools/pdf-fotos-a-imagenes",
+      "lang": "en",
+      "section": "detail",
+      "id": "pdf"
+    },
+    {
+      "path": "herramientas/csv2sqlite",
+      "lang": "es",
+      "section": "detail",
+      "id": "csv"
+    },
+    {
+      "path": "en/tools/csv2sqlite",
+      "lang": "en",
+      "section": "detail",
+      "id": "csv"
+    },
+    {
+      "path": "proyectos/narrativa-adaptativa",
+      "lang": "es",
+      "section": "detail",
+      "id": "research"
+    },
+    {
+      "path": "en/projects/narrativa-adaptativa",
+      "lang": "en",
+      "section": "detail",
+      "id": "research"
+    },
+    {
+      "path": "mapas",
+      "lang": "es",
+      "section": "detail",
+      "id": "mapas"
+    },
+    {
+      "path": "en/archive/mapas",
+      "lang": "en",
+      "section": "detail",
+      "id": "mapas"
+    },
+    {
+      "path": "mapeo",
+      "lang": "es",
+      "section": "detail",
+      "id": "mapeo"
+    },
+    {
+      "path": "en/archive/mapeo",
+      "lang": "en",
+      "section": "detail",
+      "id": "mapeo"
+    },
+    {
+      "path": "embajadores",
+      "lang": "es",
+      "section": "detail",
+      "id": "embajadores"
+    },
+    {
+      "path": "en/archive/embajadores",
+      "lang": "en",
+      "section": "detail",
+      "id": "embajadores"
+    },
+    {
+      "path": "art-of-hosting",
+      "lang": "es",
+      "section": "detail",
+      "id": "art-of-hosting"
+    },
+    {
+      "path": "en/archive/art-of-hosting",
+      "lang": "en",
+      "section": "detail",
+      "id": "art-of-hosting"
+    }
+  ],
+  "archiveDocuments": [
+    {
+      "id": "cc",
+      "url": "/CC.html",
+      "archiveCategory": "documents",
+      "es": {
+        "title": "Conocimiento Crítico · materiales",
+        "summary": "Material documental sobre conocimiento crítico."
+      },
+      "en": {
+        "title": "Critical Knowledge · resources",
+        "summary": "Documentary resources on critical knowledge."
+      }
+    },
+    {
+      "id": "km2024",
+      "url": "/KM2024.html",
+      "archiveCategory": "documents",
+      "es": {
+        "title": "Gestión del Conocimiento · materiales",
+        "summary": "Recursos y presentaciones sobre gestión del conocimiento."
+      },
+      "en": {
+        "title": "Knowledge Management · resources",
+        "summary": "Resources and presentations on knowledge management."
+      }
+    },
+    {
+      "id": "revista",
+      "url": "/revista/",
+      "archiveCategory": "documents",
+      "es": {
+        "title": "Revista · documentación",
+        "summary": "Materiales audiovisuales, publicaciones y recursos."
+      },
+      "en": {
+        "title": "Magazine · documentation",
+        "summary": "Audiovisual materials, publications and resources."
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "ejemplo",
+  "version": "1.0.0",
+  "basePath": "/ejemplo/",
+  "entryPoint": "index.html",
+  "type": "static",
+  "source": {
+    "repository": "example/static-tool",
+    "commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  "artifact": {
+    "format": "zip",
+    "filename": "ejemplo-1.0.0.zip",
+    "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "sizeBytes": 12345
+  }
+}
