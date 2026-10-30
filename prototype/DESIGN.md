@@ -1,7 +1,7 @@
 # Diseño del sitio · Eleventy (11ty)
 
-Este documento registra las decisiones editoriales y visuales confirmadas para
-la nueva web personal. **El código Eleventy está integrado en `master`, pero el despliegue de la nueva web sigue pendiente.**
+Este documento registra las decisiones editoriales y visuales de
+la nueva web personal, incluida la paleta provisional en revisión. **El código Eleventy está integrado en `master`, pero el despliegue de la nueva web sigue pendiente.**
 
 ## Diseño acordado
 
