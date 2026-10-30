@@ -17,6 +17,23 @@ la nueva web personal, incluida la paleta provisional en revisión. **El código
 | 29 | Confirmado | Acciones principales al inicio y recursos verificados agrupados por tipo al final. |
 | 30 | Confirmado | Menú móvil nativo con `details/summary`, selector de idioma permanentemente visible, cinco entradas. |
 
+## Control de color añadido antes del lanzamiento
+
+Se añade un botón accesible junto al selector ES/EN con tres estados:
+`Sistema`, `Claro` y `Oscuro`. Sin preferencia guardada rige el sistema;
+el primer clic cambia al aspecto contrario, y se puede volver a `Sistema`.
+Se recuerda la elección manual en `localStorage` sin necesidad de conexión,
+y los cambios del sistema se respetan siempre que no exista selección manual.
+El modo claro u oscuro se aplica antes de cargar la CSS para evitar saltos de
+color. En móvil se usa la versión compacta del botón, manteniendo su
+nombre accesible y una superficie táctil mínima de 44 px.
+
+La demostración `preview/bruma-del-alba.html` también incluye el botón
+operativo. Las rutas Eleventy utilizan la misma hoja de estilo y el mismo
+control; las páginas documentales independientes siguen sin scripts para
+preservar su carácter de archivo estático. Los diagramas SVG bilingües tienen
+variantes fijas en caso de selección manual.
+
 ## Accesibilidad y rendimiento
 
 - Todos los destinos de navegación siguen disponibles sin JavaScript.
