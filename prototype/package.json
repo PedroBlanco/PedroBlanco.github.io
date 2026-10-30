@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "eleventy --serve",
     "build": "node scripts/clean-dist.mjs && node scripts/sync-repositories.mjs && eleventy && node scripts/stage-legacy.mjs && node scripts/stage-approved-tools.mjs && node scripts/stage-approved-media.mjs",
-    "check": "node scripts/check-site.mjs && node scripts/check-theme.mjs && node scripts/audit-links.mjs --strict && node scripts/check-translations.mjs && npm run test:contract && npm run test:integration && node scripts/generate-translation-review.mjs --check",
+    "check": "node scripts/check-site.mjs && node scripts/check-theme.mjs && npm run test:theme && node scripts/audit-links.mjs --strict && node scripts/check-translations.mjs && npm run test:contract && npm run test:integration && node scripts/generate-translation-review.mjs --check",
     "translations": "node scripts/check-translations.mjs",
     "check:publish": "npm run check && npm run test:migration && node scripts/check-migration.mjs --strict && node scripts/check-calculator.mjs --strict && node scripts/check-translations.mjs --strict && node scripts/check-media-review.mjs --strict",
     "audit:links": "node scripts/audit-links.mjs",
@@ -19,7 +19,8 @@
     "test:release-gates": "node --test scripts/test-release-gates.mjs",
     "test:crossword": "node --test scripts/test-crossword-review.mjs scripts/test-crossword-002.mjs",
     "test:calculator-pinning": "node --test scripts/test-verify-pinned-checkout.mjs",
-    "test:migration": "node scripts/check-dist.mjs && node scripts/check-migration.mjs && node scripts/check-calculator.mjs && npm run audit:media && npm run test:release-gates && npm run test:crossword && npm run test:calculator-pinning"
+    "test:migration": "node scripts/check-dist.mjs && node scripts/check-migration.mjs && node scripts/check-calculator.mjs && npm run audit:media && npm run test:release-gates && npm run test:crossword && npm run test:calculator-pinning",
+    "test:theme": "node --test scripts/test-theme-toggle.mjs"
   },
   "devDependencies": {
     "@11ty/eleventy": "3.1.7",
