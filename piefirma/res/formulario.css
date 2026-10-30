@@ -1,0 +1,95 @@
+#banner {
+	/* la ruta de la imagen es relativa al archivo CSS */
+    background: url("bg_top.jpg") top right;
+    height: 94px;
+}
+label{
+  display: inline-block;
+  width: 150px;
+}
+
+#logoJunta {
+
+    background-color: #087021;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+a.logo img, a.logo:active img, a.logo:focus img, a.logo:visited img, a.logo:hover img {
+
+	border: none;
+}
+.encabezadoPagina {
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 20pt;
+    color: #087021;
+    font-weight: bold;
+    line-height: 140%;
+}
+
+.encabezadoPagina a:link {
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 20pt;
+    color: #087021;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.encabezadoPagina a:visited {
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 20pt;
+    color: #087021;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.encabezadoPagina a:hover {
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 20pt;
+    color: #087021;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.encabezadoPagina a:active {
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 20pt;
+    color: #087021;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+input {
+	border: 1px solid black;
+}
+
+input:invalid {
+  box-shadow: 0 0 1px 1px red;
+  border: none;
+}
+
+input:required:invalid {
+  box-shadow: 0 0 1px 1px orange;
+  border: none;
+}
+
+input:required {
+  box-shadow: 0 0 1px 1px orange;
+  border: none;
+}
+
+input:required:valid {
+  box-shadow: 0 0 1px 1px green;
+  border: none;
+}
+
+input:valid {
+  box-shadow: 0 0 1px 1px green;
+  border: none;
+}
