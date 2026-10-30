@@ -36,7 +36,7 @@
       "offline": "Repositorio público",
       "notFound": "Página no encontrada",
       "notFoundBody": "La página puede haberse trasladado o retirado. Puedes consultar el archivo y los proyectos disponibles.",
-      "footer": "Sitio personal · Prototipo de renovación · No publicado",
+      "footer": "Sitio personal · Proyectos, herramientas y archivo",
       "home": {
         "heroAction": "Explorar proyectos",
         "exploreTitle": "Explora el sitio",
@@ -77,7 +77,7 @@
         "archive": "Archive",
         "about": "About"
       },
-      "more": "View project",
+      "more": "View details",
       "try": "Open tool / website",
       "code": "Public repository",
       "catalog": "Other public repositories",
@@ -101,7 +101,7 @@
       "offline": "Public repository",
       "notFound": "Page not found",
       "notFoundBody": "This page may have moved or been retired. Browse the archive and available projects instead.",
-      "footer": "Personal site · Renewal prototype · Not published",
+      "footer": "Personal site · Projects, tools and archive",
       "home": {
         "heroAction": "Explore projects",
         "exploreTitle": "Explore the site",
@@ -147,7 +147,7 @@
       "en": {
         "title": "Time calculator",
         "summary": "Web tool for calculating periods and service merits under Article 129 of Andalusian Law 5/2023.",
-        "detail": "Progressive web application with period-calculation logic. This page describes the project; calculations run in the independent application."
+        "detail": "Progressive web app that calculates time periods. This page describes the project; calculations are performed in a separate application."
       }
     },
     {
@@ -165,7 +165,7 @@
       "en": {
         "title": "Email signature generator",
         "summary": "Tool for generating corporate HTML email signatures.",
-        "detail": "HTML email signature generator with input validation and HTML escaping in place. The historical template remains pending branding and email-client compatibility checks."
+        "detail": "HTML email signature generator with form input validation and HTML escaping. The historical template is retained; institutional branding and compatibility across email clients may still need separate checks."
       }
     },
     {
