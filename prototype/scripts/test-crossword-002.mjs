@@ -67,5 +67,10 @@ test("corrupt grid and removed attribution are detected",()=>{
  assert.notEqual(mutated,html);
  assert.throws(()=>inspect(mutated),/strictly equal|Incorrect grid width/);
  assert.throws(()=>inspect(html.replace("MIT License","License removed")),/MIT License/);
- assert.throws(()=>inspect(html.replace("exolve-setter: Pedro Blanco Wasmer","exolve-setter: Unverified")),/strictly equal/);
+ const altered=html.replace("exolve-setter: Pedro Blanco Wasmer","exolve-setter: Unverified");
+ assert.notEqual(altered,html);
+ assert.throws(()=>inspect(altered),error=>
+  error.code==="ERR_ASSERTION"&&error.operator==="strictEqual"&&
+  error.actual==="Unverified"&&error.expected==="Pedro Blanco Wasmer"
+ );
 });
