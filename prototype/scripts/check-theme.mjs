@@ -20,7 +20,7 @@ const sourceByMode={light,dark};
 for(const [mode,tokens] of Object.entries(expected)){
  const source=sourceByMode[mode];
  for(const [name,value] of Object.entries(tokens))
-  if(get(source,name)!==value)throw Error("Bruma del Alba "+mode+" token "+name+" differs from approved palette");
+  if(get(source,name)!==value)throw Error("Bruma del Alba "+mode+" token "+name+" differs from selected palette");
 }
 const cases=[];
 for(const [mode,source] of Object.entries(sourceByMode)){
