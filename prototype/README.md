@@ -98,6 +98,33 @@ Para revisar la web completa, usa `npm run build` y
 `py -3 -m http.server 8000 --directory dist` desde `prototype/`.
 Consulta también [`DESIGN.md`](DESIGN.md).
 
+## Selector de modo claro/oscuro
+
+La navegación general incluye un **botón** de modo de color en todas las
+páginas Eleventy (ES/EN), junto al selector de idioma. El estado inicial,
+cuando no hay preferencia guardada, es **Sistema**: se adapta automáticamente
+a `prefers-color-scheme`. Al pulsar el botón se activa primero el modo
+opuesto al del sistema, después el otro modo manual y, por último, se recupera
+`Sistema`. El botón muestra el estado actual y anuncia el siguiente
+cambio mediante `aria-label`; en pantallas estrechas se presenta como icono
+con nombre accesible.
+
+La preferencia manual se guarda solo en el navegador con la clave
+`pedroblanco-color-mode` de `localStorage`. Volver a `Sistema` la elimina.
+Si el navegador bloquea este almacenamiento, el control sigue funcionando en
+la página abierta; si JavaScript está desactivado, el botón permanece oculto y
+la web sigue el modo del sistema. El controlador carga antes de la CSS para
+evitar parpadeos de paleta al navegar.
+
+Los diagramas conceptuales de la ficha de narrativa adaptativa alternan entre
+sus variantes claras y oscuras; al recuperar `Sistema` vuelven a sus SVG
+originales con detección automática. Los archivos históricos autónomos,
+conservados sin JavaScript, siguen utilizando únicamente la preferencia del
+sistema. Las dos herramientas independientes conservan sus controles propios.
+
+Prueba de comportamiento: `npm run test:theme`; también forma parte de
+`npm run check` y de `npm run check:publish`.
+
 ## Tipografía · Decisión 23 (confirmada)
 
 **Editorial equilibrada:** títulos serif y texto sans-serif. La familia de
