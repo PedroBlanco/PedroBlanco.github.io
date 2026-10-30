@@ -1,1 +1,84 @@
-{"approved":{}}
+{
+  "approved": {
+    "site-ui": {
+      "reviewed": true,
+      "sourceDigest": "2910307024057aeba28c04e2c95c03079c1586744ed7b62b995cb737b1f6e5c5",
+      "targetDigest": "64539732b8bd31e0bc53547e158b6ab65530871ac2910a59e9065ee90bf2971b",
+      "reviewedBy": "repository-owner",
+      "reviewedAt": "2026-10-30",
+      "evidence": "Explicit joint approval of ten ES/EN blocks with PR #14 corrections, user conversation 2026-10-30"
+    },
+    "calculator": {
+      "reviewed": true,
+      "sourceDigest": "e1932089d8f5e2a11c4e61bd0d6006ebec1530bcde00f1092e636c1a7d0f8bb8",
+      "targetDigest": "63babab42ba1ad69baaa1e6cc5c07559cf8d5eb2fdf0a05d31b39a689afdfb4e",
+      "reviewedBy": "repository-owner",
+      "reviewedAt": "2026-10-30",
+      "evidence": "Explicit joint approval of ten ES/EN blocks with PR #14 corrections, user conversation 2026-10-30"
+    },
+    "signature": {
+      "reviewed": true,
+      "sourceDigest": "dcc7d915604a4c09be805e5f15ae7d1621258c5b254bb14da9655f1d61b80172",
+      "targetDigest": "8b0d98843b22964ea09f805c2278d2273555260815473497e6775308572efedd",
+      "reviewedBy": "repository-owner",
+      "reviewedAt": "2026-10-30",
+      "evidence": "Explicit joint approval of ten ES/EN blocks with PR #14 corrections, user conversation 2026-10-30"
+    },
+    "pdf": {
+      "reviewed": true,
+      "sourceDigest": "d0dc537e21b77dce231546058ede27a7d710aef277c16b5c2146eb1870ea2d95",
+      "targetDigest": "6f0821dda25af4e62f629bc06a1e335ff48b116737e573a958cfd06d0b7098b5",
+      "reviewedBy": "repository-owner",
+      "reviewedAt": "2026-10-30",
+      "evidence": "Explicit joint approval of ten ES/EN blocks with PR #14 corrections, user conversation 2026-10-30"
+    },
+    "csv": {
+      "reviewed": true,
+      "sourceDigest": "a6ab535a01b377030ff000bc6cad1efe3d5499a70671de4fce8ab755e1c0a300",
+      "targetDigest": "0682706117464f1889c4f4b283bce5af5d4f8316d6fdb96ed6530a6c142a8019",
+      "reviewedBy": "repository-owner",
+      "reviewedAt": "2026-10-30",
+      "evidence": "Explicit joint approval of ten ES/EN blocks with PR #14 corrections, user conversation 2026-10-30"
+    },
+    "research": {
+      "reviewed": true,
+      "sourceDigest": "36f43a1cdefa46c2ec1f9719d99ff6ed1db03f438d4251f6b083e5307bec288d",
+      "targetDigest": "580fb5f0a6433ec8d6bdacf6225bde0abb965ad6987801b92c6a402e3cc5e7e8",
+      "reviewedBy": "repository-owner",
+      "reviewedAt": "2026-10-30",
+      "evidence": "Explicit joint approval of ten ES/EN blocks with PR #14 corrections, user conversation 2026-10-30"
+    },
+    "mapas": {
+      "reviewed": true,
+      "sourceDigest": "c0cb747df07cc07a83ab798c65ec79ca5b84305d2c04f1ee6c015c607182ee19",
+      "targetDigest": "d4f9ba5bfb52b6b4e6dea5d4e1c759460510b157adbc04a7bbdb96d9362c9e45",
+      "reviewedBy": "repository-owner",
+      "reviewedAt": "2026-10-30",
+      "evidence": "Explicit joint approval of ten ES/EN blocks with PR #14 corrections, user conversation 2026-10-30"
+    },
+    "mapeo": {
+      "reviewed": true,
+      "sourceDigest": "c83022488ab8f7d381b08025c5ee7781f644d555ee3bc0b2ccb6504dea676d92",
+      "targetDigest": "0b419d827a63cc00240d342736cc05585509eb8fa036edd2425565a21da69de5",
+      "reviewedBy": "repository-owner",
+      "reviewedAt": "2026-10-30",
+      "evidence": "Explicit joint approval of ten ES/EN blocks with PR #14 corrections, user conversation 2026-10-30"
+    },
+    "embajadores": {
+      "reviewed": true,
+      "sourceDigest": "b0b1ee3b80ebdfbfe69f98242f5553c7fe169c1052a83f25bd77f506d2a03132",
+      "targetDigest": "900f8ebeee3cad63b331a15195a850623fd925670a3adb1fb5970256ae20ccea",
+      "reviewedBy": "repository-owner",
+      "reviewedAt": "2026-10-30",
+      "evidence": "Explicit joint approval of ten ES/EN blocks with PR #14 corrections, user conversation 2026-10-30"
+    },
+    "art-of-hosting": {
+      "reviewed": true,
+      "sourceDigest": "17e82db0760713af3da121de7142405ee0b5e29efc2a7b82db98e0ef532ffbe6",
+      "targetDigest": "8d7888399a6215514fde717b3be6f94e13269beee62d61f7a56d5ac2ec2f146d",
+      "reviewedBy": "repository-owner",
+      "reviewedAt": "2026-10-30",
+      "evidence": "Explicit joint approval of ten ES/EN blocks with PR #14 corrections, user conversation 2026-10-30"
+    }
+  }
+}

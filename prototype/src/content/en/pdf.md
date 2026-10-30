@@ -2,7 +2,7 @@ FOSS Python tool for **extracting individual photographs from scanned PDF docume
 
 ### How it works
 
-The tool renders PDF pages using **pypdfium2**, detects photographs with an adapted `autocrop` implementation, crops them and can automatically correct their rotation. It exports JPEG or PNG images.
+The tool renders PDF pages using **pypdfium2**, detects photographs with an adapted `autocrop` implementation, crops them and can automatically correct their skew (tilt). It exports JPEG or PNG images.
 
 ### Requirements and usage
 
