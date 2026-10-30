@@ -1,6 +1,6 @@
 # Propuesta de revisión asistida ES/EN · Eleventy
 
-**Fecha:** 2026-10-30. **Estado:** propuesta lingüística, **sin aprobación del titular**. La ficha definitiva de equivalencias se genera en `TRANSLATION_REVIEW.md`, incluido el Markdown extenso. El registro `src/data/translation-review.json` sigue vacío hasta la confirmación humana.
+**Fecha:** 2026-10-30. **Estado:** los diez bloques ES/EN han sido **aprobados conjuntamente por el titular** tras revisión asistida. Las equivalencias completas siguen en `TRANSLATION_REVIEW.md`, incluido el Markdown extenso. Los hashes SHA-256 ES y EN, fecha y evidencia de esa aprobación están registrados en `src/data/translation-review.json`.
 
 | Bloque | Resultado de la revisión preliminar | Actuación propuesta |
 | --- | --- | --- |
