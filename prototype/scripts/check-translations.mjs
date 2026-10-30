@@ -1,6 +1,7 @@
 import fs from "node:fs/promises";
 import {createHash} from "node:crypto";
 import content from "../src/data/content.json" with {type:"json"};
+import {normalizeReviewLineEndings} from "./review-line-endings.mjs";
 
 const approvals=JSON.parse(await fs.readFile(new URL("../src/data/translation-review.json",import.meta.url),"utf8")).approved;
 const strict=process.argv.includes("--strict");
@@ -14,7 +15,7 @@ async function localized(item,lang){
     resources:(item.resources||[]).map(r=>({type:r.type,href:r.href,...r[lang]})),
   };
   let markdown="";
-  if(item.markdown)markdown=await fs.readFile(new URL("../src/content/"+lang+"/"+item.id+".md",import.meta.url),"utf8");
+  if(item.markdown)markdown=normalizeReviewLineEndings(await fs.readFile(new URL("../src/content/"+lang+"/"+item.id+".md",import.meta.url),"utf8"));
   return {extras,markdown};
 }
 const checks=[{id:"site-ui",es:{extras:content.langs.es,markdown:""},en:{extras:content.langs.en,markdown:""}}];
