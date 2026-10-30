@@ -29,6 +29,27 @@ if (-not (Test-Path -LiteralPath (Join-Path $prototype "package.json"))) {
     throw "Expected the Eleventy project"
 }
 
+# The build fetches public repository metadata and may rewrite this tracked JSON.
+# Check that publication starts from a clean master, then preserve its exact bytes.
+# The regenerated data remains in dist/; the local source snapshot is restored.
+$catalogPath = Join-Path $prototype "src\data\repositories.json"
+$catalogSnapshot = $null
+if ($Publish) {
+    $branchBefore = (& git -C $repo branch --show-current)
+    if ($LASTEXITCODE -ne 0 -or $branchBefore.Trim() -ne "master") {
+        throw "Publication requires the reviewed master branch"
+    }
+    $dirtyBefore = @(& git -C $repo status --porcelain)
+    if ($LASTEXITCODE -ne 0 -or
+        -not [string]::IsNullOrWhiteSpace(($dirtyBefore -join [Environment]::NewLine))) {
+        throw "Source Git worktree must be clean before building"
+    }
+    if (-not (Test-Path -LiteralPath $catalogPath -PathType Leaf)) {
+        throw "Missing tracked repository catalog"
+    }
+    $catalogSnapshot = [System.IO.File]::ReadAllBytes($catalogPath)
+}
+
 Push-Location $prototype
 try {
     & npm.cmd run build
@@ -36,7 +57,14 @@ try {
     & npm.cmd run check:publish
     if ($LASTEXITCODE -ne 0) { throw "Strict publication check failed; no push performed" }
 } finally {
-    Pop-Location
+    try {
+        Pop-Location
+    } finally {
+        if ($Publish -and $null -ne $catalogSnapshot) {
+            # Initial clean-tree check guarantees no user changes are overwritten.
+            [System.IO.File]::WriteAllBytes($catalogPath, $catalogSnapshot)
+        }
+    }
 }
 if (-not (Test-Path -LiteralPath (Join-Path $dist "index.html") -PathType Leaf) -or
     -not (Test-Path -LiteralPath (Join-Path $dist "404.html") -PathType Leaf)) {

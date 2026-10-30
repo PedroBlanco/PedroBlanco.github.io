@@ -29,9 +29,22 @@ GitHub Pages mantiene su propio flujo interno de despliegue incluso con fuente d
    .\scripts\publish-gh-pages.ps1 -Publish
    ```
 
-   El script **repite** la compilación y la puerta estricta, comprueba el origen Git, `master` limpio y actualizado, límites de tamaño, ausencia de enlaces simbólicos y que el destino sea el repositorio esperado. Genera una copia temporal de solo los archivos de `dist`, crea `.nojekyll`, hace un commit local de `gh-pages` y realiza `git push` **sin forzar**. Si algo falla, no se altera la fuente pública actual.
+   El script comprueba **antes de compilar** que está en `master` y que el repositorio está limpio. **Repite** la compilación y la puerta estricta. La sincronización de metadatos públicos puede modificar temporalmente `src/data/repositories.json`; el script conserva sus bytes originales y los restaura al acabar la validación (incluso si falla), sin alterar los archivos ya generados en `dist/`. Comprueba después que el origen Git es el esperado, que `master` sigue limpio y actualizado, los límites de tamaño y la ausencia de enlaces simbólicos. Genera una copia temporal de solo los archivos de `dist`, crea `.nojekyll`, hace un commit local de `gh-pages` y realiza `git push` **sin forzar**. Si algo falla, no se altera la fuente pública actual.
 6. En GitHub, abrir **Settings → Pages → Build and deployment → Source: Deploy from a branch → Branch: gh-pages → /(root) → Save**. Este cambio de configuración requiere acceso administrativo a Pages y **no** lo realiza el script.
 7. Comprobar el sitio público y el despliegue de Pages, incluidos recursos binarios y dos herramientas activas; documentar el resultado en la issue #13. Solo después cerrar la migración y proceder a la issue #11 para simplificar tests.
+
+## Cambios locales antes de publicar
+
+No publicar desde una rama de diseño ni desde una copia con cambios pendientes.
+Si `git status --short --branch` muestra una modificación en
+`prototype/src/data/repositories.json` o una carpeta
+`prototype/scripts/__pycache__/`, conserva esos datos mediante `git stash`
+antes de cambiar a `master`, o revísalos y guárdalos en la rama original.
+No son necesarios `git reset --hard`, `git clean -fd` ni un push forzado.
+Una vez actualizado `master`, el script deja el árbol limpio incluso cuando
+el build actualiza el catálogo de repositorios; los bytecodes Python quedan
+ignorados. Un commit local adicional en la rama de diseño permanece en ella,
+y no se transfiere a `master` al cambiar de rama.
 
 ## Actualizaciones posteriores
 
