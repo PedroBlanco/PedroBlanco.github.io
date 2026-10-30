@@ -9,7 +9,7 @@ import {root, sectionUrl, itemUrl, alternateUrl, publicCatalog} from "./data/uti
 const esc=x=>String(x??"").replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
 const link=(href,label,other="")=>'<a href="'+esc(href)+'"'+other+'>'+esc(label)+'</a>';
 const badge=(label)=>'<span class="chip">'+esc(label)+'</span>';
-const mediaFigure=(item,lang,className)=>{const m=item?.media?.[lang];return m&&m.src?.startsWith('/media/')&&m.alt&&m.caption?'<figure class="'+esc(className)+'"><img src="'+esc(m.src)+'" alt="'+esc(m.alt)+'" width="740" height="260" loading="lazy" decoding="async"><figcaption>'+esc(m.caption)+'</figcaption></figure>':'';};
+const mediaFigure=(item,lang,className)=>{const m=item?.media?.[lang];return m&&m.src?.startsWith('/media/')&&m.alt&&m.caption?'<figure class="'+esc(className)+'"><img src="'+esc(m.src)+'" data-theme-image="'+esc(m.src)+'" alt="'+esc(m.alt)+'" width="740" height="260" loading="lazy" decoding="async"><figcaption>'+esc(m.caption)+'</figcaption></figure>':'';};
 function renderArchive(items,documents,lang,t){
   const view=t.archiveView;
   const entries=[
@@ -146,12 +146,13 @@ function render(route){
  }
  return '<!doctype html><html lang="'+esc(route.lang)+'"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark">'
  +'<title>'+esc(title)+' · PedroBlanco</title><meta name="description" content="'+esc(item?item[route.lang].summary:t.intro)+'">'
- +'<link rel="canonical" href="'+esc(canonical)+'"><link rel="alternate" hreflang="es" href="'+esc(es)+'"><link rel="alternate" hreflang="en" href="'+esc(en)+'"><link rel="alternate" hreflang="x-default" href="'+esc(es)+'"><link rel="stylesheet" href="/styles/site.css">'
+ +'<link rel="canonical" href="'+esc(canonical)+'"><link rel="alternate" hreflang="es" href="'+esc(es)+'"><link rel="alternate" hreflang="en" href="'+esc(en)+'"><link rel="alternate" hreflang="x-default" href="'+esc(es)+'"><script src="/scripts/theme-toggle.js"></script><link rel="stylesheet" href="/styles/site.css">'
  +(route.section==="archive"?'<script src="/scripts/archive-filter.js" defer></script>':'')
  +'</head><body><a class="skip" href="#main">'+(route.lang==="es"?"Saltar al contenido":"Skip to content")+'</a><header class="site-header"><div class="wrap header-inner">'
  +'<a class="brand" href="'+esc(sectionUrl(route.lang,"home"))+'">PedroBlanco<span class="brand-tagline"><span aria-hidden="true"> /</span> '+esc(t.site)+'</span></a>'
  +'<div class="header-controls"><nav class="desktop-nav" aria-label="'+(route.lang==="es"?"Navegación principal":"Primary navigation")+'">'+navigation+'</nav>'
  +switchLang
+ +'<button class="theme-toggle" type="button" data-theme-toggle hidden><span class="theme-toggle-icon" aria-hidden="true" data-theme-icon>◐</span><span class="theme-toggle-label" data-theme-label>'+(route.lang==="es"?"Sistema":"System")+'</span></button>'
  +'<details class="mobile-menu"><summary class="menu-toggle"><span class="menu-label">'+(route.lang==="es"?"Menú":"Menu")+'</span><span class="menu-symbol" aria-hidden="true">☰</span></summary>'
  +'<nav class="mobile-nav" aria-label="'+(route.lang==="es"?"Navegación móvil":"Mobile navigation")+'">'+navigation+'</nav></details></div>'
  +'</div></header><main id="main">'+body+'</main><footer class="site-footer"><div class="wrap">'+esc(t.footer)+'</div></footer></body></html>';
