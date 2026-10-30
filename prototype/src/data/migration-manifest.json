@@ -3,23 +3,29 @@
   "entries": [
     {
       "path": "CC.html",
-      "status": "preview",
+      "status": "approved",
       "kind": "document",
-      "reason": "Curated historical references: original video link withheld until rights/privacy review; alternative third-party links preserved as references.",
-      "gitBlobSha": "40422d1c4a4d0edb01a3fd9eb345dfd2d2a65f53"
+      "reason": "Curated historical reference index approved by owner 2026-10-30; redistributes explicitly authorized original presentation MP4.",
+      "gitBlobSha": "acca2fa935d1f6d500e1245beb712e64b31c35c1",
+      "reviewedBy": "repository-owner",
+      "reviewedAt": "2026-10-30",
+      "evidence": "Owner approved four legacy migration proposals in conversation 2026-10-30"
     },
     {
       "path": "KM2024.html",
-      "status": "preview",
+      "status": "approved",
       "kind": "document",
-      "reason": "Curated 2024 page: external viewing links retained, local PDF link withheld until rights/privacy review.",
-      "gitBlobSha": "50a99402e750c3fe86c5751a1c84081d3cdbe715"
+      "reason": "Curated knowledge-management index approved with original authorized PDF/PPTX downloads; edit links remain removed.",
+      "gitBlobSha": "4c9b7282641f99bb5225307347fe070d9f3f9e54",
+      "reviewedBy": "repository-owner",
+      "reviewedAt": "2026-10-30",
+      "evidence": "Owner approved four legacy migration proposals in conversation 2026-10-30"
     },
     {
       "path": "KM2024.md",
-      "status": "hold",
+      "status": "retire",
       "kind": "document",
-      "reason": "Needs intentional editorial migration."
+      "reason": "Retain original Markdown in Git repository; do not publish duplicate standalone page (owner decision 2026-10-30)."
     },
     {
       "path": "revista/",
@@ -29,9 +35,9 @@
     },
     {
       "path": "piefirma/",
-      "status": "preview-tool",
+      "status": "approved-tool",
       "kind": "application",
-      "reason": "Existing generator hardened and published; staged as a pinned runtime-only legacy adapter. Branding/email-client QA remains.",
+      "reason": "Owner approved continued public use of ten pinned original runtime assets with existing input-validation security checks, confirming visual/functional review without incidents 2026-10-30.",
       "files": [
         {
           "path": "index.html",
@@ -73,7 +79,10 @@
           "path": "res/tittop.gif",
           "gitBlobSha": "f74655272b2ee503c35070013f38454620b7e740"
         }
-      ]
+      ],
+      "reviewedBy": "repository-owner",
+      "reviewedAt": "2026-10-30",
+      "evidence": "Owner approved legacy tool preservation and reported visual/functional check without incidents in conversation 2026-10-30"
     },
     {
       "path": "calculadora-tiempo/",
