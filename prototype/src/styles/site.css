@@ -65,6 +65,19 @@ nav a[aria-current="page"] { font-weight: 750; text-decoration: underline; text-
   min-height: 44px; min-width: 44px; font-weight: 750; text-decoration: none;
 }
 .header-controls .lang:hover { background: var(--subtle); }
+.theme-toggle {
+  display: inline-flex; align-items: center; justify-content: center; gap: .4rem;
+  min-height: 44px; min-width: 44px; border: 1px solid var(--border);
+  border-radius: .45rem; padding: .35rem .65rem;
+  color: var(--primary); background: var(--surface);
+  font: 750 .85rem/1.2 var(--body-font); cursor: pointer;
+}
+.theme-toggle:hover { background: var(--subtle); border-color: var(--primary); }
+.theme-toggle-icon { font-size: 1.15rem; line-height: 1; }
+@media (max-width: 600px) {
+  .theme-toggle { padding-inline: .35rem; }
+  .theme-toggle-label { display: none; }
+}
 .mobile-menu { display: none; }
 @media (max-width: 1020px) {
   .header-inner { flex-wrap: nowrap; gap: .5rem; padding-block: .8rem; }
@@ -207,7 +220,7 @@ main { min-height: 66vh; }
   .hero h1 { font-size: clamp(2.35rem, 10vw, 3.6rem); }
 }
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     color-scheme: dark;
     --bg: #18243A; --surface: #23334A; --ink: #F4F6FA;
     --primary: #9EC5DD; --accent: #F0AF91; --accent-text: #F0AF91;
@@ -215,8 +228,18 @@ main { min-height: 66vh; }
     --chip-bg: #32495E; --chip-ink: #E4F1F9; --focus: #F0AF91;
     --shadow: 0 10px 30px rgb(0 0 0 / 14%);
   }
-  .actions a:first-child { color: #18243A; }
+  :root:not([data-theme="light"]) .actions a:first-child { color: #18243A; }
 }
+/* A manual choice overrides the operating system's color preference. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #18243A; --surface: #23334A; --ink: #F4F6FA;
+  --primary: #9EC5DD; --accent: #F0AF91; --accent-text: #F0AF91;
+  --border: #52667C; --muted: #C8D3DE; --subtle: #30445C;
+  --chip-bg: #32495E; --chip-ink: #E4F1F9; --focus: #F0AF91;
+  --shadow: 0 10px 30px rgb(0 0 0 / 14%);
+}
+:root[data-theme="dark"] .actions a:first-child { color: #18243A; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0s !important; }
 }
