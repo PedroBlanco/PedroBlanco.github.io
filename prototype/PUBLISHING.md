@@ -13,7 +13,7 @@ GitHub Pages mantiene su propio flujo interno de despliegue incluso con fuente d
 
 ## Primera publicación
 
-1. Terminar la revisión de las diez unidades de traducción ES/EN. Registrar **únicamente después de la aprobación del titular** `reviewedBy`, `reviewedAt`, `sourceDigest` y `targetDigest` en `src/data/translation-review.json`. Los hashes se obtienen con `node scripts/check-translations.mjs --hashes` y usan finales de línea normalizados.
+1. **Revisión ES/EN aprobada el 30/10/2026:** se registraron los diez bloques en `src/data/translation-review.json`, con `reviewedBy`, `reviewedAt`, `sourceDigest` y `targetDigest`. Antes de publicar se vuelven a verificar esas huellas contra el contenido final: cualquier diferencia invalida la aprobación. Los hashes se pueden consultar con `node scripts/check-translations.mjs --hashes` y usan finales de línea normalizados.
 2. Fusionar la PR de preparación y actualizar `master` en el ordenador Windows. Comprobar que la copia Git está limpia y coincide con `origin/master`.
 3. En PowerShell, desde `prototype/`, ejecutar:
 
