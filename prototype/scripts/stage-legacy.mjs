@@ -39,7 +39,11 @@ for(const item of manifest.entries){
  }
  if(item.status!=="preview"&&item.status!=="approved")continue;
  if(!["document","binary"].includes(item.kind)||!(/^[a-f0-9]{40}$/.test(item.gitBlobSha||"")))throw Error("Unpinned preview file: "+item.path);
- const input=path.join(sourceRoot,item.path),output=path.join(dist,item.path),stat=await fs.lstat(input);
+ // Keep the live GitHub Pages roots untouched until final deployment.
+ // Curated HTML is pinned inside prototype/; original master files remain public as-is.
+ const curated=new Set(["CC.html","KM2024.html"]);
+ const input=curated.has(item.path) ? path.resolve("legacy-staged",item.path) : path.join(sourceRoot,item.path);
+ const output=path.join(dist,item.path),stat=await fs.lstat(input);
  if(!stat.isFile()||stat.isSymbolicLink())throw Error("Unsafe source: "+item.path);
  const contents=await readPinned(input,item.gitBlobSha,item.path);
  await fs.mkdir(path.dirname(output),{recursive:true});
