@@ -24,13 +24,11 @@ jobs:
         working-directory: prototype
         env:
           GITHUB_TOKEN: ${{ github.token }}
-      - name: Check routes
-        run: npm run check
-        working-directory: prototype
-      # One-time migration checks remain callable manually until launch.
       # Local validation is the default; no PR-triggered Actions.
-      - name: Check one-time migration
-        run: npm run test:migration
+      # Permanent route, theme, link, contract and publication-safety tests
+      # are included in npm run check; historical tests run only on demand.
+      - name: Check publication safety
+        run: npm run check:publish
         working-directory: prototype
       - name: Upload static review artifact (manual only)
         if: github.event_name == 'workflow_dispatch'
