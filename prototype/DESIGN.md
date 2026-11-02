@@ -7,7 +7,7 @@ la nueva web personal. **«Bruma del Alba» fue aprobada y la web Eleventy está
 
 | Decisión | Estado | Acuerdo |
 | --- | --- | --- |
-| 22 | Bruma del Alba (rama de diseño) | Se mantiene «Archivo contemporáneo» con azul bruma `#EDF3F7`, tinta azul `#202F46`, azul petróleo `#245E80`, coral `#C76B51` y variante oscura automática (`#18243A`, `#F4F6FA`, `#9EC5DD`, `#F0AF91`). Pendiente validar la nueva vista previa antes de publicar. |
+| 22 | Confirmado y publicado | «Archivo contemporáneo» con la paleta «Bruma del Alba»: azul bruma `#EDF3F7`, tinta azul `#202F46`, azul petróleo `#245E80`, coral `#C76B51` y variante oscura (`#18243A`, `#F4F6FA`, `#9EC5DD`, `#F0AF91`). |
 | 23 | Confirmado | Títulos serif (Georgia/Cambria), texto sans-serif del sistema, sin fuentes descargadas. |
 | 24 | Confirmado | Tarjetas medianas responsivas, títulos, categoría, estado, resumen breve y enlace. |
 | 25 | Confirmado | Imágenes solo cuando aporten información; texto alternativo, pie y revisión de derechos. |
