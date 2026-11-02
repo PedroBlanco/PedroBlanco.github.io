@@ -10,7 +10,7 @@ export function checkPublicationSafety({dist, migrationManifest, mediaManifest})
   const fail=reason=>{throw Error("Publication safety: "+reason);};
   const approved=(x)=>Boolean(x.reviewedBy&&/^\d{4}-\d{2}-\d{2}$/.test(x.reviewedAt||"")&&x.evidence);
   const validPath=p=>typeof p==="string"&&p.length>0&&!p.startsWith("/")&&!p.includes("\\")&&!p.includes("\0")&&
-    p.split("/").filter(Boolean).every(seg=>seg!=="."&&seg!=="..")&&p.replace(/\/$/,"").length>0;
+    p.replace(/\/$/,"").split("/").every(seg=>seg!==""&&seg!=="."&&seg!=="..")&&p.replace(/\/$/,"").length>0;
   const safe=(p)=>{
     if(!validPath(p))fail("unsafe path: "+String(p));
     const file=path.resolve(dist,p);
@@ -112,7 +112,7 @@ export function checkPublicationSafety({dist, migrationManifest, mediaManifest})
           protectedRoutes:migrationManifest.entries.length};
 }
 
-if(process.argv[1]&&path.resolve(process.argv[1])===path.resolve(new URL(import.meta.url).pathname.replace(/^\/(?=[A-Za-z]:)/,""))){
+if(process.argv[1]&&path.basename(process.argv[1])==="check-publication-safety.mjs"){
   const result=checkPublicationSafety({dist:path.resolve("dist"),migrationManifest:migration,mediaManifest:media});
   console.log("Publication safety OK: "+result.approvedMedia+" approved media files; "+result.protectedRoutes+" migration protections.");
 }
