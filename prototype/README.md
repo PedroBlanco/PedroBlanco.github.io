@@ -89,7 +89,7 @@ sus estilos funcionales y su identidad propia.
 | Acento decorativo | `#C76B51` | `#F0AF91` |
 
 La rama `design/bruma-del-alba` permite comparar una muestra con la hoja CSS
-real desde `prototype/preview/bruma-del-alba.html`. **No se ha desplegado.**
+real desde `prototype/preview/bruma-del-alba.html`. Se trata de una muestra local de diseño, independiente del sitio ya publicado.
 Para ver la muestra local, desde `prototype/` ejecuta
 `py -3 -m http.server 8001` y visita
 `http://localhost:8001/preview/bruma-del-alba.html`.
@@ -253,11 +253,12 @@ las comprobaciones visuales pendientes y la visualización local del artefacto
 de GitHub Actions. La personalización principal está acordada; no se requiere
 añadir decisiones menores antes de revisar la implementación en navegador.
 
-## Migración selectiva de archivos históricos
+## Conservación selectiva de archivos históricos
 
-El inventario está en `src/data/migration-manifest.json`. `npm run build` copia
-exclusivamente archivos de estado `preview` y SHA Git conocido, sin copiar
-carpetas antiguas. Esta vista previa no implica aprobación de publicación.
+El inventario está en `src/data/migration-manifest.json`. `npm run build`
+copia únicamente originales con estado aprobado y hash conocido, sin copiar
+carpetas antiguas indiscriminadamente. Los materiales pendientes y retirados
+se excluyen de la publicación.
 
 `CC.html`, `KM2024.html`, `piefirma/` y `calculadora-tiempo/` ya
 se publicaron tras revisión. Las aplicaciones antiguas con datos personales
@@ -401,8 +402,8 @@ la herramienta original; quedan pendientes los clientes de correo y la
 validación de marca institucional.
 
 Los archivos se toman del mismo repositorio, en sus rutas heredadas, y
-el build comprueba que no han cambiado desde la revisión. La vista previa
-de Eleventy queda todavía bloqueada para publicación completa.
+el build comprueba que no han cambiado desde la revisión. La publicación
+actual utiliza Eleventy.
 
 ## Inventario verificable de archivos históricos
 
@@ -411,8 +412,9 @@ histórico: **15 originales aprobados** para distribución por el titular y
 **8 entradas retiradas** de la distribución original (7 referencias históricas
 y la portada sustituida). La selección editorial de 22 materiales está cerrada.
 Los hashes, tamaños y decisiones constan en `src/data/media-review.json`.
-`npm run audit:media` se ejecuta en `test:migration` durante la transición:
-verifica integridad, copia de aprobados y exclusión de retirados.
+`npm run audit:media` permanece disponible bajo demanda dentro de
+`test:migration` para consultar evidencia histórica. Las publicaciones
+ordinarias verifican la salida con `check-publication-safety.mjs`.
 
 ## Revisión editorial bilingüe verificable
 
@@ -464,9 +466,9 @@ aplicación ni recupera código del repositorio privado.
 ## Enlaces históricos y cierre editorial
 
 `CC.html` y `KM2024.html` mantienen por ahora sus referencias documentales
-anteriores a la autorización de distribución. La inclusión de los 15 archivos
-aprobados en la compilación no implica que ya se hayan actualizado todos los
-enlaces y textos históricos: esa coherencia se verifica antes de publicar.
+anteriores a la autorización de distribución. La inclusión de los 15 archivos aprobados en la compilación preserva sus
+rutas y enlaces verificados durante el lanzamiento; la coherencia se vuelve
+a comprobar antes de futuras publicaciones.
 Las siete referencias históricas sin distribución continúan excluidas.
 
 El conjunto `test:migration` mantiene estos casos como evidencia histórica
