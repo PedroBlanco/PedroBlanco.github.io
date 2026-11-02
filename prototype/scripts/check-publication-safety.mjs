@@ -61,8 +61,13 @@ export function checkPublicationSafety({dist, migrationManifest, mediaManifest})
       const st=needFile(item.path);
       if(!Number.isSafeInteger(item.bytes)||st.size!==item.bytes)fail("approved media size: "+item.path);
       ensureBlob(item.path,item.gitBlobSha);
-    }else if(item.path!=="revista/index.html"&&fileInfo(item.path)){
-      fail("blocked media published: "+item.path);
+    }else {
+      // A retired legacy index may exist only if a separately approved
+      // curated-index route explicitly replaces that exact location.
+      const replacement=migrationManifest.entries.some(route=>
+        route.status==="curated-index"&&item.path===route.path+"index.html");
+      if(fileInfo(item.path)&&!replacement)
+        fail("blocked media published: "+item.path);
     }
   }
   const migrationPaths=new Set();
