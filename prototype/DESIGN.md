@@ -1,13 +1,13 @@
 # Diseño del sitio · Eleventy (11ty)
 
 Este documento registra las decisiones editoriales y visuales de
-la nueva web personal, incluida la paleta provisional en revisión. **El código Eleventy está integrado en `master`, pero el despliegue de la nueva web sigue pendiente.**
+la nueva web personal. **«Bruma del Alba» fue aprobada y la web Eleventy está publicada en GitHub Pages desde el 02/11/2026.**
 
 ## Diseño acordado
 
 | Decisión | Estado | Acuerdo |
 | --- | --- | --- |
-| 22 | Bruma del Alba (rama de diseño) | Se mantiene «Archivo contemporáneo» con azul bruma `#EDF3F7`, tinta azul `#202F46`, azul petróleo `#245E80`, coral `#C76B51` y variante oscura automática (`#18243A`, `#F4F6FA`, `#9EC5DD`, `#F0AF91`). Pendiente validar la nueva vista previa antes de publicar. |
+| 22 | Confirmado y publicado | «Archivo contemporáneo» con la paleta «Bruma del Alba»: azul bruma `#EDF3F7`, tinta azul `#202F46`, azul petróleo `#245E80`, coral `#C76B51` y variante oscura (`#18243A`, `#F4F6FA`, `#9EC5DD`, `#F0AF91`). |
 | 23 | Confirmado | Títulos serif (Georgia/Cambria), texto sans-serif del sistema, sin fuentes descargadas. |
 | 24 | Confirmado | Tarjetas medianas responsivas, títulos, categoría, estado, resumen breve y enlace. |
 | 25 | Confirmado | Imágenes solo cuando aporten información; texto alternativo, pie y revisión de derechos. |

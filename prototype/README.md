@@ -1,9 +1,9 @@
-# Eleventy (11ty) · Renovación del sitio personal (prototipo)
+# Eleventy (11ty) · Web personal publicada
 
-**Tecnología elegida:** Eleventy 3.1.7. La variante Astro se conserva únicamente
-como referencia de la comparación previa. El código Eleventy está integrado
-en `master`, pero **la nueva web todavía no se ha desplegado en GitHub Pages**.
-La fuente del sitio está en `prototype/`.
+**Tecnología:** Eleventy 3.1.7. La web se publicó en GitHub Pages
+mediante la rama `gh-pages` y fue revisada satisfactoriamente el 02/11/2026.
+El código fuente se conserva en `master`, dentro de `prototype/`. La variante
+Astro queda únicamente como referencia de la comparación previa.
 
 ## Ejecutar y verificar
 
@@ -12,31 +12,30 @@ cd prototype
 npm install
 npm run build
 npm run check
-npm run test:migration
 npm run check:publish
 ```
 
-`npm run dev` inicia la vista previa local. Durante la transición se distinguen
-**tres niveles de pruebas**, sin duplicar la revisión histórica en cada cambio:
+`npm run dev` inicia la vista previa local. Tras el lanzamiento se distinguen
+**dos niveles habituales de pruebas** y una batería histórica bajo demanda:
 
 | Comando | Uso | Vigencia |
 | --- | --- | --- |
-| `npm run check` | Rutas actuales a partir del catálogo, 404, enlaces, contraste, ES/EN, informe bilingüe y contratos de herramientas | Permanente, para actualizaciones ordinarias |
-| `npm run test:migration` | Preservación de originales, salida heredada, calculadora publicada, 15 medios autorizados y crucigramas concretos | Temporal, hasta cerrar y verificar la migración |
-| `npm run check:publish` | Ejecuta los dos anteriores y añade bloqueos estrictos de migración, herramientas, traducciones y medios | Obligatorio antes de publicar la PR #4 |
+| `npm run check` | Rutas actuales, 404, enlaces, contraste, ES/EN, contratos y pruebas sintéticas de seguridad | Permanente, para actualizaciones ordinarias |
+| `npm run check:publish` | Comprobaciones anteriores, exclusiones/autorías de medios, rutas históricas protegidas, calculadora y traducciones aprobadas | Permanente, antes de cada publicación |
+| `npm run test:migration` | Inventario fijo de la migración, crucigramas y regresiones históricas | Archivada, **solo manual y bajo demanda**; excluida de check y CI |
 
-Los contenidos nuevos **no requieren tests personalizados por fichero**: bastan
-los controles generales; solo se añaden pruebas de lógica si aparece una
-funcionalidad nueva. `check:publish` seguirá bloqueado mientras haya traducciones
-o entradas de migración pendientes, aunque `check` sea correcto. Ninguna
-aprobación ES/EN se concede automáticamente; se documenta en
-`src/data/translation-review.json` con huellas de ambos idiomas.
+Los contenidos nuevos **no requieren tests personalizados por fichero**.
+El control permanente `scripts/check-publication-safety.mjs` consulta los
+manifiestos para comprobar aprobaciones, integridad y exclusiones de materiales,
+sin depender de listas de un expediente concreto. Sus regresiones sintéticas
+están en `npm run test:publication-safety` y se incluyen en `npm run check`.
+Los cambios lingüísticos requieren revisión y actualización explícita de
+`src/data/translation-review.json`; ningún test concede aprobaciones.
 
-**Retirada prevista (issue [#11](https://github.com/PedroBlanco/PedroBlanco.github.io/issues/11)):** tras fusionar y comprobar la nueva web, archivar
-`test:migration` y retirar sus pruebas del CI y la puerta de publicación.
-Conservar el inventario editorial y la evidencia sin convertirlos en tests
-recurrentes. La retirada exige verificar que no se pierde ningún control
-general de enlaces, seguridad o publicación.
+La [issue #11](https://github.com/PedroBlanco/PedroBlanco.github.io/issues/11)
+documenta la retirada de las pruebas temporales del mantenimiento habitual.
+La colección `test:migration` se conserva para consultar o repetir de forma
+manual la evidencia histórica, sin ejecutarse automáticamente.
 
 ## Cierre editorial y publicación con rama gh-pages
 
@@ -90,7 +89,7 @@ sus estilos funcionales y su identidad propia.
 | Acento decorativo | `#C76B51` | `#F0AF91` |
 
 La rama `design/bruma-del-alba` permite comparar una muestra con la hoja CSS
-real desde `prototype/preview/bruma-del-alba.html`. **No se ha desplegado.**
+real desde `prototype/preview/bruma-del-alba.html`. Se trata de una muestra local de diseño, independiente del sitio ya publicado.
 Para ver la muestra local, desde `prototype/` ejecuta
 `py -3 -m http.server 8001` y visita
 `http://localhost:8001/preview/bruma-del-alba.html`.
@@ -254,20 +253,18 @@ las comprobaciones visuales pendientes y la visualización local del artefacto
 de GitHub Actions. La personalización principal está acordada; no se requiere
 añadir decisiones menores antes de revisar la implementación en navegador.
 
-## Migración selectiva de archivos históricos
+## Conservación selectiva de archivos históricos
 
-El inventario está en `src/data/migration-manifest.json`. `npm run build` copia
-exclusivamente archivos de estado `preview` y SHA Git conocido, sin copiar
-carpetas antiguas. Esta vista previa no implica aprobación de publicación.
+El inventario está en `src/data/migration-manifest.json`. `npm run build`
+copia únicamente originales con estado aprobado y hash conocido, sin copiar
+carpetas antiguas indiscriminadamente. Los materiales pendientes y retirados
+se excluyen de la publicación.
 
-Se ha incorporado provisionalmente `CC.html`, verificando su integridad.
-`KM2024.html` está pendiente por enlaces de edición de Canva; las aplicaciones
-`piefirma/` y `calculadora-tiempo/` requieren adaptación propia. Las carpetas
-retiradas con perfiles personales o exportaciones quedan excluidas.
-
-`npm run test:migration` comprueba esta política mientras dura la transición;
-`check:publish` añade los controles estrictos que impiden publicar una
-migración o traducción pendiente.
+`CC.html`, `KM2024.html`, `piefirma/` y `calculadora-tiempo/` ya
+se publicaron tras revisión. Las aplicaciones antiguas con datos personales
+fueron sustituidas por fichas históricas. `check:publish` conserva las
+prohibiciones mediante los manifiestos y bloquea materiales no autorizados,
+recursos alterados o traducciones sin aprobar.
 
 ## Actualización manual de contenidos Markdown
 
@@ -405,8 +402,8 @@ la herramienta original; quedan pendientes los clientes de correo y la
 validación de marca institucional.
 
 Los archivos se toman del mismo repositorio, en sus rutas heredadas, y
-el build comprueba que no han cambiado desde la revisión. La vista previa
-de Eleventy queda todavía bloqueada para publicación completa.
+el build comprueba que no han cambiado desde la revisión. La publicación
+actual utiliza Eleventy.
 
 ## Inventario verificable de archivos históricos
 
@@ -415,8 +412,9 @@ histórico: **15 originales aprobados** para distribución por el titular y
 **8 entradas retiradas** de la distribución original (7 referencias históricas
 y la portada sustituida). La selección editorial de 22 materiales está cerrada.
 Los hashes, tamaños y decisiones constan en `src/data/media-review.json`.
-`npm run audit:media` se ejecuta en `test:migration` durante la transición:
-verifica integridad, copia de aprobados y exclusión de retirados.
+`npm run audit:media` permanece disponible bajo demanda dentro de
+`test:migration` para consultar evidencia histórica. Las publicaciones
+ordinarias verifican la salida con `check-publication-safety.mjs`.
 
 ## Revisión editorial bilingüe verificable
 
@@ -468,14 +466,14 @@ aplicación ni recupera código del repositorio privado.
 ## Enlaces históricos y cierre editorial
 
 `CC.html` y `KM2024.html` mantienen por ahora sus referencias documentales
-anteriores a la autorización de distribución. La inclusión de los 15 archivos
-aprobados en la compilación no implica que ya se hayan actualizado todos los
-enlaces y textos históricos: esa coherencia se verifica antes de publicar.
+anteriores a la autorización de distribución. La inclusión de los 15 archivos aprobados en la compilación preserva sus
+rutas y enlaces verificados durante el lanzamiento; la coherencia se vuelve
+a comprobar antes de futuras publicaciones.
 Las siete referencias históricas sin distribución continúan excluidas.
 
-El conjunto `test:migration` comprueba temporalmente estos casos concretos.
-`npm run check` verifica los enlaces y la estructura general de forma
-reutilizable para las siguientes actualizaciones de la web.
+El conjunto `test:migration` mantiene estos casos como evidencia histórica
+manual. `npm run check` verifica los enlaces y la estructura general,
+y `npm run check:publish` incorpora la seguridad de los materiales de salida.
 
 ## Condiciones para publicar
 
