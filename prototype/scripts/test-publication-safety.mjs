@@ -4,6 +4,8 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import {createHash} from "node:crypto";
+import {spawnSync} from "node:child_process";
+import {fileURLToPath} from "node:url";
 import {checkPublicationSafety} from "./check-publication-safety.mjs";
 
 const migration=entries=>({schema:1,entries});
@@ -76,4 +78,28 @@ test("pending migrations, duplicates and traversal block publication",t=>{
  assert.throws(()=>f.run([{path:"new/",status:"hold"}]),/pending migration/);
  assert.throws(()=>f.run([{path:"../private",status:"retire"}]),/unsafe\/duplicate migration/);
  assert.throws(()=>f.run([],[{path:"archive//file",status:"retire"}]),/unsafe\/duplicate media/);
+});
+
+test("strict link auditing fails on newly introduced broken local links",t=>{
+ const root=fs.mkdtempSync(path.join(os.tmpdir(),"pages-link-"));
+ t.after(()=>fs.rmSync(root,{recursive:true,force:true}));
+ const dist=path.join(root,"dist");
+ fs.mkdirSync(dist);
+ fs.writeFileSync(path.join(dist,"index.html"),'<a href="/not-found/">Broken local link</a>');
+ const script=fileURLToPath(new URL("./audit-links.mjs",import.meta.url));
+ const bad=spawnSync(process.execPath,[script,"--strict"],{cwd:root,encoding:"utf8",timeout:15000});
+ assert.equal(bad.status===0,false);
+ assert.match(bad.stderr+bad.stdout,/Publication blocked.*unresolved local links/);
+ fs.mkdirSync(path.join(dist,"not-found"));
+ fs.writeFileSync(path.join(dist,"not-found","index.html"),"<p>Now exists</p>");
+ const good=spawnSync(process.execPath,[script,"--strict"],{cwd:root,encoding:"utf8",timeout:15000});
+ assert.equal(good.status,0,good.stderr);
+});
+
+test("retired archive index needs an explicit curated replacement",t=>{
+ const f=fixture(t);
+ f.write("archive/index.html",'<main data-curated-archive="safe"></main>');
+ const retired={path:"archive/index.html",status:"retire"};
+ assert.throws(()=>f.run([],[retired]),/blocked media published/);
+ f.run([{path:"archive/",status:"curated-index"}],[retired]);
 });
